@@ -49,3 +49,5 @@ cask "font-iosevka"
 cask "iterm2"
 # Keyboard customizer
 cask "karabiner-elements"
+# Shell
+brew "zsh"
