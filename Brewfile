@@ -3,6 +3,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "koekeishiya/formulae"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Simple, fast and user-friendly alternative to find
@@ -39,8 +40,12 @@ brew "tmux"
 brew "tree"
 # Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
-# Automatic tiling window manager similar to xmonad
-cask "amethyst"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 # Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
@@ -49,5 +54,3 @@ cask "font-iosevka"
 cask "iterm2"
 # Keyboard customizer
 cask "karabiner-elements"
-# Shell
-brew "zsh"
