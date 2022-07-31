@@ -122,6 +122,7 @@ alias vim="nvim"
 alias lg="lazygit"
 alias tmuxconf="vim ~/.tmux.conf"
 alias l="la -l"
+alias ide="tmux split-window -h -p 29 && tmux split-window -v -p 25 && tmux select-pane -t 0"
 
 # shell config
 eval "$(starship init zsh)"
