@@ -40,34 +40,19 @@
                         ]
                     },
                     {
-                        "description": "Map Left Option plus h/j/k/l to Arrows",
+                        "description": "Fn+h/j/k/l as Vim arrows && Fn+a/s/d as ⇧/⌥/⌘",
                         "manipulators": [
                             {
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "key_code": "left_arrow"
+                                        "name": "simple_vi_mode",
+                                        "type": "variable_if",
+                                        "value": 1
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
                                         "optional": [
                                             "any"
                                         ]
@@ -82,11 +67,59 @@
                             },
                             {
                                 "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "fn"
+                                        },
+                                        {
+                                            "key_code": "j"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "simple_vi_mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "simple_vi_mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "simple_vi_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
                                         "optional": [
                                             "any"
                                         ]
@@ -101,11 +134,126 @@
                             },
                             {
                                 "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "fn"
+                                        },
+                                        {
+                                            "key_code": "k"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "simple_vi_mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "simple_vi_mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "simple_vi_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "fn"
+                                        },
+                                        {
+                                            "key_code": "h"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "simple_vi_mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "simple_vi_mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "simple_vi_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
                                         "optional": [
                                             "any"
                                         ]
@@ -114,6 +262,251 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "fn"
+                                        },
+                                        {
+                                            "key_code": "l"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "simple_vi_mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "simple_vi_mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "simple_vi_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "fn"
+                                        },
+                                        {
+                                            "key_code": "a"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "simple_vi_mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "simple_vi_mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "simple_vi_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_option"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "fn"
+                                        },
+                                        {
+                                            "key_code": "s"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "simple_vi_mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "simple_vi_mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key_code": "left_option"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "simple_vi_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "fn"
+                                        },
+                                        {
+                                            "key_code": "d"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "simple_vi_mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "simple_vi_mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key_code": "left_command"
                                     }
                                 ],
                                 "type": "basic"
