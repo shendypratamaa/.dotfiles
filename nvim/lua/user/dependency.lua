@@ -96,6 +96,7 @@ return packer.startup(function(use)
   use "chentoast/marks.nvim"
   use "goolord/alpha-nvim"
   use "christoomey/vim-tmux-navigator"
+  use "Pocco81/true-zen.nvim"
 
   -- tpope
   use {
@@ -137,6 +138,10 @@ return packer.startup(function(use)
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- note taking apps
+  use "nvim-neorg/neorg"
+
+  -- markdown
+  use "mzlogin/vim-markdown-toc"
   use { "iamcco/markdown-preview.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim

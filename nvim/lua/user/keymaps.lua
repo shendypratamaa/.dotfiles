@@ -104,3 +104,6 @@ keymap("n", "<C-r>", ":nohls<CR>", opts)
 
 -- markdown preview
 keymap("n", "<C-s>", ":MarkdownPreviewToggle<CR>", opts)
+
+-- true zen
+keymap("n", "Zm", ":TZAtaraxis<CR>", opts)
