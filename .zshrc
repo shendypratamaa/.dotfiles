@@ -126,3 +126,6 @@ alias ide="tmux split-window -h -p 29 && tmux split-window -v -p 25 && tmux sele
 
 # shell config
 eval "$(starship init zsh)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
