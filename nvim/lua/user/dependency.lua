@@ -136,6 +136,9 @@ return packer.startup(function(use)
   use "windwp/nvim-ts-autotag"
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
+  -- note taking apps
+  use { "iamcco/markdown-preview.nvim" }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
