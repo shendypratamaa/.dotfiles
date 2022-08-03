@@ -22,6 +22,8 @@ brew "lazygit"
 brew "lua"
 # Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit", args: ["HEAD"]
+# Package manager for the Lua programming language
+brew "luarocks"
 # Parser generator tool and incremental parsing library
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -32,6 +34,8 @@ brew "node@16", link: true
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Terminal based presentation tool
+brew "slides"
 # Opinionated Lua code formatter
 brew "stylua"
 # Terminal multiplexer
