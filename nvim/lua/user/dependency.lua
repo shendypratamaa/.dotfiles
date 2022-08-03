@@ -138,7 +138,7 @@ return packer.startup(function(use)
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- note taking apps
-  use "nvim-neorg/neorg"
+  use "vimwiki/vimwiki"
 
   -- markdown
   use "mzlogin/vim-markdown-toc"

@@ -17,10 +17,11 @@ local header = {
     [[ ██║  ██║██║╚████║██║██║  ██╗██║  ██║██╔══██╗██║╚████║ ╚═══██╗]],
     [[ ██████╔╝██║ ╚███║██║╚█████╔╝╚█████╔╝██║  ██║██║ ╚███║██████╔╝]],
     [[ ╚═════╝ ╚═╝  ╚══╝╚═╝ ╚════╝  ╚════╝ ╚═╝  ╚═╝╚═╝  ╚══╝╚═════╝ ]],
+    [[]],
   },
   opts = {
     position = "center",
-    hl = "nvimContainer",
+    hl = "CursorLineNr",
   },
 }
 
@@ -71,7 +72,7 @@ local marks = {
   },
   opts = {
     position = "center",
-    hl = "nvimContainer",
+    hl = "CursorLineNr",
   },
 }
 

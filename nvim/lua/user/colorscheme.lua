@@ -13,7 +13,7 @@ require "user.colorschemelist.catppuccin"
 
 -- opts | tokyonight -- kanagawa -- gruvbox-material -- catppuccin
 local default_colorscheme = "kanagawa"
-local colorscheme = "catppuccin"
+local colorscheme = "kanagawa"
 
 local colorscheme_available, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 

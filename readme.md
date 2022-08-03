@@ -22,4 +22,4 @@
 
 ##### Notes
 
-_Running on macos 12.4 apple silicon_
+_Running on macOS 12.4 Apple Silicon_
