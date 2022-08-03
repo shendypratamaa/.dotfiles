@@ -1,7 +1,7 @@
 # Personal Development Environment
 
 <div>
-  <img src="./extras/example.png"/>
+  <img src="./extras/extras1.png"/>
 </div>
 
 ### Ingredients
@@ -19,6 +19,7 @@
 - homebrew
 - htop
 - karabiner
+- slides
 
 ##### Notes
 
