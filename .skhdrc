@@ -17,7 +17,7 @@ shift + cmd + ctrl - k : yabai -m window --warp north
 shift + cmd + ctrl - l : yabai -m window --warp east
 
 # rotate tree
-cmd - r : yabai -m space --rotate 90
+cmd - o : yabai -m space --rotate 90
 
 # toogle window fullscreen zoom
 cmd - f : yabai -m window --toggle zoom-fullscreen
