@@ -36,6 +36,10 @@ packer.init {
       return require("packer.util").float { border = "rounded" }
     end,
   },
+  profile = {
+    enable = true,
+    threshold = 1,
+  },
 }
 
 -- Install your plugins here

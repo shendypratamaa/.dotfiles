@@ -6,4 +6,4 @@ vim.g.vim_jsx_pretty_template_tag = {
   "tsx",
 }
 vim.g.vim_jsx_pretty_highlight_close_tag = 0
-vim.g.vim_jsx_pretty_colorful_config = 1
+vim.g.vim_jsx_pretty_colorful_config = 0

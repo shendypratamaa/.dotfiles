@@ -113,7 +113,7 @@ local buttons = {
       "💻 ➡️  Find Files",
       ":lua require('user.telescope').custom_find_files()<CR>"
     ),
-    button("e", "📖 ➡️  New Files", ":ene<CR>"),
+    button("e", "📖 ➡️  New Files", ":e newfiles<CR>"),
     button(
       "n",
       "🤖 ➡️  Configuration Neovim",
@@ -125,6 +125,7 @@ local buttons = {
       "🦕 ➡️  Configuration Dashboard",
       ":e ~/.config/nvim/lua/user/dashboard.lua<cr>"
     ),
+    button("n", "💻 ➡️  Configuration Dotfiles", ":e ~/.dotfiles/<CR>"),
     button("q", "👻 ➡️  Quit Neovim", ":qa<cr>"),
   },
   opts = {

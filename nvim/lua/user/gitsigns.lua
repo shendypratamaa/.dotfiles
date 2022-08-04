@@ -98,7 +98,7 @@ gitsigns.setup {
     end, { expr = true })
     -- Actions
     map({ "n", "v" }, "hs", ":Gitsigns stage_hunk<CR>")
-    map({ "n", "v" }, "hr", ":gitsigns reset_hunk<cr>")
+    map({ "n", "v" }, "hr", ":Gitsigns reset_hunk<CR>")
     map("n", "hs", gs.stage_buffer)
     map("n", "hu", gs.undo_stage_hunk)
     map("n", "hr", gs.reset_buffer)
