@@ -123,9 +123,9 @@ alias lg="lazygit"
 alias tmuxconf="vim ~/.tmux.conf"
 alias l="la -l"
 alias ide="tmux split-window -h -p 29 && tmux split-window -v -p 25 && tmux select-pane -t 0"
+alias eskl="pkill -f eslint_d"
 
 # shell config
 eval "$(starship init zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
