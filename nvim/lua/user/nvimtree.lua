@@ -26,7 +26,7 @@ nvimtree.setup {
     centralize_selection = true,
     width = 30,
     height = 30,
-    hide_root_folder = true,
+    hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
     number = false,
@@ -120,7 +120,7 @@ nvimtree.setup {
   filters = {
     dotfiles = true,
     exclude = {},
-    custom = { "^.git$", "^plugin" },
+    custom = { "^.git$", "^plugin", "^node_modules" },
   },
   filesystem_watchers = {
     enable = false,

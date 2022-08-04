@@ -57,7 +57,6 @@ telescope.setup {
     prompt_prefix = "🔭 ",
     selection_caret = "🚀 ",
     vimgrep_arguments = {
-      "fd",
       "rg",
       "--color=never",
       "--no-heading",
@@ -132,6 +131,7 @@ telescope.setup {
       theme = "ivy",
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
+      hidden = true,
       mappings = {
         ["i"] = {
           -- your custom insert mode mappings

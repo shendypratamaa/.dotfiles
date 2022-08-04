@@ -107,3 +107,11 @@ keymap("n", "<C-s>", ":MarkdownPreviewToggle<CR>", opts)
 
 -- true zen
 keymap("n", "zx", ":TZAtaraxis<CR>", opts)
+
+-- vim-jsx--import
+keymap("n", "gi", ":JsFileImport<CR>", opts)
+keymap("n", "gI", ":JsFileImportList<CR>", opts)
+keymap("n", "gd", ":JsGotoDefinition<CR>", opts)
+keymap("n", "gP", ":PromptJsFileImport<CR>", opts)
+keymap("n", "gS", ":SortJsFileImport<CR>", opts)
+keymap("n", "gf", ":JsFixImport<CR>", opts)

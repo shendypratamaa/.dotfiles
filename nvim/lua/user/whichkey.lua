@@ -87,6 +87,7 @@ local keybinds = {
   v = { "<C-w>s<cr>", "Split Horizontal" },
   V = { "<C-w>v<cr>", "Split Vertical" },
   n = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  N = { "<cmd>NeorgStart<CR>", "Notes" },
   r = { ":reg<CR>", "Register" },
   L = {
     name = "+LSP 🤖",

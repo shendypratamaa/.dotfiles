@@ -22,6 +22,7 @@ local sources = {
     },
   },
   diagnostics.eslint_d,
+  codeactions.eslint_d,
   codeactions.gitsigns,
 }
 

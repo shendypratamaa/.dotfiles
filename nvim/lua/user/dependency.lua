@@ -50,6 +50,13 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "jose-elias-alvarez/null-ls.nvim"
   use { "glepnir/lspsaga.nvim", branch = "main" }
+  use "jose-elias-alvarez/nvim-lsp-ts-utils"
+  use "MaxMEllon/vim-jsx-pretty"
+  use "ludovicchabant/vim-gutentags"
+  use {
+    "kristijanhusak/vim-js-file-import",
+    run = "npm install",
+  }
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
