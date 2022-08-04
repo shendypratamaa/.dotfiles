@@ -40,8 +40,8 @@ local no_preview = {
   previewer = false,
   show_line = false,
   layout_config = {
-    height = 0.4,
-    width = 0.4,
+    height = 0.5,
+    width = 0.65,
   },
 }
 

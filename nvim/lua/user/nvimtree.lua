@@ -1,4 +1,3 @@
--- examples for your init.lua
 local nvimtree_ok, nvimtree = pcall(require, "nvim-tree")
 
 if not nvimtree_ok then
