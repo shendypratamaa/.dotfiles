@@ -1,22 +1,22 @@
 # Personal Development Environment
 
 <div>
-  <img src="./extras/extras1.png"/>
+  <img src="./extras/dashboard.png"/>
 </div>
 
 ### Ingredients
 
 - Neovim 7.2
 - Tmux 3.3a
+- homebrew
+- ohmyzsh
+- iterm2
 - Ubersicht
 - space-bar
 - yabai
 - skhd
-- iterm2
 - starship
 - zshell
-- ohmyzsh
-- homebrew
 - htop
 - karabiner
 - slides
