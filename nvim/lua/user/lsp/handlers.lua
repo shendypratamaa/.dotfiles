@@ -2,10 +2,10 @@ local M = {}
 
 M.setup = function()
   local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignError", text = "🤬" },
+    { name = "DiagnosticSignWarn", text = "⚠️" },
+    { name = "DiagnosticSignHint", text = "ℹ️" },
+    { name = "DiagnosticSignInfo", text = "🙋" },
   }
 
   for _, sign in ipairs(signs) do
@@ -144,9 +144,6 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
   if client.name == "html" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "emmet_ls" then
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)

@@ -9,6 +9,7 @@ local diagnostics = null_ls.builtins.diagnostics
 local codeactions = null_ls.builtins.code_actions
 
 local sources = {
+  -- formatting
   formatting.stylua.with {
     extra_args = {
       "--config-path",
@@ -18,16 +19,23 @@ local sources = {
   formatting.prettier.with {
     extra_args = {
       "--config",
-      vim.fn.expand "~/.config/nvim/linter-config/.prettierrc.json",
+      vim.fn.expand "~/.prettierrc",
     },
   },
-  diagnostics.eslint_d,
-  codeactions.eslint_d,
+
+  -- diagnostics
+  diagnostics.eslint.with {
+    "--config",
+    vim.fn.expand "~/.eslintrc",
+  },
+
+  -- code-actions
   codeactions.gitsigns,
 }
 
 null_ls.setup {
-  debug = false,
+  debug = true,
+  diagnostics_format = "[#{c}] #{m} (#{s})",
   sources = sources,
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then
