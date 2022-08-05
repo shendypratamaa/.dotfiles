@@ -7,21 +7,30 @@ end
 local header = {
   type = "text",
   val = {
-    [[]],
-    [[]],
-    [[]],
-    [[]],
-    [[ ██╗  ██╗███╗  ██╗██╗ █████╗  █████╗ ██████╗ ███╗  ██╗ ██████╗]],
-    [[ ██║  ██║████╗ ██║██║██╔══██╗██╔══██╗██╔══██╗████╗ ██║██╔════╝]],
-    [[ ██║  ██║██╔██╗██║██║██║  ╚═╝██║  ██║██████╔╝██╔██╗██║╚█████╗ ]],
-    [[ ██║  ██║██║╚████║██║██║  ██╗██║  ██║██╔══██╗██║╚████║ ╚═══██╗]],
-    [[ ██████╔╝██║ ╚███║██║╚█████╔╝╚█████╔╝██║  ██║██║ ╚███║██████╔╝]],
-    [[ ╚═════╝ ╚═╝  ╚══╝╚═╝ ╚════╝  ╚════╝ ╚═╝  ╚═╝╚═╝  ╚══╝╚═════╝ ]],
-    [[]],
+    [[MMMMMMMMMMMMds+:--------:+sdNMMMMMMMMMMM]],
+    [[MMMMMMMMms:-+sdNMMMMMMMMNdy+--omMMMMMMMM]],
+    [[MMMMMMh:` /mMMMMMMMMMMMMMMMMm+ `-yMMMMMM]],
+    [[MMMMd--hN``--sNMMMMMMMMMMNy:..`md:.hMMMM]],
+    [[MMM+`yMMMy hd+./hMMMMMMh/.+dd sMMMh`/MMM]],
+    [[MM:.mMMMMM:.NMMh/.+dd+./hMMM--MMMMMm--NM]],
+    [[M+`mMMMMMMN`+MMMMm-  .dMMMMo mMMMMMMN.:M]],
+    [[d yMMMMMMMMy dNy:.omNs--sNm oMMMMMMMMh h]],
+    [[/`MMMMMMMMMM.`.+dMMMMMMm+.``NMMMMMMMMM-:]],
+    [[.:MMMMMMMd+./`oMMMMMMMMMMs /.+dMMMMMMM/`]],
+    [[.:MMMMmo.:yNMs dMMMMMMMMm`oMNy:.omMMMM/`]],
+    [[/`MNy:.omMMMMM--MMMMMMMM:.MMMMMNs--sNM.:]],
+    [[d -` :++++++++: /++++++/ :++++++++:  : h]],
+    [[M+ yddddddddddd+ yddddy /dddddddddddy`/M]],
+    [[MM/.mMMMMMMMMMMM.-MMMM/.NMMMMMMMMMMm.:NM]],
+    [[MMMo`sMMMMMMMMMMd sMMy hMMMMMMMMMMy`+MMM]],
+    [[MMMMd--hMMMMMMMMM+`mN`/MMMMMMMMMh--hMMMM]],
+    [[MMMMMMh:.omMMMMMMN.:/`NMMMMMMms.:hMMMMMM]],
+    [[MMMMMMMMNs:./shmMMh  yMMNds/.:smMMMMMMMM]],
+    [[MMMMMMMMMMMMdy+/---``---:+sdMMMMMMMMMMMM]],
   },
   opts = {
     position = "center",
-    hl = "CursorLineNr",
+    hl = "comment",
   },
 }
 
@@ -65,14 +74,14 @@ local footer = {
   },
 }
 
+local fortune = require "alpha.fortune"
+
 local marks = {
   type = "text",
-  val = {
-    [[🆄 🅽 🅸 🅲 🅾 🆁 🅽 🆂 🦄]],
-  },
+  val = fortune(),
   opts = {
     position = "center",
-    hl = "CursorLineNr",
+    hl = "comment",
   },
 }
 
@@ -110,23 +119,18 @@ local buttons = {
   val = {
     button(
       "f",
-      "💻 ➡️  Find Files",
+      "💻 --> Find Files",
       ":lua require('user.telescope').custom_find_files()<CR>"
     ),
-    button("e", "📖 ➡️  New Files", ":e newfiles<CR>"),
-    button(
-      "n",
-      "🤖 ➡️  Configuration Neovim",
-      ":e ~/.config/nvim/init.lua<cr>"
-    ),
-    button("z", "🪐 ➡️  Configuration Zshell", ":e ~/.zshrc<cr>"),
+    button("e", "📖 --> New Files", ":e newfiles<CR>"),
+    button("z", "🪐 --> Configuration Zshell", ":e ~/.zshrc<cr>"),
     button(
       "d",
-      "🦕 ➡️  Configuration Dashboard",
+      "🦕 --> Configuration Dashboard",
       ":e ~/.config/nvim/lua/user/dashboard.lua<cr>"
     ),
-    button("n", "💻 ➡️  Configuration Dotfiles", ":e ~/.dotfiles/<CR>"),
-    button("q", "👻 ➡️  Quit Neovim", ":qa<cr>"),
+    button("n", "💻 --> Configuration Dotfiles", ":e ~/.dotfiles/<CR>"),
+    button("q", "👻 --> Quit Neovim", ":qa<cr>"),
   },
   opts = {
     spacing = 1,
@@ -150,11 +154,10 @@ local opts = {
     section.heading,
 
     section.plugin_count,
-    { type = "padding", val = 2 },
-    section.buttons,
     { type = "padding", val = 1 },
+    section.buttons,
+    { type = "padding", val = 0 },
     section.footer,
-    { type = "padding", val = 2 },
     section.marks,
   },
   opts = {
@@ -163,3 +166,21 @@ local opts = {
 }
 
 alpha.setup(opts)
+
+--[[    .-.__      \ .-.  ___  __                    ]]
+--[[|_|  '--.-.-(   \/\;;\_\.-._______.-.            ]]
+--[[(-)___     \ \ .-\ \;;\(   \       \ \           ]]
+--[[ |    '---._\_((Q)) \;;\\ .-\     __(_)          ]]
+--[[ |           __'-' / .--.((Q))---'    \,         ]]
+--[[ |     ___.-:    \|  |   \'-'_          \        ]]
+--[[ |  .-'      \ .-.\   \   \ \ '--.__     '\      ]]
+--[[ |  |____.----((Q))\   \__|--\_      \     '     ]]
+--[[    (-)        '-'  \_  :  \-' '--.___\          ]]
+--[[     |                \  \  \       \(_)         ]]
+--[[     |                 \  \  \         \,        ]]
+--[[     |                  \  \  \          \       ]]
+--[[     |                   \  \  \          '\     ]]
+--[[     |                 \  \__|  \        '       ]]
+--[[                           \_:.  \               ]]
+--[[                             \ \  \              ]]
+--[[                              \ \  \             ]]
