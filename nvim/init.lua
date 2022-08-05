@@ -1,4 +1,4 @@
-require "impatient"
+require("impatient").enable_profile()
 require "user.dependency"
 require "user.options"
 require "user.keymaps"
