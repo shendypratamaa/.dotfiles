@@ -22,4 +22,5 @@ autoload/*
 .DS_Store
 plugin/
 .luarc.json
+playground
 Brewfile.lock.json
