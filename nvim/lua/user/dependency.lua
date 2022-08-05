@@ -61,6 +61,7 @@ return packer.startup(function(use)
     "kristijanhusak/vim-js-file-import",
     run = "npm install",
   }
+  use "b0o/SchemaStore.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
