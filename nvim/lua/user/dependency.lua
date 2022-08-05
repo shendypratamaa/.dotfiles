@@ -45,9 +45,12 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
+  use "lewis6991/impatient.nvim"
+  use "nathom/filetype.nvim"
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "dstein64/vim-startuptime"
 
   -- lsp
   use "williamboman/nvim-lsp-installer"

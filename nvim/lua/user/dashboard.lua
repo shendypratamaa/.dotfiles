@@ -158,6 +158,7 @@ local opts = {
     section.buttons,
     { type = "padding", val = 0 },
     section.footer,
+    { type = "padding", val = 0 },
     section.marks,
   },
   opts = {

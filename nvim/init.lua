@@ -1,3 +1,4 @@
+require "impatient"
 require "user.dependency"
 require "user.options"
 require "user.keymaps"
