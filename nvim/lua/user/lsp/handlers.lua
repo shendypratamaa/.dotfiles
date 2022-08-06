@@ -50,6 +50,20 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+local serverList = {
+  "tsserver",
+}
+
+local function disableDiagnosticstext(client)
+  for k, v in pairs(serverList) do
+    if v == client then
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = function()
+        return false
+      end
+    end
+  end
+end
+
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
@@ -148,9 +162,11 @@ M.on_attach = function(client, bufnr)
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
+  disableDiagnosticstext(client.name)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+
 if not status_ok then
   return
 end
