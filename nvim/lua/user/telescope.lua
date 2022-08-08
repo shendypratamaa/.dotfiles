@@ -7,7 +7,6 @@ end
 local actions = require "telescope.actions"
 local telescope_builtin = require "telescope.builtin"
 local previewers = require "telescope.previewers"
-local themes = require "telescope.themes"
 local Job = require "plenary.job"
 
 local new_maker = function(filepath, bufnr, opts)
@@ -124,9 +123,6 @@ telescope.setup {
     },
   },
   extensions = {
-    ["ui-select"] = {
-      themes.get_dropdown {},
-    },
     file_browser = {
       theme = "ivy",
       -- disables netrw and use telescope-file-browser in its place
@@ -154,6 +150,5 @@ telescope.setup {
 telescope.load_extension "fzf"
 telescope.load_extension "file_browser"
 telescope.load_extension "harpoon"
-telescope.load_extension "ui-select"
 
 return M
