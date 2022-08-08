@@ -101,6 +101,7 @@ vim.g.tmux_navigator_preserve_zoom = 1
 -- sources
 keymap("n", "]s", ":luafile %<CR>", opts)
 keymap("n", "<C-r>", ":nohls<CR>", opts)
+keymap("n", "<leader>f", ":Format<CR>", opts)
 
 -- markdown preview
 keymap("n", "<C-s>", ":MarkdownPreviewToggle<CR>", opts)

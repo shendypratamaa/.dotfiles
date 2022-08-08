@@ -55,7 +55,7 @@ local serverList = {
 }
 
 local function disableDiagnosticstext(client)
-  for k, v in pairs(serverList) do
+  for _, v in pairs(serverList) do
     if v == client then
       vim.lsp.handlers["textDocument/publishDiagnostics"] = function()
         return false

@@ -37,9 +37,9 @@ null_ls.setup {
   debug = true,
   diagnostics_format = "[#{c}] #{m} (#{s})",
   sources = sources,
-  on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-      vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
-    end
+  on_attach = function()
+    -- if client.resolved_capabilities.document_formatting then
+    --   vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+    -- end
   end,
 }

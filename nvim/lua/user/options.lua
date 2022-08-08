@@ -1,6 +1,7 @@
 local options = {
   syntax = "on",
   exrc = true,
+  autoread = true,
   filetype = "plugin_indent_on",
   fileencoding = "utf8",
   hidden = true,

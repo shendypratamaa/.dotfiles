@@ -42,6 +42,10 @@ packer.init {
   },
 }
 
+vim.cmd [[
+  autocmd BufNewFile,BufRead *.json set filetype=jsonc
+]]
+
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here

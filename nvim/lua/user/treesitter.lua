@@ -10,6 +10,7 @@ configs.setup {
     "css",
     "typescript",
     "json",
+    "jsonc",
     "html",
     "sql",
     "tsx",
