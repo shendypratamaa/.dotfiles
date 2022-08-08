@@ -94,7 +94,7 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "[d", ":Lspsaga diagnostic_jump_next<CR>", opts)
   keymap(bufnr, "n", "]d", ":Lspsaga diagnostic_jump_prev<CR>", opts)
   keymap(bufnr, "n", "gl", ":Lspsaga show_line_diagnostics<CR>", opts)
-  -- keymap(bufnr, "v", "va", ":Lspsaga range_code_action<CR>", opts)
+  keymap(bufnr, "v", "pa", "<cmd>Lspsaga range_code_action<CR>", {silent = true})
 
   keymap(bufnr, "n", "gS", ":TSLspOrganize<CR>", opts)
   keymap(bufnr, "n", "gR", ":TSLspRenameFile<CR>", opts)

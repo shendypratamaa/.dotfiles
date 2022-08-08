@@ -6,7 +6,7 @@ end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
-local codeactions = null_ls.builtins.code_actions
+local code_actions = null_ls.builtins.code_actions
 
 local sources = {
   -- formatting
@@ -30,7 +30,8 @@ local sources = {
   },
 
   -- code-actions
-  codeactions.gitsigns,
+  code_actions.eslint,
+  code_actions.gitsigns,
 }
 
 null_ls.setup {

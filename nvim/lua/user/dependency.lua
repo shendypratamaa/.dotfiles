@@ -116,6 +116,18 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "christoomey/vim-tmux-navigator"
   use "Pocco81/true-zen.nvim"
+  use {
+    "kwkarlwang/bufjump.nvim",
+    config = function()
+      require("bufjump").setup {
+        forward = "<C-i>",
+        backward = "<C-o>",
+        on_success = function()
+          vim.cmd [[execute "normal! g`\"zz"]]
+        end,
+      }
+    end,
+  }
 
   -- tpope
   use {
