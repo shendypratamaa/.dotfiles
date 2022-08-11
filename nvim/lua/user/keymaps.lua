@@ -74,19 +74,6 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("n", "]a", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "]w", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 
--- telescope
-keymap(
-  "n",
-  "]f",
-  ":lua require('user.telescope').custom_find_files()<CR>",
-  opts
-)
-keymap("n", "]b", ":lua require('telescope.builtin').buffers()<CR>", opts)
-keymap("n", "]r", ":lua require('telescope.builtin').live_grep()<CR>", opts)
-keymap("n", "]t", ":lua require('telescope.builtin').help_tags()<CR>", opts)
-keymap("n", "]n", ":Telescope file_browser<CR>", opts)
-keymap("n", "]g", ":Telescope keymaps<CR>", opts)
-
 -- Tmux-navigatior
 keymap("n", "<C-h>", ":TmuxNavigateLeft<CR>", term_opts)
 keymap("n", "<C-j>", ":TmuxNavigateDown<CR>", term_opts)
@@ -116,3 +103,12 @@ keymap("n", "gd", ":JsGotoDefinition<CR>", opts)
 keymap("n", "gP", ":PromptJsFileImport<CR>", opts)
 keymap("n", "gS", ":SortJsFileImport<CR>", opts)
 keymap("n", "gf", ":JsFixImport<CR>", opts)
+
+-- telescope
+keymap("n", "]f", ":lua require('user.telescope').custom_themes()<CR>", opts)
+keymap("n", "]ff", ":lua require('telescope.builtin').find_files()<CR>", opts)
+keymap("n", "]b", ":lua require('telescope.builtin').buffers()<CR>", opts)
+keymap("n", "]r", ":lua require('telescope.builtin').live_grep()<CR>", opts)
+keymap("n", "]t", ":lua require('telescope.builtin').help_tags()<CR>", opts)
+keymap("n", "]n", ":Telescope file_browser<CR>", opts)
+keymap("n", "]g", ":Telescope keymaps<CR>", opts)
