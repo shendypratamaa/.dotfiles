@@ -6,6 +6,32 @@ end
 
 local actions = require "telescope.actions"
 local telescope_builtin = require "telescope.builtin"
+local previewers = require "telescope.previewers"
+local Job = require "plenary.job"
+local new_maker = function(filepath, bufnr, opts)
+  filepath = vim.fn.expand(filepath)
+  Job:new({
+    command = "file",
+    args = { "--mime-type", "-b", filepath },
+    on_exit = function(j)
+      local mime_type = vim.split(j:result()[1], "/")[1]
+      if mime_type == "text" then
+        previewers.buffer_previewer_maker(filepath, bufnr, opts)
+      else
+        -- maybe we want to write something to the buffer here
+        vim.schedule(function()
+          vim.api.nvim_buf_set_lines(
+            bufnr,
+            0,
+            -1,
+            false,
+            { "not support image preview" }
+          )
+        end)
+      end
+    end,
+  }):sync()
+end
 
 vim.cmd [[
   autocmd User TelescopePreviewerLoaded setlocal wrap
@@ -17,17 +43,23 @@ M.TelescopePrompt = {
   TelescopeSelection = {
     bg = "#313140",
   },
-  TelescopeBorder = {
-    bg = "#1f1f28",
+  TelescopePreviewMatch = {
+    fg = "#313140",
+    bg = "#d27e99",
   },
   TelescopeMatching = {
-    fg = "#C34043",
+    bg = "#C34043",
+  },
+  TelescopeBorder = {
+    fg = "#313140",
   },
   TelescopePromptNormal = {
-    bg = "#1f1f28",
+    fg = "#ffffff",
+    bg = "#313140",
   },
   TelescopePromptBorder = {
-    bg = "#1f1f28",
+    fg = "#313140",
+    bg = "#313140",
   },
   TelescopePromptTitle = {
     fg = "#f3f3f3",
@@ -52,8 +84,6 @@ local no_preview = {
   show_line = false,
   shorten_path = true,
   layout_config = {
-    height = 0.6,
-    width = 0.8,
     prompt_position = "bottom",
   },
 }
@@ -65,34 +95,6 @@ end
 
 telescope.setup {
   defaults = {
-    preview = {
-      mime_hook = function(filepath, bufnr, opts)
-        local is_image = function(filepath)
-          local image_extensions = { "png", "jpg", "svg" }
-          local split_path = vim.split(filepath:lower(), ".", { plain = true })
-          local extension = split_path[#split_path]
-          return vim.tbl_contains(image_extensions, extension)
-        end
-        if is_image(filepath) then
-          local term = vim.api.nvim_open_term(bufnr, {})
-          local function send_output(_, data, _)
-            for _, d in ipairs(data) do
-              vim.api.nvim_chan_send(term, d .. "\r\n")
-            end
-          end
-          vim.fn.jobstart({
-            "catimg",
-            filepath, -- Terminal image viewer command
-          }, { on_stdout = send_output, stdout_buffered = true })
-        else
-          require("telescope.previewers.utils").set_preview_message(
-            bufnr,
-            opts.winid,
-            "Binary cannot be previewed"
-          )
-        end
-      end,
-    },
     file_ignore_patterns = { "node%_modules/.*" },
     vimgrep_arguments = {
       "rg",
@@ -104,18 +106,17 @@ telescope.setup {
       "--smart-case",
       "--trim",
     },
-    prompt_prefix = "🌓 ",
-    selection_caret = "🚀 ",
+    prompt_prefix = "  ",
+    selection_caret = " ",
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
     qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+    buffer_previewer_maker = new_maker,
     file_sorter = require("telescope.sorters").get_fuzzy_file,
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     path_display = { "truncate" },
     layout_config = {
       horizontal = {
-        winblend = 20,
         prompt_position = "top",
         preview_width = 0.6,
         results_width = 0.8,
@@ -123,8 +124,8 @@ telescope.setup {
       vertical = {
         mirror = false,
       },
-      width = 0.87,
-      height = 0.80,
+      width = 0.82,
+      height = 0.75,
       preview_cutoff = 120,
     },
     set_env = { ["COLORTERM"] = "truecolor" },
