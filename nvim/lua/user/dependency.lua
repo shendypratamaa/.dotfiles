@@ -80,6 +80,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp-signature-help"
   use "hrsh7th/cmp-emoji"
+  use "hrsh7th/cmp-calc"
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
