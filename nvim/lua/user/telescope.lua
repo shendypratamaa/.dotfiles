@@ -6,55 +6,94 @@ end
 
 local actions = require "telescope.actions"
 local telescope_builtin = require "telescope.builtin"
-local previewers = require "telescope.previewers"
-local Job = require "plenary.job"
 
-local new_maker = function(filepath, bufnr, opts)
-  filepath = vim.fn.expand(filepath)
-  Job:new({
-    command = "file",
-    args = { "--mime-type", "-b", filepath },
-    on_exit = function(j)
-      local mime_type = vim.split(j:result()[1], "/")[1]
-      if mime_type == "text" then
-        previewers.buffer_previewer_maker(filepath, bufnr, opts)
-      else
-        vim.schedule(function()
-          vim.api.nvim_buf_set_lines(
-            bufnr,
-            0,
-            -1,
-            false,
-            { "DONT SHOWING BINARY !" }
-          )
-        end)
-      end
-    end,
-  }):sync()
-end
+vim.cmd [[
+  autocmd User TelescopePreviewerLoaded setlocal wrap
+]]
 
 local M = {}
+
+M.TelescopePrompt = {
+  TelescopeSelection = {
+    bg = "#313140",
+  },
+  TelescopeBorder = {
+    bg = "#1f1f28",
+  },
+  TelescopeMatching = {
+    fg = "#C34043",
+  },
+  TelescopePromptNormal = {
+    bg = "#1f1f28",
+  },
+  TelescopePromptBorder = {
+    bg = "#1f1f28",
+  },
+  TelescopePromptTitle = {
+    fg = "#f3f3f3",
+    bg = "#957FB8",
+  },
+  TelescopePreviewTitle = {
+    fg = "#f3f3f3",
+    bg = "#D27E99",
+  },
+  TelescopeResultsTitle = {
+    fg = "#f3f3f3",
+    bg = "#FFA066",
+  },
+}
+
+for hl, col in pairs(M.TelescopePrompt) do
+  vim.api.nvim_set_hl(0, hl, col)
+end
 
 local no_preview = {
   previewer = false,
   show_line = false,
+  shorten_path = true,
   layout_config = {
-    height = 0.5,
-    width = 0.65,
+    height = 0.6,
+    width = 0.8,
+    prompt_position = "bottom",
   },
 }
 
-M.custom_find_files = function()
+M.custom_themes = function()
   local opts = vim.deepcopy(no_preview)
   telescope_builtin.find_files(opts)
 end
 
 telescope.setup {
   defaults = {
+    preview = {
+      mime_hook = function(filepath, bufnr, opts)
+        local is_image = function(filepath)
+          local image_extensions = { "png", "jpg", "svg" }
+          local split_path = vim.split(filepath:lower(), ".", { plain = true })
+          local extension = split_path[#split_path]
+          return vim.tbl_contains(image_extensions, extension)
+        end
+        if is_image(filepath) then
+          local term = vim.api.nvim_open_term(bufnr, {})
+          local function send_output(_, data, _)
+            for _, d in ipairs(data) do
+              vim.api.nvim_chan_send(term, d .. "\r\n")
+            end
+          end
+          vim.fn.jobstart({
+            "catimg",
+            filepath, -- Terminal image viewer command
+          }, { on_stdout = send_output, stdout_buffered = true })
+        else
+          require("telescope.previewers.utils").set_preview_message(
+            bufnr,
+            opts.winid,
+            "Binary cannot be previewed"
+          )
+        end
+      end,
+    },
     file_ignore_patterns = { "node%_modules/.*" },
-    buffer_previewer_maker = new_maker,
-    prompt_prefix = "🔭 ",
-    selection_caret = "🚀 ",
     vimgrep_arguments = {
       "rg",
       "--color=never",
@@ -64,6 +103,35 @@ telescope.setup {
       "--column",
       "--smart-case",
       "--trim",
+    },
+    prompt_prefix = "🌓 ",
+    selection_caret = "🚀 ",
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+    file_sorter = require("telescope.sorters").get_fuzzy_file,
+    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+    path_display = { "truncate" },
+    layout_config = {
+      horizontal = {
+        winblend = 20,
+        prompt_position = "top",
+        preview_width = 0.6,
+        results_width = 0.8,
+      },
+      vertical = {
+        mirror = false,
+      },
+      width = 0.87,
+      height = 0.80,
+      preview_cutoff = 120,
+    },
+    set_env = { ["COLORTERM"] = "truecolor" },
+    borderchars = {
+      prompt = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+      results = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+      preview = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
     },
     mappings = {
       i = {
