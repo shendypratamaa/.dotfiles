@@ -1,9 +1,5 @@
 # Personal Development Environment
 
-<div>
-  <img src="./extras/dashboard.png"/>
-</div>
-
 ### Ingredients
 
 - Neovim 7.2
