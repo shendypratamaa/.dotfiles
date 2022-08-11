@@ -8,7 +8,6 @@ local default_colors = require("kanagawa.colors").setup()
 
 local overrides = {
   LineNr = { fg = default_colors.fujiWhite },
-  ColorColumn = { bg = default_colors.fujiWhite },
 }
 
 kanagawa.setup {
