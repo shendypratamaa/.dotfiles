@@ -28,6 +28,7 @@ local sources = {
     "--config",
     vim.fn.expand "~/.eslintrc",
   },
+  diagnostics.write_good.with { filetypes = { "markdown", "text" } },
 
   -- code-actions
   code_actions.eslint,
