@@ -83,6 +83,7 @@ end
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Lspsaga
   keymap(bufnr, "n", "gh", ":Lspsaga lsp_finder<CR>", opts)
@@ -94,7 +95,13 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "[d", ":Lspsaga diagnostic_jump_next<CR>", opts)
   keymap(bufnr, "n", "]d", ":Lspsaga diagnostic_jump_prev<CR>", opts)
   keymap(bufnr, "n", "gl", ":Lspsaga show_line_diagnostics<CR>", opts)
-  keymap(bufnr, "v", "pa", "<cmd>Lspsaga range_code_action<CR>", {silent = true})
+  keymap(
+    bufnr,
+    "v",
+    "pa",
+    "<cmd>Lspsaga range_code_action<CR>",
+    { silent = true }
+  )
 
   keymap(bufnr, "n", "gS", ":TSLspOrganize<CR>", opts)
   keymap(bufnr, "n", "gR", ":TSLspRenameFile<CR>", opts)
