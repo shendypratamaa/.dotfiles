@@ -26,7 +26,7 @@ cmd - f : yabai -m window --toggle zoom-fullscreen
 cmd - g : yabai -m space --toggle padding; yabai -n space --toogle gap
 
 # float / unfloat window and center on screen
-cmd - d : yabai -m window --toggle float;\
+cmd - m : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
 # toggle window split type
