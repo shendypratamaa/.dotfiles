@@ -37,7 +37,7 @@ shift + cmd - 0 : yabai -m space --balance
 
 # send window to monitor and follow focus
 shift + cmd - n : yabai -m window --display next; yabai -m display --focus next
-shift + cmd - p : yabai -m window --display previous; yabai -m display --focus previous
+shift + cmd - m : yabai -m window --display previous; yabai -m display --focus previous
 
 # increase window size
 shift + cmd - w : yabai -m window --resize top:0:-20
