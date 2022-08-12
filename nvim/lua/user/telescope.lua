@@ -5,6 +5,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local sorters = require "telescope.sorters"
 local telescope_builtin = require "telescope.builtin"
 local previewers = require "telescope.previewers"
 
@@ -113,8 +114,8 @@ telescope.setup {
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
     qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
     buffer_previewer_maker = new_maker,
-    file_sorter = require("telescope.sorters").get_fuzzy_file,
-    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+    file_sorter = sorters.get_fuzzy_file,
+    generic_sorter = sorters.get_generic_fuzzy_sorter,
     path_display = { "truncate" },
     layout_config = {
       horizontal = {
@@ -212,7 +213,6 @@ telescope.setup {
       override_generic_sorter = true, -- override the generic sorter
       override_file_sorter = true, -- override the file sorter
       case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-      -- the default case_mode is "smart_case"
     },
   },
 }
