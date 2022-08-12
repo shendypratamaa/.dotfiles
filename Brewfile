@@ -6,12 +6,12 @@ tap "homebrew/services"
 tap "koekeishiya/formulae"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Reimplementation of ctags(1)
+brew "ctags"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GNU awk utility
-brew "gawk"
 # Distributed revision control system
 brew "git"
 # Improved top (interactive process viewer)
@@ -29,7 +29,7 @@ brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Platform built on V8 to build network applications
-brew "node@16", link: true
+brew "node@16"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
@@ -52,8 +52,8 @@ brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
-# Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
-cask "font-iosevka"
+cask "font-hack-nerd-font"
+cask "font-iosevka-nerd-font"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Keyboard customizer

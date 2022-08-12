@@ -40,6 +40,7 @@ packer.init {
     enable = true,
     threshold = 1,
   },
+  max_jobs = 10,
 }
 
 vim.cmd [[
@@ -106,6 +107,14 @@ return packer.startup(function(use)
   use "norcalli/nvim-colorizer.lua"
   use "romgrk/barbar.nvim"
   use "ggandor/lightspeed.nvim"
+  use "folke/todo-comments.nvim"
+  use "folke/trouble.nvim"
+  use "abecodes/tabout.nvim"
+  use "chentoast/marks.nvim"
+  use "goolord/alpha-nvim"
+  use "christoomey/vim-tmux-navigator"
+  use "Pocco81/true-zen.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
   use {
     "kyazdani42/nvim-tree.lua",
     requires = {
@@ -113,11 +122,6 @@ return packer.startup(function(use)
     },
     tag = "nightly", -- optional, updated every week. (see issue #1193)
   }
-  use "abecodes/tabout.nvim"
-  use "chentoast/marks.nvim"
-  use "goolord/alpha-nvim"
-  use "christoomey/vim-tmux-navigator"
-  use "Pocco81/true-zen.nvim"
   use {
     "kwkarlwang/bufjump.nvim",
     config = function()

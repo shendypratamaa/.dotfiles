@@ -110,7 +110,7 @@ local buttons = {
     button(
       "f",
       "💻 --> Find Files",
-      ":lua require('user.telescope').custom_find_files()<CR>"
+      ":lua require('telescope.builtin').find_files()<CR>"
     ),
     button("e", "📖 --> New Files", ":e newfiles<CR>"),
     button("z", "🪐 --> Configuration Zshell", ":e ~/.zshrc<cr>"),

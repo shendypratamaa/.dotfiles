@@ -1,4 +1,3 @@
--- ISSUE: transparent for floating window not work
 -- TOKYONIGHT
 vim.g.tokyonight_terminal_colors = "xterm-256color"
 vim.g.tokyonight_italic_comments = true -- default

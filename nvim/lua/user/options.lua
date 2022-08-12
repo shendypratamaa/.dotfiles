@@ -88,3 +88,16 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
 vim.cmd [[set nocompatible ]]
 vim.cmd [[set nofoldenable]]
+vim.cmd[[
+set wildignore+=*.meteor*
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*cache*
+set wildignore+=*logs*
+set wildignore+=*node_modules/**
+set wildignore+=*DS_Store*
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+]]

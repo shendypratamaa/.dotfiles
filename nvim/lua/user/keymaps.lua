@@ -112,3 +112,6 @@ keymap("n", "]r", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap("n", "]t", ":lua require('telescope.builtin').help_tags()<CR>", opts)
 keymap("n", "]n", ":Telescope file_browser<CR>", opts)
 keymap("n", "]g", ":Telescope<CR>", opts)
+
+-- trouble
+keymap("n", "]e", ":TroubleToggle<CR>", opts)

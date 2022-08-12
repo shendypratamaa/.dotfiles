@@ -90,6 +90,7 @@ local keybinds = {
   n = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   N = { "<cmd>NeorgStart<CR>", "Notes" },
   r = { ":reg<CR>", "Register" },
+  f = { ":Format<CR>", "Format File" },
   L = {
     name = "+LSP 🤖",
     h = { "<cmd>LspInfo<cr>", "Lsp Information" },
