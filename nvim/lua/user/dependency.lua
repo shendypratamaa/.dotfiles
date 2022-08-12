@@ -96,7 +96,7 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim"
   use "lewis6991/gitsigns.nvim"
   use "nvim-lualine/lualine.nvim"
-  use "SmiteshP/nvim-gps"
+  use "SmiteshP/nvim-navic"
   use "windwp/nvim-autopairs"
   use "mbbill/undotree"
   use "antoinemadec/FixCursorHold.nvim"
