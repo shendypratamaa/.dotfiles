@@ -7,6 +7,7 @@ end
 local actions = require "telescope.actions"
 local telescope_builtin = require "telescope.builtin"
 local previewers = require "telescope.previewers"
+
 local Job = require "plenary.job"
 local new_maker = function(filepath, bufnr, opts)
   filepath = vim.fn.expand(filepath)
@@ -106,7 +107,7 @@ telescope.setup {
       "--smart-case",
       "--trim",
     },
-    prompt_prefix = "  ",
+    prompt_prefix = "   ",
     selection_caret = " ",
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
