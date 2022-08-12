@@ -1,10 +1,10 @@
 local status_ok, lualine = pcall(require, "lualine")
 
-local gps = require "nvim-gps"
+local navic = require("nvim-navic")
 
-local gps_result = {
-  gps.get_location,
-  cond = gps.get_is_available,
+local navic_info = {
+  navic.get_location,
+  cond = navic.is_available
 }
 
 if not status_ok then
@@ -51,7 +51,7 @@ local filetype = {
 local branch = {
   "branch",
   icons_enabled = true,
-  icon = "🏡",
+  icon = "",
 }
 
 local location = {
@@ -81,9 +81,9 @@ end
 local filePath = {
   "filename",
   icons_enabled = true,
-  icon = "🍰",
+  icon = "",
   file_status = true,
-  path = 1,
+  path = 0,
   symbols = {
     modified = "[+]", -- Text to show when the file is modified.
     readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
@@ -103,7 +103,7 @@ lualine.setup {
   sections = {
     lualine_a = { mode },
     lualine_b = { branch },
-    lualine_c = { filePath, gps_result },
+    lualine_c = { filePath, navic_info },
     lualine_x = { diagnostics, diff, filetype, "encoding" },
     lualine_y = { location },
     lualine_z = { progress },
