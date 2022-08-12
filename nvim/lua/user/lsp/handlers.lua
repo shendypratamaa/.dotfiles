@@ -1,5 +1,7 @@
 local M = {}
 
+local navic = require('nvim-navic')
+
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -170,6 +172,7 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
   disableDiagnosticstext(client.name)
+  navic.attach(client,bufnr)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
