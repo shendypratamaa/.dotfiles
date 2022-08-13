@@ -1,6 +1,6 @@
 local M = {}
 
-local navic = require('nvim-navic')
+local navic = require "nvim-navic"
 
 M.setup = function()
   local signs = {
@@ -156,9 +156,11 @@ M.on_attach = function(client, bufnr)
       watch_dir = nil,
     }
     client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
   end
   if client.name == "sumneko_lua" then
     client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
   end
   if client.name == "jsonls" then
     client.resolved_capabilities.document_formatting = false
@@ -169,10 +171,18 @@ M.on_attach = function(client, bufnr)
   if client.name == "html" then
     client.resolved_capabilities.document_formatting = false
   end
+  if client.name == "tailwindcss" then
+    client.resolved_capabilities.document_formatting = false
+  end
+  if client.name == "tailwindcss" then
+    client.resolved_capabilities.document_formatting = false
+  end
+  if client.name == "prosemd_lsp" then
+    client.resolved_capabilities.document_formatting = false
+  end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
   disableDiagnosticstext(client.name)
-  navic.attach(client,bufnr)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
