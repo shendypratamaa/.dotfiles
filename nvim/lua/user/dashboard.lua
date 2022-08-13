@@ -108,6 +108,11 @@ local buttons = {
   type = "group",
   val = {
     button(
+      "p",
+      "🍔 --> Telescope Project ",
+      ":lua require('telescope').extensions.project.project{display_type ='full'}<CR>"
+    ),
+    button(
       "f",
       "💻 --> Find Files",
       ":lua require('telescope.builtin').find_files()<CR>"
@@ -119,7 +124,6 @@ local buttons = {
       "🦕 --> Configuration Dashboard",
       ":e ~/.config/nvim/lua/user/dashboard.lua<cr>"
     ),
-    button("n", "💻 --> Configuration Dotfiles", ":e ~/.dotfiles/<CR>"),
     button("q", "👻 --> Quit Neovim", ":qa<cr>"),
   },
   opts = {

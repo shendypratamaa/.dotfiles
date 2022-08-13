@@ -208,6 +208,15 @@ telescope.setup {
         },
       },
     },
+    project = {
+      base_dirs = {
+        { "~/.code/js/" },
+        { "~/.code/vite-react-js/" },
+        { "~/.dotfiles" },
+      },
+      hidden_files = false,
+      theme = "dropdown",
+    },
     fzf = {
       fuzzy = true, -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
@@ -220,5 +229,6 @@ telescope.setup {
 telescope.load_extension "fzf"
 telescope.load_extension "file_browser"
 telescope.load_extension "harpoon"
+telescope.load_extension "project"
 
 return M

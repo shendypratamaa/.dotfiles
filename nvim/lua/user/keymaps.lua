@@ -110,6 +110,12 @@ keymap("n", "]ff", ":lua require('telescope.builtin').find_files()<CR>", opts)
 keymap("n", "]b", ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap("n", "]r", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap("n", "]t", ":lua require('telescope.builtin').help_tags()<CR>", opts)
+keymap(
+  "n",
+  "]v",
+  ":lua  require('telescope').extensions.project.project{ display_type = 'full'}<CR>",
+  opts
+)
 keymap("n", "]n", ":Telescope file_browser<CR>", opts)
 keymap("n", "]g", ":Telescope<CR>", opts)
 
