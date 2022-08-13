@@ -52,6 +52,10 @@ for k, v in pairs(options) do
 end
 
 vim.cmd [[
+let g:netrw_browsex_viewer= "open"
+]]
+
+vim.cmd [[
   let g:rooter_patterns = ['.git', 'package.json', '!node_modules']
 ]]
 
@@ -81,6 +85,11 @@ vim.cmd [[
     autocmd CmdlineEnter /,\? :set hlsearch
     autocmd CmdlineLeave /,\? :set nohlsearch
   augroup END
+]]
+
+vim.cmd [[
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 ]]
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"

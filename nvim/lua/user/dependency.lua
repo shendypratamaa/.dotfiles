@@ -115,6 +115,7 @@ return packer.startup(function(use)
   use "christoomey/vim-tmux-navigator"
   use "Pocco81/true-zen.nvim"
   use "lukas-reineke/indent-blankline.nvim"
+  use "tyru/open-browser.vim"
   use {
     "kyazdani42/nvim-tree.lua",
     requires = {
