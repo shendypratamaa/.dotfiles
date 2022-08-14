@@ -85,7 +85,6 @@ end
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Lspsaga
   keymap(bufnr, "n", "gh", ":Lspsaga lsp_finder<CR>", opts)
