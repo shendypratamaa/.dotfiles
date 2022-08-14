@@ -135,6 +135,12 @@ return packer.startup(function(use)
       }
     end,
   }
+  use {
+    "gelguy/wilder.nvim",
+    config = function()
+      -- config goes here
+    end,
+  }
 
   -- tpope
   use {
