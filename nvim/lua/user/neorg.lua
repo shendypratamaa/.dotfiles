@@ -4,6 +4,7 @@ neorg.setup {
   load = {
     ["core.defaults"] = {},
     ["core.norg.concealer"] = {},
+    ["core.integrations.nvim-cmp"] = {},
     ["core.integrations.treesitter"] = {},
     ["core.keybinds"] = {
       config = {

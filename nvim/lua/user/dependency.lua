@@ -82,9 +82,11 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp-signature-help"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-calc"
-  use "hrsh7th/cmp-omni"
+  use "ray-x/cmp-treesitter"
+  use "David-Kunz/cmp-npm"
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "onsails/lspkind.nvim"
 
   -- colorscheme
   use "sainnhe/gruvbox-material"
@@ -133,12 +135,6 @@ return packer.startup(function(use)
           vim.cmd [[execute "normal! g`\"zz"]]
         end,
       }
-    end,
-  }
-  use {
-    "gelguy/wilder.nvim",
-    config = function()
-      -- config goes here
     end,
   }
 
