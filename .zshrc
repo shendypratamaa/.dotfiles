@@ -129,3 +129,10 @@ alias nodeg="cd /opt/homebrew/lib/node_modules/"
 eval "$(starship init zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+ export NVM_DIR="$HOME/.nvm"
+    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+    [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+export NVM_COLORS='cmgRY'
+ZSH_DISABLE_COMPFIX="true"
