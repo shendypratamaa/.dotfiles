@@ -39,7 +39,7 @@ barbar.setup {
   icon_custom_colors = false,
 
   -- Configure icons on the bufferline.
-  icon_separator_active = "▎",
+  icon_separator_active = "  ",
   icon_separator_inactive = "▎",
   icon_close_tab = "",
   icon_close_tab_modified = "●",
@@ -51,7 +51,7 @@ barbar.setup {
   insert_at_start = false,
 
   -- Sets the maximum padding width with which to surround each tab
-  maximum_padding = 2,
+  maximum_padding = 0,
 
   -- Sets the maximum buffer name length.
   maximum_length = 30,
