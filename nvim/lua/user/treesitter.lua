@@ -64,6 +64,9 @@ configs.setup {
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
+    config = {
+      lua = "-- %s",
+    },
   },
   refactor = {
     highlight_definitions = {
