@@ -48,7 +48,9 @@ M.setup = function()
     vim.lsp.with(vim.lsp.handlers.signature_help, {
       border = "rounded",
     })
+
 end
+
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -82,7 +84,7 @@ local function lsp_highlight_document(client)
   end
 end
 
-local function lsp_keymaps(bufnr)
+local function lsp_keymaps(client, bufnr)
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
 
@@ -160,24 +162,6 @@ M.on_attach = function(client, bufnr)
   if client.name == "sumneko_lua" then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
-  end
-  if client.name == "jsonls" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "cssls" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "html" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "tailwindcss" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "tailwindcss" then
-    client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "prosemd_lsp" then
-    client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)

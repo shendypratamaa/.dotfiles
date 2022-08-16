@@ -1,10 +1,27 @@
-local status_ok, _ = pcall(require, "lspconfig")
+local servers = {
+  html = {},
+  jsonls = {
+    settings = {
+      json = {
+        schemas = require('schemastore').json.schemas()
+      },
+    },
+  },
+  sumneko_lua = {},
+  tsserver = {},
+  prosemd_lsp = {},
+  cssls = {},
+  tailwindcss = {}
+}
 
-if not status_ok then
-  return
-end
+local options = {}
 
-require "user.lsp.lsp-installer"
-require "user.lsp.null_ls"
-require "user.lsp.saga"
-require("user.lsp.handlers").setup()
+local formatter = {
+ "stylua",
+}
+
+require"user.lsp.null_ls"
+require"user.lsp.saga"
+require"user.lsp.mason".setup(servers, options, formatter)
+-- require"user.lsp.handlers".on_attach(client, bufnr)
+require"user.lsp.handlers".setup()
