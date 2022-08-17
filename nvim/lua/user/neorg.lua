@@ -1,37 +1,37 @@
-local neorg = require "neorg"
+local neorg = require 'neorg'
 
 neorg.setup {
   load = {
-    ["core.defaults"] = {},
-    ["core.norg.concealer"] = {},
-    ["core.integrations.nvim-cmp"] = {},
-    ["core.integrations.treesitter"] = {},
-    ["core.keybinds"] = {
+    ['core.defaults'] = {},
+    ['core.norg.concealer'] = {},
+    ['core.integrations.nvim-cmp'] = {},
+    ['core.integrations.treesitter'] = {},
+    ['core.keybinds'] = {
       config = {
         default_keybinds = true,
       },
     },
-    ["core.export"] = {},
-    ["core.export.markdown"] = {
+    ['core.export'] = {},
+    ['core.export.markdown'] = {
       config = {
-        extensions = "all",
+        extensions = 'all',
       },
     },
-    ["core.norg.completion"] = {
+    ['core.norg.completion'] = {
       config = {
-        engine = "nvim-cmp",
+        engine = 'nvim-cmp',
       },
     },
-    ["core.norg.dirman"] = {
+    ['core.norg.dirman'] = {
       config = {
         workspaces = {
-          work = "~/.notes/",
+          work = '~/.notes/',
         },
       },
     },
-    ["core.presenter"] = {
+    ['core.presenter'] = {
       config = {
-        zen_mode = "truezen",
+        zen_mode = 'truezen',
       },
     },
   },
@@ -39,8 +39,8 @@ neorg.setup {
 
 --- Loads the Neorg completion module
 local function load_completion()
-  neorg.modules.load_module("core.norg.completion", nil, {
-    engine = "nvim-cmp", -- Choose your completion engine here
+  neorg.modules.load_module('core.norg.completion', nil, {
+    engine = 'nvim-cmp', -- Choose your completion engine here
   })
 end
 
@@ -48,5 +48,5 @@ end
 if neorg.is_loaded() then
   load_completion()
 else -- Otherwise wait until Neorg gets started and load the completion module then
-  neorg.callbacks.on_event("core.started", load_completion)
+  neorg.callbacks.on_event('core.started', load_completion)
 end

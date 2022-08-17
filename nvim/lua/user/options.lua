@@ -1,21 +1,21 @@
 local options = {
-  syntax = "on",
+  syntax = 'on',
   exrc = true,
   autoread = true,
-  filetype = "plugin_indent_on",
-  fileencoding = "utf8",
+  filetype = 'plugin_indent_on',
+  fileencoding = 'utf8',
   hidden = true,
   number = true,
-  virtualedit = "block",
+  virtualedit = 'block',
   relativenumber = true,
   backup = false,
-  clipboard = "unnamedplus",
+  clipboard = 'unnamedplus',
   cmdheight = 1,
-  completeopt = { "menuone", "noselect" },
+  completeopt = { 'menuone', 'noselect' },
   conceallevel = 0,
   hlsearch = true,
   incsearch = true,
-  mouse = "a",
+  mouse = 'a',
   pumheight = 10,
   splitright = true,
   splitbelow = true,
@@ -25,7 +25,7 @@ local options = {
   updatetime = 300,
   writebackup = false,
   cursorline = true,
-  signcolumn = "yes",
+  signcolumn = 'yes',
   wrap = false,
   scrolloff = 8,
   shiftwidth = 2,
@@ -37,13 +37,13 @@ local options = {
   autoindent = true,
   smartcase = true,
   ignorecase = true,
-  colorcolumn = "80",
+  colorcolumn = '80',
   sidescrolloff = 8,
-  guifont = "monospace:h17",
-  guicursor = "",
+  guifont = 'monospace:h17',
+  guicursor = '',
 }
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append 'c'
 vim.g.cursorhold_updatetime = 100
 vim.opt.shada = "'0,f0"
 
@@ -92,12 +92,12 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 ]]
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd 'set whichwrap+=<,>,[,],h,l'
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
 vim.cmd [[set nocompatible ]]
 vim.cmd [[set nofoldenable]]
-vim.cmd[[
+vim.cmd [[
 set wildignore+=*.meteor*
 set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*

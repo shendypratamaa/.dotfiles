@@ -50,7 +50,7 @@ local function clientservers(client, bufnr)
 end
 
 function M.setup(client, bufnr)
-clientservers(client, bufnr)
+  clientservers(client, bufnr)
 end
 
 return M

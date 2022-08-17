@@ -1,10 +1,10 @@
-local status_ok, lualine = pcall(require, "lualine")
+local status_ok, lualine = pcall(require, 'lualine')
 
-local navic = require("nvim-navic")
+local navic = require 'nvim-navic'
 
 local navic_info = {
   navic.get_location,
-  cond = navic.is_available
+  cond = navic.is_available,
 }
 
 if not status_ok then
@@ -16,12 +16,12 @@ local hide_in_width = function()
 end
 
 local diagnostics = {
-  "diagnostics",
-  sources = { "nvim_diagnostic" },
-  sections = { "error", "warn" },
+  'diagnostics',
+  sources = { 'nvim_diagnostic' },
+  sections = { 'error', 'warn' },
   symbols = {
-    error = " ",
-    warn = " ",
+    error = ' ',
+    warn = ' ',
   },
   colored = true,
   update_in_insert = false,
@@ -29,49 +29,49 @@ local diagnostics = {
 }
 
 local diff = {
-  "diff",
+  'diff',
   colored = true,
-  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+  symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
   cond = hide_in_width,
 }
 
 local mode = {
-  "mode",
+  'mode',
   fmt = function(str)
-    return "-- " .. str .. " --"
+    return '-- ' .. str .. ' --'
   end,
 }
 
 local filetype = {
-  "filetype",
+  'filetype',
   icons_enabled = true,
   icon = nil,
 }
 
 local branch = {
-  "branch",
+  'branch',
   icons_enabled = true,
-  icon = "",
+  icon = '',
 }
 
 local location = {
-  "location",
+  'location',
   padding = 0,
 }
 
 local progress = function()
-  local current_line = vim.fn.line "."
-  local total_lines = vim.fn.line "$"
+  local current_line = vim.fn.line '.'
+  local total_lines = vim.fn.line '$'
   local chars = {
-    "__",
-    "▁▁",
-    "▂▂",
-    "▃▃",
-    "▄▄",
-    "▅▅",
-    "▆▆",
-    "▇▇",
-    "██",
+    '__',
+    '▁▁',
+    '▂▂',
+    '▃▃',
+    '▄▄',
+    '▅▅',
+    '▆▆',
+    '▇▇',
+    '██',
   }
   local line_ratio = current_line / total_lines
   local index = math.ceil(line_ratio * #chars)
@@ -79,24 +79,24 @@ local progress = function()
 end
 
 local filePath = {
-  "filename",
+  'filename',
   icons_enabled = true,
-  icon = "",
+  icon = '',
   file_status = true,
   path = 0,
   symbols = {
-    modified = "[+]", -- Text to show when the file is modified.
-    readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
-    unnamed = "[No Name]", -- Text to show for unnamed buffers.
+    modified = '[+]', -- Text to show when the file is modified.
+    readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
+    unnamed = '[No Name]', -- Text to show for unnamed buffers.
   },
 }
 
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = "catppuccin", --tokyonight,kanagawa, gruvbox-material, catppuccin
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    theme = 'catppuccin', --tokyonight,kanagawa, gruvbox-material, catppuccin
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {},
     always_divide_middle = true,
   },
@@ -104,7 +104,7 @@ lualine.setup {
     lualine_a = { mode },
     lualine_b = { branch },
     lualine_c = { filePath, navic_info },
-    lualine_x = { diagnostics, diff, filetype, "encoding" },
+    lualine_x = { diagnostics, diff, filetype, 'encoding' },
     lualine_y = { location },
     lualine_z = { progress },
   },

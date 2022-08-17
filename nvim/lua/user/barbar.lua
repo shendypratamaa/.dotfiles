@@ -1,4 +1,4 @@
-local barbar_ok, barbar = pcall(require, "bufferline")
+local barbar_ok, barbar = pcall(require, 'bufferline')
 
 if not barbar_ok then
   return
@@ -20,20 +20,20 @@ highlight link BufferVisibleTarget  BufferInactiveTarget
 highlight BufferTabpages            guibg=#ff0000 guifg=#ff0000
 ]]
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  pattern = '*',
   callback = function()
-    if vim.bo.filetype == "NvimTree" then
-      require("bufferline.state").set_offset(30, "File Directory")
+    if vim.bo.filetype == 'NvimTree' then
+      require('bufferline.state').set_offset(30, 'File Directory')
     end
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWinLeave", {
-  pattern = "*",
+vim.api.nvim_create_autocmd('BufWinLeave', {
+  pattern = '*',
   callback = function()
-    if vim.fn.expand("<afile>"):match "NvimTree" then
-      require("bufferline.state").set_offset(0)
+    if vim.fn.expand('<afile>'):match 'NvimTree' then
+      require('bufferline.state').set_offset(0)
     end
   end,
 })
@@ -73,11 +73,11 @@ barbar.setup {
   icon_custom_colors = false,
 
   -- Configure icons on the bufferline.
-  icon_separator_active = "  ",
-  icon_separator_inactive = "▎",
-  icon_close_tab = "",
-  icon_close_tab_modified = "●",
-  icon_pinned = "車",
+  icon_separator_active = '  ',
+  icon_separator_inactive = '▎',
+  icon_close_tab = '',
+  icon_close_tab_modified = '●',
+  icon_pinned = '車',
 
   -- If true, new buffers will be inserted at the start/end of the list.
   -- Default is to insert after current buffer.
@@ -99,9 +99,9 @@ barbar.setup {
   -- New buffer letters are assigned in this order. This order is
   -- optimal for the qwerty keyboard layout but might need adjustement
   -- for other layouts.
-  letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
+  letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
 
   -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
   -- where X is the buffer number. But only a static string is accepted here.
-  no_name_title = "undefined",
+  no_name_title = 'undefined',
 }

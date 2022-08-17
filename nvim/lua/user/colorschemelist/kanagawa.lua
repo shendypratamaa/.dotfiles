@@ -1,10 +1,10 @@
-local kaganagawa_available, kanagawa = pcall(require, "kanagawa")
+local kaganagawa_available, kanagawa = pcall(require, 'kanagawa')
 
 if not kaganagawa_available then
   return
 end
 
-local default_colors = require("kanagawa.colors").setup()
+local default_colors = require('kanagawa.colors').setup()
 
 local overrides = {
   LineNr = { fg = default_colors.fujiWhite },

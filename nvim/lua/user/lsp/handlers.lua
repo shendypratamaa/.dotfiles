@@ -26,7 +26,7 @@ function M.setup(client)
   vim.diagnostic.config(diagnostics_config)
 
   local disable_servers = {
-  'tsserver',
+    'tsserver',
   }
 
   local disable_diagnostics_virtual_text_lsp = function(client)

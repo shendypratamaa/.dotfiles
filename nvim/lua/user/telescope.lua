@@ -1,23 +1,23 @@
-local status_ok, telescope = pcall(require, "telescope")
+local status_ok, telescope = pcall(require, 'telescope')
 
 if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
-local sorters = require "telescope.sorters"
-local telescope_builtin = require "telescope.builtin"
-local previewers = require "telescope.previewers"
+local actions = require 'telescope.actions'
+local sorters = require 'telescope.sorters'
+local telescope_builtin = require 'telescope.builtin'
+local previewers = require 'telescope.previewers'
 
-local Job = require "plenary.job"
+local Job = require 'plenary.job'
 local new_maker = function(filepath, bufnr, opts)
   filepath = vim.fn.expand(filepath)
   Job:new({
-    command = "file",
-    args = { "--mime-type", "-b", filepath },
+    command = 'file',
+    args = { '--mime-type', '-b', filepath },
     on_exit = function(j)
-      local mime_type = vim.split(j:result()[1], "/")[1]
-      if mime_type == "text" then
+      local mime_type = vim.split(j:result()[1], '/')[1]
+      if mime_type == 'text' then
         previewers.buffer_previewer_maker(filepath, bufnr, opts)
       else
         -- maybe we want to write something to the buffer here
@@ -27,7 +27,7 @@ local new_maker = function(filepath, bufnr, opts)
             0,
             -1,
             false,
-            { "not support image preview" }
+            { 'not support image preview' }
           )
         end)
       end
@@ -43,37 +43,37 @@ local M = {}
 
 M.TelescopePrompt = {
   TelescopeSelection = {
-    bg = "#313140",
+    bg = '#313140',
   },
   TelescopePreviewMatch = {
-    fg = "#313140",
-    bg = "#d27e99",
+    fg = '#313140',
+    bg = '#d27e99',
   },
   TelescopeMatching = {
-    bg = "#C34043",
+    bg = '#C34043',
   },
   TelescopeBorder = {
-    fg = "#313140",
+    fg = '#313140',
   },
   TelescopePromptNormal = {
-    fg = "#ffffff",
-    bg = "#313140",
+    fg = '#ffffff',
+    bg = '#313140',
   },
   TelescopePromptBorder = {
-    fg = "#313140",
-    bg = "#313140",
+    fg = '#313140',
+    bg = '#313140',
   },
   TelescopePromptTitle = {
-    fg = "#f3f3f3",
-    bg = "#957FB8",
+    fg = '#f3f3f3',
+    bg = '#957FB8',
   },
   TelescopePreviewTitle = {
-    fg = "#f3f3f3",
-    bg = "#D27E99",
+    fg = '#f3f3f3',
+    bg = '#D27E99',
   },
   TelescopeResultsTitle = {
-    fg = "#f3f3f3",
-    bg = "#FFA066",
+    fg = '#f3f3f3',
+    bg = '#FFA066',
   },
 }
 
@@ -86,7 +86,7 @@ local no_preview = {
   show_line = false,
   shorten_path = true,
   layout_config = {
-    prompt_position = "bottom",
+    prompt_position = 'bottom',
   },
 }
 
@@ -97,29 +97,29 @@ end
 
 telescope.setup {
   defaults = {
-    file_ignore_patterns = { "node%_modules/.*" },
+    file_ignore_patterns = { 'node%_modules/.*' },
     vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-      "--trim",
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--trim',
     },
-    prompt_prefix = "   ",
-    selection_caret = " ",
-    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    prompt_prefix = '   ',
+    selection_caret = ' ',
+    file_previewer = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
     buffer_previewer_maker = new_maker,
     file_sorter = sorters.get_fuzzy_file,
     generic_sorter = sorters.get_generic_fuzzy_sorter,
-    path_display = { "truncate" },
+    path_display = { 'truncate' },
     layout_config = {
       horizontal = {
-        prompt_position = "top",
+        prompt_position = 'top',
         preview_width = 0.6,
         results_width = 0.8,
       },
@@ -130,105 +130,105 @@ telescope.setup {
       height = 0.75,
       preview_cutoff = 120,
     },
-    set_env = { ["COLORTERM"] = "truecolor" },
+    set_env = { ['COLORTERM'] = 'truecolor' },
     borderchars = {
-      prompt = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
-      results = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
-      preview = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+      prompt = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
+      results = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
+      preview = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
     },
     mappings = {
       i = {
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
+        ['<C-n>'] = actions.cycle_history_next,
+        ['<C-p>'] = actions.cycle_history_prev,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ['<C-j>'] = actions.move_selection_next,
+        ['<C-k>'] = actions.move_selection_previous,
 
-        ["<C-c>"] = actions.close,
+        ['<C-c>'] = actions.close,
 
-        ["<Down>"] = actions.move_selection_next,
-        ["<Up>"] = actions.move_selection_previous,
+        ['<Down>'] = actions.move_selection_next,
+        ['<Up>'] = actions.move_selection_previous,
 
-        ["<CR>"] = actions.select_default,
-        ["<C-x>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
+        ['<CR>'] = actions.select_default,
+        ['<C-x>'] = actions.select_horizontal,
+        ['<C-v>'] = actions.select_vertical,
 
-        ["<C-u>"] = actions.preview_scrolling_up,
-        ["<C-d>"] = actions.preview_scrolling_down,
+        ['<C-u>'] = actions.preview_scrolling_up,
+        ['<C-d>'] = actions.preview_scrolling_down,
 
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
+        ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
       },
       n = {
-        ["<C-c>"] = actions.close,
-        ["q"] = actions.close,
+        ['<C-c>'] = actions.close,
+        ['q'] = actions.close,
 
-        ["<CR>"] = actions.select_default,
+        ['<CR>'] = actions.select_default,
 
-        ["<C-x>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
+        ['<C-x>'] = actions.select_horizontal,
+        ['<C-v>'] = actions.select_vertical,
 
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
+        ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
 
-        ["j"] = actions.move_selection_next,
-        ["k"] = actions.move_selection_previous,
-        ["H"] = actions.move_to_top,
-        ["M"] = actions.move_to_middle,
-        ["L"] = actions.move_to_bottom,
+        ['j'] = actions.move_selection_next,
+        ['k'] = actions.move_selection_previous,
+        ['H'] = actions.move_to_top,
+        ['M'] = actions.move_to_middle,
+        ['L'] = actions.move_to_bottom,
 
-        ["<Down>"] = actions.move_selection_next,
-        ["<Up>"] = actions.move_selection_previous,
+        ['<Down>'] = actions.move_selection_next,
+        ['<Up>'] = actions.move_selection_previous,
 
-        ["gg"] = actions.move_to_top,
-        ["G"] = actions.move_to_bottom,
+        ['gg'] = actions.move_to_top,
+        ['G'] = actions.move_to_bottom,
 
-        ["<C-u>"] = actions.preview_scrolling_up,
-        ["<C-d>"] = actions.preview_scrolling_down,
+        ['<C-u>'] = actions.preview_scrolling_up,
+        ['<C-d>'] = actions.preview_scrolling_down,
       },
     },
   },
   pickers = {
     find_files = {
-      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+      find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' },
     },
   },
   extensions = {
     file_browser = {
-      theme = "ivy",
+      theme = 'ivy',
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       hidden = true,
       mappings = {
-        ["i"] = {
+        ['i'] = {
           -- your custom insert mode mappings
         },
-        ["n"] = {
+        ['n'] = {
           -- your custom normal mode mappings
         },
       },
     },
     project = {
       base_dirs = {
-        { "~/.code/js/" },
-        { "~/.code/vite-react-js/" },
-        { "~/.dotfiles" },
+        { '~/.code/js/' },
+        { '~/.code/vite-react-js/' },
+        { '~/.dotfiles' },
       },
       hidden_files = false,
-      theme = "dropdown",
+      theme = 'dropdown',
     },
     fzf = {
       fuzzy = true, -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
       override_file_sorter = true, -- override the file sorter
-      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
     },
   },
 }
 
-telescope.load_extension "fzf"
-telescope.load_extension "file_browser"
-telescope.load_extension "harpoon"
-telescope.load_extension "project"
+telescope.load_extension 'fzf'
+telescope.load_extension 'file_browser'
+telescope.load_extension 'harpoon'
+telescope.load_extension 'project'
 
 return M

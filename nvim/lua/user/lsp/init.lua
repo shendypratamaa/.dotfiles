@@ -4,7 +4,7 @@ local cmp_nvim_lsp = require 'cmp_nvim_lsp'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.on_attach = function(client, bufnr)
-  require('user.lsp.clientservers').setup(client,bufnr)
+  require('user.lsp.clientservers').setup(client, bufnr)
   require('user.lsp.keymaps_lsp').setup(bufnr)
   require('user.lsp.handlers').setup(client)
 end
