@@ -1,9 +1,9 @@
-local servers = {
+local lspservers = {
   html = {},
   jsonls = {
     settings = {
       json = {
-        schemas = require('schemastore').json.schemas()
+        schemas = require('schemastore').json.schemas(),
       },
     },
   },
@@ -11,17 +11,18 @@ local servers = {
   tsserver = {},
   prosemd_lsp = {},
   cssls = {},
-  tailwindcss = {}
+  tailwindcss = {},
 }
 
 local options = {}
 
 local formatter = {
- "stylua",
+  'stylua',
+  'prettierd',
+  'markdownlint'
 }
 
-require"user.lsp.null_ls"
-require"user.lsp.saga"
-require"user.lsp.mason".setup(servers, options, formatter)
--- require"user.lsp.handlers".on_attach(client, bufnr)
-require"user.lsp.handlers".setup()
+require 'user.lsp.null_ls'
+require 'user.lsp.saga'
+require('user.lsp.mason').setup(lspservers, options, formatter)
+require('user.lsp.handlers').setup()
