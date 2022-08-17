@@ -58,10 +58,27 @@ return packer.startup(function(use)
   use 'dstein64/vim-startuptime'
 
   -- lsp
-  use "neovim/nvim-lspconfig"
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
-  use "WhoIsSethDaniel/mason-tool-installer.nvim"
+  use {
+      "neovim/nvim-lspconfig",
+    opt = true,
+    event = { "BufReadPre" },
+    wants = {
+      "mason.nvim",
+      "mason-lspconfig.nvim",
+      "mason-tool-installer.nvim",
+    },
+    config = function()
+      require("user.lsp").setup()
+    end,
+    requires = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+    },
+  }
+
+  use 'jose-elias-alvarez/typescript.nvim'
+  use 'folke/lua-dev.nvim'
 
   -- use 'williamboman/nvim-lsp-installer'
   -- use 'neovim/nvim-lspconfig'
@@ -75,7 +92,6 @@ return packer.startup(function(use)
     run = 'npm install',
   }
   use 'b0o/SchemaStore.nvim'
-  use "folke/lua-dev.nvim"
 
   -- cmp plugins
   use 'hrsh7th/nvim-cmp' -- The completion plugin
