@@ -28,16 +28,17 @@ function M.setup(servers, options, formatter)
     automatic_installation = false,
   }
 
-    -- Set up LSP servers
+  -- Set up LSP servers
   for server_name, _ in pairs(servers) do
-    local opts = vim.tbl_deep_extend("force", options, servers[server_name] or {})
+    local opts =
+      vim.tbl_deep_extend('force', options, servers[server_name] or {})
 
-    if server_name == "sumneko_lua" then
-      opts = require("lua-dev").setup { lspconfig = opts }
+    if server_name == 'sumneko_lua' then
+      opts = require('lua-dev').setup { lspconfig = opts }
     end
 
-    if server_name == "tsserver" then
-      require("typescript").setup {
+    if server_name == 'tsserver' then
+      require('typescript').setup {
         disable_commands = false,
         debug = false,
         server = opts,
@@ -47,17 +48,21 @@ function M.setup(servers, options, formatter)
     end
   end
 
+  -- BUG:
   -- require('mason-lspconfig').setup_handlers {
   --   function(server_name)
-  --     local opts = vim.tbl_deep_extend('force', options, servers[server_name] or {})
+  --     local opts =
+  --       vim.tbl_deep_extend('force', options, servers[server_name] or {})
   --     lsp_config[server_name].setup { opts }
   --   end,
-  --   ["sumneko_lua"] = function()
-  --     local opts = vim.tbl_deep_extend("force", options, servers["sumneko_lua"] or {})
-  --     lsp_config.sumneko_lua.setup(require("lua-dev").setup { opts })
+  --   ['sumneko_lua'] = function()
+  --     local opts =
+  --       vim.tbl_deep_extend('force', options, servers['sumneko_lua'] or {})
+  --     lsp_config.sumneko_lua.setup(require('lua-dev').setup { opts })
   --   end,
   --   ['tsserver'] = function()
-  --     local opts = vim.tbl_deep_extend('force', options, servers['tsserver'] or {})
+  --     local opts =
+  --       vim.tbl_deep_extend('force', options, servers['tsserver'] or {})
   --     require('typescript').setup {
   --       disable_commands = false,
   --       debug = false,
@@ -65,7 +70,8 @@ function M.setup(servers, options, formatter)
   --     }
   --   end,
   --   ['jsonls'] = function()
-  --     local opts = vim.tbl_deep_extend('force', options, servers['jsonls'] or {})
+  --     local opts =
+  --       vim.tbl_deep_extend('force', options, servers['jsonls'] or {})
   --     lsp_config.jsonls.setup { opts }
   --   end,
   -- }
