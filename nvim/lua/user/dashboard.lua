@@ -64,17 +64,6 @@ local footer = {
   },
 }
 
-local fortune = require "alpha.fortune"
-
-local marks = {
-  type = "text",
-  val = fortune(),
-  opts = {
-    position = "center",
-    hl = "comment",
-  },
-}
-
 local function button(sc, txt, keybind)
   local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
 
@@ -137,7 +126,6 @@ local section = {
   plugin_count = plugin_count,
   heading = heading,
   footer = footer,
-  marks = marks,
 }
 
 local opts = {
@@ -153,7 +141,6 @@ local opts = {
     { type = "padding", val = 0 },
     section.footer,
     { type = "padding", val = 0 },
-    section.marks,
   },
   opts = {
     margin = 0,

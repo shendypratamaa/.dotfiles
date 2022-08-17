@@ -7,26 +7,27 @@ end
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
+local path = vim.fn.expand
 
 local sources = {
   -- formatting
   formatting.stylua.with {
     extra_args = {
       "--config-path",
-      vim.fn.expand "~/.config/nvim/linter-config/.stylua.toml",
+      path "~/.config/nvim/linter-config/.stylua.toml",
     },
   },
   formatting.prettier.with {
     extra_args = {
       "--config",
-      vim.fn.expand "~/.prettierrc",
+      path "~/.prettierrc",
     },
   },
 
   -- diagnostics
   diagnostics.eslint.with {
     "--config",
-    vim.fn.expand "~/.eslintrc",
+    path "~/.eslintrc",
   },
   diagnostics.write_good.with { filetypes = { "markdown", "text" } },
 
