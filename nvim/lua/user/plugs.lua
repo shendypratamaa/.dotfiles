@@ -1,6 +1,12 @@
-local fn = vim.fn
+-- Use a protected call so we don't error out on first use
+local packer_ok, packer = pcall(require, 'packer')
+
+if not packer_ok then
+  return
+end
 
 -- Automatically install packer
+local fn = vim.fn
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
@@ -23,22 +29,16 @@ vim.cmd [[
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  return
-end
-
 -- Have packer use a popup window
 packer.init {
   display = {
     open_fn = function()
-      return require('packer.util').float { border = 'rounded' }
+      return require('packer.util').float { border = 'single' }
     end,
   },
   profile = {
     enable = true,
-    threshold = 1,
+    threshold = 0,
   },
   max_jobs = 10,
 }
@@ -49,13 +49,11 @@ vim.cmd [[
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
-  use 'lewis6991/impatient.nvim'
-  use 'nathom/filetype.nvim'
-  use 'wbthomason/packer.nvim' -- Have packer manage itself
-  use 'nvim-lua/popup.nvim' -- An implementation of the Popup API from vim in Neovim
-  use 'nvim-lua/plenary.nvim' -- Useful lua functions used ny lots of plugins
-  use 'dstein64/vim-startuptime'
+  -- plugins here
+  use { 'lewis6991/impatient.nvim' }
+  use { 'wbthomason/packer.nvim' }
+  use { 'nvim-lua/popup.nvim' }
+  use { 'nvim-lua/plenary.nvim' }
 
   -- lsp
   use {
@@ -76,22 +74,22 @@ return packer.startup(function(use)
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
   }
-
-  use 'jose-elias-alvarez/typescript.nvim'
-  use 'folke/lua-dev.nvim'
-
-  -- use 'williamboman/nvim-lsp-installer'
-  -- use 'neovim/nvim-lspconfig'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use { 'glepnir/lspsaga.nvim', branch = 'main' }
-  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
-  use 'MaxMEllon/vim-jsx-pretty'
+  use { 'jose-elias-alvarez/typescript.nvim' }
+  use { 'folke/lua-dev.nvim' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
+  use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
+  use { 'MaxMEllon/vim-jsx-pretty' }
   use 'ludovicchabant/vim-gutentags'
+  use { 'glepnir/lspsaga.nvim', branch = 'main' }
   use {
     'kristijanhusak/vim-js-file-import',
     run = 'npm install',
   }
   use 'b0o/SchemaStore.nvim'
+
+  -- performance
+  use { 'dstein64/vim-startuptime' }
+  use { 'nathom/filetype.nvim' }
 
   -- cmp plugins
   use 'hrsh7th/nvim-cmp' -- The completion plugin
@@ -207,7 +205,6 @@ return packer.startup(function(use)
   use { 'iamcco/markdown-preview.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
