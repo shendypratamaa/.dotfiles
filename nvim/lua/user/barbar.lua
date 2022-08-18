@@ -4,22 +4,6 @@ if not barbar_ok then
   return
 end
 
-vim.cmd [[
-highlight BufferCurrent             guibg=#313140 guifg=#f3f3f3
-highlight link BufferCurrentMod     BufferCurrent
-highlight link BufferCurrentSign    BufferCurrent
-highlight BufferCurrentTarget       guibg=#f1fa8c
-highlight BufferInactive            guibg=#595970
-highlight link BufferInactiveMod    BufferInactive
-highlight link BufferInactiveSign   BufferInactive
-highlight link BufferInactiveTarget BufferCurrentTarget
-highlight link BufferVisible        BufferInactive
-highlight link BufferVisibleMod     BufferVisible
-highlight link BufferVisibleSign    BufferVisible
-highlight link BufferVisibleTarget  BufferInactiveTarget
-highlight BufferTabpages            guibg=#ff0000 guifg=#ff0000
-]]
-
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
   callback = function()
