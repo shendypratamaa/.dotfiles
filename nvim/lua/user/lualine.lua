@@ -1,4 +1,4 @@
-local status_ok, lualine = pcall(require, 'lualine')
+local M = {}
 
 local navic = require 'nvim-navic'
 
@@ -6,10 +6,6 @@ local navic_info = {
   navic.get_location,
   cond = navic.is_available,
 }
-
-if not status_ok then
-  return
-end
 
 local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
@@ -91,31 +87,35 @@ local filePath = {
   },
 }
 
-lualine.setup {
-  options = {
-    icons_enabled = true,
-    theme = 'catppuccin', --tokyonight,kanagawa, gruvbox-material, catppuccin
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
-    disabled_filetypes = {},
-    always_divide_middle = true,
-  },
-  sections = {
-    lualine_a = { mode },
-    lualine_b = { branch },
-    lualine_c = { filePath, navic_info },
-    lualine_x = { diagnostics, diff, filetype, 'encoding' },
-    lualine_y = { location },
-    lualine_z = { progress },
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
-  },
-  tabline = {},
-  extensions = {},
-}
+function M.setup(theme)
+  require('lualine').setup {
+    options = {
+      theme = theme,
+      icons_enabled = true,
+      component_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
+      disabled_filetypes = {},
+      always_divide_middle = true,
+    },
+    sections = {
+      lualine_a = { mode },
+      lualine_b = { branch },
+      lualine_c = { filePath, navic_info },
+      lualine_x = { diagnostics, diff, filetype, 'encoding' },
+      lualine_y = { location },
+      lualine_z = { progress },
+    },
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
+    },
+    tabline = {},
+    extensions = {},
+  }
+end
+
+return M
