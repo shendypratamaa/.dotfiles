@@ -18,7 +18,7 @@ local function keymappings(bufnr)
 
   keymap('n', 'gS', ':TSLspOrganize<CR>', opts)
   keymap('n', 'gR', ':TSLspRenameFile<CR>', opts)
-  keymap('n', 'gi', ':TSLspImportAll<CR>', opts)
+  keymap('n', 'gn', ':TSLspImportAll<CR>', opts)
 
   keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
 

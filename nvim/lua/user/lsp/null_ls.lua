@@ -17,22 +17,15 @@ local sources = {
       path '~/.config/nvim/linter-config/.stylua.toml',
     },
   },
-  formatting.prettier.with {
-    extra_args = {
-      '--config',
-      path '~/.prettierrc',
-    },
-  },
-
+  formatting.prettierd,
   -- diagnostics
-  diagnostics.eslint.with {
+  diagnostics.eslint_d.with {
     '--config',
     path '~/.eslintrc',
   },
   diagnostics.write_good.with { filetypes = { 'markdown', 'text' } },
-
   -- code-actions
-  code_actions.eslint,
+  code_actions.eslint_d,
   code_actions.gitsigns,
 }
 

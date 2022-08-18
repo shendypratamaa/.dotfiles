@@ -16,6 +16,8 @@ function M.setup()
     'stylua',
     'prettierd',
     'markdownlint',
+    'write-good',
+    'eslint_d',
   }
 
   local opts = {
