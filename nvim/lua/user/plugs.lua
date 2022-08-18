@@ -29,6 +29,14 @@ vim.cmd [[
   augroup end
 ]]
 
+vim.cmd [[
+  if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+ endif
+]]
+
 -- Have packer use a popup window
 packer.init {
   display = {
@@ -112,6 +120,7 @@ return packer.startup(function(use)
   use 'sainnhe/gruvbox-material'
   use 'folke/tokyonight.nvim'
   use 'rebelot/kanagawa.nvim'
+  use 'rmehri01/onenord.nvim'
   use { 'catppuccin/nvim', as = 'catppuccin' }
 
   -- themes utils
