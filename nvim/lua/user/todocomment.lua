@@ -4,26 +4,6 @@ if not todo_ok then
   return
 end
 
--- this is example using todocomments
--- FIXME: added some information
--- BUG:
--- FIXIT:
--- ISSUE:
-
--- TODO: added some information
-
--- HACK: added some information
--- WARN:
--- WARNING:
--- XXX:
-
--- PERF: added some information
--- PERFORMANCE:
--- OPTIMIZE:
-
--- NOTE: added some information
--- INFO:
-
 todo.setup {
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority
