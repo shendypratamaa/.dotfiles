@@ -118,6 +118,7 @@ keymap(
 )
 keymap('n', ']n', ':Telescope file_browser<CR>', opts)
 keymap('n', ']g', ':Telescope<CR>', opts)
+keymap('n', ']t', ':TodoTelescope<CR>', opts)
 
 -- trouble
 keymap('n', ']e', ':TroubleToggle<CR>', opts)
