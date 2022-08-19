@@ -3,6 +3,36 @@ local M = {}
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local navic = require 'nvim-navic'
 
+local disable_servers = {
+  'tsserver',
+  'sumneko_lua',
+}
+
+local disable_diagnostics_virtual_text_lsp = function(client)
+  for _, v in pairs(disable_servers) do
+    if client == v then
+      vim.lsp.handlers['textDocument/publishDiagnostics'] = function()
+        return false
+      end
+    end
+  end
+end
+
+local lsp_highlight_document = function(client)
+  if client.resolved_capabilities.document_highlight then
+    vim.api.nvim_exec(
+      [[
+        augroup lsp_document_highlight
+          autocmd! * <buffer>
+          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        augroup END
+      ]],
+      false
+    )
+  end
+end
+
 local function clientservers(client, bufnr)
   if client.name == 'tsserver' then
     require('nvim-lsp-ts-utils').setup {
@@ -42,7 +72,6 @@ local function clientservers(client, bufnr)
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
   end
-
   if client.name == 'sumneko_lua' then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
@@ -51,6 +80,8 @@ end
 
 function M.setup(client, bufnr)
   clientservers(client, bufnr)
+  disable_diagnostics_virtual_text_lsp(client.name)
+  lsp_highlight_document(client)
 end
 
 return M
