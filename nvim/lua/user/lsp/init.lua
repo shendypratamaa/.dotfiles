@@ -38,6 +38,8 @@ function M.setup()
     'markdownlint',
     'write-good',
     'eslint_d',
+    'selene',
+    'fixjson'
   }
 
   local opts = {
