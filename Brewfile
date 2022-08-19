@@ -36,8 +36,6 @@ brew "reattach-to-user-namespace"
 brew "ripgrep"
 # Terminal based presentation tool
 brew "slides"
-# Opinionated Lua code formatter
-brew "stylua"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
