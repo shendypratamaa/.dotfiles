@@ -14,7 +14,7 @@ local sources = {
   formatting.stylua.with {
     extra_args = {
       '--config-path',
-      path '~/.config/nvim/linter-config/.stylua.toml',
+      path '~/.config/nvim/linter-config/stylua.toml',
     },
   },
   formatting.prettierd,
