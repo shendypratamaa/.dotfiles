@@ -17,13 +17,30 @@ local sources = {
       path '~/.config/nvim/linter-config/stylua.toml',
     },
   },
-  formatting.prettierd,
-  -- diagnostics
-  diagnostics.eslint_d.with {
-    '--config',
-    path '~/.eslintrc',
+  formatting.prettierd.with {
+    env = {
+      PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '$HOME/.prettierrc',
+    },
   },
+  formatting.fixjson,
+  formatting.markdownlint,
+
+  -- diagnostics
   diagnostics.write_good.with { filetypes = { 'markdown', 'text' } },
+  diagnostics.eslint_d.with {
+    extra_args = {
+      '--config',
+      path '~/.eslintrc',
+    },
+  },
+  diagnostics.selene.with {
+    extra_args = {
+      '--config',
+      path '~/.config/nvim/linter-config/selene.toml',
+    },
+  },
+  diagnostics.write_good,
+
   -- code-actions
   code_actions.eslint_d,
   code_actions.gitsigns,

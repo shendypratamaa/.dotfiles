@@ -22,16 +22,16 @@ nvimtree.setup {
   reload_on_bufenter = false,
   respect_buf_cwd = false,
   view = {
-    adaptive_size = false,
+    adaptive_size = true,
     centralize_selection = true,
     width = 30,
     height = 30,
-    hide_root_folder = false,
+    hide_root_folder = true,
     side = 'left',
-    preserve_window_proportions = false,
+    preserve_window_proportions = true,
     number = false,
     relativenumber = false,
-    signcolumn = 'yes',
+    signcolumn = 'no',
     mappings = {
       custom_only = false,
       list = {
@@ -40,14 +40,14 @@ nvimtree.setup {
     },
   },
   renderer = {
-    add_trailing = true,
+    add_trailing = false,
     group_empty = false,
     highlight_git = true,
     full_name = true,
     highlight_opened_files = 'none',
     root_folder_modifier = ':~',
     indent_markers = {
-      enable = true,
+      enable = false,
       icons = {
         corner = '└ ',
         edge = '│ ',
@@ -90,7 +90,7 @@ nvimtree.setup {
         },
       },
     },
-    special_files = { 'Cargo.toml', 'Makefile', 'README.md', 'readme.md' },
+    special_files = {},
     symlink_destination = true,
   },
   hijack_directories = {
@@ -131,7 +131,7 @@ nvimtree.setup {
     enable = true,
     ignore = true,
     show_on_dirs = false,
-    timeout = 400,
+    timeout = 300,
   },
   actions = {
     use_system_clipboard = true,

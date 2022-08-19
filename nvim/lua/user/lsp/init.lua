@@ -5,6 +5,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local disable_servers = {
   'tsserver',
+  'sumneko_lua'
 }
 
 local disable_diagnostics_virtual_text_lsp = function(client)
@@ -39,7 +40,7 @@ function M.setup()
     'write-good',
     'eslint_d',
     'selene',
-    'fixjson'
+    'fixjson',
   }
 
   local opts = {

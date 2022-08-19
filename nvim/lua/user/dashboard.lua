@@ -111,7 +111,6 @@ local buttons = {
       '💻 --> Find Files',
       ":lua require('telescope.builtin').find_files()<CR>"
     ),
-    button('e', '📖 --> New Files', ':e newfiles<CR>'),
     button('z', '🪐 --> Configuration Zshell', ':e ~/.zshrc<cr>'),
     button(
       'd',
@@ -143,9 +142,9 @@ local opts = {
     section.plugin_count,
     { type = 'padding', val = 2 },
     section.buttons,
-    { type = 'padding', val = 0 },
+    { type = 'padding', val = 1 },
     section.footer,
-    { type = 'padding', val = 0 },
+    { type = 'padding', val = 1 },
   },
   opts = {
     margin = 0,
