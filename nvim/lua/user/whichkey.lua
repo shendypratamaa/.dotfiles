@@ -3,6 +3,7 @@ local status_ok, which_key = pcall(require, 'which-key')
 if not status_ok then
   return
 end
+
 local wk = which_key
 
 local setup = {
@@ -45,11 +46,11 @@ local setup = {
     scroll_up = '<c-u>', -- binding to scroll up inside the popup
   },
   window = {
-    border = 'single', -- none, single, double, shadow
+    border = 'rounded', -- none, single, double, shadow
     position = 'bottom', -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-    winblend = 0,
+    winblend = 20,
   },
   layout = {
     height = { min = 3, max = 25 }, -- min and max height of the columns
@@ -89,7 +90,6 @@ local keybinds = {
   V = { '<C-w>v<cr>', 'Split Vertical' },
   n = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
   N = { '<cmd>NeorgStart<CR>', 'Notes' },
-  r = { ':reg<CR>', 'Register' },
   f = { ':Format<CR>', 'Format File' },
   L = {
     name = '+LSP 🤖',
