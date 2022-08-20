@@ -72,6 +72,11 @@ return packer.startup(function(use)
       'mason.nvim',
       'mason-lspconfig.nvim',
       'mason-tool-installer.nvim',
+      'lua-dev.nvim',
+      'null-ls.nvim',
+      'typescript.nvim',
+      'schemastore.nvim',
+      'nvim-navic',
     },
     config = function()
       require('user.lsp').setup()
@@ -80,11 +85,13 @@ return packer.startup(function(use)
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'folke/lua-dev.nvim',
+      'jose-elias-alvarez/typescript.nvim',
+      "jose-elias-alvarez/null-ls.nvim",
+      'b0o/schemastore.nvim',
+      'SmiteshP/nvim-navic',
     },
   }
-  use { 'jose-elias-alvarez/typescript.nvim' }
-  use { 'folke/lua-dev.nvim' }
-  use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
   use { 'MaxMEllon/vim-jsx-pretty' }
   use 'ludovicchabant/vim-gutentags'
@@ -93,7 +100,6 @@ return packer.startup(function(use)
     'kristijanhusak/vim-js-file-import',
     run = 'npm install',
   }
-  use 'b0o/SchemaStore.nvim'
 
   -- performance
   use { 'dstein64/vim-startuptime' }
@@ -127,7 +133,6 @@ return packer.startup(function(use)
   use 'numToStr/Comment.nvim'
   use 'lewis6991/gitsigns.nvim'
   use 'nvim-lualine/lualine.nvim'
-  use 'SmiteshP/nvim-navic'
   use 'windwp/nvim-autopairs'
   use 'mbbill/undotree'
   use 'antoinemadec/FixCursorHold.nvim'
