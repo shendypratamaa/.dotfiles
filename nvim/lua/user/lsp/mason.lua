@@ -3,6 +3,10 @@ local M = {}
 function M.setup(servers, options, formatter)
   local lsp_config = require 'lspconfig'
 
+  local disable_diagnostics_lsp = function()
+    vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+  end
+
   local function extend(...)
     vim.tbl_deep_extend(...)
   end
@@ -64,6 +68,8 @@ function M.setup(servers, options, formatter)
       client.resolved_capabilities.document_formatting = false
     end,
   }
+
+  disable_diagnostics_lsp()
 end
 
 return M

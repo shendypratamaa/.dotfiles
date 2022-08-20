@@ -30,12 +30,7 @@ local sources = {
       vim.fn.expand '~/.eslintrc',
     },
   },
-  diagnostics.selene.with {
-    extra_args = {
-      'config',
-      vim.fn.expand '~/.config/nvim/linter-config/selene.toml',
-    },
-  },
+  diagnostics.selene,
   diagnostics.markdownlint,
 
   -- code-actions
