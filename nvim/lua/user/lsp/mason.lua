@@ -3,6 +3,8 @@ local M = {}
 function M.setup(servers, options, formatter)
   local lsp_config = require 'lspconfig'
 
+  local navic = require 'nvim-navic'
+
   local disable_diagnostics_lsp = function()
     vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
   end
@@ -58,14 +60,16 @@ function M.setup(servers, options, formatter)
   }
 
   lsp_config.sumneko_lua.setup {
-    on_attach = function(client)
+    on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
+      navic.attach(client, bufnr)
     end,
   }
 
   lsp_config.tsserver.setup {
-    on_attach = function(client)
+    on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
+      navic.attach(client, bufnr)
     end,
   }
 
