@@ -72,6 +72,12 @@ function M.setup(servers, options, formatter)
       navic.attach(client, bufnr)
     end,
   }
+  lsp_config.jsonls.setup {
+    on_attach = function(client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+      navic.attach(client, bufnr)
+    end,
+  }
 
   disable_diagnostics_lsp()
 end
