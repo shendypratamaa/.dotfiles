@@ -1,6 +1,5 @@
 local M = {}
 
-local cmp_nvim_lsp = require 'cmp_nvim_lsp'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local servers = {
@@ -9,17 +8,29 @@ local servers = {
     settings = {
       json = {
         schemas = require('schemastore').json.schemas(),
-        validate = { enable = true },
       },
     },
-    filetypes = { 'jsonc', 'json' },
   },
   sumneko_lua = {
     settings = {
       Lua = {
+        runtime = {
+          version = 'LuaJIT',
+          path = vim.split(package.path, ';'),
+        },
         diagnostics = {
           globals = { 'vim' },
         },
+        workspace = {
+          library = {
+            [vim.fn.expand '$VIMRUNTIME/lua'] = true,
+            [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
+          },
+          maxPreload = 2000,
+          preloadFileSize = 50000,
+        },
+        completion = { callSnippet = 'Both' },
+        telemetry = { enable = false },
       },
     },
   },
@@ -49,9 +60,7 @@ local formatter = {
   'fixjson',
 }
 
-require('user.lsp.handlers').setup()
-
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local opts = {
   flags = {
@@ -60,6 +69,8 @@ local opts = {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
+
+require('user.lsp.handlers').setup()
 
 function M.setup()
   require('user.lsp.null_ls').setup(opts)

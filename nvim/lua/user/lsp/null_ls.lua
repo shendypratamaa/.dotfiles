@@ -1,6 +1,7 @@
 local M = {}
 
 local nls = require 'null-ls'
+local nls_utils = require 'null-ls.utils'
 
 local formatting = nls.builtins.formatting
 local diagnostics = nls.builtins.diagnostics
@@ -11,12 +12,12 @@ local sources = {
   formatting.stylua.with {
     extra_args = {
       '--config-path',
-      vim.fn.expand '~/.config/nvim/linter-config/stylua.toml',
+      vim.fn.expand '~/.dotfiles/nvim/linter-config/stylua.toml',
     },
   },
   formatting.prettierd.with {
     env = {
-      PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '$HOME/.prettierrc',
+      PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '~/.prettierrc',
     },
   },
   formatting.fixjson,
@@ -41,14 +42,15 @@ local sources = {
 function M.setup(opts)
   nls.setup {
     debug = true,
+    debounce = 150,
     diagnostics_format = '[#{c}] #{m} (#{s})',
     sources = sources,
+    on_attach = opts.on_attach,
     -- on_attach = function(client)
     --   if client.resolved_capabilities.document_formatting then
     --     vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()'
     --   end
     -- end,
-    on_attach = opts.on_attach,
   }
 end
 
