@@ -3,6 +3,10 @@ local M = {}
 function M.setup(servers, options, formatter)
   local lsp_config = require 'lspconfig'
 
+  local function extend(...)
+    vim.tbl_deep_extend(...)
+  end
+
   -- mason
   require('mason').setup {
     ui = {
@@ -28,53 +32,38 @@ function M.setup(servers, options, formatter)
     automatic_installation = false,
   }
 
-  -- Set up LSP servers
-  for server_name, _ in pairs(servers) do
-    local opts =
-      vim.tbl_deep_extend('force', options, servers[server_name] or {})
+  local install_root_dir = vim.fn.stdpath 'data' .. 'mason'
 
-    if server_name == 'sumneko_lua' then
-      opts = require('lua-dev').setup { lspconfig = opts }
-    end
-
-    if server_name == 'tsserver' then
+  require('mason-lspconfig').setup_handlers {
+    function(server_name)
+      local opts = extend('force', options, servers[server_name] or {})
+      lsp_config[server_name].setup { opts }
+    end,
+    ['sumneko_lua'] = function()
+      local opts = extend('force', options, servers['sumneko_lua'] or {})
+      lsp_config.sumneko_lua.setup(require('lua-dev').setup { opts })
+    end,
+    ['tsserver'] = function()
+      local opts = extend('force', options, servers['tsserver'] or {})
       require('typescript').setup {
         disable_commands = false,
         debug = false,
         server = opts,
       }
-    else
-      lsp_config[server_name].setup(opts)
-    end
-  end
+    end,
+  }
 
-  -- BUG:
-  -- require('mason-lspconfig').setup_handlers {
-  --   function(server_name)
-  --     local opts =
-  --       vim.tbl_deep_extend('force', options, servers[server_name] or {})
-  --     lsp_config[server_name].setup { opts }
-  --   end,
-  --   ['sumneko_lua'] = function()
-  --     local opts =
-  --       vim.tbl_deep_extend('force', options, servers['sumneko_lua'] or {})
-  --     lsp_config.sumneko_lua.setup(require('lua-dev').setup { opts })
-  --   end,
-  --   ['tsserver'] = function()
-  --     local opts =
-  --       vim.tbl_deep_extend('force', options, servers['tsserver'] or {})
-  --     require('typescript').setup {
-  --       disable_commands = false,
-  --       debug = false,
-  --       server = opts,
-  --     }
-  --   end,
-  --   ['jsonls'] = function()
-  --     local opts =
-  --       vim.tbl_deep_extend('force', options, servers['jsonls'] or {})
-  --     lsp_config.jsonls.setup { opts }
-  --   end,
-  -- }
+  lsp_config.sumneko_lua.setup {
+    on_attach = function(client)
+      client.resolved_capabilities.document_formatting = false
+    end,
+  }
+
+  lsp_config.tsserver.setup {
+    on_attach = function(client)
+      client.resolved_capabilities.document_formatting = false
+    end,
+  }
 end
 
 return M

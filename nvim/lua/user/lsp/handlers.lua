@@ -24,7 +24,6 @@ function M.setup()
   }
 
   vim.diagnostic.config(diagnostics_config)
-
 end
 
 return M

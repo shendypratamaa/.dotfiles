@@ -1,20 +1,17 @@
-local null_ls_status_ok, null_ls = pcall(require, 'null-ls')
+local M = {}
 
-if not null_ls_status_ok then
-  return
-end
+local nls = require 'null-ls'
 
-local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
-local code_actions = null_ls.builtins.code_actions
-local path = vim.fn.expand
+local formatting = nls.builtins.formatting
+local diagnostics = nls.builtins.diagnostics
+local code_actions = nls.builtins.code_actions
 
 local sources = {
   -- formatting
   formatting.stylua.with {
     extra_args = {
       '--config-path',
-      path '~/.config/nvim/linter-config/stylua.toml',
+      vim.fn.expand '~/.config/nvim/linter-config/stylua.toml',
     },
   },
   formatting.prettierd.with {
@@ -30,29 +27,34 @@ local sources = {
   diagnostics.eslint_d.with {
     extra_args = {
       '--config',
-      path '~/.eslintrc',
+      vim.fn.expand '~/.eslintrc',
     },
   },
   diagnostics.selene.with {
     extra_args = {
-      '--config',
-      path '~/.config/nvim/linter-config/selene.toml',
+      'config',
+      vim.fn.expand '~/.config/nvim/linter-config/selene.toml',
     },
   },
-  diagnostics.write_good,
+  diagnostics.markdownlint,
 
   -- code-actions
   code_actions.eslint_d,
   code_actions.gitsigns,
 }
 
-null_ls.setup {
-  debug = true,
-  diagnostics_format = '[#{c}] #{m} (#{s})',
-  sources = sources,
-  on_attach = function()
-    -- if client.resolved_capabilities.document_formatting then
-    --   vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
-    -- end
-  end,
-}
+function M.setup(opts)
+  nls.setup {
+    debug = true,
+    diagnostics_format = '[#{c}] #{m} (#{s})',
+    sources = sources,
+    -- on_attach = function(client)
+    --   if client.resolved_capabilities.document_formatting then
+    --     vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()'
+    --   end
+    -- end,
+    on_attach = opts.on_attach,
+  }
+end
+
+return M

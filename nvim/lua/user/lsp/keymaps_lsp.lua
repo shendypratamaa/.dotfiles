@@ -1,6 +1,6 @@
 local M = {}
 
-local function keymappings(bufnr)
+local function keymappings(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   local keymap = vim.keymap.set
 
@@ -25,7 +25,7 @@ local function keymappings(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-M.setup = function(bufnr)
+M.setup = function(client, bufnr)
   keymappings(bufnr)
 end
 

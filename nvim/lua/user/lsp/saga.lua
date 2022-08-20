@@ -10,7 +10,7 @@ saga.init_lsp_saga {
   border_style = 'rounded',
   --the range of 0 for fully opaque window (disabled) to 100 for fully
   --transparent background. Values between 0-30 are typically most useful.
-  saga_winblend = 0,
+  saga_winblend = 30,
   -- when cursor in saga window you config these to move
   move_in_saga = { prev = '<C-p>', next = '<C-n>' },
   diagnostic_header = { '😡', '😥', '😤', '😐' },
@@ -26,7 +26,7 @@ saga.init_lsp_saga {
   code_action_num_shortcut = true,
   -- same as nvim-lightbulb but async
   code_action_lightbulb = {
-    enable = true,
+    enable = false,
     sign = true,
     enable_in_insert = true,
     sign_priority = 20,
@@ -75,11 +75,7 @@ saga.init_lsp_saga {
     auto_preview = true,
     virt_text = '┃',
     jump_key = 'o',
-    -- auto refresh when change buffer
     auto_refresh = true,
   },
-  -- if you don't use nvim-lspconfig you must pass your server name and
-  -- the related filetypes into this table
-  -- like server_filetype_map = { metals = { "sbt", "scala" } }
   server_filetype_map = {},
 }
