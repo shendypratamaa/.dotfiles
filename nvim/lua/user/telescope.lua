@@ -43,25 +43,25 @@ local M = {}
 
 M.TelescopePrompt = {
   TelescopeSelection = {
-    bg = '#313140',
+    bg = '#3c3836',
   },
   TelescopePreviewMatch = {
-    fg = '#313140',
+    fg = '#a39f83',
     bg = '#d27e99',
   },
   TelescopeMatching = {
-    bg = '#C34043',
+    bg = '#d27222',
   },
   TelescopeBorder = {
-    fg = '#313140',
+    fg = '#282828',
   },
   TelescopePromptNormal = {
     fg = '#ffffff',
-    bg = '#313140',
+    bg = '#3b3933',
   },
   TelescopePromptBorder = {
-    fg = '#313140',
-    bg = '#313140',
+    fg = '#3b3933',
+    bg = '#3b3933',
   },
   TelescopePromptTitle = {
     fg = '#f3f3f3',
