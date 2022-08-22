@@ -47,7 +47,7 @@ M.on_attach = function(client, bufnr)
 
   require('user.lsp.highlight').setup(client)
 
-  require('user.lsp.keymaps_lsp').setup(bufnr)
+  require('user.lsp.keymaps_lsp').setup(client, bufnr)
 end
 
 local formatter = {
