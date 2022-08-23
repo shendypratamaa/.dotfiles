@@ -39,7 +39,8 @@ function M.setup(servers, options, formatter)
     end,
 
     ['sumneko_lua'] = function()
-      local opts = vim.tbl_deep_extend('force', options, servers['sumneko_lua'])
+      local opts =
+        vim.tbl_deep_extend('force', options, servers['sumneko_lua'] or {})
       lsp_config.sumneko_lua.setup(require('lua-dev').setup {
         lspconfig = {
           on_attach = function(client, bufnr)
@@ -52,7 +53,8 @@ function M.setup(servers, options, formatter)
     end,
 
     ['tsserver'] = function()
-      local opts = vim.tbl_deep_extend('force', options, servers['tsserver'])
+      local opts =
+        vim.tbl_deep_extend('force', options, servers['tsserver'] or {})
       require('typescript').setup {
         disable_commands = false,
         debug = false,
@@ -68,13 +70,9 @@ function M.setup(servers, options, formatter)
     end,
 
     ['jsonls'] = function()
-      local opts = vim.tbl_deep_extend('force', options, servers['jsonls'])
+      local opts =
+        vim.tbl_deep_extend('force', options, servers['jsonls'] or {})
       lsp_config.jsonls.setup {
-        settings = {
-          json = {
-            schemas = require('schemastore').json.schemas(),
-          },
-        },
         on_attach = function(client, bufnr)
           client.resolved_capabilities.document_formatting = false
           navic.attach(client, bufnr)

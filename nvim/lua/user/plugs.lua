@@ -63,7 +63,7 @@ return packer.startup(function(use)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'jose-elias-alvarez/typescript.nvim' }
   use { 'SmiteshP/nvim-navic' }
-  use { 'b0o/schemastore.nvim' }
+  use { 'b0o/SchemaStore.nvim' }
   use { 'folke/lua-dev.nvim' }
   use { 'MaxMEllon/vim-jsx-pretty' }
   use { 'ludovicchabant/vim-gutentags' }
