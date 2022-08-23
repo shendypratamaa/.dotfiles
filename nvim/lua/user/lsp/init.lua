@@ -1,54 +1,15 @@
 local M = {}
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 local servers = {
   html = {},
-  jsonls = {
-    settings = {
-      json = {
-        schemas = require('schemastore').json.schemas(),
-      },
-    },
-  },
-  sumneko_lua = {
-    settings = {
-      Lua = {
-        runtime = {
-          version = 'LuaJIT',
-          path = vim.split(package.path, ';'),
-        },
-        diagnostics = {
-          globals = { 'vim' },
-        },
-        workspace = {
-          library = {
-            [vim.fn.expand '$VIMRUNTIME/lua'] = true,
-            [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
-          },
-          maxPreload = 2000,
-          preloadFileSize = 50000,
-        },
-        completion = { callSnippet = 'Both' },
-        telemetry = { enable = false },
-      },
-    },
-  },
-  tsserver = { disable_formatting = true },
+  jsonls = {},
+  sumneko_lua = {},
+  tsserver = {},
+  pyright = {},
   prosemd_lsp = {},
   cssls = {},
   tailwindcss = {},
 }
-
-M.on_attach = function(client, bufnr)
-  require 'user.lsp.saga'
-
-  require('user.lsp.ts_utils').setup()
-
-  require('user.lsp.highlight').setup(client)
-
-  require('user.lsp.keymaps_lsp').setup(client, bufnr)
-end
 
 local formatter = {
   'stylua',
@@ -57,17 +18,29 @@ local formatter = {
   'write-good',
   'eslint_d',
   'selene',
-  'fixjson',
+  'isort',
+  'black',
+  'flake8',
 }
 
-M.capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+M.on_attach = function(client, bufnr)
+  require 'user.lsp.saga'
+  require('user.lsp.ts_utils').setup()
+  require('user.lsp.highlight').setup(client)
+  require('user.lsp.keymaps_lsp').setup(client, bufnr)
+end
+
+local cmp = require 'cmp_nvim_lsp'
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities = cmp.update_capabilities(capabilities)
 
 local opts = {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
   flags = {
     debounce_text_changes = 150,
   },
-  on_attach = M.on_attach,
-  capabilities = M.capabilities,
 }
 
 require('user.lsp.handlers').setup()
