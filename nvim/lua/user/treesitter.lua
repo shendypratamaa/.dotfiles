@@ -7,8 +7,9 @@ end
 configs.setup {
   ensure_installed = {
     'lua',
-    'css',
     'typescript',
+    'python',
+    'css',
     'json',
     'jsonc',
     'html',
