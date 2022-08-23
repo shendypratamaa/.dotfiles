@@ -47,10 +47,6 @@ packer.init {
   max_jobs = 10,
 }
 
-vim.cmd [[
-  autocmd BufNewFile,BufRead *.json set filetype=jsonc
-]]
-
 return packer.startup(function(use)
   -- plugins here
   use { 'lewis6991/impatient.nvim' }
