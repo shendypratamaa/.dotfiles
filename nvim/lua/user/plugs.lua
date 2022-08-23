@@ -1,11 +1,9 @@
--- Use a protected call so we don't error out on first use
 local packer_ok, packer = pcall(require, 'packer')
 
 if not packer_ok then
   return
 end
 
--- Automatically install packer
 local fn = vim.fn
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -21,7 +19,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
   augroup packer_user_config
     autocmd!
@@ -37,7 +34,6 @@ vim.cmd [[
  endif
 ]]
 
--- Have packer use a popup window
 packer.init {
   display = {
     open_fn = function()
@@ -55,7 +51,6 @@ vim.cmd [[
   autocmd BufNewFile,BufRead *.json set filetype=jsonc
 ]]
 
--- Install your plugins here
 return packer.startup(function(use)
   -- plugins here
   use { 'lewis6991/impatient.nvim' }
@@ -64,37 +59,18 @@ return packer.startup(function(use)
   use { 'nvim-lua/plenary.nvim' }
 
   -- lsp
-  use {
-    'neovim/nvim-lspconfig',
-    opt = true,
-    event = { 'BufReadPre' },
-    wants = {
-      'mason.nvim',
-      'mason-lspconfig.nvim',
-      'mason-tool-installer.nvim',
-      'lua-dev.nvim',
-      'null-ls.nvim',
-      'typescript.nvim',
-      'schemastore.nvim',
-      'nvim-navic',
-    },
-    config = function()
-      require('user.lsp').setup()
-    end,
-    requires = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
-      'folke/lua-dev.nvim',
-      'jose-elias-alvarez/typescript.nvim',
-      "jose-elias-alvarez/null-ls.nvim",
-      'b0o/schemastore.nvim',
-      'SmiteshP/nvim-navic',
-    },
-  }
+  use { 'neovim/nvim-lspconfig' }
+  use { 'williamboman/mason.nvim' }
+  use { 'williamboman/mason-lspconfig.nvim' }
+  use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
+  use { 'jose-elias-alvarez/typescript.nvim' }
+  use { 'SmiteshP/nvim-navic' }
+  use { 'b0o/schemastore.nvim' }
+  use { 'folke/lua-dev.nvim' }
   use { 'MaxMEllon/vim-jsx-pretty' }
-  use 'ludovicchabant/vim-gutentags'
+  use { 'ludovicchabant/vim-gutentags' }
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
   use {
     'kristijanhusak/vim-js-file-import',
@@ -106,11 +82,11 @@ return packer.startup(function(use)
   use { 'nathom/filetype.nvim' }
 
   -- cmp plugins
-  use 'hrsh7th/nvim-cmp' -- The completion plugin
-  use 'hrsh7th/cmp-buffer' -- buffer completions
-  use 'hrsh7th/cmp-path' -- path completions
-  use 'hrsh7th/cmp-cmdline' -- cmdline completions
-  use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
@@ -118,8 +94,8 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-calc'
   use 'ray-x/cmp-treesitter'
   use 'David-Kunz/cmp-npm'
-  use 'L3MON4D3/LuaSnip' --snippet engine
-  use 'rafamadriz/friendly-snippets' -- a bunch of snippets to use
+  use 'L3MON4D3/LuaSnip'
+  use 'rafamadriz/friendly-snippets'
   use 'onsails/lspkind.nvim'
 
   -- colorscheme
@@ -155,9 +131,9 @@ return packer.startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+      'kyazdani42/nvim-web-devicons',
     },
-    tag = 'nightly', -- optional, updated every week. (see issue #1193)
+    tag = 'nightly',
   }
   use {
     'kwkarlwang/bufjump.nvim',
@@ -191,34 +167,33 @@ return packer.startup(function(use)
   }
 
   -- Telescope
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
+  use { 'nvim-telescope/telescope.nvim' }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'nvim-telescope/telescope-project.nvim'
+  use { 'nvim-telescope/telescope-project.nvim' }
 
   -- Telescope utils extended
-  use 'airblade/vim-rooter'
+  use { 'airblade/vim-rooter' }
 
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/nvim-treesitter-refactor'
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'nvim-treesitter/nvim-treesitter-context'
-  use 'RRethy/nvim-treesitter-textsubjects'
-  use 'nvim-treesitter/playground'
-  use 'p00f/nvim-ts-rainbow'
-  use 'theHamsta/nvim-treesitter-pairs'
-  use 'windwp/nvim-ts-autotag'
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use { 'nvim-treesitter/nvim-treesitter-refactor' }
+  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+  use { 'nvim-treesitter/nvim-treesitter-context' }
+  use { 'RRethy/nvim-treesitter-textsubjects' }
+  use { 'nvim-treesitter/playground' }
+  use { 'p00f/nvim-ts-rainbow' }
+  use { 'theHamsta/nvim-treesitter-pairs' }
+  use { 'windwp/nvim-ts-autotag' }
+  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
 
   -- note taking apps
-  use 'nvim-neorg/neorg'
+  use { 'nvim-neorg/neorg' }
 
   -- markdown
-  use 'mzlogin/vim-markdown-toc'
+  use { 'mzlogin/vim-markdown-toc' }
   use { 'iamcco/markdown-preview.nvim' }
 
-  -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
