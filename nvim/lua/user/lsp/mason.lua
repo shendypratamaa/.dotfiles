@@ -1,19 +1,13 @@
 local M = {}
 
+local disable_diagnostics_lsp = function()
+  vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+end
+
 function M.setup(servers, options, formatter)
   local lsp_config = require 'lspconfig'
-
   local navic = require 'nvim-navic'
 
-  local disable_diagnostics_lsp = function()
-    vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
-  end
-
-  local function extend(...)
-    vim.tbl_deep_extend(...)
-  end
-
-  -- mason
   require('mason').setup {
     ui = {
       border = 'rounded',
@@ -32,54 +26,63 @@ function M.setup(servers, options, formatter)
     start_delay = 3000,
   }
 
-  -- mason-lspconfig
   require('mason-lspconfig').setup {
     ensure_installed = vim.tbl_keys(servers),
     automatic_installation = false,
   }
 
-  local install_root_dir = vim.fn.stdpath 'data' .. 'mason'
-
   require('mason-lspconfig').setup_handlers {
     function(server_name)
-      local opts = extend('force', options, servers[server_name] or {})
+      local opts =
+        vim.tbl_deep_extend('force', options, servers[server_name] or {})
       lsp_config[server_name].setup { opts }
     end,
+
     ['sumneko_lua'] = function()
-      local opts = extend('force', options, servers['sumneko_lua'] or {})
-      lsp_config.sumneko_lua.setup(require('lua-dev').setup { opts })
+      local opts = vim.tbl_deep_extend('force', options, servers['sumneko_lua'])
+      lsp_config.sumneko_lua.setup(require('lua-dev').setup {
+        lspconfig = {
+          on_attach = function(client, bufnr)
+            client.resolved_capabilities.document_formatting = false
+            navic.attach(client, bufnr)
+          end,
+          opts,
+        },
+      })
     end,
+
     ['tsserver'] = function()
-      local opts = extend('force', options, servers['tsserver'] or {})
+      local opts = vim.tbl_deep_extend('force', options, servers['tsserver'])
       require('typescript').setup {
         disable_commands = false,
         debug = false,
-        server = opts,
+        server = {
+          on_attach = function(client, bufnr)
+            client.resolved_capabilities.document_formatting = false
+            navic.attach(client, bufnr)
+            disable_diagnostics_lsp()
+          end,
+          opts,
+        },
+      }
+    end,
+
+    ['jsonls'] = function()
+      local opts = vim.tbl_deep_extend('force', options, servers['jsonls'])
+      lsp_config.jsonls.setup {
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+          },
+        },
+        on_attach = function(client, bufnr)
+          client.resolved_capabilities.document_formatting = false
+          navic.attach(client, bufnr)
+        end,
+        opts,
       }
     end,
   }
-
-  lsp_config.sumneko_lua.setup {
-    on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      navic.attach(client, bufnr)
-    end,
-  }
-
-  lsp_config.tsserver.setup {
-    on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      navic.attach(client, bufnr)
-    end,
-  }
-  lsp_config.jsonls.setup {
-    on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      navic.attach(client, bufnr)
-    end,
-  }
-
-  disable_diagnostics_lsp()
 end
 
 return M
