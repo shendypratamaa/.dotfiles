@@ -1,10 +1,7 @@
 local M = {}
 
 local function keymappings(client, bufnr)
-  local function keymap_lsp(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-
+  local function keymap_lsp(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = { noremap = true, silent = true }
 
   -- Lspsaga
@@ -25,18 +22,7 @@ local function keymappings(client, bufnr)
 
   keymap_lsp('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
 
-  -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]]
-
-  if client.resolved_capabilities.document_formatting then
-    keymap_lsp('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    keymap_lsp(
-      'n',
-      '<leader>f',
-      '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
-      opts
-    )
-  end
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]]
 end
 
 M.setup = function(client, bufnr)

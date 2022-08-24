@@ -1,7 +1,4 @@
-local M = {}
-
 local nls = require 'null-ls'
-local nls_utils = require 'null-ls.utils'
 
 local formatting = nls.builtins.formatting
 local diagnostics = nls.builtins.diagnostics
@@ -22,8 +19,8 @@ local sources = {
       PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '~/.prettierrc',
     },
   },
-  formatting.markdownlint,
   formatting.black.with { extra_args = { { '--fast' } } },
+  formatting.markdownlint,
   formatting.isort,
 
   -- diagnostics
@@ -48,15 +45,9 @@ local sources = {
   code_actions.gitsigns,
 }
 
-function M.setup(opts)
-  nls.setup {
-    -- debug = true,
-    debounce = 150,
-    diagnostics_format = '[#{c}] #{m}',
-    sources = sources,
-    on_attach = opts.on_attach,
-    root_dir = nls_utils.root_pattern '.git',
-  }
-end
-
-return M
+nls.setup {
+  debug = true,
+  debounce = 150,
+  diagnostics_format = '[#{c}] #{m}',
+  sources = sources,
+}

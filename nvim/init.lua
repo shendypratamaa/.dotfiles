@@ -1,6 +1,6 @@
 require('impatient').enable_profile()
 require 'user.plugs'
-require 'user.lsp'.setup()
+require 'user.lsp'
 require 'user.options'
 require 'user.cmp'
 require 'user.snip'

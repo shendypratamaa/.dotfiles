@@ -1,4 +1,35 @@
-local M = {}
+local lsp_config = require 'lspconfig'
+
+local navic = require 'nvim-navic'
+
+local disable_diagnostics_lsp = function()
+  vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+end
+
+local cmp = require 'cmp_nvim_lsp'
+
+local on_attach = function(client, bufnr)
+  require 'user.lsp.saga'
+  require('user.lsp.ts_utils').setup()
+  require('user.lsp.highlight').setup(client)
+  require('user.lsp.keymaps_lsp').setup(client, bufnr)
+
+  if client.name == 'sumneko_lua' then
+    client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
+  end
+  if client.name == 'tsserver' then
+    client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
+  end
+  if client.name == 'jsonls' then
+    client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
+  end
+end
+
+local capabilities =
+  cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local servers = {
   html = {},
@@ -23,32 +54,48 @@ local formatter = {
   'flake8',
 }
 
-local on_attach = function(client, bufnr)
-  require 'user.lsp.saga'
-  require('user.lsp.ts_utils').setup()
-  require('user.lsp.highlight').setup(client)
-  require('user.lsp.keymaps_lsp').setup(client, bufnr)
-end
+local flags = {
+  debounce_text_changes = 150,
+}
 
-local cmp = require 'cmp_nvim_lsp'
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-local server_capabilities = cmp.update_capabilities(capabilities)
-
-local opts = {
+lsp_config.sumneko_lua.setup {
+  flags = flags,
   on_attach = on_attach,
-  capabilities = server_capabilities,
-  flags = {
-    debounce_text_changes = 150,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+    },
   },
+}
+
+lsp_config.tsserver.setup {
+  flags = flags,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  disable_diagnostics_lsp(),
+}
+
+lsp_config.jsonls.setup {
+  flags = flags,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+    },
+  },
+}
+
+lsp_config.cssls.setup {
+  flags = flags,
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 require('user.lsp.handlers').setup()
 
-function M.setup()
-  require('user.lsp.null_ls').setup(opts)
-  require('user.lsp.mason').setup(servers, opts, formatter)
-end
-
-return M
+require 'user.lsp.null_ls'
+require('user.lsp.mason').setup(servers, formatter)
