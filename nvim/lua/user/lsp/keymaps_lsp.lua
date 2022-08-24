@@ -1,10 +1,11 @@
 local M = {}
 
-local function keymappings(client, bufnr)
-  local function keymap_lsp(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+local function keymappings(bufnr)
+  local function keymap_lsp(...)
+    vim.api.nvim_buf_set_keymap(bufnr, ...)
+  end
   local opts = { noremap = true, silent = true }
 
-  -- Lspsaga
   keymap_lsp('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
   keymap_lsp('n', '<leader>ca', ':Lspsaga code_action<CR>', opts)
   keymap_lsp('n', 'K', ':Lspsaga hover_doc<CR>', opts)
@@ -25,8 +26,8 @@ local function keymappings(client, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]]
 end
 
-M.setup = function(client, bufnr)
-  keymappings(client, bufnr)
+M.setup = function(bufnr)
+  keymappings(bufnr)
 end
 
 return M

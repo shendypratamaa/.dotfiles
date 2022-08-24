@@ -12,13 +12,18 @@ local on_attach = function(client, bufnr)
   require 'user.lsp.saga'
   require('user.lsp.ts_utils').setup()
   require('user.lsp.highlight').setup(client)
-  require('user.lsp.keymaps_lsp').setup(client, bufnr)
+  require('user.lsp.keymaps_lsp').setup(bufnr)
 
   if client.name == 'sumneko_lua' then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
   end
   if client.name == 'tsserver' then
+    client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
+    disable_diagnostics_lsp()
+  end
+  if client.name == 'pyright' then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
     disable_diagnostics_lsp()

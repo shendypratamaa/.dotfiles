@@ -111,7 +111,6 @@ cmp.setup {
     { name = 'neorg' },
     { name = 'calc' },
     { name = 'treesitter' },
-    { name = 'npm', keyword_length = 4 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

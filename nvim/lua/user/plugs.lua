@@ -89,7 +89,6 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-emoji'
   use 'hrsh7th/cmp-calc'
   use 'ray-x/cmp-treesitter'
-  use 'David-Kunz/cmp-npm'
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
   use 'onsails/lspkind.nvim'
