@@ -15,15 +15,13 @@ function M.setup()
     )
   end
 
-  local diagnostics_config = {
-    virtual_text = false,
-    signs = true,
-    underline = false,
-    update_in_insert = true,
-    severity_sort = true,
-  }
-
-  vim.diagnostic.config(diagnostics_config)
+  vim.lsp.handlers['textDocument/publishDiagnostics'] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+      underline = true,
+      update_in_insert = false,
+      virtual_text = { spacing = 4, prefix = '●' },
+      severity_sort = true,
+    })
 end
 
 return M

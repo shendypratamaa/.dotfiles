@@ -22,6 +22,7 @@ local sources = {
   formatting.black.with { extra_args = { { '--fast' } } },
   formatting.markdownlint,
   formatting.isort,
+  formatting.fixjson,
 
   -- diagnostics
   diagnostics.flake8.with { extra_args = { '--max-line-length=80' } },
@@ -32,7 +33,6 @@ local sources = {
       vim.fn.expand '~/.eslintrc',
     },
   },
-  diagnostics.luacheck,
   diagnostics.markdownlint,
 
   -- code-actions
