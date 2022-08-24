@@ -67,6 +67,7 @@ local servers = {
   prosemd_lsp = {},
   cssls = {},
   tailwindcss = {},
+  emmet_ls = {},
 }
 
 local formatter = {
