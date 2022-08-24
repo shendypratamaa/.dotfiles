@@ -13,7 +13,7 @@ npairs.setup {
   },
   disable_filetype = { 'TelescopePrompt' },
   fast_wrap = {
-    map = '<C-i>',
+    map = '<C-t>',
     chars = { '{', '[', '(', '"', "'" },
     pattern = [=[[%'%"%)%>%]%)%}%,]]=],
     end_key = '$',
@@ -31,7 +31,4 @@ if not cmp_status_ok then
   return
 end
 
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done { map_char = { tex = '' } }
-)
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
