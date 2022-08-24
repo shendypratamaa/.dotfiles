@@ -1,6 +1,6 @@
-vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mochacatcat
+vim.g.catppuccin_flavour = 'mocha' -- latte, frappe, macchiato, mochacatcat
 
-local catppuccin_ok, catppuccin = pcall(require, "catppuccin")
+local catppuccin_ok, catppuccin = pcall(require, 'catppuccin')
 
 if not catppuccin_ok then
   return
@@ -9,18 +9,18 @@ end
 catppuccin.setup {
   dim_inactive = {
     enabled = false,
-    shade = "dark",
+    shade = 'dark',
     percentage = 0.15,
   },
   transparent_background = true,
   term_colors = true,
   compile = {
     enabled = false,
-    path = vim.fn.stdpath "cache" .. "/catppuccin",
+    path = vim.fn.stdpath 'cache' .. '/catppuccin',
   },
   styles = {
-    comments = { "bold" },
-    conditionals = { "italic" },
+    comments = { 'bold' },
+    conditionals = { 'italic' },
     loops = {},
     functions = {},
     keywords = {},
@@ -37,16 +37,16 @@ catppuccin.setup {
     native_lsp = {
       enabled = true,
       virtual_text = {
-        errors = { "italic" },
-        hints = { "italic" },
-        warnings = { "italic" },
-        information = { "italic" },
+        errors = { 'italic' },
+        hints = { 'italic' },
+        warnings = { 'italic' },
+        information = { 'italic' },
       },
       underlines = {
-        errors = { "underline" },
-        hints = { "underline" },
-        warnings = { "underline" },
-        information = { "underline" },
+        errors = { 'underline' },
+        hints = { 'underline' },
+        warnings = { 'underline' },
+        information = { 'underline' },
       },
     },
     coc_nvim = false,
@@ -97,9 +97,9 @@ catppuccin.setup {
   color_overrides = {},
   highlight_overrides = {
     all = {
-      LineNr = { fg = "#f8f8f2" },
-      CursorLineNr = { fg = "#ff79c6" },
-      ColorColumn = { bg = "#9e9e9e" },
+      LineNr = { fg = '#f8f8f2' },
+      CursorLineNr = { fg = '#ff79c6' },
+      ColorColumn = { bg = '#9e9e9e' },
     },
   },
 }

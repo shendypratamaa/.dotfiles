@@ -1,4 +1,4 @@
-local numb_ok, numb = pcall(require, "numb")
+local numb_ok, numb = pcall(require, 'numb')
 
 if not numb_ok then
   return

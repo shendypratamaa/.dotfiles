@@ -1,4 +1,4 @@
-local marks_ok, mark = pcall(require, "marks")
+local marks_ok, mark = pcall(require, 'marks')
 
 if not marks_ok then
   return
@@ -30,14 +30,14 @@ mark.setup {
   -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
   -- default virt_text is "".
   bookmark_0 = {
-    sign = "⚑",
-    virt_text = "bookmarks",
+    sign = '⚑',
+    virt_text = 'bookmarks',
   },
   mappings = {
-    set_next = "m,",
-    next = "m]",
-    preview = "m;",
-    set_bookmark0 = "m0",
+    set_next = 'm,',
+    next = 'm]',
+    preview = 'm;',
+    set_bookmark0 = 'm0',
     prev = false, -- pass false to disable only this default mapping
   },
 }

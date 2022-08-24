@@ -123,7 +123,8 @@ alias lg="lazygit"
 alias tmuxconf="vim ~/.tmux.conf"
 alias l="la -l"
 alias ide="tmux split-window -h -p 25 && tmux select-pane -t 0"
-alias nodeg="cd /opt/homebrew/lib/node_modules/"
+alias nodeg="cd ~/.nvm/versions/node/v16.16.0/"
+alias rsyb="brew services restart --all"
 
 # shell config
 eval "$(starship init zsh)"

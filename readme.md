@@ -1,6 +1,6 @@
 # Personal Development Environment
 
-### Ingredients
+## Ingredients
 
 - Neovim 7.2
 - Tmux 3.3a
@@ -17,6 +17,6 @@
 - karabiner
 - slides
 
-##### Notes
+### Notes
 
-_Running on macOS 12.4 Apple Silicon_
+- _Running on macOS 12.4 Apple Silicon_
