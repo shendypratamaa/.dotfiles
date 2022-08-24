@@ -95,6 +95,16 @@ lsp_config.cssls.setup {
   capabilities = capabilities,
 }
 
+lsp_config.pyright.setup {
+  flags = flags,
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lsp_config.html.setup {}
+lsp_config.tailwindcss.setup {}
+lsp_config.prosemd_lsp.setup {}
+
 require('user.lsp.handlers').setup()
 
 require 'user.lsp.null_ls'
