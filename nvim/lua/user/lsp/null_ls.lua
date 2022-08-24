@@ -32,12 +32,7 @@ local sources = {
       vim.fn.expand '~/.eslintrc',
     },
   },
-  -- diagnostics.selene.with {
-  --   extra_args = {
-  --     '--config',
-  --     vim.fn.expand(dotpath .. 'selene.toml'),
-  --   },
-  -- },
+  diagnostics.luacheck,
   diagnostics.markdownlint,
 
   -- code-actions

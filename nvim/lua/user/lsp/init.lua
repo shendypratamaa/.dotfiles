@@ -48,10 +48,10 @@ local formatter = {
   'markdownlint',
   'write-good',
   'eslint_d',
-  'selene',
   'isort',
   'black',
   'flake8',
+  'luacheck',
 }
 
 local flags = {
