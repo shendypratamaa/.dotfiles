@@ -8,6 +8,7 @@ $git_branch\
 $git_status\
 (fg:#FCA17D bg:#86BBD8)\
 $lua\
+$python\
 $nodejs\
 $time\
 (fg:#33658A)\
@@ -70,3 +71,6 @@ format = '[[ ♥ $time ](bg:#33658A)]($style)'
 style = "bg:#4b9ff2"
 format = "[[  ($version) ](bg:#4b9ff2)]($style)"
 
+[python]
+style = "fg:#f3f3f3"
+format = "[[  ($version) ($virtualenv) ](bg:#262626)]($style)"
