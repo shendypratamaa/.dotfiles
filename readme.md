@@ -1,6 +1,6 @@
-# Personal Development Environment
+## Personal Development Environment
 
-## Ingredients
+#### Ingredients
 
 - Neovim 7.2
 - Tmux 3.3a
@@ -17,6 +17,10 @@
 - karabiner
 - slides
 
-### Notes
+#### Programming Language Support 🍔
 
-- _Running on macOS 12.4 Apple Silicon_
+##### _Javascript, Typescript, Lua, Python_
+
+##### Notes
+
+> _Running on macOS 12.4 Apple Silicon_ 🌙

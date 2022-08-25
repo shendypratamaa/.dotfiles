@@ -19,13 +19,12 @@ local sources = {
       PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '~/.prettierrc',
     },
   },
-  formatting.black.with { extra_args = { { '--fast' } } },
-  formatting.markdownlint,
+  formatting.black.with { extra_args = { '--fast' } },
   formatting.isort,
+  formatting.markdownlint,
   formatting.fixjson,
 
   -- diagnostics
-  diagnostics.flake8.with { extra_args = { '--max-line-length=80' } },
   diagnostics.write_good.with { filetypes = { 'markdown', 'text' } },
   diagnostics.eslint_d.with {
     extra_args = {
@@ -33,6 +32,7 @@ local sources = {
       vim.fn.expand '~/.eslintrc',
     },
   },
+  diagnostics.flake8,
   diagnostics.markdownlint,
 
   -- code-actions

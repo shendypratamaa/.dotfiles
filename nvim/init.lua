@@ -1,10 +1,10 @@
 require('impatient').enable_profile()
 require 'user.plugs'
-require 'user.lsp'
 require 'user.options'
+require 'user.keymaps'
+require 'user.lsp'
 require 'user.cmp'
 require 'user.snip'
-require 'user.keymaps'
 require 'user.colorscheme'
 require 'user.nvimtree'
 require 'user.dashboard'
