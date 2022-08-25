@@ -46,6 +46,7 @@ local options = {
 vim.opt.shortmess:append 'c'
 vim.g.cursorhold_updatetime = 100
 vim.opt.shada = "'0,f0"
+vim.g.python3_host_prog = '/usr/bin/python3'
 
 for k, v in pairs(options) do
   vim.opt[k] = v
