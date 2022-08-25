@@ -4,6 +4,16 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# vscode path
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# python path
+export PATH="$PATH:/usr/bin/python3"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims"
+export PATH="/Users/shendypratama/Library/Python/3.8/bin:$PATH"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -71,6 +81,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+ pyenv
  fd
  history
  git
@@ -92,9 +103,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# Python3
-export PYTHONPATH="/usr/bin/python3"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -128,6 +136,9 @@ alias l="la -l"
 alias ide="tmux split-window -h -p 25 && tmux select-pane -t 0"
 alias nodeg="cd ~/.nvm/versions/node/v16.16.0/"
 alias rsyb="brew services restart --all"
+alias python=python3
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
 
 # shell config
 eval "$(starship init zsh)"
