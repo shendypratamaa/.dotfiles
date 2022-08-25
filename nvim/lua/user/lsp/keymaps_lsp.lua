@@ -23,7 +23,7 @@ local function keymappings(bufnr)
 
   keymap_lsp('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
 
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync(nil, 2000)' ]]
 end
 
 M.setup = function(bufnr)

@@ -9,9 +9,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 # python path
 export PATH="$PATH:/usr/bin/python3"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PIPENV_PYTHON="$PYENV_ROOT/shims"
 export PATH="/Users/shendypratama/Library/Python/3.8/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
