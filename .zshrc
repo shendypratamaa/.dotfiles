@@ -93,6 +93,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Python3
+export PYTHONPATH="/usr/bin/python3"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
