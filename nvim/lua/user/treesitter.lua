@@ -18,7 +18,6 @@ configs.setup {
     'markdown',
     'yaml',
     'norg',
-    'norg_meta',
   },
   sync_install = false,
   ignore_install = { '' },

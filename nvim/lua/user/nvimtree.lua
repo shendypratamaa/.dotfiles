@@ -123,8 +123,7 @@ nvimtree.setup {
     custom = { '^.git$', '^plugin', '^node_modules' },
   },
   filesystem_watchers = {
-    enable = false,
-    interval = 100,
+    enable = true,
     debounce_delay = 50,
   },
   git = {
