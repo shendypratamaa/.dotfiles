@@ -60,7 +60,7 @@ return packer.startup(function(use)
   use { 'williamboman/mason-lspconfig.nvim' }
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
-  use { 'jose-elias-alvarez/null-ls.nvim' }
+  use { 'jose-elias-alvarez/null-ls.nvim', commit = '255b7c' }
   use { 'jose-elias-alvarez/typescript.nvim' }
   use { 'SmiteshP/nvim-navic' }
   use { 'b0o/SchemaStore.nvim' }
