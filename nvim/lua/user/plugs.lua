@@ -66,7 +66,6 @@ return packer.startup(function(use)
   use { 'b0o/SchemaStore.nvim' }
   use { 'folke/lua-dev.nvim' }
   use { 'MaxMEllon/vim-jsx-pretty' }
-  use { 'ludovicchabant/vim-gutentags' }
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
   use {
     'kristijanhusak/vim-js-file-import',
