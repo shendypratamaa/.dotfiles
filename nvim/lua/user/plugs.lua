@@ -182,7 +182,7 @@ return packer.startup(function(use)
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
 
   -- note taking apps
-  use { 'nvim-neorg/neorg' }
+  use { 'nvim-neorg/neorg', tag = '0.0.12' }
 
   -- markdown
   use { 'mzlogin/vim-markdown-toc' }
