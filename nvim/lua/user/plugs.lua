@@ -128,6 +128,7 @@ return packer.startup(function(use)
   use 'Pocco81/true-zen.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'tyru/open-browser.vim'
+  use 'akinsho/toggleterm.nvim'
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
