@@ -1,3 +1,5 @@
+local M = {}
+
 local nls = require 'null-ls'
 
 local formatting = nls.builtins.formatting
@@ -14,13 +16,31 @@ local sources = {
       vim.fn.expand(dotpath .. 'stylua.toml'),
     },
   },
-  formatting.prettierd.with {
-    env = {
-      PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '~/.prettierrc',
+  formatting.prettier.with {
+    extra_args = {
+      '--config',
+      vim.fn.expand '~/.prettierrc',
     },
   },
-  formatting.black.with { extra_args = { '--fast' } },
-  formatting.isort,
+  formatting.black.with {
+    args = {
+      '--stdin-filename',
+      '$FILENAME',
+      '--quiet',
+      '-',
+    },
+    extra_args = {
+      '--fast',
+    },
+  },
+  formatting.isort.with {
+    args = {
+      '--stdout',
+      '--filename',
+      '$FILENAME',
+      '-',
+    },
+  },
   formatting.markdownlint,
   formatting.fixjson,
 
@@ -40,9 +60,14 @@ local sources = {
   code_actions.gitsigns,
 }
 
-nls.setup {
-  debug = true,
-  debounce = 150,
-  diagnostics_format = '[#{c}] #{m}',
-  sources = sources,
-}
+function M.setup(on_attach)
+  nls.setup {
+    debug = true,
+    debounce = 150,
+    diagnostics_format = '[#{c}] #{m}',
+    sources = sources,
+    on_attach = on_attach,
+  }
+end
+
+return M

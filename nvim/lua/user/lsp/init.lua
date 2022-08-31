@@ -72,23 +72,24 @@ local servers = {
 
 local formatter = {
   'stylua',
-  'prettierd',
+  'prettier',
   'markdownlint',
   'write-good',
   'eslint_d',
   'fixjson',
 }
 
-local flags = {
-  debounce_text_changes = 150,
-}
-
 for server_name, _ in pairs(servers) do
+  local flags = {
+    debounce_text_changes = 150,
+  }
+
   local lsp_opts = {
     flags = flags,
     on_attach = on_attach,
     capabilities = capabilities,
   }
+
   lsp_opts = vim.tbl_deep_extend('force', lsp_opts, servers[server_name] or {})
   lsp_config[server_name].setup(lsp_opts)
 
@@ -107,5 +108,5 @@ end
 
 require('user.lsp.handlers').setup()
 
-require 'user.lsp.null_ls'
+require('user.lsp.null_ls').setup(on_attach)
 require('user.lsp.mason').setup(servers, formatter)

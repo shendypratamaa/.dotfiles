@@ -11,6 +11,10 @@ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
+local colors = {
+  fg = '#bbc2cf',
+}
+
 local diagnostics = {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
@@ -100,7 +104,10 @@ function M.setup(theme)
     sections = {
       lualine_a = { mode },
       lualine_b = { branch },
-      lualine_c = { filePath, navic_info },
+      lualine_c = {
+        filePath,
+        navic_info,
+      },
       lualine_x = { diagnostics, diff, filetype, 'encoding' },
       lualine_y = { location },
       lualine_z = { progress },
@@ -108,8 +115,8 @@ function M.setup(theme)
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
+      lualine_c = { 'filename' },
+      lualine_x = { 'location' },
       lualine_y = {},
       lualine_z = {},
     },

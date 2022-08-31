@@ -71,6 +71,12 @@ return packer.startup(function(use)
     'kristijanhusak/vim-js-file-import',
     run = 'npm install',
   }
+  use {
+    'j-hui/fidget.nvim',
+    config = function()
+      require('fidget').setup()
+    end,
+  }
 
   -- performance
   use { 'dstein64/vim-startuptime' }
