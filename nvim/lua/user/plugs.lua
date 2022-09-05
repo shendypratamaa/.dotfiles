@@ -67,6 +67,7 @@ return packer.startup(function(use)
   use { 'folke/lua-dev.nvim' }
   use { 'MaxMEllon/vim-jsx-pretty' }
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
+  use { 'ray-x/lsp_signature.nvim' }
   use {
     'kristijanhusak/vim-js-file-import',
     run = 'npm install',
@@ -90,7 +91,6 @@ return packer.startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'hrsh7th/cmp-emoji'
   use 'hrsh7th/cmp-calc'
   use 'ray-x/cmp-treesitter'
