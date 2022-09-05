@@ -14,6 +14,8 @@ brew "fd"
 brew "fzf"
 # Distributed revision control system
 brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
 # Improved top (interactive process viewer)
 brew "htop"
 # Simple terminal UI for git commands
@@ -30,6 +32,8 @@ brew "tree-sitter"
 brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# Python version management
+brew "pyenv"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
