@@ -4,12 +4,13 @@ local function keymappings(bufnr)
   local function keymap_lsp(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
+
   local opts = { noremap = true, silent = true }
 
   keymap_lsp('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
   keymap_lsp('n', '<leader>ca', ':Lspsaga code_action<CR>', opts)
   keymap_lsp('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-  keymap_lsp('n', 'gk', ':Lspsaga signature_help<CR>', opts)
+  keymap_lsp('n', 'gk', ':lua vim.lsp.buf.signature_help()<CR>', opts)
   keymap_lsp('n', 'gr', ':Lspsaga rename<CR>', opts)
   keymap_lsp('n', 'gD', ':Lspsaga preview_definition<CR>', opts)
   keymap_lsp('n', '[d', ':Lspsaga diagnostic_jump_next<CR>', opts)
