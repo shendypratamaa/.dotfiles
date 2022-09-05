@@ -11,6 +11,7 @@ local cmp = require 'cmp_nvim_lsp'
 local on_attach = function(client, bufnr)
   require 'user.lsp.saga'
   require('user.lsp.ts_utils').setup()
+  require('user.lsp.signaturehelp').setup(bufnr)
   require('user.lsp.highlight').setup(client)
   require('user.lsp.keymaps_lsp').setup(bufnr)
 
@@ -68,6 +69,7 @@ local servers = {
   cssls = {},
   tailwindcss = {},
   emmet_ls = {},
+  yamlls = {},
 }
 
 local formatter = {
