@@ -125,11 +125,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+TREE_IGNORE="cache|log|logs|node_modules|vendor"
+
+alias ls="exa --group-directories-first"
+alias la="ls -a"
+alias ll="ls --git -l"
+alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
+
 alias src="source ~/.zshrc"
 alias vim="nvim"
 alias lg="lazygit"
 alias tmuxconf="vim ~/.tmux.conf"
-alias l="la -l"
 alias ide="tmux split-window -h -p 25 && tmux select-pane -t 0"
 alias nodeg="cd ~/.nvm/versions/node/v16.16.0/"
 alias rsyb="brew services restart --all"
