@@ -90,27 +90,6 @@ local formatter = {
   'fixjson',
 }
 
-local luadevopts = function(opts)
-  require('lua-dev').setup {
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { 'vim' },
-        },
-      },
-    },
-    lspconfig = opts,
-  }
-end
-
-local typescriptopts = function(opts)
-  require('typescript').setup {
-    debug_commands = false,
-    debug = false,
-    server = opts,
-  }
-end
-
 for server_name, _ in pairs(servers) do
   local flags = {
     debounce_text_changes = 150,
@@ -126,11 +105,15 @@ for server_name, _ in pairs(servers) do
   lsp_config[server_name].setup(lsp_opts)
 
   if server_name == 'sumneko_lua' then
-    lsp_opts = luadevopts(lsp_opts)
+    lsp_opts = require('lua-dev').setup { lspconfig = lsp_opts }
   end
 
   if server_name == 'tsserver' then
-    lsp_opts = typescriptopts(lsp_opts)
+    lsp_opts = require('typescript').setup {
+      debug_commands = false,
+      debug = false,
+      server = lsp_opts,
+    }
   end
 end
 
