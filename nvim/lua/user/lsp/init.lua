@@ -105,7 +105,9 @@ for server_name, _ in pairs(servers) do
   lsp_config[server_name].setup(lsp_opts)
 
   if server_name == 'sumneko_lua' then
-    lsp_opts = require('lua-dev').setup { lspconfig = lsp_opts }
+    lsp_config.sumneko_lua.setup(
+      require('lua-dev').setup { lspconfig = lsp_opts }
+    )
   end
 
   if server_name == 'tsserver' then

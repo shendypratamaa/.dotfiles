@@ -1,13 +1,9 @@
 local cmp_status_ok, cmp = pcall(require, 'cmp')
-local snip_status_ok, luasnip = pcall(require, 'luasnip')
+local luasnip = require 'luasnip'
 
-if not cmp_status_ok and snip_status_ok then
+if not cmp_status_ok then
   return
 end
-
-require('luasnip.loaders.from_vscode').lazy_load()
-
-local lspkind = require 'lspkind'
 
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
@@ -85,23 +81,41 @@ cmp.setup {
     end,
   },
   formatting = {
-    fields = { 'kind', 'abbr', 'menu' },
     format = function(entry, vim_item)
-      local kind = lspkind.cmp_format {
-        mode = 'symbol_text',
-        maxwidth = 80,
-      }(entry, vim_item)
-      local strings = vim.split(kind.kind, '%s', { trimempty = true })
-      kind.kind = ' ' .. strings[1] .. ' '
-      kind.menu = '    (' .. strings[2] .. ')'
-      return kind
+      vim_item.menu = ({
+        luasnip = '[Snippets]',
+        nvim_lsp = '[LSP]',
+        emoji = '[Emoji]',
+        path = '[Path]',
+        buffer = '[Buffers]',
+        treesitter = '[Treesitter]',
+        calc = '[Calc]',
+      })[entry.source.name]
+
+      if entry.source.name == 'nvim_lsp' then
+        vim_item.dup = 0
+      end
+
+      return vim_item
     end,
   },
   sources = {
+    { name = 'luasnip' },
+    {
+      name = 'buffer',
+      keyword_length = 5,
+      option = {
+        get_bufnrs = function()
+          local bufs = {}
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            bufs[vim.api.nvim_win_get_buf(win)] = true
+          end
+          return vim.tbl_keys(bufs)
+        end,
+      },
+    },
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
-    { name = 'luasnip' },
-    { name = 'buffer' },
     { name = 'cmdline' },
     { name = 'emoji' },
     { name = 'path', option = {

@@ -96,7 +96,6 @@ return packer.startup(function(use)
   use 'ray-x/cmp-treesitter'
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
-  use 'onsails/lspkind.nvim'
 
   -- colorscheme
   use 'sainnhe/gruvbox-material'
