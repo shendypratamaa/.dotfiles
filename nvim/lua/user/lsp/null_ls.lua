@@ -52,7 +52,12 @@ local sources = {
       vim.fn.expand '~/.eslintrc',
     },
   },
-  diagnostics.flake8,
+  diagnostics.flake8.with {
+    extra_args = {
+      '--config',
+      vim.fn.expand '~/.flake8',
+    },
+  },
   diagnostics.markdownlint,
 
   -- code-actions

@@ -9,7 +9,7 @@ end
 local cmp = require 'cmp_nvim_lsp'
 
 local on_attach = function(client, bufnr)
-  require 'user.lsp.saga'
+  require('user.lsp.saga').setup()
   require('user.lsp.ts_utils').setup()
   require('user.lsp.signaturehelp').setup(bufnr)
   require('user.lsp.highlight').setup(client)
@@ -38,11 +38,11 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local capabilities =
-  cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local update_capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local capabilities = cmp.update_capabilities(update_capabilities)
 
 local servers = {
-  html = {},
   jsonls = {
     settings = {
       json = {
@@ -65,6 +65,7 @@ local servers = {
       typeCheckingMode = 'off',
     },
   },
+  html = {},
   prosemd_lsp = {},
   cssls = {},
   tailwindcss = {},
@@ -81,6 +82,20 @@ local formatter = {
   'fixjson',
 }
 
+local luadevopts = function(opts)
+  require('lua-dev').setup {
+    lspconfig = opts,
+  }
+end
+
+local typescriptopts = function(opts)
+  require('typescript').setup {
+    debug_commands = false,
+    debug = false,
+    server = opts,
+  }
+end
+
 for server_name, _ in pairs(servers) do
   local flags = {
     debounce_text_changes = 150,
@@ -96,19 +111,14 @@ for server_name, _ in pairs(servers) do
   lsp_config[server_name].setup(lsp_opts)
 
   if server_name == 'sumneko_lua' then
-    lsp_opts = require('lua-dev').setup { lspconfig = lsp_opts }
+    lsp_opts = luadevopts(lsp_opts)
   end
 
   if server_name == 'tsserver' then
-    lsp_opts = require('typescript').setup {
-      debug_commands = false,
-      debug = false,
-      server = lsp_opts,
-    }
+    lsp_opts = typescriptopts(lsp_opts)
   end
 end
 
 require('user.lsp.handlers').setup()
-
 require('user.lsp.null_ls').setup(on_attach)
 require('user.lsp.mason').setup(servers, formatter)

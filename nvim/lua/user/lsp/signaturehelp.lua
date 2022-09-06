@@ -6,7 +6,7 @@ function M.setup(bufnr)
   signature.on_attach({
     bind = true,
     handler_opts = {
-      border = 'double',
+      border = 'rounded',
     },
   }, bufnr)
 end
