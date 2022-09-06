@@ -124,4 +124,4 @@ keymap('n', ']t', ':TodoTelescope<CR>', opts)
 keymap('n', ']e', ':TroubleToggle<CR>', opts)
 
 -- floatterm
-keymap('n', "lg", ':lua _LAZYGIT_TOGGLE()<CR>', opts)
+keymap('n', '<leader>g', ':lua _LAZYGIT_TOGGLE()<CR>', opts)

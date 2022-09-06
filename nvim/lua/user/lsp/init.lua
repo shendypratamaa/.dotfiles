@@ -1,17 +1,26 @@
 local lsp_config = require 'lspconfig'
-
 local navic = require 'nvim-navic'
+local cmp = require 'cmp_nvim_lsp'
+
+local cfg = {
+  bind = true,
+  hint_enable = true,
+  max_width = 80,
+  floating_window = false,
+  floating_window_above_cur_line = false,
+  toggle_key = '<C-p>',
+  handler_opts = {
+    border = 'rounded',
+  },
+}
 
 local disable_diagnostics_lsp = function()
   vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
 end
 
-local cmp = require 'cmp_nvim_lsp'
-
 local on_attach = function(client, bufnr)
   require('user.lsp.saga').setup()
   require('user.lsp.ts_utils').setup()
-  require('user.lsp.signaturehelp').setup(bufnr)
   require('user.lsp.highlight').setup(client)
   require('user.lsp.keymaps_lsp').setup(bufnr)
 
@@ -39,7 +48,6 @@ local on_attach = function(client, bufnr)
 end
 
 local update_capabilities = vim.lsp.protocol.make_client_capabilities()
-
 local capabilities = cmp.update_capabilities(update_capabilities)
 
 local servers = {
@@ -84,6 +92,13 @@ local formatter = {
 
 local luadevopts = function(opts)
   require('lua-dev').setup {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' },
+        },
+      },
+    },
     lspconfig = opts,
   }
 end
@@ -119,6 +134,7 @@ for server_name, _ in pairs(servers) do
   end
 end
 
+require('lsp_signature').setup(cfg)
 require('user.lsp.handlers').setup()
 require('user.lsp.null_ls').setup(on_attach)
 require('user.lsp.mason').setup(servers, formatter)
