@@ -1,4 +1,5 @@
 require('impatient').enable_profile()
+require 'user.disablelist'
 require 'user.plugs'
 require 'user.options'
 require 'user.keymaps'
