@@ -22,4 +22,4 @@ local colorscheme = function(selected)
 end
 
 -- NOTE :
-colorscheme 'gruvbox-material'
+colorscheme 'tokyonight'
