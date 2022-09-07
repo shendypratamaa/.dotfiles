@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-parameter
 local fn = vim.fn
 
 -- Automatically install packer

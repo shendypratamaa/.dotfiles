@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-parameter
 local packer_ok, packer = pcall(require, 'packer')
 
 if not packer_ok then
@@ -37,7 +38,7 @@ vim.cmd [[
 packer.init {
   display = {
     open_fn = function()
-      return require('packer.util').float { border = 'single' }
+      return require('packer.util').float { border = 'rounded' }
     end,
   },
   profile = {
@@ -165,6 +166,7 @@ return packer.startup(function(use)
       vim.cmd 'xmap gS       <Plug>VgSurround'
     end,
   }
+  use { 'tpope/vim-sleuth' }
 
   -- Telescope
   use { 'nvim-telescope/telescope.nvim' }

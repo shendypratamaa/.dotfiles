@@ -55,7 +55,7 @@ configs.setup {
   },
   textsubjects = {
     enable = true,
-    prev_selection = ',', -- (Optional) keymap to select the previous selection
+    prev_selection = ',',
     keymaps = {
       ['.'] = 'textsubjects-smart',
       [';'] = 'textsubjects-container-outer',
@@ -72,15 +72,12 @@ configs.setup {
   refactor = {
     highlight_definitions = {
       enable = true,
-      -- set to false if you have an `updatetime` of ~100.
       clear_on_cursor_move = true,
       highlight_current_scope = { enable = true },
     },
     smart_rename = {
       enable = true,
-      keymaps = {
-        smart_rename = 'grr',
-      },
+      keymaps = { smart_rename = 'grr' },
     },
     navigation = {
       enable = true,
@@ -128,16 +125,12 @@ configs.setup {
       node_decremental = 'grm',
     },
   },
-  indent = { enable = true, disable = { 'yaml' } },
+  indent = { enable = true },
   textobjects = {
     select = {
       enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
-
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ['af'] = '@function.outer',
         ['if'] = '@function.inner',
         ['ac'] = '@class.outer',

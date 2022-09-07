@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-parameter
 local barbar_ok, barbar = pcall(require, 'bufferline')
 
 if not barbar_ok then

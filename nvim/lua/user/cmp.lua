@@ -38,12 +38,14 @@ cmp.setup {
     ['<C-j>'] = cmp.mapping.select_next_item(),
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable,
-    ['<C-e>'] = cmp.mapping {
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
+    ['<C-Space>'] = cmp.mapping.complete {
+      config = {
+        sources = {
+          { name = 'luasnip' },
+        },
+      },
     },
+    ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm { select = true },
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
