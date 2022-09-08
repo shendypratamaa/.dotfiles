@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil, param-type-mismatch
 local present, alpha = pcall(require, 'alpha')
 
 if not present then
@@ -132,13 +133,16 @@ local section = {
   footer = footer,
 }
 
+local fn = vim.fn
+local percent = 0.2
+local headerCenter = fn.max { 2, fn.floor(fn.winheight(0) * percent) }
+
 local opts = {
   layout = {
-    { type = 'padding', val = 3 },
+    { type = 'padding', val = headerCenter },
     section.header,
     { type = 'padding', val = 2 },
     section.heading,
-
     section.plugin_count,
     { type = 'padding', val = 2 },
     section.buttons,
@@ -146,27 +150,6 @@ local opts = {
     section.footer,
     { type = 'padding', val = 1 },
   },
-  opts = {
-    margin = 0,
-  },
 }
 
 alpha.setup(opts)
-
---[[    .-.__      \ .-.  ___  __                    ]]
---[[|_|  '--.-.-(   \/\;;\_\.-._______.-.            ]]
---[[(-)___     \ \ .-\ \;;\(   \       \ \           ]]
---[[ |    '---._\_((Q)) \;;\\ .-\     __(_)          ]]
---[[ |           __'-' / .--.((Q))---'    \,         ]]
---[[ |     ___.-:    \|  |   \'-'_          \        ]]
---[[ |  .-'      \ .-.\   \   \ \ '--.__     '\      ]]
---[[ |  |____.----((Q))\   \__|--\_      \     '     ]]
---[[    (-)        '-'  \_  :  \-' '--.___\          ]]
---[[     |                \  \  \       \(_)         ]]
---[[     |                 \  \  \         \,        ]]
---[[     |                  \  \  \          \       ]]
---[[     |                   \  \  \          '\     ]]
---[[     |                 \  \__|  \        '       ]]
---[[                           \_:.  \               ]]
---[[                             \ \  \              ]]
---[[                              \ \  \             ]]
