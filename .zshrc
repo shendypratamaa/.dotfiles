@@ -131,7 +131,7 @@ alias ls="exa --group-directories-first"
 alias la="ls -a"
 alias ll="ls --git -l"
 alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
-alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
+alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
 
 alias src="source ~/.zshrc"
 alias vim="nvim"
