@@ -8,6 +8,8 @@ tap "koekeishiya/formulae"
 brew "coreutils"
 # Reimplementation of ctags(1)
 brew "ctags"
+# Modern replacement for 'ls'
+brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Command-line fuzzy finder written in Go
@@ -55,9 +57,14 @@ brew "koekeishiya/formulae/yabai"
 # Enable Windows-like alt-tab
 cask "alt-tab"
 cask "font-fira-code"
+# Developer targeted fonts with a high number of glyphs
 cask "font-fira-code-nerd-font"
+# Developer targeted fonts with a high number of glyphs
 cask "font-hack-nerd-font"
+# Developer targeted fonts with a high number of glyphs
 cask "font-iosevka-nerd-font"
+# Developer targeted fonts with a high number of glyphs
+cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Keyboard customizer
