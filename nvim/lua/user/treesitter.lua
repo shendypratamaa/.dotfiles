@@ -11,6 +11,7 @@ configs.setup {
     'javascript',
     'python',
     'css',
+    'http',
     'json',
     'jsonc',
     'html',

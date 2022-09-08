@@ -149,6 +149,9 @@ return packer.startup(function(use)
     end,
   }
 
+  -- api test
+  use { 'NtBBloodbath/rest.nvim', require = { 'nvim-lua/plenary.nvim' } }
+
   -- tpope
   use {
     'tpope/vim-surround',
