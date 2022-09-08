@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 
 keymap('n', 'rr', '<Plug>RestNvim<CR>', opts)
 keymap('n', '<C-c>', '<Plug>RestNvimPreview<CR>', opts)
-keymap('n', '<C-r>', '<Plug>RestNvimLast<CR>', opts)
+keymap('n', 'rl', '<Plug>RestNvimLast<CR>', opts)
 
 rest.setup {
   result_split_horizontal = false,
