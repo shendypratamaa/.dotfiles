@@ -152,6 +152,18 @@ return packer.startup(function(use)
   -- api test
   use { 'NtBBloodbath/rest.nvim', require = { 'nvim-lua/plenary.nvim' } }
 
+  -- debugger adapter protocol
+  use {
+    'mfussenegger/nvim-dap',
+    config = function()
+      require('user.dap').setup()
+    end,
+  }
+  use { 'jbyuki/one-small-step-for-vimkind' }
+  use { 'theHamsta/nvim-dap-virtual-text' }
+  use { 'rcarriga/nvim-dap-ui' }
+  use { 'nvim-telescope/telescope-dap.nvim' }
+
   -- tpope
   use {
     'tpope/vim-surround',
