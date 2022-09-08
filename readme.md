@@ -4,18 +4,18 @@
 
 - Neovim 7.2
 - Tmux 3.3a
-- homebrew
-- ohmyzsh
-- iterm2
+- Homebrew
+- Ohmyzsh
+- Iterm2
 - Ubersicht
-- space-bar
-- yabai
-- skhd
-- starship
-- zshell
-- htop
-- karabiner
-- slides
+- simple-bar
+- Yabai
+- Skhd
+- Starship
+- Zshell
+- Karabiner
+- Slides
+- JetBrains-mono
 
 #### Programming Language Support 🍔
 
