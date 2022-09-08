@@ -1,6 +1,6 @@
 local M = {}
 
-local function keymappings(bufnr)
+local function lspkeymaps(bufnr)
   local function keymap_lsp(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
@@ -27,8 +27,8 @@ local function keymappings(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]]
 end
 
-M.setup = function(bufnr)
-  keymappings(bufnr)
+function M.setup(bufnr)
+  lspkeymaps(bufnr)
 end
 
 return M
