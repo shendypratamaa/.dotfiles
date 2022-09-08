@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
   require('user.lsp.saga').setup()
   require('user.lsp.ts_utils').setup()
   require('user.lsp.highlight').setup(client)
-  require('user.lsp.keymaps_lsp').setup(bufnr)
+  require('user.lsp.lspkeymaps').setup(bufnr)
 
   if client.name == 'sumneko_lua' then
     client.resolved_capabilities.document_formatting = false
