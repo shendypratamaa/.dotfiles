@@ -4,7 +4,7 @@ local M = {}
 local function configure()
   local dap_breakpoint = {
     error = {
-      text = '🟥',
+      text = '🔴',
       texthl = 'LspDiagnosticsSignError',
       linehl = '',
       numhl = '',
@@ -52,7 +52,8 @@ end
 
 local function configure_debuggers()
   require('user.dap.lua').setup()
-  require('user.dap.javascript').setup()
+  require('user.dap.jsts').setup()
+  require('user.dap.python').setup()
 end
 
 function M.setup()
