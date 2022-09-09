@@ -12,8 +12,6 @@ function M.setup()
     saga_winblend = 0,
     move_in_saga = { prev = '<C-p>', next = '<C-n>' },
     diagnostic_header = { '😡', '😥', '😤', '😐' },
-    show_diagnostic_source = true,
-    diagnostic_source_bracket = {},
     max_preview_lines = 15,
     code_action_icon = '💡',
     code_action_num_shortcut = true,
@@ -43,7 +41,6 @@ function M.setup()
       exec = '<CR>',
     },
     rename_action_quit = '<C-c>',
-    definition_preview_icon = '  ',
     symbol_in_winbar = {
       in_custom = false,
       enable = false,
