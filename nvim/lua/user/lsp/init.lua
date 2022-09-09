@@ -28,20 +28,24 @@ local on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
   end
+
   if client.name == 'tsserver' then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
     disable_diagnostics_lsp()
   end
+
   if client.name == 'pyright' then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
     disable_diagnostics_lsp()
   end
+
   if client.name == 'jsonls' then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
   end
+
   if client.name == 'html' then
     client.resolved_capabilities.document_formatting = false
   end
@@ -105,9 +109,10 @@ for server_name, _ in pairs(servers) do
   lsp_config[server_name].setup(lsp_opts)
 
   if server_name == 'sumneko_lua' then
-    lsp_config.sumneko_lua.setup(
-      require('lua-dev').setup { lspconfig = lsp_opts }
-    )
+    lsp_config.sumneko_lua.setup(require('lua-dev').setup {
+      library = { plugins = { 'neotest' }, types = true },
+      lspconfig = lsp_opts,
+    })
   end
 
   if server_name == 'tsserver' then
