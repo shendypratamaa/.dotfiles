@@ -49,13 +49,13 @@ packer.init {
 }
 
 return packer.startup(function(use)
-  -- plugins here
+  -- Plugin Here
   use { 'lewis6991/impatient.nvim' }
   use { 'wbthomason/packer.nvim' }
   use { 'nvim-lua/popup.nvim' }
   use { 'nvim-lua/plenary.nvim' }
 
-  -- lsp
+  -- Lsp
   use { 'neovim/nvim-lspconfig' }
   use { 'williamboman/mason.nvim' }
   use { 'williamboman/mason-lspconfig.nvim' }
@@ -80,11 +80,11 @@ return packer.startup(function(use)
     end,
   }
 
-  -- performance
+  -- Performance
   use { 'dstein64/vim-startuptime' }
   use { 'nathom/filetype.nvim' }
 
-  -- cmp plugins
+  -- Cmp
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -98,14 +98,14 @@ return packer.startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
 
-  -- colorscheme
+  -- Colorscheme
   use 'sainnhe/gruvbox-material'
   use 'folke/tokyonight.nvim'
   use 'rebelot/kanagawa.nvim'
   use 'rmehri01/onenord.nvim'
   use { 'catppuccin/nvim', as = 'catppuccin' }
 
-  -- themes utils
+  -- Utils
   use 'numToStr/Comment.nvim'
   use 'lewis6991/gitsigns.nvim'
   use 'nvim-lualine/lualine.nvim'
@@ -149,22 +149,35 @@ return packer.startup(function(use)
     end,
   }
 
-  -- api test
+  -- API
   use { 'NtBBloodbath/rest.nvim', require = { 'nvim-lua/plenary.nvim' } }
 
-  -- debugger adapter protocol
+  -- DAP
   use {
     'mfussenegger/nvim-dap',
     config = function()
       require('user.dap').setup()
     end,
   }
-  use { 'jbyuki/one-small-step-for-vimkind' }
   use { 'theHamsta/nvim-dap-virtual-text' }
   use { 'rcarriga/nvim-dap-ui' }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
-  -- tpope
+  -- Debugger
+  use { 'mfussenegger/nvim-dap-python' }
+  use { 'jbyuki/one-small-step-for-vimkind' }
+  use { 'mxsdev/nvim-dap-vscode-js' }
+  use {
+    'microsoft/vscode-js-debug',
+    opt = true,
+    run = 'npm install --legacy-peer-deps && npm run compile',
+  }
+
+  -- NeovimTest
+  use { 'nvim-neotest/neotest' }
+  use { 'haydenmeade/neotest-jest' }
+
+  -- Tpope
   use {
     'tpope/vim-surround',
     keys = { 'c', 'd', 'y' },
@@ -187,7 +200,7 @@ return packer.startup(function(use)
   use { 'nvim-telescope/telescope.nvim' }
   use { 'nvim-telescope/telescope-file-browser.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { 'nvim-telescope/telescope-project.nvim' }
+  use { 'nvim-telescope/telescope-project.nvim', commit = 'dc9a19' }
 
   -- Telescope utils extended
   use { 'airblade/vim-rooter' }
@@ -204,10 +217,10 @@ return packer.startup(function(use)
   use { 'windwp/nvim-ts-autotag' }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
 
-  -- note taking apps
+  -- Note Taking Apps
   use { 'nvim-neorg/neorg', tag = '0.0.12' }
 
-  -- markdown
+  -- Markdown
   use { 'mzlogin/vim-markdown-toc' }
   use { 'iamcco/markdown-preview.nvim' }
 
