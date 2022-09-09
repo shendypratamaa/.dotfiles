@@ -163,10 +163,12 @@ return packer.startup(function(use)
   use { 'rcarriga/nvim-dap-ui' }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
-  -- Debugger
-  use { 'mfussenegger/nvim-dap-python' }
+  -- Debugger utils
   use { 'jbyuki/one-small-step-for-vimkind' }
   use { 'mxsdev/nvim-dap-vscode-js' }
+  use { 'mfussenegger/nvim-dap-python' }
+
+  -- Debugger
   use {
     'microsoft/vscode-js-debug',
     opt = true,
@@ -174,8 +176,15 @@ return packer.startup(function(use)
   }
 
   -- NeovimTest
-  use { 'nvim-neotest/neotest' }
-  use { 'haydenmeade/neotest-jest' }
+  use {
+    'nvim-neotest/neotest',
+    requires = {
+      'haydenmeade/neotest-jest',
+    },
+    config = function()
+      require('user.neotest').setup()
+    end,
+  }
 
   -- Tpope
   use {

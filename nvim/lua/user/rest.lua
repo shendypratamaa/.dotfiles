@@ -1,6 +1,6 @@
 local rest = require 'rest-nvim'
 
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 keymap('n', 'rr', '<Plug>RestNvim<CR>', opts)

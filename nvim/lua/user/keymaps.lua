@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap('', '<Space>', '<Nop>', opts)
@@ -58,68 +58,12 @@ keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 
 -- extras --
 keymap('n', 'wq', ':bd<CR>', term_opts)
-
--- undo-tree
-keymap('n', '<C-p>', ':UndotreeToggle<CR>', opts)
+keymap('n', ']s', ':luafile %<CR>', opts)
+keymap('n', '<C-r>', ':nohls<CR>', opts)
+keymap('n', '<leader>f', ':Format<CR>', opts)
 
 -- Fix-behave
 keymap('n', 'mm', 'zz', opts)
 keymap('n', 'n', 'nzzzv', opts)
 keymap('n', 'N', 'Nzzzv', opts)
 keymap('n', 'J', 'mzJ`z', opts)
-
--- harpoon
-keymap('n', ']a', ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap('n', ']w', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-
--- Tmux-navigatior
-keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>', term_opts)
-keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', term_opts)
-keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', term_opts)
-keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', term_opts)
-
-vim.g.tmux_navigator_no_mappings = 1
-vim.g.tmux_navigator_save_on_switch = 2
-vim.g.tmux_navigator_disable_when_zoomed = 1
-vim.g.tmux_navigator_preserve_zoom = 1
-
--- sources
-keymap('n', ']s', ':luafile %<CR>', opts)
-keymap('n', '<C-r>', ':nohls<CR>', opts)
-keymap('n', '<leader>f', ':Format<CR><cmd>bufdo e<CR>', opts)
-
--- markdown preview
-keymap('n', '<C-s>', ':MarkdownPreviewToggle<CR>', opts)
-
--- true zen
-keymap('n', 'zx', ':TZAtaraxis<CR>', opts)
-
--- vim-jsx--import
-keymap('n', 'gi', ':JsFileImport<CR>', opts)
-keymap('n', 'gI', ':JsFileImportList<CR>', opts)
-keymap('n', 'gd', ':JsGotoDefinition<CR>', opts)
-keymap('n', 'gP', ':PromptJsFileImport<CR>', opts)
-keymap('n', 'gS', ':SortJsFileImport<CR>', opts)
-keymap('n', 'gf', ':JsFixImport<CR>', opts)
-
--- telescope
-keymap('n', ']f', ":lua require('user.telescope').custom_themes()<CR>", opts)
-keymap('n', ']ff', ":lua require('telescope.builtin').find_files()<CR>", opts)
-keymap('n', ']b', ":lua require('telescope.builtin').buffers()<CR>", opts)
-keymap('n', ']r', ":lua require('telescope.builtin').live_grep()<CR>", opts)
-keymap('n', ']t', ":lua require('telescope.builtin').help_tags()<CR>", opts)
-keymap(
-  'n',
-  ']v',
-  ":lua  require('telescope').extensions.project.project{ display_type = 'full'}<CR>",
-  opts
-)
-keymap('n', ']n', ':Telescope file_browser<CR>', opts)
-keymap('n', ']g', ':Telescope<CR>', opts)
-keymap('n', ']t', ':TodoTelescope<CR>', opts)
-
--- trouble
-keymap('n', ']e', ':TroubleToggle<CR>', opts)
-
--- floatterm
-keymap('n', '<leader>g', ':lua _LAZYGIT_TOGGLE()<CR>', opts)

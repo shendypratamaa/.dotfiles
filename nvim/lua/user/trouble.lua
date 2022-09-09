@@ -43,3 +43,8 @@ trouble.setup {
   auto_jump = { 'lsp_definitions' }, -- for the given modes, automatically jump if there is only a single result
   use_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
 }
+
+local keymap = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
+keymap('n', ']e', ':TroubleToggle<CR>', opts)

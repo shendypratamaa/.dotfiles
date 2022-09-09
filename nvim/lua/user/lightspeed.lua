@@ -4,8 +4,8 @@ if not lightspeed_ok then
   return
 end
 
-vim.api.nvim_set_keymap('n', '<leader>j', '<Plug>Lightspeed_s', {})
-vim.api.nvim_set_keymap('n', '<leader>k', '<Plug>Lightspeed_S', {})
+vim.keymap.set('n', '<leader>j', '<Plug>Lightspeed_s', {})
+vim.keymap.set('n', '<leader>k', '<Plug>Lightspeed_S', {})
 
 lightspeed.setup {
   ignore_case = false,

@@ -13,3 +13,10 @@ vim.cmd [[
    set undofile
  endif
 ]]
+
+vim.keymap.set(
+  'n',
+  '<C-p>',
+  ':UndotreeToggle<CR>',
+  { noremap = true, silent = true }
+)
