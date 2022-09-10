@@ -124,7 +124,7 @@ for server_name, _ in pairs(servers) do
   end
 end
 
-require('lsp_signature').setup(cfg)
 require('user.lsp.handlers').setup()
+require('lsp_signature').setup(cfg)
 require('user.lsp.null_ls').setup(on_attach)
 require('user.lsp.mason').setup(servers, formatter)

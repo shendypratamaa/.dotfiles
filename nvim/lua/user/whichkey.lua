@@ -86,16 +86,16 @@ local keybinds = {
   s = { '<cmd>:w!<cr>', 'Save Files' },
   o = { '<cmd>StartupTime<cr>', 'Startup Time' },
   q = { '<cmd>:wq!<cr>', 'Quit Save' },
-  v = { '<cmd>sv<cr>', 'Split Horizontal' },
-  V = { '<cmd>vs<cr>', 'Split Vertical' },
+  h = { '<cmd>sv<cr>', 'Split Horizontal' },
+  v = { '<cmd>vs<cr>', 'Split Vertical' },
   n = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
   N = { '<cmd>NeorgStart<CR>', 'Notes' },
   f = { ':Format<CR>', 'Format File' },
-  L = {
+  l = {
     name = '+LSP 🤖',
-    h = { '<cmd>LspInfo<cr>', 'Lsp Information' },
-    j = { '<cmd>LspInstallInfo<cr>', 'Lsp Installer Info' },
-    n = { '<cmd>NullLsLog<cr>', 'Null Ls Log' },
+    h = { '<cmd>LspInfo<cr>', 'Lsp Info' },
+    j = { '<cmd>Mason<cr>', 'Mason Info' },
+    n = { '<cmd>NullLsInfo<cr>', 'NullLs Info' },
   },
 }
 
