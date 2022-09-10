@@ -245,6 +245,7 @@ return packer.startup(function(use)
     end,
     ft = { 'markdown' },
   }
+  use { 'mzlogin/vim-markdown-toc' }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
