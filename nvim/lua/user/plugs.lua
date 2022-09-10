@@ -148,6 +148,13 @@ return packer.startup(function(use)
       }
     end,
   }
+  use {
+    'simrat39/symbols-outline.nvim',
+    config = function()
+      require('user.symbolsoutline').setup()
+      -- require('symbols-outline').setup()
+    end,
+  }
 
   -- API
   use { 'NtBBloodbath/rest.nvim', require = { 'nvim-lua/plenary.nvim' } }
@@ -230,8 +237,14 @@ return packer.startup(function(use)
   use { 'nvim-neorg/neorg', tag = '0.0.12' }
 
   -- Markdown
-  use { 'mzlogin/vim-markdown-toc' }
-  use { 'iamcco/markdown-preview.nvim' }
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && npm install',
+    setup = function()
+      vim.g.mkdp_filetypes = { 'markdown' }
+    end,
+    ft = { 'markdown' },
+  }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
