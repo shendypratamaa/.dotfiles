@@ -57,7 +57,8 @@ keymap('t', '<C-k>', '<C-\\><C-N><C-w>k', term_opts)
 keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 
 -- extras --
-keymap('n', 'wq', ':bd<CR>', term_opts)
+keymap('n', 'qq', ':bd<CR>', term_opts)
+keymap('n', 'wq', '<C-w>o<CR>', term_opts)
 keymap('n', ']s', ':luafile %<CR>', opts)
 keymap('n', '<C-r>', ':nohls<CR>', opts)
 keymap('n', '<leader>f', ':Format<CR>', opts)

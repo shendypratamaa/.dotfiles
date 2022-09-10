@@ -39,7 +39,7 @@ local options = {
   ignorecase = true,
   colorcolumn = '80',
   sidescrolloff = 8,
-  guifont = 'monospace:h17',
+  guifont = 'monospace:h12',
   guicursor = '',
 }
 
@@ -53,7 +53,7 @@ for k, v in pairs(options) do
 end
 
 vim.cmd [[
-let g:netrw_browsex_viewer= "open"
+  let g:netrw_browsex_viewer= "open"
 ]]
 
 vim.cmd [[

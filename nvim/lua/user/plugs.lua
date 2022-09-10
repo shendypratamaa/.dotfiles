@@ -85,50 +85,50 @@ return packer.startup(function(use)
   use { 'nathom/filetype.nvim' }
 
   -- Cmp
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-emoji'
-  use 'hrsh7th/cmp-calc'
-  use 'ray-x/cmp-treesitter'
-  use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/cmp-cmdline' }
+  use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-nvim-lua' }
+  use { 'hrsh7th/cmp-emoji' }
+  use { 'hrsh7th/cmp-calc' }
+  use { 'ray-x/cmp-treesitter' }
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'rafamadriz/friendly-snippets' }
 
   -- Colorscheme
-  use 'sainnhe/gruvbox-material'
-  use 'folke/tokyonight.nvim'
-  use 'rebelot/kanagawa.nvim'
-  use 'rmehri01/onenord.nvim'
+  use { 'sainnhe/gruvbox-material' }
+  use { 'folke/tokyonight.nvim' }
+  use { 'rebelot/kanagawa.nvim' }
+  use { 'rmehri01/onenord.nvim' }
   use { 'catppuccin/nvim', as = 'catppuccin' }
 
   -- Utils
-  use 'numToStr/Comment.nvim'
-  use 'lewis6991/gitsigns.nvim'
-  use 'nvim-lualine/lualine.nvim'
-  use 'windwp/nvim-autopairs'
-  use 'mbbill/undotree'
-  use 'antoinemadec/FixCursorHold.nvim'
-  use 'ThePrimeagen/harpoon'
-  use 'karb94/neoscroll.nvim'
-  use 'nacro90/numb.nvim'
-  use 'folke/which-key.nvim'
-  use 'norcalli/nvim-colorizer.lua'
-  use 'romgrk/barbar.nvim'
-  use 'ggandor/lightspeed.nvim'
-  use 'folke/todo-comments.nvim'
-  use 'folke/trouble.nvim'
-  use 'abecodes/tabout.nvim'
-  use 'chentoast/marks.nvim'
-  use 'goolord/alpha-nvim'
-  use 'christoomey/vim-tmux-navigator'
-  use 'Pocco81/true-zen.nvim'
-  use 'lukas-reineke/indent-blankline.nvim'
-  use 'tyru/open-browser.vim'
-  use 'akinsho/toggleterm.nvim'
+  use { 'numToStr/Comment.nvim' }
+  use { 'lewis6991/gitsigns.nvim' }
+  use { 'nvim-lualine/lualine.nvim' }
+  use { 'windwp/nvim-autopairs' }
+  use { 'mbbill/undotree' }
+  use { 'antoinemadec/FixCursorHold.nvim' }
+  use { 'ThePrimeagen/harpoon' }
+  use { 'karb94/neoscroll.nvim' }
+  use { 'nacro90/numb.nvim' }
+  use { 'folke/which-key.nvim' }
+  use { 'norcalli/nvim-colorizer.lua' }
+  use { 'romgrk/barbar.nvim' }
+  use { 'ggandor/lightspeed.nvim' }
+  use { 'folke/todo-comments.nvim' }
+  use { 'folke/trouble.nvim' }
+  use { 'abecodes/tabout.nvim' }
+  use { 'chentoast/marks.nvim' }
+  use { 'goolord/alpha-nvim' }
+  use { 'christoomey/vim-tmux-navigator' }
+  use { 'Pocco81/true-zen.nvim' }
+  use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'tyru/open-browser.vim' }
+  use { 'akinsho/toggleterm.nvim' }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -152,7 +152,12 @@ return packer.startup(function(use)
     'simrat39/symbols-outline.nvim',
     config = function()
       require('user.symbolsoutline').setup()
-      -- require('symbols-outline').setup()
+    end,
+  }
+  use {
+    'beauwilliams/focus.nvim',
+    config = function()
+      require('user.window').setup()
     end,
   }
 
