@@ -99,11 +99,7 @@ return packer.startup(function(use)
   use { 'rafamadriz/friendly-snippets' }
 
   -- Colorscheme
-  use { 'sainnhe/gruvbox-material' }
-  use { 'folke/tokyonight.nvim' }
-  use { 'rebelot/kanagawa.nvim' }
-  use { 'rmehri01/onenord.nvim' }
-  use { 'catppuccin/nvim', as = 'catppuccin' }
+  use { 'RRethy/nvim-base16' }
 
   -- Utils
   use { 'numToStr/Comment.nvim' }
@@ -133,6 +129,9 @@ return packer.startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons',
+      config = function()
+        require('user.devicons').setup()
+      end,
     },
     tag = 'nightly',
   }

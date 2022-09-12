@@ -11,10 +11,6 @@ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
-local colors = {
-  fg = '#bbc2cf',
-}
-
 local diagnostics = {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
