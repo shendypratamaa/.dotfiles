@@ -4,4 +4,4 @@ local function selectedColorscheme(args)
   return colorscheme
 end
 
-selectedColorscheme 'base16-kanagawa'
+selectedColorscheme 'base16-nord'
