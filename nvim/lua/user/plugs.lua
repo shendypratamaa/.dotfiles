@@ -114,7 +114,7 @@ return packer.startup(function(use)
   use { 'folke/which-key.nvim' }
   use { 'norcalli/nvim-colorizer.lua' }
   use { 'romgrk/barbar.nvim' }
-  use { 'ggandor/lightspeed.nvim' }
+  use { 'ggandor/leap.nvim' }
   use { 'folke/todo-comments.nvim' }
   use { 'folke/trouble.nvim' }
   use { 'abecodes/tabout.nvim' }
