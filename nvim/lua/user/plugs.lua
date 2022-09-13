@@ -25,14 +25,28 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
-]]
 
-vim.cmd [[
   if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
- endif
+   endif
+
+   aug VMlens
+     au!
+     au User visual_multi_start lua require('user.vmlens').start()
+     au User visual_multi_exit lua require('user.vmlens').exit()
+   aug END
+
+   fun! VM_Start()
+     nmap <buffer> <C-C> <Esc>
+     imap <buffer> <C-C> <Esc>
+   endfun
+
+   fun! VM_Exit()
+     nunmap <buffer> <C-C>
+     iunmap <buffer> <C-C>
+   endfun
 ]]
 
 packer.init {
@@ -125,6 +139,17 @@ return packer.startup(function(use)
   use { 'lukas-reineke/indent-blankline.nvim' }
   use { 'tyru/open-browser.vim' }
   use { 'akinsho/toggleterm.nvim' }
+  use { 'kevinhwang91/nvim-hlslens' }
+  use { 'mg979/vim-visual-multi', branch = 'master' }
+  use {
+    'junegunn/vim-easy-align',
+    config = function()
+      vim.cmd [[
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+      ]]
+    end,
+  }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -212,14 +237,6 @@ return packer.startup(function(use)
       vim.cmd 'nmap ySS      <Plug>YSsurround'
       vim.cmd 'xmap gs       <Plug>VSurround'
       vim.cmd 'xmap gS       <Plug>VgSurround'
-    end,
-  }
-  use {
-    'tpope/vim-repeat',
-    config = function()
-      vim.cmd [[
-      silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-    ]]
     end,
   }
   use { 'tpope/vim-sleuth' }

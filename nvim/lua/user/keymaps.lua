@@ -16,8 +16,6 @@ vim.g.maplocalleader = ' '
 --   command_mode = "c",
 
 -- Normal --
-keymap('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
-
 -- Resize with arrows
 keymap('n', '<C-w>k', ':resize +5<CR>', opts)
 keymap('n', '<C-w>j', ':resize -5<CR>', opts)
