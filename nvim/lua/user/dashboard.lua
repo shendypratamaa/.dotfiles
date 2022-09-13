@@ -26,7 +26,7 @@ local header = {
   },
   opts = {
     position = 'center',
-    hl = 'comment',
+    hl = 'CmpItemMenu',
   },
 }
 
@@ -45,7 +45,7 @@ local plugin_count = {
   val = '└─ 🌊 ' .. plugins .. ' plugins ++ ─┘',
   opts = {
     position = 'center',
-    hl = 'comment',
+    hl = 'CmpItemMenu',
   },
 }
 
@@ -54,7 +54,7 @@ local heading = {
   val = '┌─   Today is ' .. date .. ' ─┐',
   opts = {
     position = 'center',
-    hl = 'comment',
+    hl = 'CmpItemMenu',
   },
 }
 
@@ -66,7 +66,7 @@ local footer = {
   },
   opts = {
     position = 'center',
-    hl = 'comment',
+    hl = 'CmpItemMenu',
   },
 }
 
@@ -81,7 +81,7 @@ local function button(sc, txt, keybind)
     width = 50,
     align_shortcut = 'right',
     hl_shortcut = 'RedSign',
-    hl = 'comment',
+    hl = 'CmpItemMenu',
   }
 
   if keybind then

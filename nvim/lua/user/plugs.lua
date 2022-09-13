@@ -214,6 +214,14 @@ return packer.startup(function(use)
       vim.cmd 'xmap gS       <Plug>VgSurround'
     end,
   }
+  use {
+    'tpope/vim-repeat',
+    config = function()
+      vim.cmd [[
+      silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+    ]]
+    end,
+  }
   use { 'tpope/vim-sleuth' }
 
   -- Telescope

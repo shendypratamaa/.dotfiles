@@ -1,31 +1,24 @@
-local lightspeed_ok, lightspeed = pcall(require, 'lightspeed')
+local lightspeed = require 'lightspeed'
 
-if not lightspeed_ok then
-  return
-end
+vim.keymap.set('n', 's', '<Plug>Lightspeed_s', {})
+vim.keymap.set('n', 'S', '<Plug>Lightspeed_S', {})
 
-vim.keymap.set('n', '<leader>j', '<Plug>Lightspeed_s', {})
-vim.keymap.set('n', '<leader>k', '<Plug>Lightspeed_S', {})
+vim.cmd [[
+  autocmd ColorScheme * lua require'lightspeed'.init_highlight(true)
+]]
 
 lightspeed.setup {
   ignore_case = false,
-  exit_after_idle_msecs = { unlabeled = 1000, labeled = nil },
-  --- s/x --j
+  exit_after_idle_msecs = { unlabeled = nil, labeled = nil },
   jump_to_unique_chars = { safety_timeout = 400 },
   match_only_the_start_of_same_char_seqs = true,
   force_beacons_into_match_width = false,
-  -- Display characters in a custom way in the highlighted matches.
   substitute_chars = { ['\r'] = '¬' },
-  -- Leaving the appropriate list empty effectively disables "smart" mode,
-  -- and forces auto-jump to be on or off.
-  safe_labels = {},
-  labels = {},
-  -- These keys are captured directly by the plugin at runtime.
+  disable_default_maaping = true,
   special_keys = {
     next_match_group = '<space>',
     prev_match_group = '<tab>',
   },
-  --- f/t ---
   limit_ft_matches = 4,
   repeat_ft_with_target_char = false,
 }
