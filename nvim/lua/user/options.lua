@@ -39,7 +39,7 @@ local options = {
   ignorecase = true,
   colorcolumn = '80',
   sidescrolloff = 8,
-  guifont = 'monospace:h12',
+  guifont = 'JetBrainsMono Nerd Font Mono:h12',
   guicursor = '',
 }
 
@@ -59,17 +59,12 @@ vim.cmd [[
   nmap gx <Plug>(openbrowser-smart-search)
   vmap gx <Plug>(openbrowser-smart-search)
 
-  augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
-  augroup END
-
   fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
   endfun
+
   augroup neovim_rocks
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()

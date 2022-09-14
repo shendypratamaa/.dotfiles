@@ -22,9 +22,9 @@ keymap('n', '<C-w>j', ':resize -5<CR>', opts)
 keymap('n', '<C-w>l', ':vertical resize -5<CR>', opts)
 keymap('n', '<C-w>h', ':vertical resize +5<CR>', opts)
 
--- Navigate buffers
-keymap('n', '<S-l>', ':bnext<CR>', opts)
-keymap('n', '<S-h>', ':bprevious<CR>', opts)
+-- Navigate buffers refer using plugins
+-- keymap('n', '<S-l>', ':bnext<CR>', opts)
+-- keymap('n', '<S-h>', ':bprevious<CR>', opts)
 
 -- split panes
 keymap('n', 'ss', ':sv<CR>', opts)
@@ -55,9 +55,9 @@ keymap('t', '<C-k>', '<C-\\><C-N><C-w>k', term_opts)
 keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 
 -- extras --
-keymap('n', 'qq', ':bd<CR>', term_opts)
-keymap('n', 'wq', '<C-w>o<CR>', term_opts)
-keymap('n', ']s', ':luafile %<CR>', opts)
+keymap('n', '\\q', ':Bwipeout<CR><C-w>o<CR>', term_opts)
+keymap('n', '\\wq', '<C-w>o<CR>', term_opts)
+keymap('n', '\\s', ':luafile %<CR>', opts)
 keymap('n', '<C-r>', ':nohls<CR>', opts)
 keymap('n', '<leader>f', ':Format<CR>', opts)
 

@@ -10,6 +10,8 @@ vim.cmd [[
 
 leap.set_default_keymaps {}
 
+local hl = vim.api.nvim_set_hl
+
 leap.setup {
   max_aot_targets = nil,
   highlight_unlabeled = false,
@@ -22,5 +24,6 @@ leap.setup {
     next_group = '<space>',
     prev_group = '<tab>',
   },
-    vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = '#707070' }),
+  hl(0, 'LeapBackdrop', { fg = '#707070' }),
+  hl(0, 'LeapLabelPrimary', { bg = '#36567a', fg = '#ffffff' }),
 }

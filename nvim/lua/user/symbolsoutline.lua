@@ -1,5 +1,3 @@
-local M = {}
-
 vim.keymap.set(
   'n',
   ']q',
@@ -69,8 +67,4 @@ local opts = {
   },
 }
 
-function M.setup()
-  require('symbols-outline').setup(opts)
-end
-
-return M
+require('symbols-outline').setup(opts)

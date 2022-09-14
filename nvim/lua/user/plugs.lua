@@ -31,22 +31,6 @@ vim.cmd [[
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
    endif
-
-   aug VMlens
-     au!
-     au User visual_multi_start lua require('user.vmlens').start()
-     au User visual_multi_exit lua require('user.vmlens').exit()
-   aug END
-
-   fun! VM_Start()
-     nmap <buffer> <C-C> <Esc>
-     imap <buffer> <C-C> <Esc>
-   endfun
-
-   fun! VM_Exit()
-     nunmap <buffer> <C-C>
-     iunmap <buffer> <C-C>
-   endfun
 ]]
 
 packer.init {
@@ -140,16 +124,9 @@ return packer.startup(function(use)
   use { 'tyru/open-browser.vim' }
   use { 'akinsho/toggleterm.nvim' }
   use { 'kevinhwang91/nvim-hlslens' }
-  use { 'mg979/vim-visual-multi', branch = 'master' }
-  use {
-    'junegunn/vim-easy-align',
-    config = function()
-      vim.cmd [[
-        xmap ga <Plug>(EasyAlign)
-        nmap ga <Plug>(EasyAlign)
-      ]]
-    end,
-  }
+  use { 'beauwilliams/focus.nvim' }
+  use { 'simrat39/symbols-outline.nvim' }
+  use { 'moll/vim-bbye' }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -161,6 +138,34 @@ return packer.startup(function(use)
     tag = 'nightly',
   }
   use {
+    'tpope/vim-surround',
+    keys = { 'c', 'd', 'y' },
+    config = function()
+      vim.cmd 'nmap ds       <Plug>Dsurround'
+      vim.cmd 'nmap cs       <Plug>Csurround'
+      vim.cmd 'nmap cS       <Plug>CSurround'
+      vim.cmd 'nmap ys       <Plug>Ysurround'
+      vim.cmd 'nmap yS       <Plug>YSurround'
+      vim.cmd 'nmap yss      <Plug>Yssurround'
+      vim.cmd 'nmap ySs      <Plug>YSsurround'
+      vim.cmd 'nmap ySS      <Plug>YSsurround'
+      vim.cmd 'xmap gs       <Plug>VSurround'
+      vim.cmd 'xmap gS       <Plug>VgSurround'
+    end,
+  }
+  use {
+    'luukvbaal/stabilize.nvim',
+    config = function()
+      require('stabilize').setup {
+        ignore = {
+          filetype = { 'help', 'list', 'Trouble' },
+          buftype = { 'quickfix', 'loclist', 'undotree', 'terminal' },
+        },
+        nested = nil,
+      }
+    end,
+  }
+  use {
     'kwkarlwang/bufjump.nvim',
     config = function()
       require('bufjump').setup {
@@ -170,18 +175,6 @@ return packer.startup(function(use)
           vim.cmd [[execute "normal! g`\"zz"]]
         end,
       }
-    end,
-  }
-  use {
-    'simrat39/symbols-outline.nvim',
-    config = function()
-      require('user.symbolsoutline').setup()
-    end,
-  }
-  use {
-    'beauwilliams/focus.nvim',
-    config = function()
-      require('user.window').setup()
     end,
   }
 
@@ -199,7 +192,7 @@ return packer.startup(function(use)
   use { 'rcarriga/nvim-dap-ui' }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
-  -- Debugger utils
+  -- Debugger
   use { 'jbyuki/one-small-step-for-vimkind' }
   use { 'mxsdev/nvim-dap-vscode-js' }
   use { 'mfussenegger/nvim-dap-python' }
@@ -222,32 +215,13 @@ return packer.startup(function(use)
     end,
   }
 
-  -- Tpope
-  use {
-    'tpope/vim-surround',
-    keys = { 'c', 'd', 'y' },
-    config = function()
-      vim.cmd 'nmap ds       <Plug>Dsurround'
-      vim.cmd 'nmap cs       <Plug>Csurround'
-      vim.cmd 'nmap cS       <Plug>CSurround'
-      vim.cmd 'nmap ys       <Plug>Ysurround'
-      vim.cmd 'nmap yS       <Plug>YSurround'
-      vim.cmd 'nmap yss      <Plug>Yssurround'
-      vim.cmd 'nmap ySs      <Plug>YSsurround'
-      vim.cmd 'nmap ySS      <Plug>YSsurround'
-      vim.cmd 'xmap gs       <Plug>VSurround'
-      vim.cmd 'xmap gS       <Plug>VgSurround'
-    end,
-  }
-  use { 'tpope/vim-sleuth' }
-
   -- Telescope
   use { 'nvim-telescope/telescope.nvim' }
   use { 'nvim-telescope/telescope-file-browser.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope-project.nvim', commit = 'dc9a19' }
 
-  -- Telescope utils extended
+  -- Telescope extended
   use { 'airblade/vim-rooter' }
 
   -- Treesitter
@@ -261,6 +235,7 @@ return packer.startup(function(use)
   use { 'theHamsta/nvim-treesitter-pairs' }
   use { 'windwp/nvim-ts-autotag' }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
+  use { 'ziontee113/syntax-tree-surfer' }
 
   -- Note Taking Apps
   use { 'nvim-neorg/neorg', tag = '0.0.12' }

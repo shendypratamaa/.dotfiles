@@ -1,5 +1,5 @@
 format = """
-(#9A348E)\
+(#4c566a)\
 $username\
 (bg:#DA627D fg:#9A348E)\
 $directory\
@@ -19,12 +19,12 @@ add_newline = false
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
+style_user = "bg:#4c566a"
+style_root = "bg:#4c566a"
 format = '[ $user ]($style)'
 
 [directory]
-style = "bg:#DA627D"
+style = "bg:#3b4252 fg:#ffffff"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -49,28 +49,29 @@ format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
-format = '[[ $symbol $branch ](bg:#FCA17D)]($style)'
+style = "bg:#b4ecfa fg:#262626"
+format = '[[ $symbol $branch ](bg:#b4ecfa fg:#262626)]($style)'
 
 [git_status]
-style = "bg:#FCA17D"
-format = '[[($all_status$ahead_behind )](bg:#FCA17D)]($style)'
+style = "bg:#b4ecfa fg:#262626"
+format = '[[($all_status$ahead_behind )](bg:#b4ecfa fg:#262626)]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
+style = "bg:#d8dee9"
+format = '[[ $symbol ($version) ](bg:#d8dee9 fg:#262626)]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[[ ♥ $time ](bg:#33658A)]($style)'
+style = "bg:#81a1c1"
+format = '[[ ♥ $time ](bg:#81a1c1)]($style)'
 
 [lua]
-style = "bg:#4b9ff2"
-format = "[[  ($version) ](bg:#4b9ff2)]($style)"
+style = "bg:#d8dee9"
+format = "[[  ($version) ](bg:#d8dee9 fg:#262626)]($style)"
 
 [python]
-style = "fg:#f3f3f3"
-format = "[[  ($version) ($virtualenv) ](bg:#262626)]($style)"
+style = "bg:#d8dee9"
+format = '[[ $symbol ($version) ](bg:#d8dee9 fg:#262626)]($style)'
+

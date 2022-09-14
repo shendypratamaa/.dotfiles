@@ -8,6 +8,6 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 keymap('n', ']a', ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap('n', ']w', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+keymap('n', ']w', ':Telescope harpoon marks<CR>', opts)
 
 harpoon.setup()

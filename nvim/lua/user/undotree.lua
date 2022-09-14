@@ -1,10 +1,10 @@
-vim.g.undotree_RelativeTampstamp = 1
+vim.g.undotree_RelativeTimestamp = 1
 vim.g.undotree_ShortIndocators = 1
 vim.g.undotree_HelpLine = 0
 vim.g.undotree_WindowLayout = 3
-vim.g.undotree_SplitWidth = 40
+vim.g.undotree_SplitWidth = 35
 vim.g.undotree_DiffpanelHeight = 15
-vim.g.undotree_SetFocusWhenToggle = 0
+vim.g.undotree_SetFocusWhenToggle = 1
 
 vim.cmd [[
  if has("persistent_undo")

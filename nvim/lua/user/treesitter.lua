@@ -20,6 +20,7 @@ configs.setup {
     'markdown',
     'yaml',
     'norg',
+    'query',
   },
   sync_install = false,
   ignore_install = { '' },
@@ -86,8 +87,8 @@ configs.setup {
         goto_definition = 'gnd',
         list_definitions = 'gnD',
         list_definitions_toc = 'gO',
-        goto_next_usage = '<a-*>',
-        goto_previous_usage = '<a-#>',
+        goto_next_usage = '-',
+        goto_previous_usage = '=',
       },
     },
   },
@@ -107,7 +108,7 @@ configs.setup {
     goto_right_end = false, -- whether to go to the end of the right partner or the beginning
     fallback_cmd_normal = "call matchit#Match_wrapper('',1,'n')", -- What command to issue when we can't find a pair (e.g. "normal! %")
     keymaps = {
-      goto_partner = '<leader>%',
+      goto_partner = '\\ag',
       delete_balanced = 'X',
     },
     delete_balanced = {
@@ -120,10 +121,10 @@ configs.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = 'gnn',
-      node_incremental = 'grn',
-      scope_incremental = 'grc',
-      node_decremental = 'grm',
+      init_selection = '\\g',
+      node_incremental = '\\ga',
+      scope_incremental = '\\ge',
+      node_decremental = '\\gd',
     },
   },
   indent = { enable = true },

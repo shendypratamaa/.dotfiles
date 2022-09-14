@@ -4,6 +4,10 @@ if not nvimtree_ok then
   return
 end
 
+local keymap = vim.keymap.set
+
+keymap('n', '<C-n>', ':NvimTreeToggle<cr>', { noremap = true, silent = true })
+
 nvimtree.setup {
   auto_reload_on_write = true,
   create_in_closed_folder = false,

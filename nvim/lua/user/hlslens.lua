@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
+local hl = vim.api.nvim_set_hl
 
 keymap(
   'n',
@@ -52,10 +53,6 @@ require('hlslens').setup {
     end
     render.setVirt(0, lnum - 1, col - 1, chunks, nearest)
   end,
-  vim.api.nvim_set_hl(0, 'HlSearchLens', { bg = '#2c4c6b', fg = '#ffffff' }),
-  vim.api.nvim_set_hl(
-    0,
-    'HlSearchLensNear',
-    { bg = '#a4cef5', fg = '#262626' }
-  ),
+  hl(0, 'HlSearchLens', { bg = '#2c4c6b', fg = '#ffffff' }),
+  hl(0, 'HlSearchLensNear', { bg = '#a4cef5', fg = '#262626' }),
 }

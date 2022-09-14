@@ -8,6 +8,8 @@ end
 local header = {
   type = 'text',
   val = {
+    [[]],
+    [[]],
     [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
     [[⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀]],
     [[⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀]],
@@ -26,7 +28,7 @@ local header = {
   },
   opts = {
     position = 'center',
-    hl = 'CmpItemMenu',
+    hl = 'LineNr',
   },
 }
 
@@ -45,7 +47,7 @@ local plugin_count = {
   val = '└─ 🌊 ' .. plugins .. ' plugins ++ ─┘',
   opts = {
     position = 'center',
-    hl = 'CmpItemMenu',
+    hl = 'LineNr',
   },
 }
 
@@ -54,7 +56,7 @@ local heading = {
   val = '┌─   Today is ' .. date .. ' ─┐',
   opts = {
     position = 'center',
-    hl = 'CmpItemMenu',
+    hl = 'LineNr',
   },
 }
 
@@ -66,7 +68,7 @@ local footer = {
   },
   opts = {
     position = 'center',
-    hl = 'CmpItemMenu',
+    hl = 'LineNr',
   },
 }
 
@@ -81,7 +83,7 @@ local function button(sc, txt, keybind)
     width = 50,
     align_shortcut = 'right',
     hl_shortcut = 'RedSign',
-    hl = 'CmpItemMenu',
+    hl = 'LineNr',
   }
 
   if keybind then
@@ -134,7 +136,7 @@ local section = {
 }
 
 local fn = vim.fn
-local percent = 0.2
+local percent = 0.1
 local headerCenter = fn.max { 2, fn.floor(fn.winheight(0) * percent) }
 
 local opts = {

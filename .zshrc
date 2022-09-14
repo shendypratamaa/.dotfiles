@@ -139,7 +139,7 @@ alias vim="nvim"
 alias lg="lazygit"
 alias tmuxconf="vim ~/.tmux.conf"
 alias ide="tmux split-window -h -p 25 && tmux select-pane -t 0"
-alias nodeg="cd ~/.nvm/versions/node/v16.16.0/"
+alias nodeg="cd ~/.nvm/versions/node/v16.16.0/lib/node_modules"
 alias rsyb="brew services restart --all"
 alias python=python3
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
