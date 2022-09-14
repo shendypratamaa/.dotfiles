@@ -23,13 +23,13 @@ configs.setup {
     'query',
   },
   sync_install = false,
-  ignore_install = { '' },
-  autopairs = {
+  ignore_install = {},
+  autotag = {
     enable = true,
   },
   highlight = {
     enable = true,
-    disable = { '' },
+    disable = {},
     additional_vim_regex_highlighting = true,
   },
   playground = {
@@ -94,11 +94,8 @@ configs.setup {
   },
   rainbow = {
     enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
+    extended_mode = true,
+    max_file_lines = nil,
   },
   pairs = {
     enable = true,
@@ -129,7 +126,7 @@ configs.setup {
   },
   indent = { enable = true },
   textobjects = {
-    select = {
+    select = { -- NOTE: this section important
       enable = true,
       lookahead = true,
       keymaps = {
@@ -138,8 +135,14 @@ configs.setup {
         ['ac'] = '@class.outer',
         ['ic'] = '@class.inner',
       },
+      selection_modes = {
+        ['@parameter.outer'] = 'v', -- charwise
+        ['@function.outer'] = 'V', -- linewise
+        ['@class.outer'] = '<c-v>', -- blockwise
+      },
+      include_surrounding_whitespace = true,
     },
-    wap = {
+    swap = {
       enable = true,
       swap_next = {
         ['<leader>a'] = '@parameter.inner',
@@ -150,7 +153,7 @@ configs.setup {
     },
     move = {
       enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
+      set_jumps = true,
       goto_next_start = {
         [']m'] = '@function.outer',
         [']]'] = '@class.outer',
