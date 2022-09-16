@@ -1,8 +1,7 @@
 vim.cmd [[
   hi FocusedWindow guibg=none
-  hi link UnfocusedWindow CursorLine
-  hi LineNr guibg=none guifg=#d8dee9
-  hi Visual guibg=#d8dee9 guifg=#4c566a
+  hi UnfocusedWindow guibg=#434c5e
+  hi Visual guifg=#4c566a guibg=#eceff4
 ]]
 
 require('focus').setup {
@@ -19,7 +18,6 @@ require('focus').setup {
     'SymbolsOutline',
     'harpoon',
     'help',
-    'TreesitterPlayground',
   },
   forced_filestypes = { 'dap_repl' },
 }
