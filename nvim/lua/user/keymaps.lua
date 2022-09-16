@@ -17,8 +17,8 @@ vim.g.maplocalleader = ' '
 
 -- Normal --
 -- Resize with arrows
-keymap('n', '<C-w>k', ':resize +5<CR>', opts)
-keymap('n', '<C-w>j', ':resize -5<CR>', opts)
+keymap('n', '<C-w>j', ':resize +5<CR>', opts)
+keymap('n', '<C-w>k', ':resize -5<CR>', opts)
 keymap('n', '<C-w>l', ':vertical resize -5<CR>', opts)
 keymap('n', '<C-w>h', ':vertical resize +5<CR>', opts)
 
