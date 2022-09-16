@@ -17,12 +17,12 @@ trouble.setup {
   action_keys = { -- key mappings for actions in the trouble list
     -- map to {} to remove a mapping, for example:
     -- close = {},
-    close = 'q', -- close the list
+    close = '\\q', -- close the list
     cancel = '<esc>', -- cancel the preview and get back to your last window / buffer / cursor
     refresh = 'r', -- manually refresh
     jump = { '<cr>', '<tab>' }, -- jump to the diagnostic or open / close folds
-    open_split = { '<c-x>' }, -- open buffer in new split
-    open_vsplit = { '<c-v>' }, -- open buffer in new vsplit
+    open_split = { 'ss' }, -- open buffer in new split
+    open_vsplit = { 'sv' }, -- open buffer in new vsplit
     -- open_tab = { "<c-t>" }, -- open buffer in new tab
     jump_close = { 'o' }, -- jump to the diagnostic and close the list
     toggle_mode = 'm', -- toggle between "workspace" and "document" diagnostics mode
@@ -48,3 +48,20 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 keymap('n', ']e', ':TroubleToggle<CR>', opts)
+keymap('n', ']ed', ':TroubleToggle document_diagnostics<CR>', opts)
+keymap('n', ']ew', ':TroubleToggle workspace_diagnostics<CR>', opts)
+keymap('n', ']es', ':TroubleToggle loclist<CR>', opts)
+keymap('n', ']eq', ':TroubleToggle quickfix<CR>', opts)
+keymap('n', ']er', ':TroubleToggle lsp_references<CR>', opts)
+keymap(
+  'n',
+  '\\e',
+  ':lua require("trouble").next({ skip_group = true, jump = true })<CR>',
+  opts
+)
+keymap(
+  'n',
+  '\\d',
+  ':lua require("trouble").previous({ skip_group = true, jump = true })<CR>',
+  opts
+)
