@@ -9,10 +9,11 @@ local autocmd = vim.api.nvim_create_autocmd
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap('n', '<s-h>', '<Cmd>BufferPrevious<CR>', opts)
-keymap('n', '<s-l>', '<Cmd>BufferNext<CR>', opts)
-keymap('n', '\\p', '<Cmd>BufferPin<CR>', opts)
---
+keymap('n', '<s-h>', '<cmd>BufferPrevious<CR>', opts)
+keymap('n', '<s-l>', '<cmd>BufferNext<CR>', opts)
+keymap('n', '\\1', '<cmd>BufferPin<CR>', opts)
+keymap('n', '\\da', '<cmd>BufferCloseAllButPinned<CR>', opts)
+
 autocmd('BufWinEnter', {
   pattern = '*',
   callback = function()
