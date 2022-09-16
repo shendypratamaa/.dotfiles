@@ -42,19 +42,15 @@ truncation_symbol = "…/"
 # So either put "Important Documents" before "Documents" or use the substituted version:
 # "Important  " = "  "
 
-[c]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#b4ecfa fg:#262626"
-format = '[[ $symbol $branch ](bg:#b4ecfa fg:#262626)]($style)'
+style = "bg:#88c0d0 fg:#262626"
+format = '[[ $symbol $branch ](bg:#88c0d0 fg:#262626)]($style)'
 
 [git_status]
-style = "bg:#b4ecfa fg:#262626"
-format = '[[($all_status$ahead_behind )](bg:#b4ecfa fg:#262626)]($style)'
+style = "bg:#88c0d0 fg:#262626"
+format = '[[($all_status$ahead_behind )](bg:#88c0d0 fg:#262626)]($style)'
 
 [nodejs]
 symbol = ""
