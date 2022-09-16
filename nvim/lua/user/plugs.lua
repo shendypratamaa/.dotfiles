@@ -10,7 +10,6 @@ local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     'git',
-
     '--depth',
     '1',
     'https://github.com/wbthomason/packer.nvim',
@@ -67,10 +66,7 @@ return packer.startup(function(use)
   use { 'MaxMEllon/vim-jsx-pretty' }
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
   use { 'ray-x/lsp_signature.nvim' }
-  use {
-    'kristijanhusak/vim-js-file-import',
-    run = 'npm install',
-  }
+  use { 'kristijanhusak/vim-js-file-import', run = 'npm install' }
   use {
     'j-hui/fidget.nvim',
     config = function()
@@ -98,6 +94,7 @@ return packer.startup(function(use)
 
   -- Colorscheme
   use { 'RRethy/nvim-base16' }
+  use { 'shaunsingh/nord.nvim' }
 
   -- Utils
   use { 'numToStr/Comment.nvim' }
@@ -138,22 +135,6 @@ return packer.startup(function(use)
     tag = 'nightly',
   }
   use {
-    'tpope/vim-surround',
-    keys = { 'c', 'd', 'y' },
-    config = function()
-      vim.cmd 'nmap ds       <Plug>Dsurround'
-      vim.cmd 'nmap cs       <Plug>Csurround'
-      vim.cmd 'nmap cS       <Plug>CSurround'
-      vim.cmd 'nmap ys       <Plug>Ysurround'
-      vim.cmd 'nmap yS       <Plug>YSurround'
-      vim.cmd 'nmap yss      <Plug>Yssurround'
-      vim.cmd 'nmap ySs      <Plug>YSsurround'
-      vim.cmd 'nmap ySS      <Plug>YSsurround'
-      vim.cmd 'xmap gs       <Plug>VSurround'
-      vim.cmd 'xmap gS       <Plug>VgSurround'
-    end,
-  }
-  use {
     'luukvbaal/stabilize.nvim',
     config = function()
       require('stabilize').setup {
@@ -178,10 +159,39 @@ return packer.startup(function(use)
     end,
   }
 
-  -- API
-  use { 'NtBBloodbath/rest.nvim', require = { 'nvim-lua/plenary.nvim' } }
+  -- Telescope
+  use { 'nvim-telescope/telescope.nvim' }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-project.nvim', commit = 'dc9a19' }
 
-  -- DAP
+  -- Directory route
+  use { 'airblade/vim-rooter' }
+
+  -- Treesitter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/nvim-treesitter-refactor' }
+  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+  use { 'nvim-treesitter/nvim-treesitter-context' }
+  use { 'nvim-treesitter/playground' }
+  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
+  use { 'RRethy/nvim-treesitter-textsubjects' }
+  use { 'theHamsta/nvim-treesitter-pairs' }
+  use { 'ziontee113/syntax-tree-surfer' }
+  use { 'windwp/nvim-ts-autotag' }
+  use { 'p00f/nvim-ts-rainbow' }
+  use {
+    'kylechui/nvim-surround',
+    tag = '*',
+    config = function()
+      require('nvim-surround').setup()
+    end,
+  }
+
+  -- API
+  use { 'NtBBloodbath/rest.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
+  -- DAP core
   use {
     'mfussenegger/nvim-dap',
     config = function()
@@ -192,12 +202,12 @@ return packer.startup(function(use)
   use { 'rcarriga/nvim-dap-ui' }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
-  -- Debugger
+  -- DAP utility
   use { 'jbyuki/one-small-step-for-vimkind' }
   use { 'mxsdev/nvim-dap-vscode-js' }
   use { 'mfussenegger/nvim-dap-python' }
 
-  -- Debugger
+  -- DAP adapter
   use {
     'microsoft/vscode-js-debug',
     opt = true,
@@ -214,28 +224,6 @@ return packer.startup(function(use)
       require('user.neotest').setup()
     end,
   }
-
-  -- Telescope
-  use { 'nvim-telescope/telescope.nvim' }
-  use { 'nvim-telescope/telescope-file-browser.nvim' }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { 'nvim-telescope/telescope-project.nvim', commit = 'dc9a19' }
-
-  -- Telescope extended
-  use { 'airblade/vim-rooter' }
-
-  -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'nvim-treesitter/nvim-treesitter-refactor' }
-  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-  use { 'nvim-treesitter/nvim-treesitter-context' }
-  use { 'RRethy/nvim-treesitter-textsubjects' }
-  use { 'nvim-treesitter/playground' }
-  use { 'p00f/nvim-ts-rainbow' }
-  use { 'theHamsta/nvim-treesitter-pairs' }
-  use { 'windwp/nvim-ts-autotag' }
-  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
-  use { 'ziontee113/syntax-tree-surfer' }
 
   -- Note Taking Apps
   use { 'nvim-neorg/neorg', tag = '0.0.12' }
