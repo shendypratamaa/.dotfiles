@@ -9,6 +9,7 @@ local actions = require 'telescope.actions'
 local sorters = require 'telescope.sorters'
 local telescope_builtin = require 'telescope.builtin'
 local previewers = require 'telescope.previewers'
+local trouble = require 'trouble.providers.telescope'
 
 local Job = require 'plenary.job'
 local new_maker = function(filepath, bufnr, opts)
@@ -34,10 +35,6 @@ local new_maker = function(filepath, bufnr, opts)
     end,
   }):sync()
 end
-
-vim.cmd [[
-  autocmd User TelescopePreviewerLoaded setlocal wrap
-]]
 
 local M = {}
 
@@ -100,51 +97,34 @@ telescope.setup {
       i = {
         ['<C-n>'] = actions.cycle_history_next,
         ['<C-p>'] = actions.cycle_history_prev,
-
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
-
-        ['<C-c>'] = actions.close,
-
+        ['\\q'] = actions.close,
         ['<Down>'] = actions.move_selection_next,
         ['<Up>'] = actions.move_selection_previous,
-
         ['<CR>'] = actions.select_default,
-        ['<C-x>'] = actions.select_horizontal,
+        ['<C-h>'] = actions.select_horizontal,
         ['<C-v>'] = actions.select_vertical,
-
-        ['<C-u>'] = actions.preview_scrolling_up,
-        ['<C-d>'] = actions.preview_scrolling_down,
-
         ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
         ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
+        [']e'] = trouble.open_with_trouble,
       },
       n = {
-        ['<C-c>'] = actions.close,
+        ['\\q'] = actions.close,
         ['q'] = actions.close,
-
         ['<CR>'] = actions.select_default,
-
-        ['<C-x>'] = actions.select_horizontal,
-        ['<C-v>'] = actions.select_vertical,
-
+        ['ss'] = actions.select_horizontal,
+        ['sv'] = actions.select_vertical,
         ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
         ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
-
         ['j'] = actions.move_selection_next,
         ['k'] = actions.move_selection_previous,
         ['H'] = actions.move_to_top,
         ['M'] = actions.move_to_middle,
         ['L'] = actions.move_to_bottom,
-
         ['<Down>'] = actions.move_selection_next,
         ['<Up>'] = actions.move_selection_previous,
-
-        ['gg'] = actions.move_to_top,
-        ['G'] = actions.move_to_bottom,
-
-        ['<C-u>'] = actions.preview_scrolling_up,
-        ['<C-d>'] = actions.preview_scrolling_down,
+        [']e'] = trouble.open_with_trouble,
       },
     },
   },
@@ -156,17 +136,8 @@ telescope.setup {
   extensions = {
     file_browser = {
       theme = 'ivy',
-      -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       hidden = true,
-      mappings = {
-        ['i'] = {
-          -- your custom insert mode mappings
-        },
-        ['n'] = {
-          -- your custom normal mode mappings
-        },
-      },
     },
     project = {
       base_dirs = {
@@ -194,15 +165,15 @@ keymap('n', ']ff', ":lua require('telescope.builtin').find_files()<CR>", opts)
 keymap('n', ']b', ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap('n', ']r', ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap('n', ']t', ":lua require('telescope.builtin').help_tags()<CR>", opts)
-keymap(
-  'n',
-  ']v',
-  ":lua  require('telescope').extensions.project.project{ display_type = 'full'}<CR>",
-  opts
-)
 keymap('n', ']n', ':Telescope file_browser<CR>', opts)
 keymap('n', ']g', ':Telescope<CR>', opts)
 keymap('n', ']t', ':TodoTelescope<CR>', opts)
+keymap(
+  'n',
+  ']v',
+  ":lua require('telescope').extensions.project.project{ display_type = 'full'}<CR>",
+  opts
+)
 
 telescope.load_extension 'fzf'
 telescope.load_extension 'file_browser'
