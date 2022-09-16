@@ -87,10 +87,16 @@ local filePath = {
   },
 }
 
+local function cb_theme(theme)
+  if not theme then
+    return 'auto'
+  end
+end
+
 function M.setup(theme)
   require('lualine').setup {
     options = {
-      theme = theme,
+      theme = cb_theme(theme),
       icons_enabled = true,
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
