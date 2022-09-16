@@ -15,9 +15,9 @@ term.setup {
   open_mapping = [[<c-\>]],
   hide_numbers = true,
   shade_filetypes = {},
-  shade_terminals = true,
+  shade_terminals = false,
   shading_factor = 2,
-  start_in_insert = true,
+  start_in_insert = false,
   insert_mappings = true,
   persist_size = true,
   direction = 'horizontal',
@@ -33,16 +33,22 @@ term.setup {
   },
 }
 
+local keymap = vim.keymap.set
+local term_opts = { buffer = 0 }
+local opts = { noremap = true, silent = true }
+
 function _G.set_terminal_keymaps()
-  local opts = { noremap = true }
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+  keymap('t', '<esc>', [[<C-\><C-n>]], term_opts)
+  keymap('t', 'jk', [[<C-\><C-n>]], term_opts)
+  keymap('t', '<C-h>', [[<Cmd>wincmd h<CR>]], term_opts)
+  keymap('t', '<C-j>', [[<Cmd>wincmd j<CR>]], term_opts)
+  keymap('t', '<C-k>', [[<Cmd>wincmd k<CR>]], term_opts)
+  keymap('t', '<C-l>', [[<Cmd>wincmd l<CR>]], term_opts)
 end
 
-vim.cmd 'autocmd! TermOpen term://* lua set_terminal_keymaps()'
+vim.cmd [[
+  autocmd! TermOpen term://* lua set_terminal_keymaps()
+]]
 
 local Terminal = require('toggleterm.terminal').Terminal
 local lg = Terminal:new { cmd = 'lazygit', hidden = true, direction = 'float' }
@@ -51,9 +57,4 @@ function _LAZYGIT_TOGGLE()
   lg:toggle()
 end
 
-vim.keymap.set(
-  'n',
-  '<leader>g',
-  ':lua _LAZYGIT_TOGGLE()<CR>',
-  { noremap = true, silent = true }
-)
+keymap('n', '<leader>g', ':lua _LAZYGIT_TOGGLE()<CR>', opts)
