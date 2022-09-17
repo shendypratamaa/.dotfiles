@@ -5,9 +5,9 @@ local function pick_colorscheme(theme)
   return colorscheme
 end
 
--- WARNING: colorscheme terms
--- for now list colorscheme base16-bundle and nord-single-source 📦
--- <cmd>Telecope colorscheme<cr> or ]g for seeing all available colorschemes 📚
--- not all colorschemes have utility for telescope floating border 💔
+-- WARNING: Colorscheme Terms
+-- colorscheme available base16-bundle and nord-single-source 📦
+-- <cmd>Telecope colorscheme<cr> or ]g for seeing all options 📚
+-- only specified coloschemes have telescope floating border config 💔
 
-pick_colorscheme 'base16-nebula'
+pick_colorscheme 'nord'
