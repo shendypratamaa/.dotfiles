@@ -1,9 +1,3 @@
-vim.cmd [[
-  hi FocusedWindow guibg=none
-  hi UnfocusedWindow guibg=#434c5e
-  hi Visual guifg=#4c566a guibg=#eceff4
-]]
-
 require('focus').setup {
   winhighlight = true,
   enable = true,
@@ -12,12 +6,13 @@ require('focus').setup {
   treewidth = 20,
   compatible_filetrees = { 'NvimTree' },
   excluded_filetypes = {
-    'ToggleTerm',
-    'UndoTreeToggle',
     'TelescopePrompt',
     'SymbolsOutline',
+    'toggleterm',
+    'undotree',
     'harpoon',
     'help',
+    'cmdline'
   },
   forced_filestypes = { 'dap_repl' },
 }
