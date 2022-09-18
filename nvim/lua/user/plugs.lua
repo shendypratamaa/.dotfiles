@@ -121,7 +121,6 @@ return packer.startup(function(use)
   use { 'tyru/open-browser.vim' }
   use { 'akinsho/toggleterm.nvim' }
   use { 'kevinhwang91/nvim-hlslens' }
-  use { 'beauwilliams/focus.nvim' }
   use { 'simrat39/symbols-outline.nvim' }
   use { 'moll/vim-bbye' }
   use {
