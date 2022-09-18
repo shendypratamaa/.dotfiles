@@ -8,8 +8,6 @@ end
 local header = {
   type = 'text',
   val = {
-    [[]],
-    [[]],
     [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
     [[⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀]],
     [[⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀]],
@@ -28,7 +26,7 @@ local header = {
   },
   opts = {
     position = 'center',
-    hl = 'LineNr',
+    hl = 'Comment',
   },
 }
 
@@ -47,7 +45,7 @@ local plugin_count = {
   val = '└─ 🌊 ' .. plugins .. ' plugins ++ ─┘',
   opts = {
     position = 'center',
-    hl = 'LineNr',
+    hl = 'Comment',
   },
 }
 
@@ -56,7 +54,7 @@ local heading = {
   val = '┌─   Today is ' .. date .. ' ─┐',
   opts = {
     position = 'center',
-    hl = 'LineNr',
+    hl = 'Comment',
   },
 }
 
@@ -68,7 +66,7 @@ local footer = {
   },
   opts = {
     position = 'center',
-    hl = 'LineNr',
+    hl = 'Comment',
   },
 }
 
@@ -83,7 +81,7 @@ local function button(sc, txt, keybind)
     width = 50,
     align_shortcut = 'right',
     hl_shortcut = 'RedSign',
-    hl = 'LineNr',
+    hl = 'Comment',
   }
 
   if keybind then
@@ -114,6 +112,11 @@ local buttons = {
       '💻 --> Find Files',
       ":lua require('telescope.builtin').find_files()<CR>"
     ),
+    button(
+      'r',
+      '📦 --> Recent Files',
+      ":lua require('telescope.builtin').oldfiles()<CR>"
+    ),
     button('z', '🪐 --> Configuration Zshell', ':e ~/.zshrc<cr>'),
     button(
       'd',
@@ -136,21 +139,20 @@ local section = {
 }
 
 local fn = vim.fn
-local percent = 0.1
-local headerCenter = fn.max { 2, fn.floor(fn.winheight(0) * percent) }
+local percent = 4 / 20
+local headerCenter = fn.max { fn.floor(fn.winheight(0) * percent) }
 
 local opts = {
   layout = {
     { type = 'padding', val = headerCenter },
     section.header,
-    { type = 'padding', val = 2 },
+    { type = 'padding', val = 1 },
     section.heading,
     section.plugin_count,
-    { type = 'padding', val = 2 },
+    { type = 'padding', val = 1 },
     section.buttons,
-    { type = 'padding', val = 1 },
+    { type = 'padding', val = 0 },
     section.footer,
-    { type = 'padding', val = 1 },
   },
 }
 

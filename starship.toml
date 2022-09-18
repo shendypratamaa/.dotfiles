@@ -45,12 +45,12 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:#88c0d0 fg:#262626"
-format = '[[ $symbol $branch ](bg:#88c0d0 fg:#262626)]($style)'
+style = "bg:#88c0d0 fg:#d8dee9"
+format = '[[ $symbol $branch ](bg:#88c0d0 fg:#d8dee9)]($style)'
 
 [git_status]
-style = "bg:#88c0d0 fg:#262626"
-format = '[[($all_status$ahead_behind )](bg:#88c0d0 fg:#262626)]($style)'
+style = "bg:#88c0d0 fg:#d8dee9"
+format = '[[($all_status$ahead_behind )](bg:#88c0d0 fg:#d8dee9)]($style)'
 
 [nodejs]
 symbol = ""
@@ -65,9 +65,9 @@ format = '[[ ♥ $time ](bg:#81a1c1)]($style)'
 
 [lua]
 style = "bg:#d8dee9"
-format = "[[  ($version) ](bg:#d8dee9 fg:#262626)]($style)"
+format = "[[  ($version) ](bg:#d8dee9 fg:#d9dee0)]($style)"
 
 [python]
 style = "bg:#d8dee9"
-format = '[[ $symbol ($version) ](bg:#d8dee9 fg:#262626)]($style)'
+format = '[[ $symbol ($version) ](bg:#d8dee9 fg:#d2dee0)]($style)'
 

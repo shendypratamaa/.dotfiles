@@ -17,24 +17,24 @@ local setup = {
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
     presets = {
-      operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-      motions = false, -- adds help for motions
-      text_objects = false, -- help for text objects triggered after entering an operator
+      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      motions = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
       windows = false, -- default bindings on <c-w>
-      nav = false, -- misc bindings to work with windows
-      z = false, -- bindings for folds, spelling and others prefixed with z
-      g = false, -- bindings for prefixed with g
+      nav = true, -- misc bindings to work with windows
+      z = true, -- bindings for folds, spelling and others prefixed with z
+      g = true, -- bindings for prefixed with g
     },
   },
   -- add operators that will trigger motion and text object completion
   -- to enable all native operators, set the preset / operators plugin above
-  -- operators = { gc = "Comments" },
+  operators = { gc = 'Comments' },
   key_labels = {
     -- override the label used to display some keys. It doesn't effect WK in any other way.
     -- For example:
-    -- ["<space>"] = "SPC",
-    -- ["<cr>"] = "RET",
-    -- ["<tab>"] = "TAB",
+    ['<space>'] = 'SPC',
+    ['<cr>'] = 'RET',
+    ['<tab>'] = 'TAB',
   },
   icons = {
     breadcrumb = '»', -- symbol used in the command line area that shows your active key combo
@@ -46,7 +46,7 @@ local setup = {
     scroll_up = '<c-u>', -- binding to scroll up inside the popup
   },
   window = {
-    border = 'rounded', -- none, single, double, shadow
+    border = 'single', -- none, single, double, shadow
     position = 'bottom', -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -61,8 +61,8 @@ local setup = {
   ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
   hidden = { '<silent>', '<cmd>', '<Cmd>', '<CR>', 'call', 'lua', '^:', '^ ' }, -- hide mapping boilerplate
   show_help = true, -- show help message on the command line when the popup is visible
-  triggers = 'auto', -- automatically setup triggers
-  -- triggers = {"<leader>"} -- or specify a list manually
+  -- triggers = 'auto', -- automatically setup triggers
+  triggers = { '<leader>' }, -- or specify a list manually
   triggers_blacklist = {
     -- list of mode / prefixes that should never be hooked by WhichKey
     -- this is mostly relevant for key maps that start with a native binding
@@ -82,9 +82,9 @@ local opts = {
 }
 
 local keybinds = {
-  D = { '<cmd>:bd<cr>', 'Delete Buffer' },
+  D = { '<cmd>:Bwipeout<cr>', 'Delete Buffer' },
   s = { '<cmd>:w!<cr>', 'Save Files' },
-  o = { '<cmd>StartupTime<cr>', 'Startup Time' },
+  S = { '<cmd>StartupTime<cr>', 'Startup Time' },
   q = { '<cmd>:wq!<cr>', 'Quit Save' },
   h = { '<cmd>sv<cr>', 'Split Horizontal' },
   v = { '<cmd>vs<cr>', 'Split Vertical' },
@@ -92,7 +92,7 @@ local keybinds = {
   N = { '<cmd>NeorgStart<CR>', 'Notes' },
   f = { ':Format<CR>', 'Format File' },
   l = {
-    name = '+LSP 🤖',
+    name = 'LSP',
     h = { '<cmd>LspInfo<cr>', 'Lsp Info' },
     j = { '<cmd>Mason<cr>', 'Mason Info' },
     n = { '<cmd>NullLsInfo<cr>', 'NullLs Info' },

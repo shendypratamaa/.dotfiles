@@ -2,7 +2,9 @@ local M = {}
 
 local function nord_telescope_border()
   local TelescopePrompt = {
-    TelescopeSelection = { bg = '#434c5e' },
+    TelescopeSelection = {
+      bg = '#3b4252',
+    },
     TelescopePromptBorder = {
       fg = '#3b4252',
       bg = '#3b4252',
@@ -13,9 +15,6 @@ local function nord_telescope_border()
     },
     TelescopePromptCounter = {
       fg = '#eceff4',
-    },
-    TelescopeMatching = {
-      fg = '#81a1c1',
     },
     TelescopePromptTitle = {
       fg = '#eceff4',
@@ -30,10 +29,18 @@ local function nord_telescope_border()
       bg = '#d08770',
     },
     TelescopePreviewBorder = {
-      fg = '#2e3440',
+      fg = '#1d222b',
+      bg = '#1d222b',
     },
     TelescopeResultsBorder = {
-      fg = '#2e3440',
+      fg = '#1d222b',
+      bg = '#1d222b',
+    },
+    TelescopePreviewNormal = {
+      bg = '#1d222b',
+    },
+    TelescopeResultsNormal = {
+      bg = '#1d222b',
     },
   }
 
@@ -61,43 +68,16 @@ local function base16_nord_telescope_border()
   end
 end
 
--- PERF: Refactor
-
 local function nord_sync(theme)
-  local nord = {
-    FocusedWindow = {
-      bg = 'none',
-    },
-    UnfocusedWindow = {
-      bg = '#434c5e',
-    },
-    TSplaygroundFocus = {
-      bg = '#eceff4',
-      fg = '#262626',
-    },
-    LineNr = {
-      fg = '#4c566a',
-    },
+  local both_opts = {
     NonText = {
-      fg = '#b48ead',
+      fg = '#d8dee9',
     },
   }
 
-  local base16_nord = {
-    UnfocusedWindow = {
-      bg = '#434c5e',
-    },
-    LineNr = {
-      fg = '#4c566a',
-    },
-    TSplaygroundFocus = {
-      bg = '#eceff4',
-      fg = '#262626',
-    },
-    NonText = {
-      fg = '#b48ead',
-    },
-  }
+  local nord = {}
+
+  local base16_nord = {}
 
   local opts = {
     nord = 'nord',
@@ -105,17 +85,19 @@ local function nord_sync(theme)
   }
 
   local function fillter_color()
+    local highlight = vim.api.nvim_set_hl
+    for hl, col in pairs(both_opts) do
+      highlight(0, hl, col)
+    end
     for _, v in pairs(opts) do
       if theme == opts[v] then
         nord_telescope_border()
         for hl, col in pairs(nord) do
-          local highlight = vim.api.nvim_set_hl
           highlight(0, hl, col)
         end
       else
         base16_nord_telescope_border()
         for hl, col in pairs(base16_nord) do
-          local highlight = vim.api.nvim_set_hl
           highlight(0, hl, col)
         end
       end
