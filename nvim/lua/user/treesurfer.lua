@@ -99,7 +99,7 @@ keymap('n', '\\vs', '<cmd>STSSelectCurrentNode<cr>', opts)
 keymap('n', '\\va', '<cmd>STSSelectMasterNode<cr>', opts)
 
 sts.setup {
-  highlight_group = 'STS_highlight',
+  highlight_group = 'TelescopePromptTitle',
   disable_no_instance_found_report = false,
   default_desired_types = {
     'function',
