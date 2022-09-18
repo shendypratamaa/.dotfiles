@@ -2,9 +2,7 @@ local M = {}
 
 local function nord_telescope_border()
   local TelescopePrompt = {
-    TelescopeSelection = {
-      bg = '#434c5e',
-    },
+    TelescopeSelection = { bg = '#434c5e' },
     TelescopePromptBorder = {
       fg = '#3b4252',
       bg = '#3b4252',
@@ -77,6 +75,12 @@ local function nord_sync(theme)
       bg = '#eceff4',
       fg = '#262626',
     },
+    LineNr = {
+      fg = '#4c566a',
+    },
+    NonText = {
+      fg = '#b48ead',
+    },
   }
 
   local base16_nord = {
@@ -84,12 +88,14 @@ local function nord_sync(theme)
       bg = '#434c5e',
     },
     LineNr = {
-      fg = 'none',
-      bg = 'none',
+      fg = '#4c566a',
     },
     TSplaygroundFocus = {
       bg = '#eceff4',
       fg = '#262626',
+    },
+    NonText = {
+      fg = '#b48ead',
     },
   }
 

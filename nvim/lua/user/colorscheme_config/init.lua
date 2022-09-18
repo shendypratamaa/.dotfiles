@@ -1,23 +1,11 @@
 local M = {}
 
-local function config_load_check(args)
-  local function nord_check()
-    if args == 'nord' then
-      print('run', args)
-      require('user.colorscheme_config.nord').setup()
-    elseif args == 'base16-nord' then
-      print('run', args)
-      require('user.colorscheme_config.nord.utils').setup()
-    end
-  end
-
-  return {
-    nord_check(),
-  }
+local function config_load_check(theme)
+  require('user.colorscheme_config.nord').setup(theme)
 end
 
-function M.setup(args)
-  config_load_check(args)
+function M.setup(theme)
+  config_load_check(theme)
 end
 
 return M
