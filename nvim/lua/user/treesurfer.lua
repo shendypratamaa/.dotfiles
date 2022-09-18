@@ -8,7 +8,7 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 keymap('n', 'gv', function() -- only jump to variable_declarations
-  sts.targeted_jump { 'variable_declaration' }
+  sts.targeted_jump { 'variable_declaration', 'lexical_declaration' }
 end, opts)
 keymap('n', 'gfu', function() -- only jump to functions
   sts.targeted_jump { 'function', 'arrrow_function', 'function_definition' }
