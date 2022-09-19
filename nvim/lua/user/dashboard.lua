@@ -104,26 +104,26 @@ local buttons = {
   val = {
     button(
       'p',
-      '🍔 --> Project ',
+      '🍔 ﬌ Project ',
       ":lua require('telescope').extensions.project.project{display_type ='full'}<CR>"
     ),
     button(
       'f',
-      '💻 --> Find Files',
+      '💻 ﬌ Find Files',
       ":lua require('telescope.builtin').find_files()<CR>"
     ),
     button(
       'r',
-      '📦 --> Recent Files',
+      '📦 ﬌ Recent Files',
       ":lua require('telescope.builtin').oldfiles()<CR>"
     ),
-    button('z', '🪐 --> Configuration Zshell', ':e ~/.zshrc<cr>'),
+    button('z', '🪐 ﬌ Configuration Zshell', ':e ~/.zshrc<cr>'),
     button(
       'd',
-      '🦕 --> Configuration Dashboard',
+      '🦕 ﬌ Configuration Dashboard',
       ':e ~/.config/nvim/lua/user/dashboard.lua<cr>'
     ),
-    button('q', '👻 --> Quit Neovim', ':qa<cr>'),
+    button('q', '👻 ﬌ Quit Neovim', ':qa<cr>'),
   },
   opts = {
     spacing = 1,
