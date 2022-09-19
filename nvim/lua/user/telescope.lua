@@ -134,11 +134,6 @@ telescope.setup {
     },
   },
   extensions = {
-    file_browser = {
-      theme = 'ivy',
-      hijack_netrw = true,
-      hidden = true,
-    },
     project = {
       base_dirs = {
         { '~/.code/js/' },
@@ -165,7 +160,6 @@ keymap('n', ']ff', ":lua require('telescope.builtin').find_files()<CR>", opts)
 keymap('n', ']b', ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap('n', ']r', ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap('n', ']t', ":lua require('telescope.builtin').help_tags()<CR>", opts)
-keymap('n', ']n', ':Telescope file_browser<CR>', opts)
 keymap('n', ']g', ':Telescope<CR>', opts)
 keymap('n', ']t', ':TodoTelescope<CR>', opts)
 keymap(
@@ -176,7 +170,6 @@ keymap(
 )
 
 telescope.load_extension 'fzf'
-telescope.load_extension 'file_browser'
 telescope.load_extension 'harpoon'
 telescope.load_extension 'project'
 telescope.load_extension 'dap'

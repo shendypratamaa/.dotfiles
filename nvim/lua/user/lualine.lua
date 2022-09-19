@@ -27,7 +27,7 @@ local diagnostics = {
 local diff = {
   'diff',
   colored = true,
-  symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
+  symbols = { added = ' ', modified = ' ', removed = ' ' },
   cond = hide_in_width,
 }
 
@@ -87,6 +87,10 @@ local filePath = {
   },
 }
 
+local function spaces()
+  return 'spaces: ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth')
+end
+
 local function cb_theme(theme)
   if not theme then
     return 'auto'
@@ -110,7 +114,7 @@ function M.setup(theme)
         filePath,
         navic_info,
       },
-      lualine_x = { diagnostics, diff, filetype, 'encoding' },
+      lualine_x = { diff, diagnostics, spaces, 'encoding', filetype },
       lualine_y = { location },
       lualine_z = { progress },
     },
