@@ -65,7 +65,7 @@ format = '[[ ♥ $time ](bg:#81a1c1)]($style)'
 
 [lua]
 style = "bg:#d8dee9"
-format = "[[  ($version) ](bg:#d8dee9 fg:#d9dee0)]($style)"
+format = "[[  ($version) ](bg:#d8dee9 fg:#262626)]($style)"
 
 [python]
 style = "bg:#d8dee9"

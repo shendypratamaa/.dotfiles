@@ -21,6 +21,7 @@ configs.setup {
     'yaml',
     'norg',
     'query',
+    'regex',
   },
   sync_install = false,
   ignore_install = {},
@@ -126,7 +127,7 @@ configs.setup {
   },
   indent = { enable = true },
   textobjects = {
-    select = { -- NOTE: this section important
+    select = { -- NOTE: explore this section
       enable = true,
       lookahead = true,
       keymaps = {

@@ -43,14 +43,15 @@ local options = {
   guicursor = '',
 }
 
-vim.opt.shortmess:append 'c'
-vim.g.cursorhold_updatetime = 100
-vim.opt.shada = "'0,f0"
-vim.g.python3_host_prog = '/usr/bin/python3'
-
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+-- BUG: When active cant recognize recent files, fold, marks, etc
+vim.o.shada = "'0,f0"
+vim.opt.shortmess:append 'c'
+vim.g.cursorhold_updatetime = 100
+vim.g.python3_host_prog = '/usr/bin/python3'
 
 vim.cmd [[
   let g:rooter_patterns = ['.git', 'package.json', '!node_modules']
@@ -81,7 +82,7 @@ vim.cmd [[
   set wildignore+=log/**
   set wildignore+=tmp/**
   set wildignore+=*.png,*.jpg,*.gif
-  set nofoldenable
+
   set nocompatible
   set iskeyword+=-
   set formatoptions-=cro

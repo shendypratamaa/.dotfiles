@@ -42,7 +42,7 @@ packer.init {
     enable = true,
     threshold = 0,
   },
-  max_jobs = 10,
+  max_jobs = 40,
 }
 
 return packer.startup(function(use)
@@ -123,6 +123,14 @@ return packer.startup(function(use)
   use { 'kevinhwang91/nvim-hlslens' }
   use { 'simrat39/symbols-outline.nvim' }
   use { 'moll/vim-bbye' }
+  use { 'tpope/vim-repeat' }
+  use {
+    'bennypowers/nvim-regexplainer',
+    requires = {
+      'nvim-treesitter/nvim-treesitter',
+      'MunifTanjim/nui.nvim',
+    },
+  }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
