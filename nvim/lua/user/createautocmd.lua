@@ -35,7 +35,18 @@ autocmd({ 'User' }, {
 })
 
 autocmd({ 'Filetype' }, {
-  pattern = { 'qf', 'help', 'man', 'lspinfo', 'spectre_panel', 'lir' },
+  pattern = {
+    'qf',
+    'help',
+    'man',
+    'lspinfo',
+    'spectre_panel',
+    'lir',
+    'startuptime',
+    'Trouble',
+    'OUTLINE',
+    'undotree_2'
+  },
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR>
