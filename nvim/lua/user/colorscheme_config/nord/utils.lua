@@ -29,18 +29,18 @@ local function nord_telescope_border()
       bg = '#d08770',
     },
     TelescopePreviewBorder = {
-      fg = '#1d222b',
-      bg = '#1d222b',
+      fg = '#1e222b',
+      bg = '#1e222b',
     },
     TelescopeResultsBorder = {
-      fg = '#1d222b',
-      bg = '#1d222b',
+      fg = '#1e222b',
+      bg = '#1e222b',
     },
     TelescopePreviewNormal = {
-      bg = '#1d222b',
+      bg = '#1e222b',
     },
     TelescopeResultsNormal = {
-      bg = '#1d222b',
+      bg = '#1e222b',
     },
   }
 
