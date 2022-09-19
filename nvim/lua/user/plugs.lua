@@ -47,89 +47,91 @@ packer.init {
 
 return packer.startup(function(use)
   -- Plugin Here
-  use { 'lewis6991/impatient.nvim' }
-  use { 'wbthomason/packer.nvim' }
-  use { 'nvim-lua/popup.nvim' }
-  use { 'nvim-lua/plenary.nvim' }
+  use { 'lewis6991/impatient.nvim', commit = '' }
+  use { 'wbthomason/packer.nvim', commit = '' }
+  use { 'nvim-lua/popup.nvim', commit = '' }
+  use { 'nvim-lua/plenary.nvim', commit = '' }
 
   -- Lsp
-  use { 'neovim/nvim-lspconfig' }
-  use { 'williamboman/mason.nvim' }
-  use { 'williamboman/mason-lspconfig.nvim' }
-  use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
-  use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
+  use { 'neovim/nvim-lspconfig', commit = '' }
+  use { 'williamboman/mason.nvim', commit = '' }
+  use { 'williamboman/mason-lspconfig.nvim', commit = '' }
+  use { 'WhoIsSethDaniel/mason-tool-installer.nvim', commit = '' }
+  use { 'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '' }
   use { 'jose-elias-alvarez/null-ls.nvim', commit = '255b7c' }
-  use { 'jose-elias-alvarez/typescript.nvim' }
-  use { 'SmiteshP/nvim-navic' }
-  use { 'b0o/SchemaStore.nvim' }
-  use { 'folke/lua-dev.nvim' }
-  use { 'MaxMEllon/vim-jsx-pretty' }
-  use { 'glepnir/lspsaga.nvim', branch = 'main' }
-  use { 'ray-x/lsp_signature.nvim' }
-  use { 'kristijanhusak/vim-js-file-import', run = 'npm install' }
+  use { 'jose-elias-alvarez/typescript.nvim', commit = '' }
+  use { 'SmiteshP/nvim-navic', commit = '' }
+  use { 'b0o/SchemaStore.nvim', commit = '' }
+  use { 'folke/lua-dev.nvim', commit = '' }
+  use { 'MaxMEllon/vim-jsx-pretty', commit = '' }
+  use { 'glepnir/lspsaga.nvim', branch = 'main', commit = '' }
+  use { 'ray-x/lsp_signature.nvim', commit = '' }
+  use { 'kristijanhusak/vim-js-file-import', run = 'npm install', commit = '' }
   use {
     'j-hui/fidget.nvim',
     config = function()
       require('fidget').setup()
     end,
+    commit = '',
   }
 
   -- Performance
-  use { 'dstein64/vim-startuptime' }
-  use { 'nathom/filetype.nvim' }
+  use { 'dstein64/vim-startuptime', commit = '' }
+  use { 'nathom/filetype.nvim', commit = '' }
 
   -- Cmp
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/cmp-cmdline' }
-  use { 'hrsh7th/cmp-emoji' }
-  use { 'hrsh7th/cmp-calc' }
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'saadparwaiz1/cmp_luasnip' }
-  use { 'ray-x/cmp-treesitter' }
-  use { 'rafamadriz/friendly-snippets' }
-  use { 'onsails/lspkind.nvim' }
+  use { 'hrsh7th/nvim-cmp', commit = '' }
+  use { 'hrsh7th/cmp-nvim-lsp', commit = '' }
+  use { 'hrsh7th/cmp-buffer', commit = '' }
+  use { 'hrsh7th/cmp-path', commit = '' }
+  use { 'hrsh7th/cmp-cmdline', commit = '' }
+  use { 'hrsh7th/cmp-emoji', commit = '' }
+  use { 'hrsh7th/cmp-calc', commit = '' }
+  use { 'L3MON4D3/LuaSnip', commit = '' }
+  use { 'saadparwaiz1/cmp_luasnip', commit = '' }
+  use { 'ray-x/cmp-treesitter', commit = '' }
+  use { 'rafamadriz/friendly-snippets', commit = '' }
+  use { 'onsails/lspkind.nvim', commit = '' }
 
   -- Colorscheme
-  use { 'RRethy/nvim-base16' }
-  use { 'shaunsingh/nord.nvim' }
+  use { 'RRethy/nvim-base16', commit = '' }
+  use { 'shaunsingh/nord.nvim', commit = '' }
 
   -- Utils
-  use { 'numToStr/Comment.nvim' }
-  use { 'lewis6991/gitsigns.nvim' }
-  use { 'nvim-lualine/lualine.nvim' }
-  use { 'windwp/nvim-autopairs' }
-  use { 'mbbill/undotree' }
-  use { 'antoinemadec/FixCursorHold.nvim' }
-  use { 'ThePrimeagen/harpoon' }
-  use { 'karb94/neoscroll.nvim' }
-  use { 'nacro90/numb.nvim' }
-  use { 'folke/which-key.nvim' }
-  use { 'norcalli/nvim-colorizer.lua' }
-  use { 'romgrk/barbar.nvim' }
-  use { 'ggandor/leap.nvim' }
-  use { 'folke/todo-comments.nvim' }
-  use { 'folke/trouble.nvim' }
-  use { 'abecodes/tabout.nvim' }
-  use { 'chentoast/marks.nvim' }
-  use { 'goolord/alpha-nvim' }
-  use { 'christoomey/vim-tmux-navigator' }
-  use { 'Pocco81/true-zen.nvim' }
-  use { 'lukas-reineke/indent-blankline.nvim' }
-  use { 'tyru/open-browser.vim' }
-  use { 'akinsho/toggleterm.nvim' }
-  use { 'kevinhwang91/nvim-hlslens' }
-  use { 'simrat39/symbols-outline.nvim' }
-  use { 'moll/vim-bbye' }
-  use { 'tpope/vim-repeat' }
+  use { 'numToStr/Comment.nvim', commit = '' }
+  use { 'lewis6991/gitsigns.nvim', commit = '' }
+  use { 'nvim-lualine/lualine.nvim', commit = '' }
+  use { 'windwp/nvim-autopairs', commit = '' }
+  use { 'mbbill/undotree', commit = '' }
+  use { 'antoinemadec/FixCursorHold.nvim', commit = '' }
+  use { 'ThePrimeagen/harpoon', commit = '' }
+  use { 'karb94/neoscroll.nvim', commit = '' }
+  use { 'nacro90/numb.nvim', commit = '' }
+  use { 'folke/which-key.nvim', commit = '' }
+  use { 'norcalli/nvim-colorizer.lua', commit = '' }
+  use { 'romgrk/barbar.nvim', commit = '' }
+  use { 'ggandor/leap.nvim', commit = '' }
+  use { 'folke/todo-comments.nvim', commit = '' }
+  use { 'folke/trouble.nvim', commit = '' }
+  use { 'abecodes/tabout.nvim', commit = '' }
+  use { 'chentoast/marks.nvim', commit = '' }
+  use { 'goolord/alpha-nvim', commit = '' }
+  use { 'christoomey/vim-tmux-navigator', commit = '' }
+  use { 'Pocco81/true-zen.nvim', commit = '' }
+  use { 'lukas-reineke/indent-blankline.nvim', commit = '' }
+  use { 'tyru/open-browser.vim', commit = '' }
+  use { 'akinsho/toggleterm.nvim', commit = '' }
+  use { 'kevinhwang91/nvim-hlslens', commit = '' }
+  use { 'simrat39/symbols-outline.nvim', commit = '' }
+  use { 'moll/vim-bbye', commit = '' }
+  use { 'tpope/vim-repeat', commit = '' }
   use {
     'bennypowers/nvim-regexplainer',
     requires = {
       'nvim-treesitter/nvim-treesitter',
       'MunifTanjim/nui.nvim',
     },
+    commit = '',
   }
   use {
     'kyazdani42/nvim-tree.lua',
@@ -140,6 +142,7 @@ return packer.startup(function(use)
       end,
     },
     tag = 'nightly',
+    commit = '',
   }
   use {
     'luukvbaal/stabilize.nvim',
@@ -152,6 +155,7 @@ return packer.startup(function(use)
         nested = nil,
       }
     end,
+    commit = '',
   }
   use {
     'kwkarlwang/bufjump.nvim',
@@ -164,21 +168,23 @@ return packer.startup(function(use)
         end,
       }
     end,
+    commit = '',
   }
   use {
     'anuvyklack/pretty-fold.nvim',
     config = function()
       require('user.fold').setup()
     end,
+    commit = '',
   }
 
   -- Telescope
-  use { 'nvim-telescope/telescope.nvim' }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope.nvim', commit = '' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', commit = '' }
   use { 'nvim-telescope/telescope-project.nvim', commit = 'dc9a19' }
 
   -- Directory route
-  use { 'airblade/vim-rooter' }
+  use { 'airblade/vim-rooter', commit = '' }
 
   -- Treesitter
   use {
@@ -186,26 +192,31 @@ return packer.startup(function(use)
     run = ':TSUpdate',
     commit = 'ba752c',
   }
-  use { 'nvim-treesitter/nvim-treesitter-refactor' }
-  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-  use { 'nvim-treesitter/nvim-treesitter-context' }
-  use { 'nvim-treesitter/playground' }
-  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
-  use { 'RRethy/nvim-treesitter-textsubjects' }
-  use { 'theHamsta/nvim-treesitter-pairs' }
-  use { 'ziontee113/syntax-tree-surfer' }
-  use { 'windwp/nvim-ts-autotag' }
-  use { 'p00f/nvim-ts-rainbow' }
+  use { 'nvim-treesitter/nvim-treesitter-refactor', commit = '' }
+  use { 'nvim-treesitter/nvim-treesitter-textobjects', commit = '' }
+  use { 'nvim-treesitter/nvim-treesitter-context', commit = '' }
+  use { 'nvim-treesitter/playground', commit = '' }
+  use { 'JoosepAlviste/nvim-ts-context-commentstring', commit = '' }
+  use { 'RRethy/nvim-treesitter-textsubjects', commit = '' }
+  use { 'theHamsta/nvim-treesitter-pairs', commit = '' }
+  use { 'ziontee113/syntax-tree-surfer', commit = '' }
+  use { 'windwp/nvim-ts-autotag', commit = '' }
+  use { 'p00f/nvim-ts-rainbow', commit = '' }
   use {
     'kylechui/nvim-surround',
     tag = '*',
     config = function()
       require('nvim-surround').setup()
     end,
+    commit = '',
   }
 
   -- API
-  use { 'NtBBloodbath/rest.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {
+    'NtBBloodbath/rest.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    commit = '',
+  }
 
   -- DAP core
   use {
@@ -213,21 +224,23 @@ return packer.startup(function(use)
     config = function()
       require('user.dap').setup()
     end,
+    commit = '',
   }
-  use { 'theHamsta/nvim-dap-virtual-text' }
-  use { 'rcarriga/nvim-dap-ui' }
-  use { 'nvim-telescope/telescope-dap.nvim' }
+  use { 'theHamsta/nvim-dap-virtual-text', commit = '' }
+  use { 'rcarriga/nvim-dap-ui', commit = '' }
+  use { 'nvim-telescope/telescope-dap.nvim', commit = '' }
 
   -- DAP utility
-  use { 'jbyuki/one-small-step-for-vimkind' }
-  use { 'mxsdev/nvim-dap-vscode-js' }
-  use { 'mfussenegger/nvim-dap-python' }
+  use { 'jbyuki/one-small-step-for-vimkind', commit = '' }
+  use { 'mxsdev/nvim-dap-vscode-js', commit = '' }
+  use { 'mfussenegger/nvim-dap-python', commit = '' }
 
   -- DAP adapter
   use {
     'microsoft/vscode-js-debug',
     opt = true,
     run = 'npm install --legacy-peer-deps && npm run compile',
+    commit = '',
   }
 
   -- NeovimTest
@@ -239,6 +252,7 @@ return packer.startup(function(use)
     config = function()
       require('user.neotest').setup()
     end,
+    commit = '',
   }
 
   -- Note Taking Apps
@@ -252,8 +266,9 @@ return packer.startup(function(use)
       vim.g.mkdp_filetypes = { 'markdown' }
     end,
     ft = { 'markdown' },
+    commit = '',
   }
-  use { 'mzlogin/vim-markdown-toc' }
+  use { 'mzlogin/vim-markdown-toc', commit = '' }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
