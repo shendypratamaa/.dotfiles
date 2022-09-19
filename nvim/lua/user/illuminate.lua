@@ -1,16 +1,26 @@
 local illuminate_ok, illuminate = pcall(require, 'illuminate')
 
+if not illuminate_ok then
+  return
+end
+
 local hl = vim.api.nvim_set_hl
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap('n', '\\fa', ':lua require("illuminate").goto_next_reference()<CR>', opts)
-keymap('n', '\\fd', ':lua require("illuminate").goto_prev_reference()<CR>', opts)
+keymap(
+  'n',
+  '\\fs',
+  ':lua require("illuminate").goto_next_reference()<CR>',
+  opts
+)
+keymap(
+  'n',
+  '\\fd',
+  ':lua require("illuminate").goto_prev_reference()<CR>',
+  opts
+)
 keymap('n', '\\ff', ':lua require("illuminate").textobj_select()<CR>', opts)
-
-if not illuminate_ok then
-  return
-end
 
 illuminate.configure {
   providers = {

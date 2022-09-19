@@ -1,5 +1,14 @@
+local dap_ok, dap = pcall(require, 'dap')
+local dapui_ok, dapui = pcall(require, 'dapui')
+local daptext_ok, daptext = pcall(require, 'nvim-dap-virtual-text')
+
+if not dap_ok and dapui_ok and daptext_ok then
+  return
+end
+
 local dap_breakpoint = {
-  error = { text = '',
+  error = {
+    text = '',
     texthl = 'LspDiagnosticsSignError',
     linehl = '',
     numhl = '',
@@ -22,11 +31,9 @@ vim.fn.sign_define('DapBreakpoint', dap_breakpoint.error)
 vim.fn.sign_define('DapStopped', dap_breakpoint.stopped)
 vim.fn.sign_define('DapBreakpointRejected', dap_breakpoint.rejected)
 
-require('nvim-dap-virtual-text').setup {
+daptext.setup {
   commented = true,
 }
-
-local dap, dapui = require 'dap', require 'dapui'
 
 dapui.setup {} -- use default
 
@@ -45,5 +52,4 @@ end
 require('user.dap.lua').setup()
 require('user.dap.jsts').setup()
 require('user.dap.python').setup()
-
 require('user.dap.dapkeymaps').setup()

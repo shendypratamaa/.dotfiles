@@ -1,4 +1,8 @@
-local rest = require 'rest-nvim'
+local rest_ok, rest = pcall(require, 'rest-nvim')
+
+if not rest_ok then
+  return
+end
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }

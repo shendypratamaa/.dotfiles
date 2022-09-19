@@ -1,7 +1,13 @@
 local M = {}
 
 function M.setup()
-  require('nvim-web-devicons').set_icon {
+  local icon_ok, nvim_dev = pcall(require, 'nvim-web-devicons')
+
+  if not icon_ok then
+    return
+  end
+
+  nvim_dev.set_icon {
     lua = {
       icon = '',
       color = '#009dff',

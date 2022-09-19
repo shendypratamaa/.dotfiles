@@ -1,6 +1,10 @@
-local lsp_config = require 'lspconfig'
-local navic = require 'nvim-navic'
-local cmp = require 'cmp_nvim_lsp'
+local lsp_ok, lsp_config = pcall(require, 'lspconfig')
+local navic_ok, navic = pcall(require, 'nvim-navic')
+local cmp_ok, cmp = pcall(require, 'cmp_nvim_lsp')
+
+if not lsp_ok and navic_ok and cmp_ok then
+  return
+end
 
 local cfg = {
   bind = true,

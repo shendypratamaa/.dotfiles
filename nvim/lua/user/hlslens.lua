@@ -1,3 +1,9 @@
+local hlslens_ok, hlslens = pcall(require, 'hlslens')
+
+if not hlslens_ok then
+  return
+end
+
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 local hl = vim.api.nvim_set_hl
@@ -19,7 +25,7 @@ keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
 keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
 keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
 
-require('hlslens').setup {
+hlslens.setup {
   calm_down = true,
   nearest_only = false,
   nearest_float_when = 'auto',

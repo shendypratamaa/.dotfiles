@@ -1,3 +1,9 @@
+local symbol_ok, symbol = pcall(require, 'symbols-outline')
+
+if not symbol_ok then
+  return
+end
+
 vim.keymap.set(
   'n',
   ']q',
@@ -67,4 +73,4 @@ local opts = {
   },
 }
 
-require('symbols-outline').setup(opts)
+symbol.setup(opts)

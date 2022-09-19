@@ -1,7 +1,9 @@
 local cmp_status_ok, cmp = pcall(require, 'cmp')
-local luasnip = require 'luasnip'
+local context_ok, context = pcall(require, 'cmp.config.context')
+local snip_ok, luasnip = pcall(require, 'luasnip')
+local lspkind_ok, lspkind = pcall(require, 'lspkind')
 
-if not cmp_status_ok then
+if not cmp_status_ok and snip_ok and context_ok and lspkind_ok then
   return
 end
 
@@ -41,7 +43,6 @@ cmp.setup {
     if buftype == 'prompt' then
       return false
     end
-    local context = require 'cmp.config.context'
     return not context.in_treesitter_capture 'comment'
       and not context.in_syntax_group 'Comment'
   end,
@@ -95,7 +96,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   formatting = {
-    format = require('lspkind').cmp_format {
+    format = lspkind.cmp_format {
       mode = 'symbol_text',
       before = function(entry, vim_item)
         vim_item.menu = ({
