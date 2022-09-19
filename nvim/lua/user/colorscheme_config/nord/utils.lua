@@ -49,25 +49,6 @@ local function nord_telescope_border()
   end
 end
 
-local function base16_nord_telescope_border()
-  local TelescopePrompt = {
-    TelescopeResultsTitle = {
-      fg = '#eceff4',
-      bg = '#d08770',
-    },
-    TelescopePromptCounter = {
-      fg = '#eceff4',
-    },
-    TelescopeMatching = {
-      fg = '#81a1c1',
-    },
-  }
-
-  for hl, col in pairs(TelescopePrompt) do
-    vim.api.nvim_set_hl(0, hl, col)
-  end
-end
-
 local function nord_sync(theme)
   local both_opts = {
     NonText = {
@@ -75,36 +56,33 @@ local function nord_sync(theme)
     },
   }
 
-  local nord = {}
+  local nord_opts = {}
 
-  local base16_nord = {}
+  local base16_nord_opts = {}
 
-  local opts = {
-    nord = 'nord',
-    base16_nord = 'base16-nord',
-  }
-
-  local function fillter_color()
+  local function filter_sync()
     local highlight = vim.api.nvim_set_hl
+
     for hl, col in pairs(both_opts) do
       highlight(0, hl, col)
     end
-    for _, v in pairs(opts) do
-      if theme == opts[v] then
-        nord_telescope_border()
-        for hl, col in pairs(nord) do
-          highlight(0, hl, col)
-        end
-      else
-        base16_nord_telescope_border()
-        for hl, col in pairs(base16_nord) do
-          highlight(0, hl, col)
-        end
+
+    if theme == 'nord' then
+      print('executed', theme)
+      nord_telescope_border()
+      for hl, col in pairs(nord_opts) do
+        highlight(0, hl, col)
+      end
+    elseif theme == 'base16-nord' then
+      print('executed', theme)
+      nord_telescope_border()
+      for hl, col in pairs(base16_nord_opts) do
+        highlight(0, hl, col)
       end
     end
   end
 
-  return { fillter_color() }
+  return filter_sync()
 end
 
 function M.setup(theme)

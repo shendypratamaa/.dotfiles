@@ -85,6 +85,5 @@ vim.cmd [[
 
   set nocompatible
   set iskeyword+=-
-  set formatoptions-=cro
   set whichwrap+=<,>,[,],h,l
 ]]
