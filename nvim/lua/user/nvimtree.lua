@@ -15,6 +15,7 @@ nvimtree.setup {
     enable = true,
     update_cwd = true,
   },
+  hijack_cursor = true,
   renderer = {
     root_folder_modifier = ':t',
     icons = {
@@ -62,6 +63,7 @@ nvimtree.setup {
         { key = { 'l', '<CR>', 'o' }, cb = tree_cb 'edit' },
         { key = 'h', cb = tree_cb 'close_node' },
         { key = 'v', cb = tree_cb 'vsplit' },
+        { key = 'u', action = 'dir_up' },
       },
     },
   },

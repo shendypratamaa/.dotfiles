@@ -1,19 +1,19 @@
-local M = {}
+local test_ok, tst = pcall(require, 'neotest')
 
-function M.setup()
-  require('neotest').setup {
-    adapters = {
-      require 'neotest-jest' {
-        allow_file_types = { 'javascript', 'typescript' },
-        jestCommand = 'npm test --',
-        jestConfigFile = 'custom.jest.config.ts',
-        env = { CI = true },
-        cwd = function(path)
-          return vim.fn.getcwd()
-        end,
-      },
-    },
-  }
+if not test_ok then
+  return
 end
 
-return M
+tst.setup {
+  adapters = {
+    require 'neotest-jest' {
+      allow_file_types = { 'javascript', 'typescript' },
+      jestCommand = 'npm test --',
+      jestConfigFile = 'custom.jest.config.ts',
+      env = { CI = true },
+      cwd = function(path)
+        return vim.fn.getcwd()
+      end,
+    },
+  },
+}
