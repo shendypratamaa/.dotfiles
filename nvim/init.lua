@@ -1,6 +1,7 @@
 require('impatient').enable_profile()
 require 'user.plugs'
 require 'user.options'
+require 'user.createautocmd'
 require 'user.keymaps'
 require 'user.lsp'
 require 'user.cmp'

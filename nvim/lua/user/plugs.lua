@@ -183,9 +183,6 @@ return packer.startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', commit = '' }
   use { 'nvim-telescope/telescope-project.nvim', commit = 'dc9a19' }
 
-  -- Directory route
-  use { 'airblade/vim-rooter', commit = '' }
-
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',

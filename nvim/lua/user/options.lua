@@ -52,14 +52,9 @@ vim.o.shada = "'0,f0"
 vim.opt.shortmess:append 'c'
 vim.g.cursorhold_updatetime = 100
 vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.netrw_browsex_viewer = 'open'
 
 vim.cmd [[
-  let g:rooter_patterns = ['.git', 'package.json', '!node_modules']
-  let g:netrw_browsex_viewer= "open"
-
-  nmap gx <Plug>(openbrowser-smart-search)
-  vmap gx <Plug>(openbrowser-smart-search)
-
   fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -70,20 +65,4 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
   augroup END
-
-  set wildignore+=*.meteor*
-  set wildignore+=*vim/backups*
-  set wildignore+=*sass-cache*
-  set wildignore+=*cache*
-  set wildignore+=*logs*
-  set wildignore+=*node_modules/**
-  set wildignore+=*DS_Store*
-  set wildignore+=*.gem
-  set wildignore+=log/**
-  set wildignore+=tmp/**
-  set wildignore+=*.png,*.jpg,*.gif
-
-  set nocompatible
-  set iskeyword+=-
-  set whichwrap+=<,>,[,],h,l
 ]]

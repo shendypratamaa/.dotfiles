@@ -140,7 +140,7 @@ telescope.setup {
         { '~/.code/vite-react-js/' },
         { '~/.dotfiles' },
       },
-      hidden_files = false,
+      hidden_files = true,
       theme = 'dropdown',
     },
     fzf = {

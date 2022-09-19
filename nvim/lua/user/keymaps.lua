@@ -66,3 +66,7 @@ keymap('n', 'mm', 'zz', opts)
 keymap('n', 'n', 'nzzzv', opts)
 keymap('n', 'N', 'Nzzzv', opts)
 keymap('n', 'J', 'mzJ`z', opts)
+
+-- open browser
+keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', opts)
+keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', opts)
