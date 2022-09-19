@@ -68,13 +68,11 @@ local function nord_sync(theme)
     end
 
     if theme == 'nord' then
-      print('executed', theme)
       nord_telescope_border()
       for hl, col in pairs(nord_opts) do
         highlight(0, hl, col)
       end
     elseif theme == 'base16-nord' then
-      print('executed', theme)
       nord_telescope_border()
       for hl, col in pairs(base16_nord_opts) do
         highlight(0, hl, col)
