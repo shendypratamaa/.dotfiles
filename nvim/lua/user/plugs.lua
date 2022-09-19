@@ -128,6 +128,7 @@ return packer.startup(function(use)
   use { 'luukvbaal/stabilize.nvim', commit = 'f7c4d93d6822df1770a90b7fdb46f6df5c94052e' }
   use { 'kwkarlwang/bufjump.nvim', commit = 'a020f81bb82f758da51594a07bfcb9635a6b0f73' }
   use { 'anuvyklack/pretty-fold.nvim', commit = 'a7d8b424abe0eedf50116c460fbe6dfd5783b1d5' }
+  use { 'RRethy/vim-illuminate', commit = 'b5452627d6ef9c04a27ac4edde0b00aa3a50f60f' }
 
   -- Telescope
   use { 'nvim-telescope/telescope.nvim', commit = '30e2dc5232d0dd63709ef8b44a5d6184005e8602' }

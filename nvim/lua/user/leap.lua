@@ -4,10 +4,6 @@ if not leap_ok then
   return
 end
 
-vim.cmd [[
-  autocmd ColorScheme * lua require('leap').init_highlight(true)
-]]
-
 leap.set_default_keymaps {}
 
 local hl = vim.api.nvim_set_hl

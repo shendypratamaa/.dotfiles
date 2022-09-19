@@ -54,5 +54,5 @@ require('hlslens').setup {
     render.setVirt(0, lnum - 1, col - 1, chunks, nearest)
   end,
   hl(0, 'HlSearchLens', { bg = '#2c4c6b', fg = '#ffffff' }),
-  hl(0, 'HlSearchLensNear', { bg = '#a4cef5', fg = '#262626' }),
+  hl(0, 'HlSearchLensNear', { bg = '#81a1c1', fg = '#eceff4' }),
 }
