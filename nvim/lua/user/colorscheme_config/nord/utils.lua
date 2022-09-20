@@ -54,6 +54,14 @@ local function nord_sync(theme)
     NonText = {
       fg = '#d8dee9',
     },
+    TreesitterContext = {
+      fg = '#eceff4',
+      bg = '#1e222b',
+    },
+    TreesitterContextLineNumber = {
+      fg = '#eceff4',
+      bg = '#1e222b',
+    },
   }
 
   local nord_opts = {}
