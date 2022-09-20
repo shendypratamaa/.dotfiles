@@ -10,6 +10,7 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # python path
 export PATH="$PATH:/usr/bin/python3"
 export PATH="/Users/shendypratama/Library/Python/3.8/bin:$PATH"
+export TERM=xterm-256color-italic
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
