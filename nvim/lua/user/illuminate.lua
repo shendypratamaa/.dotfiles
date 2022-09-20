@@ -49,6 +49,6 @@ illuminate.configure {
   under_cursor = false,
 }
 
-hl(0, 'IlluminatedWordRead', { link = 'HlSearchLensNear' })
-hl(0, 'IlluminatedWordText', { link = 'HlSearchLensNear' })
-hl(0, 'IlluminatedWordWrite', { link = 'HlSearchLensNear' })
+hl(0, 'IlluminatedWordRead', { link = 'Visual' })
+hl(0, 'IlluminatedWordText', { link = 'Visual' })
+hl(0, 'IlluminatedWordWrite', { link = 'Visual' })
