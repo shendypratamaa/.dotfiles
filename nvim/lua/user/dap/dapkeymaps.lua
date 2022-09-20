@@ -1,6 +1,6 @@
-local M = {}
-
 local whichkey = require 'which-key'
+
+local M = {}
 
 function M.setup()
   local keymap = {

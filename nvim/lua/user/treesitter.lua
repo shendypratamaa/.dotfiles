@@ -79,7 +79,7 @@ configs.setup {
       highlight_current_scope = { enable = true },
     },
     smart_rename = {
-      enable = true,
+      enable = false,
       keymaps = { smart_rename = 'grr' },
     },
     navigation = {

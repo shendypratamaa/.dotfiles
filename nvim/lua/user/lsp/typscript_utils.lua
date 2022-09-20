@@ -1,8 +1,13 @@
+local typescript_ok, typescript = pcall(require, 'nvim-lsp-ts-utils')
+
+if not typescript_ok then
+  return
+end
+
 local M = {}
 
 function M.setup()
-  local ts = require 'nvim-lsp-ts-utils'
-  ts.setup {
+  typescript.setup {
     debug = false,
     disable_commands = false,
     enable_import_on_completion = false,

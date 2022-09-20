@@ -53,15 +53,5 @@ keymap('n', ']ew', ':TroubleToggle workspace_diagnostics<CR>', opts)
 keymap('n', ']es', ':TroubleToggle loclist<CR>', opts)
 keymap('n', ']eq', ':TroubleToggle quickfix<CR>', opts)
 keymap('n', ']er', ':TroubleToggle lsp_references<CR>', opts)
-keymap(
-  'n',
-  '\\e',
-  ':lua require("trouble").next({ skip_group = true, jump = true })<CR>',
-  opts
-)
-keymap(
-  'n',
-  '\\d',
-  ':lua require("trouble").previous({ skip_group = true, jump = true })<CR>',
-  opts
-)
+keymap('n', '\\e', ':lua require("trouble").next({ skip_group = true, jump = true })<CR>', opts)
+keymap('n', '\\d', ':lua require("trouble").previous({ skip_group = true, jump = true })<CR>', opts)

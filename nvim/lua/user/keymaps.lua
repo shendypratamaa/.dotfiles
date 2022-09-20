@@ -59,13 +59,13 @@ keymap('n', '\\q', ':Bwipeout<CR><C-w>o<CR>', term_opts)
 keymap('n', '\\wq', '<C-w>o<CR>', term_opts)
 keymap('n', '\\s', ':luafile %<CR>', opts)
 keymap('n', '<C-r>', ':nohls<CR>', opts)
-keymap('n', '<leader>f', ':Format<CR>', opts)
 
 -- Fix-behave
 keymap('n', 'mm', 'zz', opts)
 keymap('n', 'n', 'nzzzv', opts)
 keymap('n', 'N', 'Nzzzv', opts)
 keymap('n', 'J', 'mzJ`z', opts)
+keymap("v", "p", '"_dP', opts)
 
 -- open browser
 keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', opts)

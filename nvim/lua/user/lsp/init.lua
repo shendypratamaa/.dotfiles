@@ -1,22 +1,13 @@
 local lsp_ok, lsp_config = pcall(require, 'lspconfig')
 local navic_ok, navic = pcall(require, 'nvim-navic')
 local cmp_ok, cmp = pcall(require, 'cmp_nvim_lsp')
+local ts_ok, ts = pcall(require, 'typescript')
+local luadev_ok, luadev = pcall(require, 'lua-dev')
+local scheme_ok, scheme = pcall(require, 'schemastore')
 
-if not lsp_ok and navic_ok and cmp_ok then
+if not lsp_ok and navic_ok and cmp_ok and ts_ok and luadev_ok and scheme_ok then
   return
 end
-
-local cfg = {
-  bind = true,
-  hint_enable = true,
-  max_width = 80,
-  floating_window = false,
-  floating_window_above_cur_line = false,
-  toggle_key = '<C-p>',
-  handler_opts = {
-    border = 'rounded',
-  },
-}
 
 local disable_diagnostics_lsp = function()
   vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
@@ -61,7 +52,7 @@ local servers = {
   jsonls = {
     settings = {
       json = {
-        schemas = require('schemastore').json.schemas(),
+        schemas = scheme.json.schemas(),
       },
     },
   },
@@ -112,14 +103,14 @@ for server_name, _ in pairs(servers) do
   lsp_config[server_name].setup(lsp_opts)
 
   if server_name == 'sumneko_lua' then
-    lsp_config.sumneko_lua.setup(require('lua-dev').setup {
+    lsp_config.sumneko_lua.setup(luadev.setup {
       library = { plugins = { 'neotest' }, types = true },
       lspconfig = lsp_opts,
     })
   end
 
   if server_name == 'tsserver' then
-    lsp_opts = require('typescript').setup {
+    lsp_opts = ts.setup {
       debug_commands = false,
       debug = false,
       server = lsp_opts,
@@ -128,6 +119,6 @@ for server_name, _ in pairs(servers) do
 end
 
 require('user.lsp.handlers').setup()
-require('lsp_signature').setup(cfg)
+require('user.lsp.lsp_signature').setup()
 require('user.lsp.null_ls').setup(on_attach)
 require('user.lsp.mason').setup(servers, formatter)

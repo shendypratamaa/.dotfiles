@@ -1,7 +1,7 @@
 local nvimtree_ok, nvimtree = pcall(require, 'nvim-tree')
-local config_status_ok, nvim_tree_config = pcall(require, 'nvim-tree.config')
+local nvim_tree_config = require 'nvim-tree.config'
 
-if not nvimtree_ok and config_status_ok then
+if not nvimtree_ok then
   return
 end
 

@@ -1,3 +1,9 @@
+local nord_ok, nord = pcall(require, 'nord')
+
+if not nord_ok then
+  return
+end
+
 local M = {}
 
 local function nord_theme_utils()
@@ -10,7 +16,7 @@ end
 
 local function nord_single_sources(theme)
   nord_theme_utils()
-  require('nord').set()
+  nord.set()
   require('user.colorscheme_config.nord.utils').setup(theme)
 end
 

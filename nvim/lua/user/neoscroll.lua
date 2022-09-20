@@ -1,4 +1,5 @@
 local status_neo, neoscroll = pcall(require, 'neoscroll')
+local neoscroll_config = require 'neoscroll.config'
 
 if not status_neo then
   return
@@ -30,4 +31,4 @@ t['zt'] = { 'zt', { '300' } }
 t['zz'] = { 'zz', { '300' } }
 t['zb'] = { 'zb', { '300' } }
 
-require('neoscroll.config').set_mappings(t)
+neoscroll_config.set_mappings(t)

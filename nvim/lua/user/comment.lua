@@ -1,4 +1,15 @@
 local status_ok, comment = pcall(require, 'Comment')
+local c_uts = require 'Comment.utils'
+local uts = require 'ts_context_commentstring.utils'
+local utsi = require 'ts_context_commentstring.internal'
+
+local get_location = uts.get_cursor_location()
+local get_visual = uts.get_visual_start_location()
+
+local function get_internal(...)
+  local internal = utsi.calculate_commentstring(...)
+  return internal
+end
 
 if not status_ok then
   return
@@ -6,22 +17,17 @@ end
 
 comment.setup {
   pre_hook = function(ctx)
-    -- Only calculate commentstring for tsx filetypes
-    local U = require 'Comment.utils'
-
-    -- Determine whether to use linewise or blockwise commentstring
+    local U = c_uts
     local type = ctx.ctype == U.ctype.line and '__default' or '__multiline'
-
-    -- Determine the location where to calculate commentstring from
     local location = nil
+
     if ctx.ctype == U.ctype.block then
-      location = require('ts_context_commentstring.utils').get_cursor_location()
+      location = get_location
     elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-      location =
-        require('ts_context_commentstring.utils').get_visual_start_location()
+      location = get_visual
     end
 
-    return require('ts_context_commentstring.internal').calculate_commentstring {
+    return get_internal {
       key = type,
       location = location,
     }

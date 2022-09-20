@@ -1,9 +1,9 @@
 local cmp_status_ok, cmp = pcall(require, 'cmp')
-local context_ok, context = pcall(require, 'cmp.config.context')
+local context = require 'cmp.config.context'
 local snip_ok, luasnip = pcall(require, 'luasnip')
 local lspkind_ok, lspkind = pcall(require, 'lspkind')
 
-if not cmp_status_ok and snip_ok and context_ok and lspkind_ok then
+if not cmp_status_ok and snip_ok and lspkind_ok then
   return
 end
 

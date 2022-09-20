@@ -6,6 +6,10 @@ if not dap_ok and dapui_ok and daptext_ok then
   return
 end
 
+local function sign_define(...)
+  vim.fn.sign_define(...)
+end
+
 local dap_breakpoint = {
   error = {
     text = '',
@@ -27,9 +31,9 @@ local dap_breakpoint = {
   },
 }
 
-vim.fn.sign_define('DapBreakpoint', dap_breakpoint.error)
-vim.fn.sign_define('DapStopped', dap_breakpoint.stopped)
-vim.fn.sign_define('DapBreakpointRejected', dap_breakpoint.rejected)
+sign_define('DapBreakpoint', dap_breakpoint.error)
+sign_define('DapStopped', dap_breakpoint.stopped)
+sign_define('DapBreakpointRejected', dap_breakpoint.rejected)
 
 daptext.setup {
   commented = true,

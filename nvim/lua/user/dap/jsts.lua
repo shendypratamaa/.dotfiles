@@ -1,12 +1,20 @@
+local dapvs_ok, dapvs = pcall(require, 'dap-vscode-js')
+local dap = require 'dap'
+local daputil = require('dap.utils').pick_process
+
+if not dapvs_ok then
+  return
+end
+
 local M = {}
 
 local function config_jsts()
-  require('dap-vscode-js').setup {
+  dapvs.setup {
     adapters = { 'pwa-node' },
   }
 
   for _, language in ipairs { 'typescript', 'javascript' } do
-    require('dap').configurations[language] = {
+    dap.configurations[language] = {
       {
         type = 'pwa-node',
         request = 'launch',
@@ -18,7 +26,7 @@ local function config_jsts()
         type = 'pwa-node',
         request = 'attach',
         name = 'Attach',
-        processId = require('dap.utils').pick_process,
+        processId = daputil,
         cwd = '${workspaceFolder}',
       },
     }

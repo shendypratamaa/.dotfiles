@@ -1,7 +1,11 @@
 ---@diagnostic disable: missing-parameter
 local M = {}
 
-local nls = require 'null-ls'
+local nls_ok, nls = pcall(require, 'null-ls')
+
+if not nls_ok then
+  return
+end
 
 local formatting = nls.builtins.formatting
 local diagnostics = nls.builtins.diagnostics

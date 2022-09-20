@@ -4,10 +4,14 @@ if not stab_ok then
   return
 end
 
-stab.setup {
-  ignore = {
+local stabilize_cfg = {
+  force = true, -- stabilize window even when current cursor position will be hidden behind new window
+  forcemark = nil, -- set context mark to register on force event which can be jumped to with '<forcemark>
+  ignore = { -- do not manage windows matching these file/buftypes
     filetype = { 'help', 'list', 'Trouble' },
-    buftype = { 'quickfix', 'loclist', 'undotree', 'terminal' },
+    buftype = { 'terminal', 'quickfix', 'loclist' },
   },
-  nested = nil,
+  nested = 'QuickFixCmdPost,DiagnosticChanged *',
 }
+
+stab.setup(stabilize_cfg)

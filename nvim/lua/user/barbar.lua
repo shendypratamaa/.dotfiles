@@ -1,5 +1,6 @@
 ---@diagnostic disable: missing-parameter
 local barbar_ok, barbar = pcall(require, 'bufferline')
+local bufferline_state = require 'bufferline.state'
 
 if not barbar_ok then
   return
@@ -18,7 +19,7 @@ autocmd('BufWinEnter', {
   pattern = '*',
   callback = function()
     if vim.bo.filetype == 'NvimTree' then
-      require('bufferline.state').set_offset(32, 'Directory')
+      bufferline_state.set_offset(32, 'Directory')
     end
   end,
 })
@@ -27,7 +28,7 @@ autocmd('BufWinLeave', {
   pattern = '*',
   callback = function()
     if vim.fn.expand('<afile>'):match 'NvimTree' then
-      require('bufferline.state').set_offset(0)
+      bufferline_state.set_offset(0)
     end
   end,
 })

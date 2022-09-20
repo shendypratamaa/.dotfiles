@@ -65,8 +65,8 @@ telescope.setup {
       '--smart-case',
       '--trim',
     },
-    prompt_prefix = '   ',
-    selection_caret = ' ',
+    prompt_prefix = '  ',
+    selection_caret = ' ',
     file_previewer = require('telescope.previewers').vim_buffer_cat.new,
     grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
     qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
@@ -149,6 +149,10 @@ telescope.setup {
       override_file_sorter = true, -- override the file sorter
       case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
     },
+     bookmarks = {
+      selected_browser = 'safari',
+      url_open_command = 'open',
+    },
   },
 }
 
@@ -159,19 +163,16 @@ keymap('n', ']f', ":lua require('user.telescope').custom_themes()<CR>", opts)
 keymap('n', ']ff', ":lua require('telescope.builtin').find_files()<CR>", opts)
 keymap('n', ']b', ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap('n', ']r', ":lua require('telescope.builtin').live_grep()<CR>", opts)
-keymap('n', ']t', ":lua require('telescope.builtin').help_tags()<CR>", opts)
+keymap('n', ']tw', ":lua require('telescope.builtin').help_tags()<CR>", opts)
 keymap('n', ']g', ':Telescope<CR>', opts)
-keymap('n', ']t', ':TodoTelescope<CR>', opts)
-keymap(
-  'n',
-  ']v',
-  ":lua require('telescope').extensions.project.project{ display_type = 'full'}<CR>",
-  opts
-)
+keymap('n', ']td', ':TodoTelescope<CR>', opts)
+keymap('n', ']tq', ':Telescope bookmarks<CR>', opts)
+keymap('n', ']v', ":lua require('telescope').extensions.project.project{ display_type = 'full'}<CR>", opts)
 
 telescope.load_extension 'fzf'
 telescope.load_extension 'harpoon'
 telescope.load_extension 'project'
 telescope.load_extension 'dap'
+telescope.load_extension 'bookmarks'
 
 return M
