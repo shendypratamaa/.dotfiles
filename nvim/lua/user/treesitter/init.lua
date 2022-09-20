@@ -182,3 +182,5 @@ configs.setup {
     },
   },
 }
+
+require('user.treesitter.treesitter_context').setup()
