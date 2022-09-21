@@ -4,7 +4,7 @@ local actions      = require 'telescope.actions'
 local pickers      = require 'telescope.pickers'
 local finders      = require 'telescope.finders'
 local sorters      = require 'telescope.sorters'
-local get_colors   = vim.fn.getcompletion("", "color")
+local get_colors   = vim.fn.getcompletion('', 'color')
 
 local M = {}
 
@@ -13,9 +13,26 @@ local function enter(prompt_bufnr)
   local cmd = 'colorscheme ' .. selected[1]
   vim.cmd(cmd)
 
-  local path = vim.fn.expand('~/.dotfiles/nvim/lua/user/colorscheme.lua')
-  local job_cmd = "sed -i '' '$d' " .. path .. " && echo '".. 'colorscheme ' .. '"' .. selected[1] .. '"' .. "' >> " .. path
+  local path = vim.fn.expand '~/.dotfiles/nvim/lua/user/colorscheme.lua'
+  local job_cmd = "sed -i '' '$d' "
+    .. path
+    .. " && echo '"
+    .. 'colorscheme '
+    .. '"'
+    .. selected[1]
+    .. '"'
+    .. "' >> "
+    .. path
+
   vim.fn.jobstart(job_cmd)
+
+  for _, v in pairs(get_colors) do
+    if selected[1] == v then
+        vim.notify(' 🤖 your colorscheme now is : ' .. v)
+        vim.cmd 'source $MYVIMRC'
+      break
+    end
+  end
 
   actions.close(prompt_bufnr)
 end
@@ -36,7 +53,7 @@ end
 
 local opts = {
   finder = finders.new_table(get_colors),
-  sorter = sorters.get_generic_fuzzy_sorter({}),
+  sorter = sorters.get_generic_fuzzy_sorter {},
 
   attach_mappings = function(prompt_bufnr, map)
     map('i', '<CR>', enter)
@@ -54,6 +71,5 @@ function M.setup(layout)
   local colors = pickers.new(layout, opts)
   colors:find()
 end
-
 
 return M

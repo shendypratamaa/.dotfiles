@@ -173,6 +173,7 @@ keymap('n', ']h', ":lua require('telescope.builtin').help_tags()<CR>", opts)
 keymap('n', ']g', ':Telescope<CR>', opts)
 keymap('n', ']t', ':Telescope bookmarks<CR>', opts)
 keymap('n', ']v', ":lua require('telescope').extensions.project.project{ display_type = 'full'}<CR>", opts)
+keymap('n', ']tw', ":lua require('telescope').extensions.notify.notify()<CR>", opts)
 
 -- Custom Telescope
 keymap('n', ']ff', ":lua require('user.telescope').find_files_custom()<CR>", opts)
