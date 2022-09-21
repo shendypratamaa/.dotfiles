@@ -1,4 +1,4 @@
----@diagnostic disable: missing-parameter, redundant-parameter
+---@diagnostic disable: missing-parameter, redundant-parameter, param-type-mismatch
 local lualine_ok, lualine = pcall(require, 'lualine')
 local navic_ok, navic = pcall(require, 'nvim-navic')
 
@@ -98,9 +98,11 @@ local filename = {
     unnamed = '[No Name]',
   },
   fmt = function()
-    local str = vim.fn.expand('%:p')
-    local sort = vim.fn.pathshorten(str)
-    local res = string.lower(sort)
+    local fn = vim.fn
+    local user = fn.expand '$USER'
+    local cwd = fn.expand '%:p'
+    local s = string.gsub(cwd, user, '  ')
+    local res = string.lower(s)
     return res
   end,
 }
@@ -141,8 +143,8 @@ function M.setup(theme)
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { filename },
-      lualine_x = { location },
+      lualine_c = {},
+      lualine_x = {},
       lualine_y = {},
       lualine_z = {},
     },
