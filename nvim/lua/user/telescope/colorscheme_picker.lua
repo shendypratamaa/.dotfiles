@@ -1,17 +1,22 @@
+---@diagnostic disable: missing-parameter
 local action_state = require 'telescope.actions.state'
 local actions      = require 'telescope.actions'
 local pickers      = require 'telescope.pickers'
 local finders      = require 'telescope.finders'
 local sorters      = require 'telescope.sorters'
 local get_colors   = vim.fn.getcompletion("", "color")
-local command = vim.cmd
 
 local M = {}
 
 local function enter(prompt_bufnr)
   local selected = action_state.get_selected_entry()
   local cmd = 'colorscheme ' .. selected[1]
-  command(cmd)
+  vim.cmd(cmd)
+
+  local path = vim.fn.expand('~/.dotfiles/nvim/lua/user/colorscheme.lua')
+  local job_cmd = "sed -i '' '$d' " .. path .. " && echo '".. 'colorscheme ' .. '"' .. selected[1] .. '"' .. "' >> " .. path
+  vim.fn.jobstart(job_cmd)
+
   actions.close(prompt_bufnr)
 end
 
@@ -19,14 +24,14 @@ local function next_color(prompt_bufnr)
   actions.move_selection_next(prompt_bufnr)
   local selected = action_state.get_selected_entry()
   local cmd = 'colorscheme ' .. selected[1]
-  command(cmd)
+  vim.cmd(cmd)
 end
 
 local function prev_color(prompt_bufnr)
   actions.move_selection_previous(prompt_bufnr)
   local selected = action_state.get_selected_entry()
   local cmd = 'colorscheme ' .. selected[1]
-  command(cmd)
+  vim.cmd(cmd)
 end
 
 local opts = {

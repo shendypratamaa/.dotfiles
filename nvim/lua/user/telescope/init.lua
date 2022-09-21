@@ -53,8 +53,8 @@ M.find_files_custom = function()
 end
 
 M.colorscheme_pick = function()
-  local theme = require('telescope.themes').get_dropdown({ prompt_title = 'Colorscheme'})
-  local opts = require('user.telescope.colorpicker').setup(theme)
+  local theme = require('telescope.themes').get_dropdown({ prompt_title = 'Pick Colorscheme 🎨'})
+  local opts = require('user.telescope.colorscheme_picker').setup(theme)
   return opts
 end
 
@@ -79,7 +79,7 @@ telescope.setup {
     buffer_previewer_maker = new_maker,
     file_sorter = sorters.get_fuzzy_file,
     generic_sorter = sorters.get_generic_fuzzy_sorter,
-    path_display = { 'truncate' },
+    path_display = { 'shorten' },
     layout_config = {
       horizontal = {
         prompt_position = 'top',
@@ -165,18 +165,18 @@ telescope.setup {
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap('n', ']ff', ":lua require('telescope.builtin').find_files()<CR>", opts)
+keymap('n', ']te', ':TodoTelescope<CR>', opts)
+keymap('n', ']f', ":lua require('telescope.builtin').find_files()<CR>", opts)
 keymap('n', ']b', ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap('n', ']r', ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap('n', ']h', ":lua require('telescope.builtin').help_tags()<CR>", opts)
 keymap('n', ']g', ':Telescope<CR>', opts)
-keymap('n', ']td', ':TodoTelescope<CR>', opts)
-keymap('n', ']tq', ':Telescope bookmarks<CR>', opts)
+keymap('n', ']t', ':Telescope bookmarks<CR>', opts)
 keymap('n', ']v', ":lua require('telescope').extensions.project.project{ display_type = 'full'}<CR>", opts)
 
 -- Custom Telescope
-keymap('n', ']f', ":lua require('user.telescope').find_files_custom()<CR>", opts)
-keymap('n', ']t', ':lua require("user.telescope").colorscheme_pick()<CR>', opts)
+keymap('n', ']ff', ":lua require('user.telescope').find_files_custom()<CR>", opts)
+keymap('n', ']tq', ':lua require("user.telescope").colorscheme_pick()<CR>', opts)
 
 telescope.load_extension 'fzf'
 telescope.load_extension 'harpoon'
