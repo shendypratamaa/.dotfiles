@@ -1,9 +1,10 @@
-require('impatient').enable_profile()
 require('user.hot-reload')
-require 'user.plugs'
+require('impatient').enable_profile()
 require 'user.options'
-require 'user.createautocmd'
 require 'user.keymaps'
+require 'user.notify'
+require 'user.createautocmd'
+require 'user.plugs'
 require 'user.lsp'
 require 'user.cmp'
 require 'user.snip'
@@ -49,6 +50,4 @@ require 'user.dap'
 require 'user.neotest'
 require 'user.fidget'
 require 'user.illuminate'
-require 'user.notify'
--- require 'user.barbar'
--- require 'user.auto-session'
+reload 'user.cybu'

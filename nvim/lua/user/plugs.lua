@@ -24,12 +24,6 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
-
-  if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
-   endif
 ]]
 
 packer.init {
@@ -113,6 +107,10 @@ return packer.startup(function(use)
   use { 'ThePrimeagen/harpoon', commit = 'f4aff5bf9b512f5a85fe20eb1dcf4a87e512d971' }
   use { 'chentoast/marks.nvim', commit = 'b27cbb78e9082229590b396d3ae4fe07f1aeafe0' }
 
+  -- Buffer
+  use { 'ghillb/cybu.nvim', commit = '43b68850ac370c583e95ff136f65b144859470dc'}
+  use { 'moll/vim-bbye', commit = '25ef93ac5a87526111f43e5110675032dbcacf56' }
+
   -- Telescope
   use { 'nvim-telescope/telescope.nvim', commit = '30e2dc5232d0dd63709ef8b44a5d6184005e8602' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', commit = '65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90' }
@@ -136,14 +134,12 @@ return packer.startup(function(use)
   use { 'folke/trouble.nvim', commit = '929315ea5f146f1ce0e784c76c943ece6f36d786' }
   use { 'tyru/open-browser.vim', commit = '80ec3f2bb0a86ac13c998e2f2c86e16e6d2f20bb' }
   use { 'kevinhwang91/nvim-hlslens', commit = '00a87287456860851bdefc934af129316dfe1c4c' }
-  use { 'moll/vim-bbye', commit = '25ef93ac5a87526111f43e5110675032dbcacf56' }
   use { 'tpope/vim-repeat', commit = '24afe922e6a05891756ecf331f39a1f6743d3d5a' }
   use { 'bennypowers/nvim-regexplainer', commit = '0d7151ddd3ff2b2e9e8a69137b911c28fc7051a4' }
   use { 'MunifTanjim/nui.nvim', commit = 'e9889bbd9919544697d497537acacd9c67d0de99' }
   use { 'luukvbaal/stabilize.nvim', commit = 'f7c4d93d6822df1770a90b7fdb46f6df5c94052e' }
   use { 'kwkarlwang/bufjump.nvim', commit = 'a020f81bb82f758da51594a07bfcb9635a6b0f73' }
   use { 'rcarriga/nvim-notify', commit = '7a9be08986b4d98dd685a6b40a62fcba19c1ad27' }
-  -- use { 'romgrk/barbar.nvim', commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303' }
 
   -- Icon
   use { 'kyazdani42/nvim-web-devicons', commit = '969728506c0175644a1d448f55e311ccdada7eaf' }
