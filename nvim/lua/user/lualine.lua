@@ -1,6 +1,12 @@
-local M = {}
+---@diagnostic disable: missing-parameter, redundant-parameter
+local lualine_ok, lualine = pcall(require, 'lualine')
+local navic_ok, navic = pcall(require, 'nvim-navic')
 
-local navic = require 'nvim-navic'
+if not lualine_ok and navic_ok then
+  return
+end
+
+local M = {}
 
 local navic_info = {
   navic.get_location,
@@ -8,7 +14,7 @@ local navic_info = {
 }
 
 local hide_in_width = function()
-  return vim.fn.winwidth(0) > 80
+  return vim.fn.winwidth(0) > 50
 end
 
 local diagnostics = {
@@ -34,13 +40,13 @@ local diff = {
 local filetype = {
   'filetype',
   icons_enabled = true,
-  icon = nil,
+  padding = 1,
 }
 
-local branch = {
-  'branch',
-  icons_enabled = true,
-  icon = '',
+local mode = {
+  function()
+    return '  '
+  end,
 }
 
 local location = {
@@ -67,17 +73,41 @@ local progress = function()
   return chars[index]
 end
 
-local filePath = {
-  'filename',
+local branch = {
+  'branch',
   icons_enabled = true,
-  icon = '',
-  file_status = true,
-  path = 0,
+  icon = '',
+  padding = 2,
+  fmt = function(str)
+    if str == '' or str == nil then
+      return '!= vcs'
+    end
+    return str
+  end,
+}
+
+local filename = {
+  'filename',
+  icon = ' ',
+  icons_enabled = true,
+  padding = 1,
+  colored = true,
   symbols = {
-    modified = '[+]', -- Text to show when the file is modified.
-    readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
-    unnamed = '[No Name]', -- Text to show for unnamed buffers.
+    modified = '[+]',
+    readonly = '[-]',
+    unnamed = '[No Name]',
   },
+  fmt = function()
+    local str = vim.fn.expand('%:p')
+    local sort = vim.fn.pathshorten(str)
+    local res = string.lower(sort)
+    return res
+  end,
+}
+
+local encoding = {
+  'encoding',
+  padding = 1,
 }
 
 local function spaces()
@@ -91,7 +121,7 @@ local function cb_theme(theme)
 end
 
 function M.setup(theme)
-  require('lualine').setup {
+  lualine.setup {
     options = {
       theme = cb_theme(theme),
       icons_enabled = true,
@@ -101,21 +131,18 @@ function M.setup(theme)
       always_divide_middle = true,
     },
     sections = {
-      lualine_a = { 'mode' },
+      lualine_a = { mode },
       lualine_b = { branch },
-      lualine_c = {
-        filePath,
-        navic_info,
-      },
-      lualine_x = { diff, diagnostics, spaces, 'encoding', filetype },
+      lualine_c = { filename, navic_info },
+      lualine_x = { diff, diagnostics, spaces, encoding, filetype },
       lualine_y = { location },
       lualine_z = { progress },
     },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { 'filename' },
-      lualine_x = { 'location' },
+      lualine_c = { filename },
+      lualine_x = { location },
       lualine_y = {},
       lualine_z = {},
     },
