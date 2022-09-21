@@ -121,7 +121,7 @@ local buttons = {
     button(
       'd',
       '🦕 ﬌ Configuration Dashboard',
-      ':e ~/.config/nvim/lua/user/dashboard.lua<cr>'
+      ':e ~/.dotfiles/nvim/lua/user/dashboard.lua<cr>'
     ),
     button('q', '👻 ﬌ Quit Neovim', ':qa<cr>'),
   },
