@@ -4,15 +4,15 @@ if not notify_ok then
   return
 end
 
-local notify_config = {
+local cfg = {
   stages = 'fade_in_slide_out',
   on_open = nil,
   on_close = nil,
   render = 'default',
-  timeout = 175,
-  minimum_width = 10,
-  fps = 60,
-  background_color = 'Normal',
+  timeout = 200,
+  minimum_width = 40,
+  background_colour = '#262626',
+  fps = 256,
   icons = {
     DEBUG = '',
     ERROR = '',
@@ -22,6 +22,6 @@ local notify_config = {
   },
 }
 
-notify.setup(notify_config)
+notify.setup(cfg)
 
 vim.notify = notify
