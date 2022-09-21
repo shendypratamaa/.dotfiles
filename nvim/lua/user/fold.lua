@@ -1,43 +1,42 @@
-local M = {}
 
 -- BUG: Features
 -- added features toggling, increase decrease padding
 
 local function foldsigns()
-  local opts_a = {
+  local a = {
     foldopen = '',
     foldclose = '',
     foldsep = '',
   }
 
-  local opts_b = {
+  local b = {
     foldcolumn = 'auto',
     foldmethod = 'manual',
   }
 
-  local opts_c = {
+  local c = {
     key = 'nofoldenable',
   }
 
-  local function fd(a)
-    for k, v in pairs(a) do
-      if a == opts_a then
-        local result = 'set ' .. 'fillchars+=' .. k .. ':' .. v .. ','
-        vim.cmd(result)
-      elseif a == opts_b then
-        local result = 'set ' .. k .. '=' .. v
-        vim.cmd(result)
-      elseif a == opts_c then
-        local result = 'set ' .. v
-        vim.cmd(result)
+  local function fd(x)
+    for k, v in pairs(x) do
+      if x == a then
+        local r = 'set ' .. 'fillchars+=' .. k .. ':' .. v .. ','
+        vim.cmd(r)
+      elseif x == b then
+        local r = 'set ' .. k .. '=' .. v
+        vim.cmd(r)
+      elseif x == c then
+        local r = 'set ' .. v
+        vim.cmd(r)
       end
     end
   end
 
   return {
-    fd(opts_a),
-    fd(opts_b),
-    fd(opts_c),
+    fd(a),
+    fd(b),
+    fd(c),
   }
 end
 
@@ -73,9 +72,7 @@ local pretty_opts = {
   },
 }
 
-function M.setup()
-  foldsigns()
+return {
+  foldsigns(),
   require('pretty-fold').setup(pretty_opts)
-end
-
-return M
+}

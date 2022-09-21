@@ -133,7 +133,6 @@ return packer.startup(function(use)
   -- Utility
   use { 'mbbill/undotree', commit = 'bf76bf2d1a097cda024699738286fa81fb6529ac' }
   use { 'antoinemadec/FixCursorHold.nvim', commit = '70a9516a64668cbfe59f31b66d0a21678c5e9b12' }
-  use { 'romgrk/barbar.nvim', commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303' }
   use { 'folke/trouble.nvim', commit = '929315ea5f146f1ce0e784c76c943ece6f36d786' }
   use { 'tyru/open-browser.vim', commit = '80ec3f2bb0a86ac13c998e2f2c86e16e6d2f20bb' }
   use { 'kevinhwang91/nvim-hlslens', commit = '00a87287456860851bdefc934af129316dfe1c4c' }
@@ -144,6 +143,7 @@ return packer.startup(function(use)
   use { 'luukvbaal/stabilize.nvim', commit = 'f7c4d93d6822df1770a90b7fdb46f6df5c94052e' }
   use { 'kwkarlwang/bufjump.nvim', commit = 'a020f81bb82f758da51594a07bfcb9635a6b0f73' }
   use { 'rcarriga/nvim-notify', commit = '7a9be08986b4d98dd685a6b40a62fcba19c1ad27' }
+  -- use { 'romgrk/barbar.nvim', commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303' }
 
   -- Icon
   use { 'kyazdani42/nvim-web-devicons', commit = '969728506c0175644a1d448f55e311ccdada7eaf' }
@@ -165,6 +165,8 @@ return packer.startup(function(use)
   use { 'numToStr/Comment.nvim', commit = '30d23aa2e1ba204a74d5dfb99777e9acbe9dd2d6' }
 
   -- Session
+  -- use { 'rmagatti/auto-session', commit = '39319bf7ad15a1881f180fa7c14bf6703775035e' }
+  -- use { 'rmagatti/session-lens', commit = '103a45dfedc23fa6bac48dc8cdcd62fa9f98ac0c' }
 
   -- Quickfix
 

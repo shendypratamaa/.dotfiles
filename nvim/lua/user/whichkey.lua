@@ -82,20 +82,32 @@ local opts = {
 }
 
 local keybinds = {
-  D = { '<cmd>:Bwipeout<cr>', 'Delete Buffer' },
-  s = { '<cmd>:w!<cr>', 'Save Files' },
-  S = { '<cmd>StartupTime<cr>', 'Startup Time' },
-  q = { '<cmd>:wq!<cr>', 'Quit Save' },
-  h = { '<cmd>sv<cr>', 'Split Horizontal' },
-  v = { '<cmd>vs<cr>', 'Split Vertical' },
-  n = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
+  D = { '<cmd>:Bwipeout<CR>', 'Delete Buffer' },
+  s = { '<cmd>:w!<CR>', 'Save Files' },
+  S = { '<cmd>StartupTime<CR>', 'Startup Time' },
+  q = { '<cmd>:wq!<CR>', 'Quit Save' },
+  h = { '<cmd>sv<CR>', 'Split Horizontal' },
+  v = { '<cmd>vs<CR>', 'Split Vertical' },
+  n = { '<cmd>NvimTreeToggle<CR>', 'Explorer' },
   N = { '<cmd>NeorgStart<CR>', 'Notes' },
-  F = { ':Format<CR>', 'Format File' },
+  F = { '<cmd>Format<CR>', 'Format File' },
+  t = {
+    name = 'Telescope',
+    T = {'<cmd>lua require("user.telescope").colorscheme_pick()<CR>', 'Change Colorscheme'},
+    f = {'<cmd>lua require("telescope.builtin").find_files()<CR>', 'Find Files'},
+    b = {'<cmd>lua require("telescope.builtin").buffers()<CR>', 'Buffers'},
+    r = {'<cmd>lua require("telescope.builtin").live_grep()<CR>', 'Live Grep'},
+    h = {'<cmd>lua require("telescope.builtin").help_tags()<CR>', 'Help Tags'},
+    g = {'<cmd>Telescope<CR>', 'Telescope list builtins'},
+    e = {'<cmd>TodoTelescope<CR>', 'Todo Notes'},
+    t = {'<cmd>Telescope bookmarks', 'Bookmars Browser'},
+    v = {'<cmd>lua require("telescope").extensions.project.project{ display_type = "full"}<CR>', 'Project'}
+  },
   l = {
     name = 'LSP',
-    h = { '<cmd>LspInfo<cr>', 'Lsp Info' },
-    j = { '<cmd>Mason<cr>', 'Mason Info' },
-    n = { '<cmd>NullLsInfo<cr>', 'NullLs Info' },
+    h = { '<cmd>LspInfo<CR>', 'Lsp Info' },
+    j = { '<cmd>Mason<CR>', 'Mason Info' },
+    n = { '<cmd>NullLsInfo<CR>', 'NullLs Info' },
   },
 }
 

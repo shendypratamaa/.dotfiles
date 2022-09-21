@@ -72,7 +72,7 @@ function reload(mod)
   end
 
   package.loaded[mod] = old
-  vim.notify "Source files has done to be reload, Have fun !"
+  vim.notify " Source files has done to be reload, Have fun !"
   return old
 end
 

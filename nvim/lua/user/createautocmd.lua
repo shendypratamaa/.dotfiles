@@ -29,7 +29,6 @@ autocmd({ 'User' }, {
     vim.cmd [[
       set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
       set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
-      set noshowcmd | autocmd BufUnload <buffer> set showcmd
     ]]
   end,
 })

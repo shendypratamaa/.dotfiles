@@ -1,8 +1,8 @@
-local function pick_colorscheme(theme)
-  local colorscheme = pcall(vim.cmd, 'colorscheme ' .. theme)
+local function colorscheme(theme)
+  local cmd_colors = pcall(vim.cmd, 'colorscheme '.. theme)
   require('user.colorscheme_config.init').setup(theme)
   require('user.lualine').setup(theme)
-  return colorscheme
+  return cmd_colors
 end
 
 -- WARNING: Colorscheme Terms
@@ -10,4 +10,4 @@ end
 -- <cmd>Telecope colorscheme<cr> or ]g for seeing all options 📚
 -- only specified coloschemes have telescope floating border config 💔
 
-pick_colorscheme 'nord'
+colorscheme "base16-atelier-cave-light"
