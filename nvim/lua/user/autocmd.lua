@@ -1,7 +1,4 @@
-local autocmd = vim.api.nvim_create_autocmd
-
--- FIX autocmd
-autocmd({ 'BufWinEnter' }, {
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd [[
       set formatoptions-=cro
@@ -23,8 +20,13 @@ autocmd({ 'BufWinEnter' }, {
   end,
 })
 
-autocmd({ 'User' }, {
-  pattern = { 'AlphaReady' },
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = "*",
+  command = [[%s/\s\+$//e]],
+})
+
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = { "AlphaReady" },
   callback = function()
     vim.cmd [[
       set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
@@ -32,19 +34,19 @@ autocmd({ 'User' }, {
   end,
 })
 
-autocmd({ 'Filetype' }, {
+vim.api.nvim_create_autocmd({ "Filetype" }, {
   pattern = {
-    'qf',
-    'help',
-    'man',
-    'lspinfo',
-    'spectre_panel',
-    'lir',
-    'startuptime',
-    'Trouble',
-    'OUTLINE',
-    'undotree_2',
-    'JabsOpen'
+    "qf",
+    "help",
+    "man",
+    "lspinfo",
+    "spectre_panel",
+    "lir",
+    "startuptime",
+    "Trouble",
+    "OUTLINE",
+    "undotree_2",
+    "JabsOpen",
   },
   callback = function()
     vim.cmd [[
