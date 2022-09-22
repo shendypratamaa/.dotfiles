@@ -1,46 +1,46 @@
-local lsp_ok, lsp_config = pcall(require, 'lspconfig')
-local navic_ok, navic = pcall(require, 'nvim-navic')
-local cmp_ok, cmp = pcall(require, 'cmp_nvim_lsp')
-local ts_ok, ts = pcall(require, 'typescript')
-local luadev_ok, luadev = pcall(require, 'lua-dev')
-local scheme_ok, scheme = pcall(require, 'schemastore')
+local lsp_ok, lsp_config = pcall(require, "lspconfig")
+local navic_ok, navic = pcall(require, "nvim-navic")
+local cmp_ok, cmp = pcall(require, "cmp_nvim_lsp")
+local ts_ok, ts = pcall(require, "typescript")
+local luadev_ok, luadev = pcall(require, "lua-dev")
+local scheme_ok, scheme = pcall(require, "schemastore")
 
 if not lsp_ok and navic_ok and cmp_ok and ts_ok and luadev_ok and scheme_ok then
   return
 end
 
 local disable_diagnostics_lsp = function()
-  vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 end
 
 local on_attach = function(client, bufnr)
-  require('user.lsp.saga').setup()
-  require('user.lsp.typscript_utils').setup()
-  require('user.lsp.lspkeymaps').setup(bufnr)
+  require("user.lsp.saga").setup()
+  require("user.lsp.typscript_utils").setup()
+  require("user.lsp.lspkeymaps").setup(bufnr)
 
-  if client.name == 'sumneko_lua' then
+  if client.name == "sumneko_lua" then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
   end
 
-  if client.name == 'tsserver' then
-    client.resolved_capabilities.document_formatting = false
-    navic.attach(client, bufnr)
-    disable_diagnostics_lsp()
-  end
-
-  if client.name == 'pyright' then
+  if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
     disable_diagnostics_lsp()
   end
 
-  if client.name == 'jsonls' then
+  if client.name == "pyright" then
+    client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
+    disable_diagnostics_lsp()
+  end
+
+  if client.name == "jsonls" then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
   end
 
-  if client.name == 'html' then
+  if client.name == "html" then
     client.resolved_capabilities.document_formatting = false
   end
 end
@@ -60,7 +60,7 @@ local servers = {
     settings = {
       Lua = {
         diagnostics = {
-          globals = { 'vim' },
+          globals = { "vim" },
         },
       },
     },
@@ -68,7 +68,7 @@ local servers = {
   tsserver = { disable_formatting = true },
   pyright = {
     analysis = {
-      typeCheckingMode = 'off',
+      typeCheckingMode = "off",
     },
   },
   html = {},
@@ -80,12 +80,12 @@ local servers = {
 }
 
 local formatter = {
-  'stylua',
-  'prettier',
-  'markdownlint',
-  'write-good',
-  'eslint_d',
-  'fixjson',
+  "stylua",
+  "prettier",
+  "markdownlint",
+  "write-good",
+  "eslint_d",
+  "fixjson",
 }
 
 for server_name, _ in pairs(servers) do
@@ -99,17 +99,17 @@ for server_name, _ in pairs(servers) do
     capabilities = capabilities,
   }
 
-  lsp_opts = vim.tbl_deep_extend('force', lsp_opts, servers[server_name] or {})
+  lsp_opts = vim.tbl_deep_extend("force", lsp_opts, servers[server_name] or {})
   lsp_config[server_name].setup(lsp_opts)
 
-  if server_name == 'sumneko_lua' then
+  if server_name == "sumneko_lua" then
     lsp_config.sumneko_lua.setup(luadev.setup {
-      library = { plugins = { 'neotest' }, types = true },
+      library = { plugins = { "neotest" }, types = true },
       lspconfig = lsp_opts,
     })
   end
 
-  if server_name == 'tsserver' then
+  if server_name == "tsserver" then
     lsp_opts = ts.setup {
       debug_commands = false,
       debug = false,
@@ -118,7 +118,7 @@ for server_name, _ in pairs(servers) do
   end
 end
 
-require('user.lsp.handlers').setup()
-require('user.lsp.lsp_signature').setup()
-require('user.lsp.null_ls').setup(on_attach)
-require('user.lsp.mason').setup(servers, formatter)
+require("user.lsp.handlers").setup()
+require("user.lsp.lsp_signature").setup()
+require("user.lsp.null_ls").setup(on_attach)
+require("user.lsp.mason").setup(servers, formatter)

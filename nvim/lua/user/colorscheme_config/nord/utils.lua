@@ -51,9 +51,6 @@ end
 
 local function nord_sync(theme)
   local both_opts = {
-    NonText = {
-      fg = '#d8dee9',
-    },
     TreesitterContext = {
       fg = '#eceff4',
       bg = '#1e222b',

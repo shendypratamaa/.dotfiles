@@ -1,21 +1,29 @@
+vim.cmd [[
+  if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
+]]
+
 local options = {
-  syntax = 'on',
+  syntax = "on",
   exrc = true,
   autoread = true,
-  filetype = 'plugin_indent_on',
-  fileencoding = 'utf8',
+  filetype = "plugin_indent_on",
+  fileencoding = "utf8",
   hidden = true,
   number = true,
-  virtualedit = 'block',
+  virtualedit = "block",
   relativenumber = true,
   backup = false,
-  clipboard = 'unnamedplus',
+  clipboard = "unnamedplus",
   cmdheight = 1,
-  completeopt = { 'menuone', 'noselect' },
+  completeopt = { "menuone", "noselect" },
   conceallevel = 0,
   hlsearch = true,
   incsearch = true,
-  mouse = 'a',
+  mouse = "a",
   pumheight = 10,
   splitright = true,
   splitbelow = true,
@@ -25,7 +33,7 @@ local options = {
   updatetime = 300,
   writebackup = false,
   cursorline = true,
-  signcolumn = 'yes',
+  signcolumn = "yes",
   wrap = false,
   scrolloff = 8,
   shiftwidth = 2,
@@ -37,10 +45,10 @@ local options = {
   autoindent = true,
   smartcase = true,
   ignorecase = true,
-  colorcolumn = '80',
+  colorcolumn = "80",
   sidescrolloff = 8,
-  guifont = 'JetBrainsMono Nerd Font Mono:h12',
-  guicursor = '',
+  guifont = "JetBrainsMono Nerd Font Mono:h12",
+  guicursor = "",
 }
 
 for k, v in pairs(options) do
@@ -49,26 +57,7 @@ end
 
 -- BUG: When active cant recognize recent files, fold, marks, etc
 vim.o.shada = "'0,f0"
-vim.opt.shortmess:append 'c'
+vim.opt.shortmess:append "c"
 vim.g.cursorhold_updatetime = 100
-vim.g.python3_host_prog = '/usr/bin/python3'
-vim.g.netrw_browsex_viewer = 'open'
-
-vim.cmd [[
-  fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-  endfun
-
-  augroup neovim_rocks
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
-  augroup END
-
-  if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
-  endif
-]]
+vim.g.python3_host_prog = "/usr/bin/python3"
+vim.g.netrw_browsex_viewer = "open"
