@@ -1,4 +1,4 @@
-local nord_ok, nord = pcall(require, 'nord')
+local nord_ok, nord = pcall(require, "nord")
 
 if not nord_ok then
   return
@@ -17,14 +17,14 @@ end
 local function nord_single_sources(theme)
   nord_theme_utils()
   nord.set()
-  require('user.colorscheme_config.nord.utils').setup(theme)
+  require("user.colorscheme_config.nord.utils").setup(theme)
 end
 
 function M.setup(theme)
-  if theme == 'nord' then
+  if theme == "nord" then
     nord_single_sources(theme)
-  elseif theme == 'base16-nord' then
-    require('user.colorscheme_config.nord.utils').setup(theme)
+  elseif theme == "base16-nord" then
+    require("user.colorscheme_config.nord.utils").setup(theme)
   end
 end
 
