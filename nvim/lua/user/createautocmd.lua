@@ -43,7 +43,8 @@ autocmd({ 'Filetype' }, {
     'startuptime',
     'Trouble',
     'OUTLINE',
-    'undotree_2'
+    'undotree_2',
+    'JabsOpen'
   },
   callback = function()
     vim.cmd [[

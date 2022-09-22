@@ -7,7 +7,7 @@ end
 
 -- WARNING: Colorscheme Terms
 -- colorscheme available base16-bundle include base16-nord and nord-single-source 📦
--- press <leader> T and choose change colorscheme for see all list 📚
+-- press <leader> T or tq] and choose colorscheme for see all options 📚
 -- only specified coloschemes have telescope floating border config 💔
 
 colorscheme "nord"

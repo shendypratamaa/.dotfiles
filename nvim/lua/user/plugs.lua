@@ -107,6 +107,9 @@ return packer.startup(function(use)
   use { 'ThePrimeagen/harpoon', commit = 'f4aff5bf9b512f5a85fe20eb1dcf4a87e512d971' }
   use { 'chentoast/marks.nvim', commit = 'b27cbb78e9082229590b396d3ae4fe07f1aeafe0' }
 
+  -- Fold text
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
   -- Buffer
   use { 'ghillb/cybu.nvim', commit = '43b68850ac370c583e95ff136f65b144859470dc'}
   use { 'moll/vim-bbye', commit = '25ef93ac5a87526111f43e5110675032dbcacf56' }
@@ -178,7 +181,6 @@ return packer.startup(function(use)
   use { 'windwp/nvim-autopairs', commit = '14cc2a4fc6243152ba085cc2059834113496c60a' }
   use { 'nacro90/numb.nvim', commit = '453c50ab921fa066fb073d2fd0f826cb036eaf7b' }
   use { 'Pocco81/true-zen.nvim', commit = '98740c76254c65576ec294551028b65081053588' }
-  use { 'anuvyklack/pretty-fold.nvim', commit = 'a7d8b424abe0eedf50116c460fbe6dfd5783b1d5' }
 
   -- Motion
   use { 'tpope/vim-surround', commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" }
