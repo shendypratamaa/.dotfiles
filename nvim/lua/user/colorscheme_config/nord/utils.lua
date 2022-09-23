@@ -1,3 +1,5 @@
+local highlight = vim.api.nvim_set_hl
+
 local M = {}
 
 local function nord_telescope_border()
@@ -17,16 +19,16 @@ local function nord_telescope_border()
       fg = "#eceff4",
     },
     TelescopePromptTitle = {
-      fg = "#eceff4",
-      bg = "#b48ead",
+      fg = "#282a36",
+      bg = "#ff79c6",
     },
     TelescopePreviewTitle = {
-      fg = "#eceff4",
-      bg = "#a3be8c",
+      fg = "#282a36",
+      bg = "#50fa7b",
     },
     TelescopeResultsTitle = {
-      fg = "#eceff4",
-      bg = "#d08770",
+      fg = "#1e222b",
+      bg = "#ff5555",
     },
     TelescopePreviewBorder = {
       fg = "#1e222b",
@@ -45,12 +47,12 @@ local function nord_telescope_border()
   }
 
   for hl, col in pairs(TelescopePrompt) do
-    vim.api.nvim_set_hl(0, hl, col)
+    highlight(0, hl, col)
   end
 end
 
-local function nord_sync(theme)
-  local both_opts = {
+local function nord_sync()
+  local nord_opts = {
     TreesitterContext = {
       fg = "#eceff4",
       bg = "#1e222b",
@@ -59,39 +61,29 @@ local function nord_sync(theme)
       fg = "#eceff4",
       bg = "#1e222b",
     },
+    CursorLine = {
+      bg = "none",
+    },
+    NonText = {
+      fg = "#413F42",
+    },
+    IndentBlanklineChar = {
+      fg = "#413f42",
+    },
   }
 
-  local nord_opts = {}
-
-  local base16_nord_opts = {}
-
   local function filter_sync()
-    local highlight = vim.api.nvim_set_hl
-
-    for hl, col in pairs(both_opts) do
+    for hl, col in pairs(nord_opts) do
       highlight(0, hl, col)
     end
-
-    if theme == "nord" then
-      nord_telescope_border()
-      for hl, col in pairs(nord_opts) do
-        highlight(0, hl, col)
-        return
-      end
-    elseif theme == "base16-nord" then
-      nord_telescope_border()
-      for hl, col in pairs(base16_nord_opts) do
-        highlight(0, hl, col)
-        return
-      end
-    end
+    nord_telescope_border()
   end
 
   return filter_sync()
 end
 
-function M.setup(theme)
-  nord_sync(theme)
+function M.setup()
+  nord_sync()
 end
 
 return M

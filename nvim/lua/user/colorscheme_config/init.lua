@@ -17,14 +17,13 @@ local starry_lists = {
   "limestone",
   "oceanic",
   "palenight",
-  "ukraine",
 }
 
 -- NOTE: load different colorscheme config
 local function config_load_check(theme)
   local nord_check = function()
-    if theme == "nord" or theme == "base16-nord" then
-      require("user.colorscheme_config.nord").setup(theme)
+    if theme == "nord" then
+      require("user.colorscheme_config.nord").setup()
       return
     end
   end
