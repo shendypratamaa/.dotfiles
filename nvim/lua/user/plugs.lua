@@ -128,7 +128,6 @@ return packer.startup(function(use)
   use { 'norcalli/nvim-colorizer.lua', commit = '36c610a9717cc9ec426a07c8e6bf3b3abcb139d6' }
 
   -- Colorscheme
-  use { 'RRethy/nvim-base16', commit = 'd2a56671ed19fb471acf0c39af261568ea47ee26' }
   use { 'shaunsingh/nord.nvim', commit = '209e9b394879e80beeed7fb923a8bec239b7b327' }
   use { 'ray-x/starry.nvim', commit = '1660f1a4c26d2c35d010c4012ea206b36df82901'}
 

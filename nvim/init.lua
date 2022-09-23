@@ -1,10 +1,9 @@
-require "user.hot-reload"
 require("impatient").enable_profile()
 require "user.options"
-reload "user.colorscheme"
+require "user.colorscheme"
+require "user.autocmd"
 require "user.keymaps"
 require "user.notify"
-require "user.autocmd"
 require "user.plugs"
 require "user.lsp"
 require "user.cmp"

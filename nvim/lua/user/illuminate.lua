@@ -48,7 +48,3 @@ illuminate.configure {
   providers_regex_syntax_allowlist = {},
   under_cursor = false,
 }
-
-hl(0, 'IlluminatedWordRead', { link = 'Visual' })
-hl(0, 'IlluminatedWordText', { link = 'Visual' })
-hl(0, 'IlluminatedWordWrite', { link = 'Visual' })

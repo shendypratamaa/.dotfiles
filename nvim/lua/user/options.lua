@@ -1,11 +1,3 @@
-vim.cmd [[
-  if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
-  endif
-]]
-
 local options = {
   syntax = "on",
   exrc = true,
@@ -61,3 +53,4 @@ vim.opt.shortmess:append "c"
 vim.g.cursorhold_updatetime = 100
 vim.g.python3_host_prog = "/usr/bin/python3"
 vim.g.netrw_browsex_viewer = "open"
+vim.g.did_load_filetypes = 1
