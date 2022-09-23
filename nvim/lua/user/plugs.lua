@@ -130,6 +130,7 @@ return packer.startup(function(use)
   -- Colorscheme
   use { 'shaunsingh/nord.nvim', commit = '209e9b394879e80beeed7fb923a8bec239b7b327' }
   use { 'ray-x/starry.nvim', commit = '1660f1a4c26d2c35d010c4012ea206b36df82901'}
+  use { 'rebelot/kanagawa.nvim', commit = "dda1b8c13e0e7588c014064e5e8baf7f2953dd29" }
 
   -- Utility
   use { 'mbbill/undotree', commit = 'bf76bf2d1a097cda024699738286fa81fb6529ac' }

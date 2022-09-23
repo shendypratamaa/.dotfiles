@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-parameter, need-check-nil
 local fn = vim.fn
 
 local mkdir = vim.api.nvim_create_augroup('Mkdir', { clear = true })

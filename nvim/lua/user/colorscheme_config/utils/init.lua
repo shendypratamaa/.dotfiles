@@ -1,9 +1,5 @@
-local highlight = vim.api.nvim_set_hl
-
-local M = {}
-
-local function nord_telescope_border()
-  local TelescopePrompt = {
+local telescope_border_utils = function()
+  local cfg = {
     TelescopeSelection = {
       bg = "#3b4252",
     },
@@ -45,45 +41,16 @@ local function nord_telescope_border()
       bg = "#1e222b",
     },
   }
+  return cfg
+end
 
-  for hl, col in pairs(TelescopePrompt) do
-    highlight(0, hl, col)
+local function load_colors(opts)
+  for hl, col in pairs(opts) do
+    vim.api.nvim_set_hl(0, hl, col)
   end
 end
 
-local function nord_sync()
-  local nord_opts = {
-    TreesitterContext = {
-      fg = "#eceff4",
-      bg = "#1e222b",
-    },
-    TreesitterContextLineNumber = {
-      fg = "#eceff4",
-      bg = "#1e222b",
-    },
-    CursorLine = {
-      bg = "none",
-    },
-    NonText = {
-      fg = "#413F42",
-    },
-    IndentBlanklineChar = {
-      fg = "#413f42",
-    },
-  }
-
-  local function filter_sync()
-    for hl, col in pairs(nord_opts) do
-      highlight(0, hl, col)
-    end
-    nord_telescope_border()
-  end
-
-  return filter_sync()
-end
-
-function M.setup()
-  nord_sync()
-end
-
-return M
+return {
+  telescope_border_utils = telescope_border_utils,
+  load_colors = load_colors,
+}

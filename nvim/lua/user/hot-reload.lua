@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 local M = {}
 
 -- revisit this
@@ -54,6 +55,7 @@ local function _replace(old, new, repeat_tbl)
   end
 end
 
+---@diagnostic disable-next-line: lowercase-global
 function reload(mod)
   if not package.loaded[mod] then
     local m = require(mod)

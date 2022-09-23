@@ -21,29 +21,20 @@ local starry_lists = {
 
 -- NOTE: load different colorscheme config
 local function config_load_check(theme)
-  local nord_check = function()
-    if theme == "nord" then
-      require("user.colorscheme_config.nord").setup()
-      return
+  if theme == "nord" then
+    require("user.colorscheme_config.nord").setup()
+  end
+
+  for i = 1, #starry_lists do
+    local starry = starry_lists[i]
+    if theme == starry then
+      require("user.colorscheme_config.starry").setup()
     end
   end
 
-  local starry_check = function()
-    for i = 1, #starry_lists do
-      local starry = starry_lists[i]
-      if theme == starry then
-        require("user.colorscheme_config.starry").setup()
-        return
-      end
-    end
+  if theme == "kanagawa" then
+    require('user.colorscheme_config.kanagawa').setup()
   end
-
-  local loaded = {
-    nord = nord_check(),
-    starry = starry_check(),
-  }
-
-  return loaded
 end
 
 function M.setup(theme)
