@@ -1,4 +1,4 @@
----@diagnostic disable: missing-parameter
+---@diagnostic disable: missing-parameter, unused-local
 local action_state = require "telescope.actions.state"
 local actions      = require "telescope.actions"
 local pickers      = require "telescope.pickers"
@@ -8,15 +8,14 @@ local get_colors   = vim.fn.getcompletion("", "color")
 
 local M = {}
 
-local ignorecolorscheme = {
+local excludes = {
   "starry",
 }
 
-function Ignore_selected_colorscheme()
+local function ignore_selected_colorscheme(ignore)
   for k, v in pairs(get_colors) do
-    local _v = v
-    for i = 1, #ignorecolorscheme do
-      local _i = ignorecolorscheme[i]
+    for i = 1, #ignore do
+      local _v, _i = v, ignore[i]
       if _v == _i then
         table.remove(get_colors, k)
       end
@@ -24,12 +23,11 @@ function Ignore_selected_colorscheme()
   end
 end
 
-Ignore_selected_colorscheme()
+ignore_selected_colorscheme(excludes)
 
 local function enter(prompt_bufnr)
   local selected = action_state.get_selected_entry()
   local cmd = "colorscheme " .. selected[1]
-
   vim.cmd(cmd)
 
   local path = vim.fn.expand "~/.dotfiles/nvim/lua/user/colorscheme.lua"
@@ -42,17 +40,38 @@ local function enter(prompt_bufnr)
     .. '"'
     .. "' >> "
     .. path
-
   vim.fn.jobstart(job_cmd)
 
   for _, v in pairs(get_colors) do
     if selected[1] == v then
-      vim.notify(" 🤖 your colorscheme now is : " .. v)
-      vim.cmd "source $MYVIMRC"
+      local timer = vim.loop.new_timer()
+      local u = " 🤖 Update Colorscheme to : " .. v
+      local s = " 🤖 Successfuly Loaded : " .. v
+      local r =
+        " Please Relaunch Noevim\n for make sure everything work properly"
+      vim.notify(u, "warn", {
+        title = "Colorscheme Info",
+        on_open = function()
+          timer:start(1500, 0, function()
+            vim.notify(s, "info", {
+              title = "Loading Colorscheme Config",
+            })
+          end)
+          require "user.hot-reload"
+          reload "user.colorscheme"
+          vim.cmd [[source $MYVIMRC]]
+        end,
+        on_close = function()
+          timer:start(1750, 0, function()
+            vim.notify(r, "warn", {
+              title = "🤖 Neovim Info",
+            })
+          end)
+        end,
+      })
       break
     end
   end
-
   actions.close(prompt_bufnr)
 end
 
@@ -78,10 +97,14 @@ local opts = {
     map("i", "<CR>", enter)
     map("i", "<C-j>", next_color)
     map("i", "<C-k>", prev_color)
+    map("i", "<Tab>", next_color)
+    map("i", "<s-Tab>", prev_color)
 
     map("n", "<CR>", enter)
     map("n", "j", next_color)
     map("n", "k", prev_color)
+    map("n", "<Tab>", next_color)
+    map("n", "<s-Tab>", prev_color)
     return true
   end,
 }
