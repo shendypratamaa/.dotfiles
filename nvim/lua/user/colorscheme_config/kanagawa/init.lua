@@ -1,13 +1,18 @@
 local kanagawa_ok, kanagawa = pcall(require, "kanagawa")
-local telescope = require "user.colorscheme_config.utils"
+local utils = require "user.colorscheme_config.utils"
 
 if not kanagawa_ok then
   return
 end
 
-local function telescope_load()
-  local tbl_brd = telescope.telescope_border_utils()
-  telescope.load_colors(tbl_brd)
+local function load_utils()
+  local telescope_border = utils.telescope_border()
+  local illuminate_hl = utils.illuminate()
+  local nontext = utils.nontext()
+
+  utils.load_colors(telescope_border)
+  utils.load_colors(illuminate_hl)
+  utils.load_colors(nontext)
 end
 
 local M = {}
@@ -20,12 +25,12 @@ local cfg = {
   statementStyle       = { bold = true },
   typeStyle            = { bold = true },
   variablebuiltinStyle = { italic = true },
-  specialReturn        = true, -- special highlight for the return keyword
-  specialException     = true, -- special highlight for exception handling keywords
-  transparent          = true, -- do not set background color
-  dimInactive          = true, -- dim inactive window `:h hl-NormalNC`
-  globalStatus         = false, -- adjust window separators highlight for laststatus=3
-  terminalColors       = true, -- define vim.g.terminal_color_{0,17}
+  specialReturn        = true,
+  specialException     = true,
+  transparent          = true,
+  dimInactive          = true,
+  globalStatus         = true,
+  terminalColors       = true,
   colors               = {},
   overrides            = {},
   theme                = "default", -- Load "default" theme or the experimental "light" theme
@@ -33,7 +38,7 @@ local cfg = {
 
 function M.setup()
   kanagawa.setup(cfg)
-  telescope_load()
+  load_utils()
 end
 
 return M

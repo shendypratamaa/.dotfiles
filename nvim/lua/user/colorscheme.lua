@@ -6,7 +6,7 @@ local function colorscheme(theme)
 end
 
 -- WARNING: Colorscheme Terms
--- colorscheme available starry-bundle, nord, kanagawa 📦
+-- colorscheme available starry-bundle, nord, kanagawa, catppuccin 📦
 -- press <leader> t T or tq] and choose colorscheme for see all options 📚
 
-colorscheme "kanagawa"
+colorscheme "catppuccin"

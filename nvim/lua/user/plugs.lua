@@ -129,13 +129,13 @@ return packer.startup(function(use)
 
   -- Colorscheme
   use { 'shaunsingh/nord.nvim', commit = '209e9b394879e80beeed7fb923a8bec239b7b327' }
-  use { 'ray-x/starry.nvim', commit = '1660f1a4c26d2c35d010c4012ea206b36df82901'}
+  use { 'ray-x/starry.nvim', commit = '1660f1a4c26d2c35d010c4012ea206b36df82901' }
   use { 'rebelot/kanagawa.nvim', commit = "dda1b8c13e0e7588c014064e5e8baf7f2953dd29" }
+  use { 'catppuccin/nvim', commit = "4880f23b12901d7337d196f18680700d5db927d2" }
 
   -- Utility
   use { 'mbbill/undotree', commit = 'bf76bf2d1a097cda024699738286fa81fb6529ac' }
   use { 'antoinemadec/FixCursorHold.nvim', commit = '70a9516a64668cbfe59f31b66d0a21678c5e9b12' }
-  use { 'folke/trouble.nvim', commit = '929315ea5f146f1ce0e784c76c943ece6f36d786' }
   use { 'tyru/open-browser.vim', commit = '80ec3f2bb0a86ac13c998e2f2c86e16e6d2f20bb' }
   use { 'kevinhwang91/nvim-hlslens', commit = '00a87287456860851bdefc934af129316dfe1c4c' }
   use { 'tpope/vim-repeat', commit = '24afe922e6a05891756ecf331f39a1f6743d3d5a' }
@@ -169,6 +169,7 @@ return packer.startup(function(use)
   -- use { 'rmagatti/session-lens', commit = '103a45dfedc23fa6bac48dc8cdcd62fa9f98ac0c' }
 
   -- Quickfix
+  use { 'folke/trouble.nvim', commit = '929315ea5f146f1ce0e784c76c943ece6f36d786' }
 
   -- Code runner
 

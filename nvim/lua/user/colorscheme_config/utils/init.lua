@@ -1,4 +1,4 @@
-local telescope_border_utils = function()
+local telescope_border = function()
   local cfg = {
     TelescopeSelection = {
       bg = "#3b4252",
@@ -44,6 +44,37 @@ local telescope_border_utils = function()
   return cfg
 end
 
+local illuminate = function()
+  local cfg = {
+    IlluminatedWord = {
+      link = "PmenuSel",
+    },
+    IlluminatedWordText = {
+      link = "PmenuSel",
+    },
+    IlluminatedWordRead = {
+      link = "PmenuSel",
+    },
+  }
+
+  return cfg
+end
+
+local nontext = function()
+  local cfg = {
+    NonText = {
+      fg = "#FFE6F7",
+      bold = true,
+    },
+    IndentBlanklineChar = {
+      fg = "#FFE6F7",
+      bold = true,
+    },
+  }
+
+  return cfg
+end
+
 local function load_colors(opts)
   for hl, col in pairs(opts) do
     vim.api.nvim_set_hl(0, hl, col)
@@ -51,6 +82,8 @@ local function load_colors(opts)
 end
 
 return {
-  telescope_border_utils = telescope_border_utils,
+  telescope_border = telescope_border,
   load_colors = load_colors,
+  illuminate = illuminate,
+  nontext = nontext
 }

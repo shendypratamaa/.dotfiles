@@ -15,7 +15,7 @@ end
 
 local on_attach = function(client, bufnr)
   require("user.lsp.saga").setup()
-  require("user.lsp.typscript_utils").setup()
+  require("user.lsp.typescript").setup()
   require("user.lsp.lspkeymaps").setup(bufnr)
 
   if client.name == "sumneko_lua" then

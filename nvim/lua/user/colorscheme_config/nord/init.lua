@@ -8,7 +8,9 @@ end
 local M = {}
 
 local function load_utils()
-  local telescope_border = utils.telescope_border_utils()
+  local telescope_border = utils.telescope_border()
+  local illuminate_hl = utils.illuminate()
+  local nontext = utils.nontext()
 
   local opts = {
     TreesitterContext = {
@@ -19,29 +21,11 @@ local function load_utils()
       fg = "#eceff4",
       bg = "#1e222b",
     },
-    CursorLine = {
-      bg = "none",
-    },
-    NonText = {
-      fg = "#ACABAB",
-      bold = true,
-    },
-    IndentBlanklineChar = {
-      fg = "#ACABAB",
-      bold = true,
-    },
-    IlluminatedWord = {
-      link = "Visual",
-    },
-    IlluminatedWordText = {
-      link = "Visual",
-    },
-    IlluminatedWordRead = {
-      link = "Visual",
-    },
   }
 
   utils.load_colors(telescope_border)
+  utils.load_colors(illuminate_hl)
+  utils.load_colors(nontext)
   utils.load_colors(opts)
 end
 

@@ -1,9 +1,11 @@
-local utils = require "user.colorscheme_config.utils.init"
+local utils = require "user.colorscheme_config.utils"
 
 local M = {}
 
 local function load_utils()
-  local telescope_border = utils.telescope_border_utils()
+  local telescope_border = utils.telescope_border()
+  local illuminate_hl = utils.illuminate()
+  local nontext = utils.nontext()
 
   local opts = {
     Normal = {
@@ -13,32 +15,11 @@ local function load_utils()
     SignColumn = {
       bg = "none",
     },
-    CursorLine = {
-      bg = "none",
-    },
-    ColorColumn = {
-      bg = "#FFE6F7",
-    },
-    NonText = {
-      fg = "#FFE6F7",
-      bold = true,
-    },
-    IndentBlanklineChar = {
-      fg = "#FFE6F7",
-      bold = true,
-    },
-    IlluminatedWord = {
-      link = "PmenuSel",
-    },
-    IlluminatedWordText = {
-      link = "PmenuSel",
-    },
-    IlluminatedWordRead = {
-      link = "PmenuSel",
-    },
   }
 
   utils.load_colors(telescope_border)
+  utils.load_colors(illuminate_hl)
+  utils.load_colors(nontext)
   utils.load_colors(opts)
 end
 
