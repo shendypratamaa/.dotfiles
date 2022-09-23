@@ -3,44 +3,44 @@ local M = {}
 local function nord_telescope_border()
   local TelescopePrompt = {
     TelescopeSelection = {
-      bg = '#3b4252',
+      bg = "#3b4252",
     },
     TelescopePromptBorder = {
-      fg = '#3b4252',
-      bg = '#3b4252',
+      fg = "#3b4252",
+      bg = "#3b4252",
     },
     TelescopePromptNormal = {
-      fg = '#eceff4',
-      bg = '#3b4252',
+      fg = "#eceff4",
+      bg = "#3b4252",
     },
     TelescopePromptCounter = {
-      fg = '#eceff4',
+      fg = "#eceff4",
     },
     TelescopePromptTitle = {
-      fg = '#eceff4',
-      bg = '#b48ead',
+      fg = "#eceff4",
+      bg = "#b48ead",
     },
     TelescopePreviewTitle = {
-      fg = '#eceff4',
-      bg = '#a3be8c',
+      fg = "#eceff4",
+      bg = "#a3be8c",
     },
     TelescopeResultsTitle = {
-      fg = '#eceff4',
-      bg = '#d08770',
+      fg = "#eceff4",
+      bg = "#d08770",
     },
     TelescopePreviewBorder = {
-      fg = '#1e222b',
-      bg = '#1e222b',
+      fg = "#1e222b",
+      bg = "#1e222b",
     },
     TelescopeResultsBorder = {
-      fg = '#1e222b',
-      bg = '#1e222b',
+      fg = "#1e222b",
+      bg = "#1e222b",
     },
     TelescopePreviewNormal = {
-      bg = '#1e222b',
+      bg = "#1e222b",
     },
     TelescopeResultsNormal = {
-      bg = '#1e222b',
+      bg = "#1e222b",
     },
   }
 
@@ -52,12 +52,12 @@ end
 local function nord_sync(theme)
   local both_opts = {
     TreesitterContext = {
-      fg = '#eceff4',
-      bg = '#1e222b',
+      fg = "#eceff4",
+      bg = "#1e222b",
     },
     TreesitterContextLineNumber = {
-      fg = '#eceff4',
-      bg = '#1e222b',
+      fg = "#eceff4",
+      bg = "#1e222b",
     },
   }
 
@@ -72,15 +72,17 @@ local function nord_sync(theme)
       highlight(0, hl, col)
     end
 
-    if theme == 'nord' then
+    if theme == "nord" then
       nord_telescope_border()
       for hl, col in pairs(nord_opts) do
         highlight(0, hl, col)
+        return
       end
-    elseif theme == 'base16-nord' then
+    elseif theme == "base16-nord" then
       nord_telescope_border()
       for hl, col in pairs(base16_nord_opts) do
         highlight(0, hl, col)
+        return
       end
     end
   end
