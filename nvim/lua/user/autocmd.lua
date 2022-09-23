@@ -20,11 +20,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
+-- trim whitespaces
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = "*",
   command = [[%s/\s\+$//e]],
 })
 
+-- disable lualine when access alpha dashoard
 vim.api.nvim_create_autocmd({ "User" }, {
   pattern = { "AlphaReady" },
   callback = function()
@@ -34,6 +36,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
   end,
 })
 
+-- bind q for close specified filetypes
 vim.api.nvim_create_autocmd({ "Filetype" }, {
   pattern = {
     "qf",
@@ -46,7 +49,6 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
     "Trouble",
     "OUTLINE",
     "undotree_2",
-    "JabsOpen",
   },
   callback = function()
     vim.cmd [[
