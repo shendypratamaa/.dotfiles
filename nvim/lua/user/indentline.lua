@@ -14,7 +14,7 @@ vim.opt.listchars = {
   trail    = "·",
 }
 
-vim.g.indent_blankline_char_list = { "»", "", "", "" }
+vim.g.indent_blankline_char_list = { "", "", "", "" }
 vim.g.indent_blankline_indent_level = 10
 vim.g.indent_blankline_max_indent_increase = 1
 vim.g.indent_blankline_show_first_indent_level = true

@@ -8,8 +8,6 @@ end
 
 keymap('n', '<s-h>', '<Plug>(CybuPrev)', opts)
 keymap('n', '<s-l>', '<Plug>(CybuNext)', opts)
-keymap("n", "<s-tab>", "<plug>(CybuLastusedPrev)", opts)
-keymap("n", "<tab>", "<plug>(CybuLastusedNext)", opts)
 
 local cfg = {
   position = {
