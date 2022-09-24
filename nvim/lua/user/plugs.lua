@@ -102,6 +102,7 @@ return packer.startup(function(use)
   use { 'windwp/nvim-ts-autotag', commit = 'fdefe46c6807441460f11f11a167a2baf8e4534b' }
   use { 'p00f/nvim-ts-rainbow', commit = 'fad8badcd9baa4deb2cf2a5376ab412a1ba41797' }
   use { 'abecodes/tabout.nvim', commit = 'be655cc7ce0f5d6d24eeaf8b36e82693fd2facca' }
+  use { 'mfussenegger/nvim-treehopper', commit = "674e9f28815eb9bff1bb11d1f557e4221df05b32" }
 
   -- Marks
   use { 'ThePrimeagen/harpoon', commit = 'f4aff5bf9b512f5a85fe20eb1dcf4a87e512d971' }

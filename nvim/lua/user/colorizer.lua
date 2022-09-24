@@ -1,10 +1,10 @@
-local status_ok, colorizer = pcall(require, 'colorizer')
+local status_ok, colorizer = pcall(require, "colorizer")
 
 if not status_ok then
   return
 end
 
-colorizer.setup {
+local cfg = {
   DEFAULT_OPTIONS = {
     RGB = true, -- #RGB hex codes
     RRGGBB = true, -- #RRGGBB hex codes
@@ -15,9 +15,11 @@ colorizer.setup {
     css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
     css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
     -- Available modes: foreground, background
-    mode = 'background', -- Set the display mode.
+    mode = "background", -- Set the display mode.
   },
-  '*', -- Highlight all files, but customize some others.
+  "*", -- Highlight all files, but customize some others.
   css = { rgb_fn = true }, -- Enable parsing rgb(...) functions in css.
   html = { names = false }, -- Disable parsing "names" like Blue or Gray
 }
+
+colorizer.setup(cfg)

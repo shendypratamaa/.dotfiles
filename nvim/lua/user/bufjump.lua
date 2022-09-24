@@ -1,13 +1,15 @@
-local bufjump_ok, bf = pcall(require, 'bufjump')
+local bufjump_ok, bf = pcall(require, "bufjump")
 
 if not bufjump_ok then
   return
 end
 
-bf.setup {
-  forward = '<C-i>',
-  backward = '<C-o>',
+local cfg = {
+  forward = "<C-i>",
+  backward = "<C-o>",
   on_success = function()
     vim.cmd [[execute "normal! g`\"zz"]]
   end,
 }
+
+bf.setup(cfg)

@@ -1,7 +1,11 @@
-local status_ok, comment = pcall(require, 'Comment')
-local c_uts = require 'Comment.utils'
-local uts = require 'ts_context_commentstring.utils'
-local utsi = require 'ts_context_commentstring.internal'
+local status_ok, comment = pcall(require, "Comment")
+local c_uts = require "Comment.utils"
+local uts = require "ts_context_commentstring.utils"
+local utsi = require "ts_context_commentstring.internal"
+
+if not status_ok then
+  return
+end
 
 local get_location = uts.get_cursor_location()
 local get_visual = uts.get_visual_start_location()
@@ -11,14 +15,10 @@ local function get_internal(...)
   return internal
 end
 
-if not status_ok then
-  return
-end
-
-comment.setup {
+local cfg = {
   pre_hook = function(ctx)
     local U = c_uts
-    local type = ctx.ctype == U.ctype.line and '__default' or '__multiline'
+    local type = ctx.ctype == U.ctype.line and "__default" or "__multiline"
     local location = nil
 
     if ctx.ctype == U.ctype.block then
@@ -33,3 +33,5 @@ comment.setup {
     }
   end,
 }
+
+comment.setup(cfg)

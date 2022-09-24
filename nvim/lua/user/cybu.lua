@@ -43,7 +43,7 @@ local cfg = {
   behavior = { -- set behavior for different modes
     mode = {
       default = {
-        switch = 'immediate', -- immediate, on_close
+        switch = 'on_close', -- immediate, on_close
         view = 'paging', -- paging, rolling
       },
       last_used = {
@@ -52,7 +52,7 @@ local cfg = {
       },
     },
   },
-  display_time = 1250, -- time the cybu window is displayed
+  display_time = 400, -- time the cybu window is displayed
   exclude = { -- filetypes, cybu will not be active
     'neo-tree',
     'fugitive',
