@@ -20,7 +20,7 @@ local load_utils = function()
 end
 
 local cfg = {
-  transparent_background  = false,
+  transparent_background  = true,
   term_colors             = false,
   compile                 = {
     enabled               = false,
@@ -33,7 +33,7 @@ local cfg = {
   },
   styles                  = {
     comments              = { "italic" },
-    conditionals          = { "italic" },
+    conditionals          = {},
     loops                 = {},
     functions             = {},
     keywords              = {},
@@ -75,7 +75,13 @@ local cfg = {
     },
   },
   color_overrides         = {},
-  highlight_overrides     = {},
+  highlight_overrides     = {
+    all                   = {},
+    latte                 = {},
+    frappe                = {},
+    macchiato             = {},
+    mocha                 = {},
+  },
 }
 
 function M.setup()

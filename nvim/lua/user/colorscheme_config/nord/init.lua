@@ -21,6 +21,9 @@ local function load_utils()
       fg = "#eceff4",
       bg = "#1e222b",
     },
+    VertSplit = {
+      link = "LineNr"
+    }
   }
 
   utils.load_colors(telescope_border)
