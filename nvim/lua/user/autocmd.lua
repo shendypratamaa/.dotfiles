@@ -49,6 +49,7 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
     "Trouble",
     "OUTLINE",
     "undotree_2",
+    "toggleterm"
   },
   callback = function()
     vim.cmd [[

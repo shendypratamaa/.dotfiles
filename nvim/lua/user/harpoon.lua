@@ -10,4 +10,11 @@ local opts = { silent = true }
 keymap("n", "]a", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "]w", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
 
-harpoon.setup()
+local cfg = {
+  menu = {
+    width = 80,
+    height = 10,
+  },
+}
+
+harpoon.setup(cfg)

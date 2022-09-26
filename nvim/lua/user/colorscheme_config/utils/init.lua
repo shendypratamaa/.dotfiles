@@ -62,6 +62,10 @@ end
 
 local nontext = function()
   local cfg = {
+    CursorLine = {
+      fg = 'none',
+      bg = 'none'
+    },
     NonText = {
       fg = "#FFE6F7",
       bold = true,

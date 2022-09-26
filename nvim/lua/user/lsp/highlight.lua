@@ -4,7 +4,6 @@ if not illuminate_ok then
   return
 end
 
-local hl = vim.api.nvim_set_hl
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -21,6 +20,8 @@ keymap(
   opts
 )
 keymap("n", "\\ff", ':lua require("illuminate").textobj_select()<CR>', opts)
+
+local M = {}
 
 local cfg = {
   providers = {
@@ -49,4 +50,8 @@ local cfg = {
   under_cursor = false,
 }
 
-illuminate.configure(cfg)
+function M.setup()
+  illuminate.configure(cfg)
+end
+
+return M

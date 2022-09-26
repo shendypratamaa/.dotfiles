@@ -9,6 +9,7 @@ local actions = require 'telescope.actions'
 local sorters = require 'telescope.sorters'
 local telescope_builtin = require 'telescope.builtin'
 local previewers = require 'telescope.previewers'
+local themes = require 'telescope.themes'
 local trouble = require 'trouble.providers.telescope'
 
 local Job = require 'plenary.job'
@@ -53,7 +54,7 @@ M.find_files_custom = function()
 end
 
 M.colorscheme_pick = function()
-  local theme = require('telescope.themes').get_dropdown({ prompt_title = 'Pick Colorscheme 🎨'})
+  local theme = themes.get_dropdown({ prompt_title = 'Pick Colorscheme 🎨'})
   local opts = require('user.telescope.colorscheme_picker').setup(theme)
   return opts
 end
@@ -159,6 +160,11 @@ telescope.setup {
       selected_browser = 'safari',
       url_open_command = 'open',
     },
+    ["ui-select"] = {
+      themes.get_dropdown {
+        -- even more opts
+      },
+    }
   },
 }
 
@@ -184,5 +190,6 @@ telescope.load_extension 'harpoon'
 telescope.load_extension 'project'
 telescope.load_extension 'dap'
 telescope.load_extension 'bookmarks'
+telescope.load_extension 'ui-select'
 
 return M

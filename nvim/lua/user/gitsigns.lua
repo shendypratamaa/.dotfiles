@@ -76,9 +76,9 @@ local cfg = {
       vim.keymap.set(mode, l, r, opts)
     end
     -- Navigation
-    map("n", "\\c", function()
+    map("n", "]c", function()
       if vim.wo.diff then
-        return "\\c"
+        return "]c"
       end
       vim.schedule(function()
         gs.next_hunk()
@@ -86,27 +86,31 @@ local cfg = {
       return "<Ignore>"
     end, { expr = true })
 
-    map("n", "\\d", function()
+    map("n", "[c", function()
       if vim.wo.diff then
-        return "\\d"
+        return "[c"
       end
       vim.schedule(function()
         gs.prev_hunk()
       end)
       return "<Ignore>"
     end, { expr = true })
+
     -- Actions
-    map({ "n", "v" }, "\\tg", ":Gitsigns stage_hunk<CR>")
-    map({ "n", "v" }, "\\tn", ":Gitsigns reset_hunk<CR>")
-    map("n", "\\tg", gs.stage_buffer)
-    map("n", "\\tn", gs.undo_stage_hunk)
-    map("n", "\\th", gs.reset_buffer)
+    map({ "n", "v" }, "\\ts", ":Gitsigns stage_hunk<CR>")
+    map({ "n", "v" }, "\\tr", ":Gitsigns reset_hunk<CR>")
+    map("n", "\\tsb", gs.stage_buffer)
+    map("n", "\\trb", gs.reset_buffer)
+    map("n", "\\trn", gs.undo_stage_hunk)
     map("n", "\\tq", gs.preview_hunk)
     map("n", "\\ta", gs.toggle_current_line_blame)
-    map("n", "\\te", function()
+    map("n", "\\hd", function()
       gs.diffthis "~"
     end)
     map("n", "\\td", gs.toggle_deleted)
+
+    -- text-object
+    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end,
 }
 

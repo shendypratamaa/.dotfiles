@@ -1,7 +1,7 @@
 ---@diagnostic disable: missing-parameter
 local M = {}
 
-local nls_ok, nls = pcall(require, 'null-ls')
+local nls_ok, nls = pcall(require, "null-ls")
 
 if not nls_ok then
   return
@@ -11,56 +11,56 @@ local formatting = nls.builtins.formatting
 local diagnostics = nls.builtins.diagnostics
 local code_actions = nls.builtins.code_actions
 
-local dotpath = '~/.dotfiles/nvim/'
+local dotpath = "~/.dotfiles/nvim/"
 
 local sources = {
   -- formatting
   formatting.stylua.with {
     extra_args = {
-      '--config-path',
-      vim.fn.expand(dotpath .. 'stylua.toml'),
+      "--config-path",
+      vim.fn.expand(dotpath .. "stylua.toml"),
     },
   },
   formatting.prettier.with {
     extra_args = {
-      '--config',
-      vim.fn.expand '~/.prettierrc',
+      "--config",
+      vim.fn.expand "~/.prettierrc",
     },
   },
   formatting.black.with {
     args = {
-      '--stdin-filename',
-      '$FILENAME',
-      '--quiet',
-      '-',
+      "--stdin-filename",
+      "$FILENAME",
+      "--quiet",
+      "-",
     },
     extra_args = {
-      '--fast',
+      "--fast",
     },
   },
   formatting.isort.with {
     args = {
-      '--stdout',
-      '--filename',
-      '$FILENAME',
-      '-',
+      "--stdout",
+      "--filename",
+      "$FILENAME",
+      "-",
     },
   },
   formatting.markdownlint,
   formatting.fixjson,
 
   -- diagnostics
-  diagnostics.write_good.with { filetypes = { 'markdown', 'text' } },
+  diagnostics.write_good.with { filetypes = { "markdown", "text" } },
   diagnostics.eslint_d.with {
     extra_args = {
-      '--config',
-      vim.fn.expand '~/.eslintrc',
+      "--config",
+      vim.fn.expand "~/.eslintrc",
     },
   },
   diagnostics.flake8.with {
     extra_args = {
-      '--config',
-      vim.fn.expand '~/.flake8',
+      "--config",
+      vim.fn.expand "~/.flake8",
     },
   },
   diagnostics.markdownlint,
@@ -74,7 +74,7 @@ function M.setup(on_attach)
   nls.setup {
     debug = true,
     debounce = 150,
-    diagnostics_format = '[#{c}] #{m}',
+    diagnostics_format = "[#{c}] #{m}",
     sources = sources,
     on_attach = on_attach,
   }

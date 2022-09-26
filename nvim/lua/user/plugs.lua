@@ -55,7 +55,6 @@ return packer.startup(function(use)
   use { 'williamboman/mason.nvim', commit = 'ac9a089ac7ca5c2c748433e71f5c7daff8cdc5ad' }
   use { 'williamboman/mason-lspconfig.nvim', commit = 'b70dedab5ceb5f3f84c6bc9ceea013292a14f8dc' }
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim', commit = '617f3a105a67f840e6f706b1b0d80e86773ba004' }
-  use { 'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '0a6a16ef292c9b61eac6dad00d52666c7f84b0e7' }
   use { 'jose-elias-alvarez/null-ls.nvim', commit = '255b7c' }
   use { 'jose-elias-alvarez/typescript.nvim', commit = 'fc02517dbec65143d4d414ed6b66bbf5405c0c20' }
   use { 'SmiteshP/nvim-navic', commit = '202312e93869213c574d200a40eafeff4b4caec2' }
@@ -65,8 +64,8 @@ return packer.startup(function(use)
   use { 'j-hui/fidget.nvim', commit = '492492e7d50452a9ace8346d31f6d6da40439f0e' }
   use { 'simrat39/symbols-outline.nvim', commit = '6a3ed24c5631da7a5d418bced57c16b32af7747c' }
   use { 'RRethy/vim-illuminate', commit = 'b5452627d6ef9c04a27ac4edde0b00aa3a50f60f' }
-  use { 'MaxMEllon/vim-jsx-pretty', commit = '6989f1663cc03d7da72b5ef1c03f87e6ddb70b41' }
   use { 'kristijanhusak/vim-js-file-import', run = 'npm install', commit = 'ac583be8d81b86bae7064d39ad23d78d3f0aff0e' }
+  use { 'ludovicchabant/vim-gutentags', commit = "b77b8fabcb0b052c32fe17efcc0d44f020975244" }
 
   -- Performance
   use { 'lewis6991/impatient.nvim', commit = 'b842e16ecc1a700f62adb9802f8355b99b52a5a6' }
@@ -121,6 +120,7 @@ return packer.startup(function(use)
   use { 'nvim-telescope/telescope-project.nvim', commit = 'dc9a1977d159e3feb98774729f5c30584e2b700a' }
   use { 'nvim-telescope/telescope-dap.nvim', commit = 'b4134fff5cbaf3b876e6011212ed60646e56f060' }
   use { 'dhruvmanila/telescope-bookmarks.nvim', commit = 'a357ecbfa9aaff607a9bf864ad4ad78255df30d8' }
+  use { 'nvim-telescope/telescope-ui-select.nvim', commit = '62ea5e58c7bbe191297b983a9e7e89420f581369' }
 
   -- Note taking apps
   use { 'nvim-neorg/neorg', tag = '0.0.12' }
@@ -166,8 +166,7 @@ return packer.startup(function(use)
   use { 'numToStr/Comment.nvim', commit = '30d23aa2e1ba204a74d5dfb99777e9acbe9dd2d6' }
 
   -- Session
-  -- use { 'rmagatti/auto-session', commit = '39319bf7ad15a1881f180fa7c14bf6703775035e' }
-  -- use { 'rmagatti/session-lens', commit = '103a45dfedc23fa6bac48dc8cdcd62fa9f98ac0c' }
+  -- use { "olimorris/persisted.nvim", commit = "b54b72dbded2f553b6973abf73e0a86ea1be284f" }
 
   -- Quickfix
   use { 'folke/trouble.nvim', commit = '929315ea5f146f1ce0e784c76c943ece6f36d786' }
