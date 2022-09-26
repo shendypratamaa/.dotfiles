@@ -108,7 +108,6 @@ return packer.startup(function(use)
   use { 'chentoast/marks.nvim', commit = 'b27cbb78e9082229590b396d3ae4fe07f1aeafe0' }
 
   -- Fold text
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
   -- Buffer
   use { 'ghillb/cybu.nvim', commit = '43b68850ac370c583e95ff136f65b144859470dc'}
