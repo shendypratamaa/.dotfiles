@@ -13,18 +13,8 @@ keymap("n", "]ew", ":TroubleToggle workspace_diagnostics<CR>", opts)
 keymap("n", "]es", ":TroubleToggle loclist<CR>", opts)
 keymap("n", "]eq", ":TroubleToggle quickfix<CR>", opts)
 keymap("n", "]er", ":TroubleToggle lsp_references<CR>", opts)
-keymap(
-  "n",
-  "\\e",
-  ':lua require("trouble").next({ skip_group = true, jump = true })<CR>',
-  opts
-)
-keymap(
-  "n",
-  "\\d",
-  ':lua require("trouble").previous({ skip_group = true, jump = true })<CR>',
-  opts
-)
+keymap("n", "\\e", ':lua require("trouble").next({ skip_group = true, jump = true })<CR>', opts)
+keymap("n", "\\d", ':lua require("trouble").previous({ skip_group = true, jump = true })<CR>', opts)
 
 local cfg = {
   position = "bottom", -- position of the list can be: bottom, top, left, right
@@ -39,7 +29,7 @@ local cfg = {
   action_keys = { -- key mappings for actions in the trouble list
     -- map to {} to remove a mapping, for example:
     -- close = {},
-    close = "\\q", -- close the list
+    close = "q", -- close the list
     cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
     refresh = "r", -- manually refresh
     jump = { "<cr>", "<tab>" }, -- jump to the diagnostic or open / close folds

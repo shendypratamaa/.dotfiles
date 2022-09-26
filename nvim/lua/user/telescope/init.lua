@@ -5,12 +5,12 @@ if not status_ok then
   return
 end
 
-local actions = require 'telescope.actions'
-local sorters = require 'telescope.sorters'
+local actions           = require 'telescope.actions'
+local sorters           = require 'telescope.sorters'
 local telescope_builtin = require 'telescope.builtin'
-local previewers = require 'telescope.previewers'
-local themes = require 'telescope.themes'
-local trouble = require 'trouble.providers.telescope'
+local previewers        = require 'telescope.previewers'
+local themes            = require 'telescope.themes'
+local trouble           = require 'trouble.providers.telescope'
 
 local Job = require 'plenary.job'
 local new_maker = function(filepath, bufnr, opts)
@@ -40,8 +40,8 @@ end
 local M = {}
 
 local no_preview = {
-  previewer = false,
-  show_line = false,
+  previewer    = false,
+  show_line    = false,
   shorten_path = true,
   layout_config = {
     prompt_position = 'bottom',
@@ -55,7 +55,7 @@ end
 
 M.colorscheme_pick = function()
   local theme = themes.get_dropdown({ prompt_title = 'Pick Colorscheme 🎨'})
-  local opts = require('user.telescope.colorscheme_picker').setup(theme)
+  local opts  = require('user.telescope.colorscheme_picker').setup(theme)
   return opts
 end
 
@@ -72,66 +72,66 @@ telescope.setup {
       '--smart-case',
       '--trim',
     },
-    prompt_prefix = '  ',
-    selection_caret = ' ',
-    file_previewer = require('telescope.previewers').vim_buffer_cat.new,
-    grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
-    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+    prompt_prefix          = '  ',
+    selection_caret        = ' ',
+    file_previewer         = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer         = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer       = require('telescope.previewers').vim_buffer_qflist.new,
     buffer_previewer_maker = new_maker,
-    file_sorter = sorters.get_fuzzy_file,
-    generic_sorter = sorters.get_generic_fuzzy_sorter,
-    path_display = { 'truncate' },
-    layout_config = {
+    file_sorter            = sorters.get_fuzzy_file,
+    generic_sorter         = sorters.get_generic_fuzzy_sorter,
+    path_display           = { 'truncate' },
+    layout_config          = {
       horizontal = {
         prompt_position = 'top',
-        preview_width = 0.6,
-        results_width = 0.8,
+        preview_width   = 0.6,
+        results_width   = 0.8,
       },
       vertical = {
         mirror = false,
       },
-      width = 0.82,
-      height = 0.75,
+      width          = 0.82,
+      height         = 0.75,
       preview_cutoff = 120,
     },
     set_env = { ['COLORTERM'] = 'truecolor' },
     borderchars = {
-      prompt = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
+      prompt  = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
       results = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
       preview = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
     },
     mappings = {
       i = {
-        ['<C-n>'] = actions.cycle_history_next,
-        ['<C-p>'] = actions.cycle_history_prev,
-        ['<C-j>'] = actions.move_selection_next,
-        ['<C-k>'] = actions.move_selection_previous,
-        ['\\q'] = actions.close,
-        ['<Down>'] = actions.move_selection_next,
-        ['<Up>'] = actions.move_selection_previous,
-        ['<CR>'] = actions.select_default,
-        ['<C-h>'] = actions.select_horizontal,
-        ['<C-v>'] = actions.select_vertical,
-        ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
+        ['<C-n>']   = actions.cycle_history_next,
+        ['<C-p>']   = actions.cycle_history_prev,
+        ['<C-j>']   = actions.move_selection_next,
+        ['<C-k>']   = actions.move_selection_previous,
+        ['\\q']     = actions.close,
+        ['<Down>']  = actions.move_selection_next,
+        ['<Up>']    = actions.move_selection_previous,
+        ['<CR>']    = actions.select_default,
+        ['<C-h>']   = actions.select_horizontal,
+        ['<C-v>']   = actions.select_vertical,
+        ['<Tab>']   = actions.toggle_selection + actions.move_selection_worse,
         ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
-        [']e'] = trouble.open_with_trouble,
+        [']e']      = trouble.open_with_trouble,
       },
-      n = {
-        ['\\q'] = actions.close,
-        ['q'] = actions.close,
-        ['<CR>'] = actions.select_default,
-        ['ss'] = actions.select_horizontal,
-        ['sv'] = actions.select_vertical,
-        ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
+      n             = {
+        ['\\q']     = actions.close,
+        ['q']       = actions.close,
+        ['<CR>']    = actions.select_default,
+        ['ss']      = actions.select_horizontal,
+        ['sv']      = actions.select_vertical,
+        ['<Tab>']   = actions.toggle_selection + actions.move_selection_worse,
         ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
-        ['j'] = actions.move_selection_next,
-        ['k'] = actions.move_selection_previous,
-        ['H'] = actions.move_to_top,
-        ['M'] = actions.move_to_middle,
-        ['L'] = actions.move_to_bottom,
-        ['<Down>'] = actions.move_selection_next,
-        ['<Up>'] = actions.move_selection_previous,
-        [']e'] = trouble.open_with_trouble,
+        ['j']       = actions.move_selection_next,
+        ['k']       = actions.move_selection_previous,
+        ['H']       = actions.move_to_top,
+        ['M']       = actions.move_to_middle,
+        ['L']       = actions.move_to_bottom,
+        ['<Down>']  = actions.move_selection_next,
+        ['<Up>']    = actions.move_selection_previous,
+        [']e']      = trouble.open_with_trouble,
       },
     },
   },
@@ -151,10 +151,10 @@ telescope.setup {
       theme = 'dropdown',
     },
     fzf = {
-      fuzzy = true, -- false will only do exact matching
+      fuzzy                   = true, -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
+      override_file_sorter    = true, -- override the file sorter
+      case_mode               = 'smart_case', -- or "ignore_case" or "respect_case"
     },
      bookmarks = {
       selected_browser = 'safari',

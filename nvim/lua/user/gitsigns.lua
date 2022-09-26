@@ -5,6 +5,7 @@ if not gitsigns_ok then
 end
 
 local cfg = {
+  trouble = true,
   signs = {
     add = {
       hl = "GitSignsAdd",
@@ -53,7 +54,7 @@ local cfg = {
     delay = 100,
     ignore_whitespace = false,
   },
-  current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
+  current_line_blame_formatter = " <author>, <author_time:%Y-%m-%d> - <summary>",
   sign_priority = 6,
   update_debounce = 100,
   status_formatter = nil,
@@ -75,6 +76,7 @@ local cfg = {
       opts.buffer = bufnr
       vim.keymap.set(mode, l, r, opts)
     end
+
     -- Navigation
     map("n", "]c", function()
       if vim.wo.diff then
@@ -95,6 +97,7 @@ local cfg = {
       end)
       return "<Ignore>"
     end, { expr = true })
+    map("n", "\\tf", ":Gitsigns setqflist<CR>")
 
     -- Actions
     map({ "n", "v" }, "\\ts", ":Gitsigns stage_hunk<CR>")
