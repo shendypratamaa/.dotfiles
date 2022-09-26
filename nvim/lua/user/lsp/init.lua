@@ -88,11 +88,11 @@ local formatter = {
   "fixjson",
 }
 
-for server_name, _ in pairs(servers) do
-  local flags = {
-    debounce_text_changes = 150,
-  }
+local flags = {
+  debounce_text_changes = 150,
+}
 
+for server_name, _ in pairs(servers) do
   local lsp_opts = {
     flags = flags,
     on_attach = on_attach,
