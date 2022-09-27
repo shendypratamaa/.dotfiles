@@ -1,23 +1,46 @@
-{ 
+{
   // workbanch
   "workbench.editor.showTabs": false,
   "workbench.colorTheme": "Nord",
   "workbench.sideBar.location": "right",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#d8d8d8",
+    "editor.lineHighlightBackground": "#2e3440",
+    "editor.lineHighlightBorder": "#2e3440"
+  },
+
   // editor
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
   "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "editor.fontLigatures": true,
+  "editor.rulers": [80],
+
+  // files
+  "files.trimTrailingWhitespace": true,
+
   // formatter
-  "prettier.configPath": "$HOME/.prettierrc",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+
   // vim god
   "vim.easymotion": true,
   "vim.changeWordIncludesWhitespace": false,
@@ -32,92 +55,57 @@
   },
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "k"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
     }
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "<S-h>"
-      ],
-      "commands": [
-        ":tabp"
-      ]
+      "before": ["<S-h>"],
+      "commands": [":tabp"]
     },
     {
-      "before": [
-        "<S-l>"
-      ],
-      "commands": [
-        ":tabn"
-      ]
+      "before": ["<S-l>"],
+      "commands": [":tabn"]
     },
     {
-      "before": [
-        "<C-r>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<C-r>"],
+      "commands": [":nohl"]
     },
     {
-      "before": [
-        "<leader>",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.files.save"
-      ]
+      "before": ["u"],
+      "commands": [":undo"]
+    },
+    {
+      "before": ["]", "q"],
+      "commands": [":wq"]
+    },
+    {
+      "before": [":", "w", "<CR>"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["s", "v"],
+      "commands": ["workbench.action.splitEditor"]
+    },
+    {
+      "before": ["]", "f"],
+      "commands": ["workbench.action.quickOpen"]
     }
   ],
   "vim.visualModeKeyBindings": [
     {
-      "before": [
-        ">"
-      ],
-      "commands": [
-        "editor.action.indentLines"
-      ]
+      "before": [">"],
+      "after": [">", "g", "v"]
     },
     {
-      "before": [
-        "<"
-      ],
-      "commands": [
-        "editor.action.outdentLines"
-      ]
+      "before": ["<"],
+      "after": ["<", "g", "v"]
     }
   ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "u"
-      ],
-      "after": [],
-      "commands": [
-        {
-          "command": "undo"
-        }
-      ]
-    },
-    {
-      "before": [
-        "<C-u>"
-      ],
-      "after": [],
-      "commands": [
-        {
-          "command": "redo"
-        }
-      ]
-    }
-  ],
+  "vim.normalModeKeyBindingsNonRecursive": [],
+
+  // custom search
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
@@ -132,5 +120,27 @@
     "**/venv/**": true,
     "env-*": true
   },
-  "settingsSync.ignoredSettings": []
+
+  // sync config
+  "settingsSync.ignoredSettings": [],
+
+  // eol chars
+  "code-eol.style": {
+    "color": "#d8d8d8",
+    "opacity": 0.5
+  },
+  "code-eol.newlineCharacter": "↵",
+
+  // vimrc
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "$HOME/.config/nvim/init.lua",
+
+  // neovim
+  "vim.enableNeovim": true,
+  "vim.neovimUseConfigFile": true,
+  "vim.neovimConfigPath": "~/.config/nvim/init.lua",
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
+  "Lua.telemetry.enable": true
 }

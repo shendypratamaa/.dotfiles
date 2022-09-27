@@ -1,14 +1,18 @@
+// overrides default behaviour
 [
+  // hover
   {
     "key": "shift+k",
     "command": "editor.action.showHover"
   },
+
+  // file navigation
   {
     "key": "ctrl+f",
     "command": "editor.action.formatDocument"
   },
   {
-    "key": "ctrl+a",
+    "key": "ctrl+e",
     "command": "extension.advancedNewFile"
   },
   {
@@ -28,5 +32,50 @@
     "key": "ctrl+n",
     "command": "-workbench.action.toggleSidebarVisibility",
     "when": "explorerViewletVisible"
-  }
+  },
+
+  // terminal
+  {
+    "key": "ctrl+\\",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+
+  // key autocompletion
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+
+  // toggle vim
+  {
+    "key": "ctrl+cmd+p",
+    "command": "toggleVim"
+  },
+
+  // move code top and bottom
+  {
+    "key": "ctrl+shift+j",
+    "command": "editor.action.moveLinesDownAction"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // remove default weird thing vscok
+  {
+    "key": "cmd+n",
+    "command": ""
+  },
+  {
+    "key": "cmd+p",
+    "command": ""
+  },
 ]
