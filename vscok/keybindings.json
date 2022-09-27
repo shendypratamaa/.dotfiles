@@ -1,1 +1,32 @@
-/Users/shendypratama/Library/Application Support/Code/User/keybindings.json
+[
+  {
+    "key": "shift+k",
+    "command": "editor.action.showHover"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "editor.action.formatDocument"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "extension.advancedNewFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.view.explorer"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletVisible"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletVisible"
+  }
+]
