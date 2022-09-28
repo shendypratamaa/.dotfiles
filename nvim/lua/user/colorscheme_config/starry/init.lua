@@ -3,10 +3,6 @@ local utils = require "user.colorscheme_config.utils"
 local M = {}
 
 local function load_utils()
-  local telescope_border = utils.telescope_border()
-  local illuminate_hl = utils.illuminate()
-  local nontext = utils.nontext()
-
   local opts = {
     Normal = {
       fg = "none",
@@ -17,9 +13,9 @@ local function load_utils()
     },
   }
 
-  utils.load_colors(telescope_border)
-  utils.load_colors(illuminate_hl)
-  utils.load_colors(nontext)
+  utils.border_default()
+  utils.illuminate()
+  utils.nontext()
   utils.load_colors(opts)
 end
 

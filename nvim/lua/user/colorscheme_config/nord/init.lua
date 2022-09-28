@@ -8,10 +8,6 @@ end
 local M = {}
 
 local function load_utils()
-  local telescope_border = utils.telescope_border()
-  local illuminate_hl = utils.illuminate()
-  local nontext = utils.nontext()
-
   local opts = {
     TreesitterContext = {
       fg = "#eceff4",
@@ -22,13 +18,13 @@ local function load_utils()
       bg = "#1e222b",
     },
     VertSplit = {
-      link = "LineNr"
-    }
+      link = "LineNr",
+    },
   }
 
-  utils.load_colors(telescope_border)
-  utils.load_colors(illuminate_hl)
-  utils.load_colors(nontext)
+  utils.border_default()
+  utils.illuminate()
+  utils.nontext()
   utils.load_colors(opts)
 end
 

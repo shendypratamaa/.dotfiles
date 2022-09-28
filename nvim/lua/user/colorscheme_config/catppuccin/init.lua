@@ -10,13 +10,9 @@ end
 local M = {}
 
 local load_utils = function()
-  local telescope_border = utils.telescope_border()
-  local illuminate = utils.illuminate()
-  local nontext = utils.nontext()
-
-  utils.load_colors(telescope_border)
-  utils.load_colors(illuminate)
-  utils.load_colors(nontext)
+  utils.border_default("default")
+  utils.illuminate()
+  utils.nontext()
 end
 
 local cfg = {

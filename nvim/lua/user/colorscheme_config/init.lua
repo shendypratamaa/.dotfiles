@@ -33,11 +33,11 @@ local function config_load_check(theme)
   end
 
   if theme == "kanagawa" then
-    require('user.colorscheme_config.kanagawa').setup()
+    require("user.colorscheme_config.kanagawa").setup()
   end
 
   if theme == "catppuccin" then
-    require('user.colorscheme_config.catppuccin').setup()
+    require("user.colorscheme_config.catppuccin").setup()
   end
 end
 
