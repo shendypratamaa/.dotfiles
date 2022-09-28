@@ -58,7 +58,7 @@ keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 keymap('n', '\\q', ':Bwipeout<CR><C-w>o<CR>', term_opts)
 keymap('n', '\\wq', '<C-w>o<CR>', term_opts)
 keymap('n', '\\s', ':source $MYVIMRC<CR>', opts)
-keymap('n', '<C-r>', ':nohls<CR>', opts)
+keymap('n', 'nq', ':nohls<CR>', opts)
 
 -- Fix-behave
 keymap('n', 'mm', 'zz', opts)

@@ -183,6 +183,9 @@ return packer.startup(function(use)
   use { 'nacro90/numb.nvim', commit = '453c50ab921fa066fb073d2fd0f826cb036eaf7b' }
   use { 'Pocco81/true-zen.nvim', commit = '98740c76254c65576ec294551028b65081053588' }
 
+  -- Editor config
+  use { 'tpope/vim-sleuth', commit = "1d25e8e5dc4062e38cab1a461934ee5e9d59e5a8" }
+
   -- Motion
   use { 'tpope/vim-surround', commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" }
   use { 'ggandor/leap.nvim', commit = 'aba53d7a8870426bea89eeca6c3b265d1f94c584' }
