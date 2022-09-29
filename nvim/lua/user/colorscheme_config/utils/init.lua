@@ -38,49 +38,30 @@ local Telescope_cfg = {
   TelescopeResultsTitle = {},
 }
 
-local border_default = function(args, value)
+local border_default = function()
   local cfg = Telescope_cfg
 
-  local function customize(
-    selection,
-    promptborder,
-    promptnormal,
-    promptcounter,
-    prompttitle,
-    previewtitle,
-    previewborder,
-    previewnormal,
-    resultstitle,
-    resultsnormal
-  )
-    print('shit fix this')
-  end
+  cfg.TelescopePromptPrefix  = { fg = colors.c4 }
+  cfg.TelescopePromptCounter = { fg = colors.c4 }
+  cfg.TelescopeSelection     = { fg = colors.c4, bg = colors.c1 }
 
-  if args == "default" then
-    cfg.TelescopePromptPrefix  = { fg = colors.c4 }
-    cfg.TelescopeSelection     = { bg = colors.c2 }
-    cfg.TelescopePromptCounter = { fg = colors.c4 }
+  -- normal
+  cfg.TelescopeNormal        = { fg = "white", bg = "white" }
+  cfg.TelescopePromptNormal  = { fg = colors.c4, bg = colors.c2 }
+  cfg.TelescopeResultsNormal = { bg = colors.c2 }
+  cfg.TelescopePreviewNormal = { bg = colors.c2 }
 
-    -- normal
-    cfg.TelescopeNormal        = { fg = "NONE", bg = "NONE" }
-    cfg.TelescopeResultsNormal = { bg = colors.c3 }
-    cfg.TelescopePromptNormal  = { fg = colors.c4, bg = colors.c2 }
-    cfg.TelescopePreviewNormal = { bg = colors.c3 }
+  -- border
+  cfg.TelescopeBorder        = { fg = "white", bg = "white" }
+  cfg.TelescopePromptBorder  = { fg = colors.c2, bg = colors.c2 }
+  cfg.TelescopePreviewBorder = { fg = colors.c2, bg = colors.c2 }
+  cfg.TelescopeResultsBorder = { fg = colors.c2, bg = colors.c2 }
 
-    -- border
-    cfg.TelescopeBorder        = { fg = "NONE", bg = "NONE" }
-    cfg.TelescopePromptBorder  = { fg = colors.c2, bg = colors.c2 }
-    cfg.TelescopePreviewBorder = { fg = colors.c2, bg = colors.c2 }
-    cfg.TelescopeResultsBorder = { fg = colors.c2, bg = colors.c2 }
-
-    -- title
-    cfg.TelescopeTitle         = { fg = "NONE", bg = "NONE" }
-    cfg.TelescopePromptTitle   = { fg = colors.c2, bg = colors.c5 }
-    cfg.TelescopePreviewTitle  = { fg = colors.c2, bg = colors.c6 }
-    cfg.TelescopeResultsTitle  = { fg = colors.c3, bg = colors.c7 }
-  elseif args == "customize" then
-    cfg.TelescopeSelection      = { bg = value }
-  end
+  -- title
+  cfg.TelescopeTitle         = { fg = "white", bg = "white" }
+  cfg.TelescopePromptTitle   = { fg = colors.c4, bg = colors.c5 }
+  cfg.TelescopePreviewTitle  = { fg = colors.c4, bg = colors.c6 }
+  cfg.TelescopeResultsTitle  = { fg = colors.c4, bg = colors.c7 }
 
   load_colors(cfg)
 end
@@ -95,6 +76,9 @@ local illuminate = function()
     },
     IlluminatedWordRead = {
       link = "PmenuSel",
+    },
+    Focusedsymbol = {
+      link = "PmenuSel"
     },
   }
 

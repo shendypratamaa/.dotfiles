@@ -10,7 +10,7 @@ end
 local M = {}
 
 local load_utils = function()
-  utils.border_default("default")
+  utils.border_default()
   utils.illuminate()
   utils.nontext()
 end
