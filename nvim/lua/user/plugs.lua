@@ -156,7 +156,6 @@ return packer.startup(function(use)
 
   -- Indent
   use { 'lukas-reineke/indent-blankline.nvim', commit = 'db7cbcb40cc00fc5d6074d7569fb37197705e7f6' }
-
   -- File explorer
   use { 'kyazdani42/nvim-tree.lua', commit = '3676e0b124c2a132857e2bbcf7f48f05228f1052' }
 
@@ -165,7 +164,6 @@ return packer.startup(function(use)
   use { 'numToStr/Comment.nvim', commit = '30d23aa2e1ba204a74d5dfb99777e9acbe9dd2d6' }
 
   -- Session
-  -- use { "olimorris/persisted.nvim", commit = "b54b72dbded2f553b6973abf73e0a86ea1be284f" }
 
   -- Quickfix
   use { 'folke/trouble.nvim', commit = '929315ea5f146f1ce0e784c76c943ece6f36d786' }

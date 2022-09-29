@@ -33,6 +33,7 @@ keymap('n', 'sv', ':vs<CR>', opts)
 -- Insert --
 -- Press jk fast to enter
 keymap('i', 'jk', '<ESC>', opts)
+keymap('i', 'jj', '<ESC>', opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -45,7 +46,6 @@ keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
 keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
 keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", opts)
 keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
-keymap('v', 'p', '"_dP', opts)
 
 -- Terminal --
 -- Better terminal navigation

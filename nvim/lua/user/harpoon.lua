@@ -7,8 +7,8 @@ end
 local keymap = vim.keymap.set
 local opts = { silent = true }
 
-keymap("n", "]a", ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap("n", "]w", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
+keymap("n", "\\a", ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "\\w", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
 
 local cfg = {
   menu = {
