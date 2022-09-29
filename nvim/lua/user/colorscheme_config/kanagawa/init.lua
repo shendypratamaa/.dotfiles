@@ -23,7 +23,7 @@ local cfg = {
   variablebuiltinStyle = { italic = true },
   specialReturn        = true,
   specialException     = true,
-  transparent          = true,
+  transparent          = false,
   dimInactive          = true,
   globalStatus         = true,
   terminalColors       = true,

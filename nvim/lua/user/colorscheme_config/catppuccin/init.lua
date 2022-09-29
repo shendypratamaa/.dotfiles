@@ -10,22 +10,35 @@ end
 local M = {}
 
 local load_utils = function()
+  local opts = {
+    NormalNc = {
+      fg = "none",
+      bg = "none"
+    },
+    NormalFloat = {
+      link = "NormalNc"
+    },
+    NormalSb = {
+      link = "NormalNc"
+    }
+  }
   utils.border_default()
   utils.illuminate()
   utils.nontext()
+  utils.load_colors(opts)
 end
 
 local cfg = {
   transparent_background  = true,
-  term_colors             = false,
+  term_colors             = true,
   compile                 = {
-    enabled               = false,
+    enabled               = true,
     path                  = vim.fn.stdpath "cache" .. "/catppuccin",
   },
   dim_inactive            = {
-    enabled               = false,
+    enabled               = true,
     shade                 = "dark",
-    percentage            = 0.15,
+    percentage            = 0.50,
   },
   styles                  = {
     comments              = { "italic" },

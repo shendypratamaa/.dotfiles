@@ -3,15 +3,7 @@ local utils = require "user.colorscheme_config.utils"
 local M = {}
 
 local function load_utils()
-  local opts = {
-    Normal = {
-      fg = "none",
-      bg = "none",
-    },
-    SignColumn = {
-      bg = "none",
-    },
-  }
+  local opts = {}
 
   utils.border_default()
   utils.illuminate()

@@ -87,6 +87,13 @@ end
 
 local nontext = function()
   local cfg = {
+    Normal = {
+      fg = "none",
+      bg = "none"
+    },
+    SignColumn = {
+      bg = "none"
+    },
     CursorLine = {
       fg = "none",
       bg = "none",
