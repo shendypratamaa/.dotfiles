@@ -32,7 +32,7 @@ local options = {
   wrap = false,
   ignorecase = true,
   sidescrolloff = 8,
-  scrolloff = 8,
+  scrolloff = 22,
   shiftwidth = 4,
   tabstop = 4,
   softtabstop = 4,
@@ -48,7 +48,7 @@ for k, v in pairs(options) do
 end
 
 -- BUG: When active can't recognize recent files, fold, marks, etc
-vim.o.shada = "'0,f0"
+vim.opt.shada = "'0,f0"
 vim.opt.shortmess:append "c"
 vim.g.cursorhold_updatetime = 100
 vim.g.python3_host_prog = "/usr/bin/python3"

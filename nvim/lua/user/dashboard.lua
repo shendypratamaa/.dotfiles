@@ -139,7 +139,7 @@ local section = {
 }
 
 local fn = vim.fn
-local percent = 0.2
+local percent = 0.2 / 1.33
 local headerCenter = fn.max { fn.floor(fn.winheight(0) * percent) }
 
 local opts = {
