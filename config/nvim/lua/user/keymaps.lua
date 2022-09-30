@@ -22,10 +22,6 @@ keymap('n', '<C-w>k', ':resize -5<CR>', opts)
 keymap('n', '<C-w>l', ':vertical resize -5<CR>', opts)
 keymap('n', '<C-w>h', ':vertical resize +5<CR>', opts)
 
--- Navigate buffers refer using plugins
--- keymap('n', '<S-l>', ':bnext<CR>', opts)
--- keymap('n', '<S-h>', ':bprevious<CR>', opts)
-
 -- split panes
 keymap('n', 'ss', ':sv<CR>', opts)
 keymap('n', 'sv', ':vs<CR>', opts)
@@ -42,10 +38,10 @@ keymap('v', '>', '>gv', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
-keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
-keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", opts)
-keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
+keymap('x', 'J', ":m '>+1<CR>gv-gv", opts)
+keymap('x', 'K', ":m '<-2<CR>gv-gv", opts)
+keymap('x', '<A-j>', ":m '>+1<CR>gv-gv", opts)
+keymap('x', '<A-k>', ":m '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
@@ -59,6 +55,8 @@ keymap('n', '\\q', ':Bwipeout<CR><C-w>o<CR>', term_opts)
 keymap('n', '\\wq', '<C-w>o<CR>', term_opts)
 keymap('n', '\\s', ':source $MYVIMRC<CR>', opts)
 keymap('n', 'nq', ':nohls<CR>', opts)
+keymap('n', ']a', ':cn<CR>', opts)
+keymap('n', ']z', ':cp<CR>', opts)
 
 -- Fix-behave
 keymap('n', 'mm', 'zz', opts)

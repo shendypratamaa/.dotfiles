@@ -107,8 +107,6 @@ return packer.startup(function(use)
   use { 'ThePrimeagen/harpoon', commit = 'f4aff5bf9b512f5a85fe20eb1dcf4a87e512d971' }
   use { 'chentoast/marks.nvim', commit = 'b27cbb78e9082229590b396d3ae4fe07f1aeafe0' }
 
-  -- Fold text
-
   -- Buffer
   use { 'ghillb/cybu.nvim', commit = '43b68850ac370c583e95ff136f65b144859470dc'}
   use { 'moll/vim-bbye', commit = '25ef93ac5a87526111f43e5110675032dbcacf56' }
@@ -141,7 +139,6 @@ return packer.startup(function(use)
   use { 'tpope/vim-repeat', commit = '24afe922e6a05891756ecf331f39a1f6743d3d5a' }
   use { 'bennypowers/nvim-regexplainer', commit = '0d7151ddd3ff2b2e9e8a69137b911c28fc7051a4' }
   use { 'MunifTanjim/nui.nvim', commit = 'e9889bbd9919544697d497537acacd9c67d0de99' }
-  use { 'luukvbaal/stabilize.nvim', commit = 'f7c4d93d6822df1770a90b7fdb46f6df5c94052e' }
   use { 'kwkarlwang/bufjump.nvim', commit = 'a020f81bb82f758da51594a07bfcb9635a6b0f73' }
   use { 'rcarriga/nvim-notify', commit = '7a9be08986b4d98dd685a6b40a62fcba19c1ad27' }
 
@@ -163,17 +160,25 @@ return packer.startup(function(use)
   use { 'folke/todo-comments.nvim', commit = '02eb3019786d9083b93ab9457761899680c6f3ec' }
   use { 'numToStr/Comment.nvim', commit = '30d23aa2e1ba204a74d5dfb99777e9acbe9dd2d6' }
 
-  -- Session
-
-  -- Quickfix
+  -- Quickfix / workspace / document -> diagnostics
+  use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end, commit = "04d0b0223fd69984a07a641d0e228c0e9e534825" }
+  use { 'kevinhwang91/nvim-bqf', ft = 'qf', commit = "aea31569d1b20aa6a35fa84ec756cb205a4a7134" }
   use { 'folke/trouble.nvim', commit = '929315ea5f146f1ce0e784c76c943ece6f36d786' }
 
-  -- Code runner
+  -- Session
+
+
+  -- Coderunner
+
+
+  -- Folding
+
+
+  -- Github
+
 
   -- Git
   use { 'lewis6991/gitsigns.nvim', commit = 'f98c85e7c3d65a51f45863a34feb4849c82f240f' }
-
-  -- Github
 
   -- Editing support
   use { 'karb94/neoscroll.nvim', commit = '54c5c419f6ee2b35557b3a6a7d631724234ba97a' }

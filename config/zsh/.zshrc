@@ -132,7 +132,6 @@ alias ls="exa --group-directories-first"
 alias la="ls -a"
 alias ll="ls --git -l"
 alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
-alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
 alias npml="npm list --location=global --depth=0"
 
 alias src="source ~/.zshrc"
@@ -145,10 +144,27 @@ alias rsyb="brew services restart --all"
 alias python=python3
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
+# fzf
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+export FZF_DEFAULT_OPTS='
+  --color fg:124,bg:16,hl:202,fg+:214,bg+:52,hl+:231
+  --color info:52,prompt:196,spinner:208,pointer:196,marker:208'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+ --color=fg:#cbccc6,bg:#1f2430,hl:#707a8c
+ --color=fg+:#707a8c,bg+:#191e2a,hl+:#ffcc66
+ --color=info:#73d0ff,prompt:#707a8c,pointer:#cbccc6
+ --color=marker:#73d0ff,spinner:#73d0ff,header:#d4bfff'
+alias v="fd --type f --hidden --exclude .git | fzf-tmux -d --reverse --preview 'bat --style=numbers --color=always --line-range :500 {}' | xargs nvim"
+
+# starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+# clear chace from home dir
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 # shell config
 eval "$(starship init zsh)"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
  export NVM_DIR="$HOME/.nvm"

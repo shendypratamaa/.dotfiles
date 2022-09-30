@@ -9,4 +9,4 @@ end
 -- colorscheme available starry-bundle, nord, kanagawa, catppuccin 📦
 -- press <leader> t T or tq] and choose colorscheme for see all options 📚
 
-colorscheme "kanagawa"
+colorscheme "dracula"

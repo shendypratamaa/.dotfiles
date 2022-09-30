@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 
 -- disable lualine when access alpha dashoard
 vim.api.nvim_create_autocmd({ "User" }, {
-  pattern = { "AlphaReady" },
+  pattern = { "AlphaReady", "alpha" },
   callback = function()
     vim.cmd [[
       set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3

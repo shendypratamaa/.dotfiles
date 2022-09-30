@@ -7,21 +7,16 @@ end
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("n", "]e", ":TroubleToggle<CR>", opts)
 keymap("n", "]ed", ":TroubleToggle document_diagnostics<CR>", opts)
 keymap("n", "]ew", ":TroubleToggle workspace_diagnostics<CR>", opts)
-keymap("n", "]es", ":TroubleToggle loclist<CR>", opts)
-keymap("n", "]eq", ":TroubleToggle quickfix<CR>", opts)
 keymap("n", "]er", ":TroubleToggle lsp_references<CR>", opts)
-keymap("n", "\\e", ':lua require("trouble").next({ skip_group = true, jump = true })<CR>', opts)
-keymap("n", "\\d", ':lua require("trouble").previous({ skip_group = true, jump = true })<CR>', opts)
 
 local cfg = {
   position = "bottom", -- position of the list can be: bottom, top, left, right
   height = 10, -- height of the trouble list when position is top or bottom
   width = 50, -- width of the list when position is left or right
   icons = true, -- use devicons for filenames
-  mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
+  mode = "document_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "lsp_references",
   fold_open = "", -- icon used for open folds
   fold_closed = "", -- icon used for closed folds
   group = true, -- group results by file
@@ -42,8 +37,7 @@ local cfg = {
     hover = "K", -- opens a small popup with the full multiline message
     preview = "p", -- preview the diagnostic location
     close_folds = { "zM", "zm" }, -- close all folds
-    open_folds = { "zR", "zr" }, -- open all folds
-    toggle_fold = { "zA", "za" }, -- toggle fold of current file
+    open_folds = { "zR", "zr" }, -- open all folds toggle_fold = { "zA", "za" }, -- toggle fold of current file
     previous = "k", -- preview item
     next = "j", -- next item
   },
