@@ -11,7 +11,7 @@ local formatting = nls.builtins.formatting
 local diagnostics = nls.builtins.diagnostics
 local code_actions = nls.builtins.code_actions
 
-local dotpath = "~/.dotfiles/nvim/"
+local dotpath = "~/.dotfiles/config/nvim/"
 
 local sources = {
   -- formatting
