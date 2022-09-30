@@ -8,6 +8,8 @@ tap "koekeishiya/formulae"
 brew "coreutils"
 # Reimplementation of ctags(1)
 brew "ctags"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -42,10 +44,14 @@ brew "reattach-to-user-namespace"
 brew "ripgrep"
 # Terminal based presentation tool
 brew "slides"
+# Formatting tool for reformatting Swift code
+brew "swiftformat"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Internet file retriever
+brew "wget"
 # Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
 # UNIX shell (command interpreter)
@@ -69,3 +75,5 @@ cask "font-jetbrains-mono-nerd-font"
 cask "iterm2"
 # Keyboard customizer
 cask "karabiner-elements"
+# Media player based on MPlayer and mplayer2
+cask "mpv"
