@@ -43,17 +43,16 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
     "help",
     "man",
     "lspinfo",
-    "spectre_panel",
-    "lir",
     "startuptime",
     "Trouble",
     "OUTLINE",
     "undotree_2",
-    "toggleterm"
+    "toggleterm",
+    "TelescopePrompt"
   },
   callback = function()
     vim.cmd [[
-      nnoremap <silent> <buffer> q :close<CR>
+      nnoremap <silent> <buffer> q :q!<CR>
       set nobuflisted
     ]]
   end,
