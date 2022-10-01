@@ -6,11 +6,12 @@ if not status_ok then
 end
 
 local actions           = require 'telescope.actions'
+local actions_state     = require 'telescope.actions.state'
+local actions_layout    = require 'telescope.actions.layout'
 local sorters           = require 'telescope.sorters'
 local telescope_builtin = require 'telescope.builtin'
 local previewers        = require 'telescope.previewers'
 local themes            = require 'telescope.themes'
-local trouble           = require 'trouble.providers.telescope'
 
 local Job = require 'plenary.job'
 local new_maker = function(filepath, bufnr, opts)
@@ -42,7 +43,7 @@ local M = {}
 local no_preview = {
   previewer    = false,
   show_line    = false,
-  shorten_path = true,
+  path_display = { "truncate" },
   layout_config = {
     prompt_position = 'bottom',
   },
@@ -80,7 +81,7 @@ telescope.setup {
     buffer_previewer_maker = new_maker,
     file_sorter            = sorters.get_fuzzy_file,
     generic_sorter         = sorters.get_generic_fuzzy_sorter,
-    path_display           = { 'truncate' },
+    path_display           = { "truncate" },
     layout_config          = {
       horizontal = {
         prompt_position = 'top',
@@ -102,36 +103,54 @@ telescope.setup {
     },
     mappings = {
       i = {
+        ['\\q']     = actions.close,
+        ['<CR>']    = actions.select_default,
+
         ['<C-n>']   = actions.cycle_history_next,
         ['<C-p>']   = actions.cycle_history_prev,
+
+        ['<C-v>']   = actions.select_vertical,
+        ['<C-h>']   = actions.select_horizontal,
+
+        ['<Tab>']   = actions.toggle_selection + actions.move_selection_worse,
+        ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
+
         ['<C-j>']   = actions.move_selection_next,
         ['<C-k>']   = actions.move_selection_previous,
-        ['\\q']     = actions.close,
+
         ['<Down>']  = actions.move_selection_next,
         ['<Up>']    = actions.move_selection_previous,
-        ['<CR>']    = actions.select_default,
-        ['<C-h>']   = actions.select_horizontal,
-        ['<C-v>']   = actions.select_vertical,
-        ['<Tab>']   = actions.toggle_selection + actions.move_selection_worse,
-        ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
-        [']e']      = trouble.open_with_trouble,
+
+        ['_']       = actions_layout.toggle_preview,
+
+        ['<C-t>']   = actions.smart_send_to_qflist + actions.open_qflist
       },
-      n             = {
+      n = {
         ['\\q']     = actions.close,
-        ['q']       = actions.close,
         ['<CR>']    = actions.select_default,
+
+        ['<C-n>']   = actions.cycle_history_next,
+        ['<C-p>']   = actions.cycle_history_prev,
+
         ['ss']      = actions.select_horizontal,
         ['sv']      = actions.select_vertical,
-        ['<Tab>']   = actions.toggle_selection + actions.move_selection_worse,
-        ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
-        ['j']       = actions.move_selection_next,
-        ['k']       = actions.move_selection_previous,
+
         ['H']       = actions.move_to_top,
         ['M']       = actions.move_to_middle,
         ['L']       = actions.move_to_bottom,
+
+        ['<Tab>']   = actions.toggle_selection + actions.move_selection_worse,
+        ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
+
+        ['j']       = actions.move_selection_next,
+        ['k']       = actions.move_selection_previous,
+
         ['<Down>']  = actions.move_selection_next,
         ['<Up>']    = actions.move_selection_previous,
-        [']e']      = trouble.open_with_trouble,
+
+        ['_']       = actions_layout.toggle_preview,
+
+        ['<C-t>']   = actions.smart_send_to_qflist + actions.open_qflist
       },
     },
   },
@@ -150,7 +169,25 @@ telescope.setup {
           ["\\q"] = "delete_buffer"
         },
       }
-    }
+    },
+    quickfixhistory = {
+      mappings = {
+        i = {
+          ["<C-o>"] = function(prompt_buf)
+            local entry = actions_state.get_selected_entry()
+            actions.close(prompt_buf)
+            vim.cmd(string.format("%schistory | copen", entry.nr))
+          end
+        },
+        n = {
+          ["<C-o>"] = function(prompt_buf)
+            local entry = actions_state.get_selected_entry()
+            actions.close(prompt_buf)
+            vim.cmd(string.format("%schistory | copen", entry.nr))
+          end
+        }
+      }
+    },
   },
   extensions = {
     project = {
@@ -184,7 +221,6 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 keymap('n', ']te', ':TodoTelescope<CR>', opts)
-keymap('n', ']f', ":lua require('telescope.builtin').find_files()<CR>", opts)
 keymap('n', ']b', ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap('n', ']r', ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap('n', ']h', ":lua require('telescope.builtin').help_tags()<CR>", opts)
@@ -194,7 +230,7 @@ keymap('n', ']v', ":lua require('telescope').extensions.project.project{ display
 keymap('n', ']tw', ":lua require('telescope').extensions.notify.notify()<CR>", opts)
 
 -- Custom Telescope
-keymap('n', ']ff', ":lua require('user.telescope').find_files_custom()<CR>", opts)
+keymap('n', ']f', ":lua require('user.telescope').find_files_custom()<CR>", opts)
 keymap('n', ']tq', ':lua require("user.telescope").colorscheme_pick()<CR>', opts)
 
 telescope.load_extension 'fzf'
