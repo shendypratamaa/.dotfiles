@@ -139,6 +139,18 @@ telescope.setup {
     find_files = {
       find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' },
     },
+    buffers = {
+      show_all_buffers = true,
+      sort_lastused = true,
+      mappings = {
+        i = {
+          ["\\q"] = "delete_buffer",
+        },
+        n = {
+          ["\\q"] = "delete_buffer"
+        },
+      }
+    }
   },
   extensions = {
     project = {

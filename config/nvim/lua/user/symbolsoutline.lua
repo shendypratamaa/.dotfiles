@@ -6,7 +6,7 @@ end
 
 vim.keymap.set(
   'n',
-  ']q',
+  ']a',
   ':SymbolsOutline<CR>',
   { noremap = true, silent = true }
 )

@@ -28,6 +28,7 @@ vim.cmd [[
 
 packer.init {
   display = {
+    prompt_border = 'rounded',
     open_fn = function()
       return require('packer.util').float { border = 'rounded' }
     end,
@@ -36,7 +37,7 @@ packer.init {
     enable = true,
     threshold = 0,
   },
-  max_jobs = 25,
+  max_jobs = 10,
 }
 
 return packer.startup(function(use)
