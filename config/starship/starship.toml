@@ -69,5 +69,5 @@ format = "[[  ($version) ](bg:#d8dee9 fg:#262626)]($style)"
 
 [python]
 style = "bg:#d8dee9"
-format = '[[ $symbol ($version) ](bg:#d8dee9 fg:#d2dee0)]($style)'
+format = '[[ $symbol ($version) ](bg:#d8dee9 fg:#262626)]($style)'
 
