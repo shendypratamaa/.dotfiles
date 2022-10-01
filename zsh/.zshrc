@@ -79,22 +79,9 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
- pyenv
- fd
- history
  git
- bundler
- macos
- vscode
- node
- web-search
- copypath
- jsontools
  zsh-syntax-highlighting
  zsh-autosuggestions
- zsh-interactive-cd
- frontend-search
- yum
  tmux
 )
 
@@ -121,10 +108,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
 
