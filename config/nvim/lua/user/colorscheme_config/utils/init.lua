@@ -81,7 +81,7 @@ local illuminate = function()
       link = "PmenuSel",
     },
     BqfPreviewBorder = {
-      link = "Normal"
+      link = "Definitions"
     },
     BqfPreviewRange = {
       link = "Search",

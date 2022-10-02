@@ -37,7 +37,7 @@ packer.init {
     enable = true,
     threshold = 0,
   },
-  max_jobs = 10,
+  max_jobs = 25,
 }
 
 return packer.startup(function(use)

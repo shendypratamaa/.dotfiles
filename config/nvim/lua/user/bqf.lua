@@ -8,17 +8,17 @@ if not bqf_ok then
   return
 end
 
-local keymap = vim.keymap.set
-local opts = { silent = true }
 local fn = vim.fn
 
 function _G.qftf(info)
   local items
   local ret = {}
+  local getqflist   = fn.getqflist({id = info.id, items = 0}).items
+  local getlocklist = fn.getloclist(info.winid, {id = info.id, items = 0}).items
   if info.quickfix == 1 then
-    items = fn.getqflist({id = info.id, items = 0}).items
+    items = getqflist
   else
-    items = fn.getloclist(info.winid, {id = info.id, items = 0}).items
+    items = getlocklist
   end
   local limit = 31
   local fnameFmt1, fnameFmt2 = '%-' .. limit .. 's', '…%.' .. (limit - 1) .. 's'
@@ -54,32 +54,12 @@ function _G.qftf(info)
   return ret
 end
 
-vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
-
-local toggle_qf = function()
-  local qf_open = false
-  for _, win in pairs(vim.fn.getwininfo()) do
-    if win["quickfix"] == 1 then
-      qf_open = true
-    end
-  end
-  if qf_open == true then
-    vim.cmd "cclose"
-    return
-  end
-  if not vim.tbl_isempty(vim.fn.getqflist()) then
-    vim.cmd "copen"
-  end
-end
-
-keymap("n", "]e", function() toggle_qf() end, opts)
-
 local cfg = {
   auto_enable        = true,
   auto_resize_height = true,
   preview = {
-    win_height   = 12,
-    win_vheight  = 12,
+    win_height   = 15,
+    win_vheight  = 15,
     delay_syntax = 50,
     border_chars = {
       "┃",
@@ -96,7 +76,7 @@ local cfg = {
     should_preview_cb = function(bufnr)
       local ret     = true
       local bufname = vim.api.nvim_buf_get_name(bufnr)
-      local fsize   = vim.fn.getfsize(bufname)
+      local fsize   = fn.getfsize(bufname)
       if fsize > 100 * 1024 then
         ret = false
       end
@@ -107,7 +87,7 @@ local cfg = {
     drop        = "o",
     openc       = "O",
     split       = "<C-s>",
-    tabdrop     = "<C-t>",
+    tabdrop     = "",
     tabc        = "",
     ptogglemode = "z,",
   },
@@ -117,5 +97,68 @@ local cfg = {
     },
   },
 }
+
+function Toggle_qf()
+  local qf_open = false
+  for _, win in pairs(fn.getwininfo()) do
+    if win["quickfix"] == 1 then
+      qf_open = true
+    end
+  end
+  if qf_open == true then
+    vim.cmd "cclose"
+    return
+  end
+  if not vim.tbl_isempty(fn.getqflist()) then
+    vim.cmd "copen"
+  end
+end
+
+local function grepper()
+  local command = ":vim "
+  local curword = fn.expand("<cword>")
+  local open = "| copen"
+  local toggle = false
+
+  local function curword_buffer(t)
+    toggle = t
+    local pattern = '% '
+    if toggle == true then
+      local result = command .. curword .. ' ' .. pattern .. open
+      vim.cmd(result)
+    end
+    if toggle == nil then
+      local result = command .. curword .. ' ' .. pattern
+      vim.cmd(result)
+    end
+  end
+
+  local function curword_recursive(t)
+    toggle = t
+    local pattern = '**/*.' .. vim.bo.filetype
+    if toggle == true then
+      local result = command .. curword .. ' ' .. pattern .. open
+      vim.cmd(result)
+    end
+    if toggle == nil then
+      local result = command .. curword .. ' ' .. pattern
+      vim.cmd(result)
+    end
+  end
+
+  return {
+    curword_buffer = curword_buffer,
+    curword_recursive = curword_recursive
+  }
+end
+
+local keymap = vim.keymap.set
+local opts = { silent = true }
+
+keymap("n", "]e", function() Toggle_qf() end, opts)
+keymap("n", "\\gs", function() grepper().curword_buffer(true) end, opts)
+keymap("n", "\\gf", function() grepper().curword_recursive(true) end, opts)
+
+vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
 
 bqf.setup(cfg)

@@ -110,7 +110,7 @@ local buttons = {
     button(
       'f',
       '💻 ﬌ Find Files',
-      ":lua require('telescope.builtin').find_files()<CR>"
+      ":lua require('user.telescope').find_files_custom()<CR>"
     ),
     button(
       'r',

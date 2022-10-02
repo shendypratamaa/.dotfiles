@@ -93,24 +93,15 @@ local keybinds = {
   F = { "<cmd>Format<CR>", "Format File" },
   t = {
     name = "Telescope",
-    T = {
-      '<cmd>lua require("user.telescope").colorscheme_pick()<CR>',
-      "Change Colorscheme",
-    },
-    f = {
-      '<cmd>lua require("telescope.builtin").find_files()<CR>',
-      "Find Files",
-    },
+    T = { '<cmd>lua require("user.telescope").colorscheme_pick()<CR>', "Colorscheme" },
+    f = { '<cmd>lua require("user.telescope").find_files_custom()<CR>', "Find Files" },
     b = { '<cmd>lua require("telescope.builtin").buffers()<CR>', "Buffers" },
     r = { '<cmd>lua require("telescope.builtin").live_grep()<CR>', "Live Grep" },
     h = { '<cmd>lua require("telescope.builtin").help_tags()<CR>', "Help Tags" },
-    g = { "<cmd>Telescope<CR>", "Telescope list builtins" },
+    g = { "<cmd>Telescope<CR>", "Builtins Utils" },
     e = { "<cmd>TodoTelescope<CR>", "Todo Notes" },
     t = { "<cmd>Telescope bookmarks", "Bookmars Browser" },
-    v = {
-      '<cmd>lua require("telescope").extensions.project.project{ display_type = "full"}<CR>',
-      "Project",
-    },
+    v = { '<cmd>lua require("telescope").extensions.project.project{ display_type = "full"}<CR>', "Project" },
   },
   l = {
     name = "LSP",
@@ -118,6 +109,15 @@ local keybinds = {
     j = { "<cmd>Mason<CR>", "Mason Info" },
     n = { "<cmd>NullLsInfo<CR>", "NullLs Info" },
   },
+  u = {
+    name = "Utils",
+    q = { function() Toggle_qf() end, "Quick Fix List"},
+    l = { "<cmd>Telescope quickfixhistory<CR>", "Quick Fix History"},
+    w = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Workspace Diag"},
+    d = { "<cmd>TroubleToggle document_diagnostics<CR>", "Document Diag"},
+    r = { "<cmd>TroubleToggle lsp_references<CR>", "Lsp References"},
+  }
+
 }
 
 wk.setup(cfg)

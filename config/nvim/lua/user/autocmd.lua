@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
       set nocompatible
       set iskeyword+=-
       set whichwrap+=<,>,[,],h,l
+      set nofoldenable
     ]]
   end,
 })
