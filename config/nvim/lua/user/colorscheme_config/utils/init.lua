@@ -80,11 +80,14 @@ local illuminate = function()
     Focusedsymbol = {
       link = "PmenuSel",
     },
+    BqfPreviewFloat = {
+      link = "TelescopePromptBorder"
+    },
     BqfPreviewBorder = {
       link = "Definitions"
     },
     BqfPreviewRange = {
-      link = "Search",
+      link = "Definitions"
     },
   }
 

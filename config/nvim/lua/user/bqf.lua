@@ -1,8 +1,8 @@
 local bqf_ok, bqf = pcall(require, "bqf")
 
 if not bqf_ok then
-  vim.notify(" 🤖 not working properly", "error", {
-    title = "Quickfix info",
+  vim.notify(" 🤖 Not Working Properly", "error", {
+    title   = "Quickfix info",
     timeout = 2000,
   })
   return
@@ -13,38 +13,37 @@ local fn = vim.fn
 function _G.qftf(info)
   local items
   local ret = {}
-  local getqflist   = fn.getqflist({id = info.id, items = 0}).items
-  local getlocklist = fn.getloclist(info.winid, {id = info.id, items = 0}).items
+  local getqflist   = fn.getqflist({ id = info.id, items = 0 }).items
+  local getlocklist = fn.getloclist(info.winid, { id = info.id, items = 0 }).items
   if info.quickfix == 1 then
     items = getqflist
   else
     items = getlocklist
   end
   local limit = 31
-  local fnameFmt1, fnameFmt2 = '%-' .. limit .. 's', '…%.' .. (limit - 1) .. 's'
-  local validFmt = '%s │%5d:%-3d│%s %s'
+  local fnameFmt1, fnameFmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
+  local validFmt = "%s │%5d:%-3d│%s %s"
   for i = info.start_idx, info.end_idx do
     local e = items[i]
-    local fname = ''
+    local fname = ""
     local str
     if e.valid == 1 then
       if e.bufnr > 0 then
         fname = fn.bufname(e.bufnr)
-          if fname == '' then
-            fname = '[No Name]'
-          else
-            fname = fname:gsub('^' .. vim.env.HOME, '~')
-          end
-          -- char in fname may occur more than 1 width, ignore this issue in order to keep performance
-          if #fname <= limit then
-            fname = fnameFmt1:format(fname)
-          else
-            fname = fnameFmt2:format(fname:sub(1 - limit))
-          end
+        if fname == "" then
+          fname = "[No Name]"
+        else
+          fname = fname:gsub("^" .. vim.env.HOME, "~")
+        end
+        if #fname <= limit then
+          fname = fnameFmt1:format(fname)
+        else
+          fname = fnameFmt2:format(fname:sub(1 - limit))
+        end
       end
       local lnum = e.lnum > 99999 and -1 or e.lnum
       local col = e.col > 999 and -1 or e.col
-      local qtype = e.type == '' and '' or ' ' .. e.type:sub(1, 1):upper()
+      local qtype = e.type == "" and "" or " " .. e.type:sub(1, 1):upper()
       str = validFmt:format(fname, lnum, col, qtype, e.text)
     else
       str = e.text
@@ -55,11 +54,11 @@ function _G.qftf(info)
 end
 
 local cfg = {
-  auto_enable        = true,
+  auto_enable = true,
   auto_resize_height = true,
   preview = {
-    win_height   = 15,
-    win_vheight  = 15,
+    win_height = 15,
+    win_vheight = 15,
     delay_syntax = 50,
     border_chars = {
       "┃",
@@ -74,9 +73,9 @@ local cfg = {
     },
     show_title = true,
     should_preview_cb = function(bufnr)
-      local ret     = true
+      local ret = true
       local bufname = vim.api.nvim_buf_get_name(bufnr)
-      local fsize   = fn.getfsize(bufname)
+      local fsize = fn.getfsize(bufname)
       if fsize > 100 * 1024 then
         ret = false
       end
@@ -84,11 +83,11 @@ local cfg = {
     end,
   },
   func_map = {
-    drop        = "o",
-    openc       = "O",
-    split       = "<C-s>",
-    tabdrop     = "",
-    tabc        = "",
+    drop = "o",
+    openc = "O",
+    split = "<C-s>",
+    tabdrop = "",
+    tabc = "",
     ptogglemode = "z,",
   },
   filter = {
@@ -116,39 +115,93 @@ end
 
 local function grepper()
   local command = ":vim "
-  local curword = fn.expand("<cword>")
+  local curword, pattern
   local open = "| copen"
   local toggle = false
 
   local function curword_buffer(t)
     toggle = t
-    local pattern = '% '
+    pattern = "% "
+
+    if curword ~= nil or curword ~= "" then
+      curword = fn.expand "<cword>"
+    end
+
+    if curword == nil or curword == "" then
+      vim.notify(" 🤖 No Words Under Cursor", "warn", {
+        title = "Grepper Log",
+        timeout = 1000,
+      })
+      return
+    end
+
     if toggle == true then
-      local result = command .. curword .. ' ' .. pattern .. open
+      local result = command
+      .. "/"
+      .. curword
+      .. "/"
+      .. "j"
+      .. " "
+      .. pattern
+      .. open
       vim.cmd(result)
     end
+
     if toggle == nil then
-      local result = command .. curword .. ' ' .. pattern
+      local result = command
+      .. "/"
+      .. curword
+      .. "/"
+      .. "j"
+      .. " "
+      .. pattern
       vim.cmd(result)
     end
   end
 
   local function curword_recursive(t)
     toggle = t
-    local pattern = '**/*.' .. vim.bo.filetype
+    pattern = "**/*." .. vim.bo.filetype
+
+    if curword ~= nil or curword ~= "" then
+      curword = fn.expand "<cword>"
+    end
+
+    if curword == nil or curword == "" then
+      vim.notify(" 🤖 No Words Under Cursor", "warn", {
+        title = "Grepper Log",
+        timeout = 1000,
+      })
+      return
+    end
+
     if toggle == true then
-      local result = command .. curword .. ' ' .. pattern .. open
+      local result = command
+      .. "/"
+      .. curword
+      .. "/"
+      .. "j"
+      .. " "
+      .. pattern
+      .. open
       vim.cmd(result)
     end
+
     if toggle == nil then
-      local result = command .. curword .. ' ' .. pattern
+      local result = command
+      .. "/"
+      .. curword
+      .. "/"
+      .. "j"
+      .. " "
+      .. pattern
       vim.cmd(result)
     end
   end
 
   return {
     curword_buffer = curword_buffer,
-    curword_recursive = curword_recursive
+    curword_recursive = curword_recursive,
   }
 end
 
@@ -159,6 +212,6 @@ keymap("n", "]e", function() Toggle_qf() end, opts)
 keymap("n", "\\gs", function() grepper().curword_buffer(true) end, opts)
 keymap("n", "\\gf", function() grepper().curword_recursive(true) end, opts)
 
-vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
+vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
 bqf.setup(cfg)
