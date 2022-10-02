@@ -1,9 +1,9 @@
 local lsp_ok, lsp_config = pcall(require, "lspconfig")
-local navic_ok, navic = pcall(require, "nvim-navic")
-local cmp_ok, cmp = pcall(require, "cmp_nvim_lsp")
-local ts_ok, ts = pcall(require, "typescript")
-local lv_ok, lv = pcall(require, "lua-dev")
-local scheme_ok, scheme = pcall(require, "schemastore")
+local navic_ok, navic    = pcall(require, "nvim-navic")
+local cmp_ok, cmp        = pcall(require, "cmp_nvim_lsp")
+local ts_ok, ts          = pcall(require, "typescript")
+local lv_ok, lv          = pcall(require, "lua-dev")
+local scheme_ok, scheme  = pcall(require, "schemastore")
 
 if not lsp_ok and navic_ok and cmp_ok and ts_ok and lv_ok and scheme_ok then
   return
