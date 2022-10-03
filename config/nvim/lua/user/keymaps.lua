@@ -53,7 +53,7 @@ keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 -- extras --
 keymap('n', '\\q', ':Bwipeout<CR><C-w>o<CR>', term_opts)
 keymap('n', '\\wq', '<C-w>o<CR>', term_opts)
-keymap('n', '\\s', ':source $MYVIMRC<CR>', opts)
+keymap('n', '\\s', ':w<CR>:wshada!<CR>', opts)
 keymap('n', 'nq', ':nohls<CR>', opts)
 keymap('n', ']q', ':cn<CR>', opts)
 keymap('n', '[q', ':cp<CR>', opts)

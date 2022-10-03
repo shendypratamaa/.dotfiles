@@ -47,8 +47,6 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
--- BUG: When active can't recognize recent files, fold, marks, etc
-vim.opt.shada = "'0,f0"
 vim.opt.shortmess:append "c"
 vim.g.cursorhold_updatetime = 100
 vim.g.python3_host_prog = "/usr/bin/python3"

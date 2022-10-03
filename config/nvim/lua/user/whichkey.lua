@@ -83,7 +83,7 @@ local opts = {
 
 local keybinds = {
   D = { "<cmd>:Bwipeout<CR>", "Delete Buffer" },
-  s = { "<cmd>:w!<CR>", "Save Files" },
+  s = { "<cmd>:w!<CR>:wshada!<CR>", "Save Files" },
   S = { "<cmd>StartupTime<CR>", "Startup Time" },
   q = { "<cmd>:wq!<CR>", "Quit Save" },
   h = { "<cmd>sv<CR>", "Split Horizontal" },
