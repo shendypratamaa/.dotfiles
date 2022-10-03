@@ -23,21 +23,25 @@ local starry_lists = {
 local function config_load_check(theme)
   if theme == "nord" then
     require("user.colorscheme_config.nord").setup()
+    return
   end
 
   for i = 1, #starry_lists do
     local starry = starry_lists[i]
     if theme == starry then
-      require("user.colorscheme_config.starry").setup()
+      require("user.colorscheme_config.starry").setup(theme)
+      return
     end
   end
 
   if theme == "kanagawa" then
     require("user.colorscheme_config.kanagawa").setup()
+    return
   end
 
   if theme == "catppuccin" then
     require("user.colorscheme_config.catppuccin").setup()
+    return
   end
 end
 
