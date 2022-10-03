@@ -12,7 +12,7 @@ keymap("n", "\\w", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
 
 local cfg = {
   menu = {
-    width = 80,
+    width = 60,
     height = 10,
   },
 }

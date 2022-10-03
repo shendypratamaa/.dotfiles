@@ -83,15 +83,23 @@ local cfg = {
     end,
   },
   func_map = {
-    drop = "o",
-    openc = "O",
-    split = "<C-s>",
-    tabdrop = "",
-    tabc = "",
+    drop        = "o",
+    openc       = "O",
+    split       = "<C-s>",
+    vsplit      = "<C-v>",
+    tabdrop     = "\\ooo", -- i hate tab !
+    tabc        = "\\oaoa", -- stupid tab !
     ptogglemode = "z,",
   },
   filter = {
     fzf = {
+      action_for = {
+        ['\\ooo']  = { default = 'tabedit' }, -- this too !
+        ['ctrl-s'] = { default = 'split' },
+        ['ctrl-v'] = { default = 'vsplit' },
+        ['ctrl-q'] = { default = 'signtoggle' },
+        ['ctrl-c'] = { default = 'closeall' }
+      },
       extra_opts = { "--bind", "ctrl-o:toggle-all", "--delimiter", "│" },
     },
   },

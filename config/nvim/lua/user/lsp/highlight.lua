@@ -7,18 +7,8 @@ end
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap(
-  "n",
-  "\\fs",
-  ':lua require("illuminate").goto_next_reference()<CR>',
-  opts
-)
-keymap(
-  "n",
-  "\\fd",
-  ':lua require("illuminate").goto_prev_reference()<CR>',
-  opts
-)
+keymap( "n", "\\fs", ':lua require("illuminate").goto_next_reference()<CR>', opts)
+keymap( "n", "\\fd", ':lua require("illuminate").goto_prev_reference()<CR>', opts)
 keymap("n", "\\ff", ':lua require("illuminate").textobj_select()<CR>', opts)
 
 local M = {}
