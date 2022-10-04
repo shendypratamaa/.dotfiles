@@ -12,8 +12,8 @@ local sorters           = require 'telescope.sorters'
 local telescope_builtin = require 'telescope.builtin'
 local previewers        = require 'telescope.previewers'
 local themes            = require 'telescope.themes'
+local Job               = require 'plenary.job'
 
-local Job = require 'plenary.job'
 local new_maker = function(filepath, bufnr, opts)
   filepath = vim.fn.expand(filepath)
   Job:new({
@@ -60,25 +60,19 @@ M.colorscheme_pick = function()
   return opts
 end
 
+local fd = { 'fd', '--type', 'f', '--strip-cwd-prefix' }
+local rg = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--trim', }
+
 telescope.setup {
   defaults = {
     file_ignore_patterns = { 'node%_modules/.*' },
-    vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-      '--trim',
-    },
+    vimgrep_arguments = rg,
     prompt_prefix          = '  ',
     selection_caret        = ' ',
-    file_previewer         = require('telescope.previewers').vim_buffer_cat.new,
-    grep_previewer         = require('telescope.previewers').vim_buffer_vimgrep.new,
-    qflist_previewer       = require('telescope.previewers').vim_buffer_qflist.new,
     buffer_previewer_maker = new_maker,
+    file_previewer         = previewers.vim_buffer_cat.new,
+    grep_previewer         = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer       = previewers.vim_buffer_qflist.new,
     file_sorter            = sorters.get_fuzzy_file,
     generic_sorter         = sorters.get_generic_fuzzy_sorter,
     path_display           = { "truncate" },
@@ -123,7 +117,9 @@ telescope.setup {
 
         ['_']       = actions_layout.toggle_preview,
 
-        ['<C-t>']   = actions.smart_send_to_qflist + actions.open_qflist
+        ['<C-t>']   = actions.smart_send_to_qflist + actions.open_qflist,
+
+        ['<C-u>']   = false,
       },
       n = {
         ['\\q']     = actions.close,
@@ -150,13 +146,15 @@ telescope.setup {
 
         ['_']       = actions_layout.toggle_preview,
 
-        ['<C-t>']   = actions.smart_send_to_qflist + actions.open_qflist
+        ['<C-t>']   = actions.smart_send_to_qflist + actions.open_qflist,
+
+        ['<C-u>']   = false,
       },
     },
   },
   pickers = {
     find_files = {
-      find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' },
+      find_command = fd,
     },
     buffers = {
       show_all_buffers = true,
@@ -171,6 +169,7 @@ telescope.setup {
       }
     },
     quickfixhistory = {
+      find_command = fd,
       mappings = {
         i = {
           ["<C-o>"] = function(prompt_buf)
@@ -220,7 +219,6 @@ telescope.setup {
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap('n', ']te', ':TodoTelescope<CR>', opts)
 keymap('n', ']b', ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap('n', ']r', ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap('n', ']h', ":lua require('telescope.builtin').help_tags()<CR>", opts)
@@ -228,6 +226,7 @@ keymap('n', ']g', ':Telescope<CR>', opts)
 keymap('n', ']t', ':Telescope bookmarks<CR>', opts)
 keymap('n', ']v', ":lua require('telescope').extensions.project.project{ display_type = 'full'}<CR>", opts)
 keymap('n', ']tw', ":lua require('telescope').extensions.notify.notify()<CR>", opts)
+keymap('n', "]qh", ":lua require('telescope.builtin').quickfixhistory()<CR>", opts)
 
 -- Custom Telescope
 keymap('n', ']f', ":lua require('user.telescope').find_files_custom()<CR>", opts)
