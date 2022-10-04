@@ -118,7 +118,7 @@ alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias npml="npm list --location=global --depth=0"
 
 alias src="source ~/.zshrc"
-alias vim="nvim"
+alias vi="nvim"
 alias lg="lazygit"
 alias tmuxconf="vim ~/.tmux.conf"
 alias ide="tmux split-window -h -p 35 && tmux select-pane -t 0"
