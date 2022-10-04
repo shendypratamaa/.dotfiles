@@ -23,6 +23,12 @@ local cfg = {
     cterm_color = "65",
     name = "Ts",
   },
+  norg = {
+    icon = "ﴬ",
+    color = "#FF8FB1",
+    cterm_color = "65",
+    name = "Norg",
+  }
 }
 
 nvim_dev.set_icon(cfg)
