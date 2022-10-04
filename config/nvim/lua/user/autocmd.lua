@@ -17,6 +17,8 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
       set iskeyword+=-
       set whichwrap+=<,>,[,],h,l
       set nofoldenable
+      set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+      set grepformat=%f:%l:%c:%m
     ]]
   end,
 })

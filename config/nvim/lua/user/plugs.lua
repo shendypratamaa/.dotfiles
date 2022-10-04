@@ -101,7 +101,6 @@ return packer.startup(function(use)
   use { 'ziontee113/syntax-tree-surfer', commit = 'd6d518f48dcc4441b11ee3e6cefd48fa1e09568a' }
   use { 'windwp/nvim-ts-autotag', commit = 'fdefe46c6807441460f11f11a167a2baf8e4534b' }
   use { 'p00f/nvim-ts-rainbow', commit = 'fad8badcd9baa4deb2cf2a5376ab412a1ba41797' }
-  use { 'abecodes/tabout.nvim', commit = 'be655cc7ce0f5d6d24eeaf8b36e82693fd2facca' }
   use { 'mfussenegger/nvim-treehopper', commit = "674e9f28815eb9bff1bb11d1f557e4221df05b32" }
 
   -- Marks
@@ -136,12 +135,13 @@ return packer.startup(function(use)
   use { 'mbbill/undotree', commit = 'bf76bf2d1a097cda024699738286fa81fb6529ac' }
   use { 'antoinemadec/FixCursorHold.nvim', commit = '70a9516a64668cbfe59f31b66d0a21678c5e9b12' }
   use { 'tyru/open-browser.vim', commit = '80ec3f2bb0a86ac13c998e2f2c86e16e6d2f20bb' }
-  use { 'kevinhwang91/nvim-hlslens', commit = '00a87287456860851bdefc934af129316dfe1c4c' }
   use { 'tpope/vim-repeat', commit = '24afe922e6a05891756ecf331f39a1f6743d3d5a' }
   use { 'bennypowers/nvim-regexplainer', commit = '0d7151ddd3ff2b2e9e8a69137b911c28fc7051a4' }
   use { 'MunifTanjim/nui.nvim', commit = 'e9889bbd9919544697d497537acacd9c67d0de99' }
   use { 'kwkarlwang/bufjump.nvim', commit = 'a020f81bb82f758da51594a07bfcb9635a6b0f73' }
   use { 'rcarriga/nvim-notify', commit = '7a9be08986b4d98dd685a6b40a62fcba19c1ad27' }
+  use { 'kevinhwang91/nvim-hlslens', commit = '00a87287456860851bdefc934af129316dfe1c4c' }
+  use { 'haya14busa/vim-asterisk', commit = '77e97061d6691637a034258cc415d98670698459' }
 
   -- Icon
   use { 'kyazdani42/nvim-web-devicons', commit = '969728506c0175644a1d448f55e311ccdada7eaf' }
@@ -154,6 +154,7 @@ return packer.startup(function(use)
 
   -- Indent
   use { 'lukas-reineke/indent-blankline.nvim', commit = 'db7cbcb40cc00fc5d6074d7569fb37197705e7f6' }
+
   -- File explorer
   use { 'kyazdani42/nvim-tree.lua', commit = '3676e0b124c2a132857e2bbcf7f48f05228f1052' }
 
@@ -193,6 +194,7 @@ return packer.startup(function(use)
   -- Motion
   use { 'tpope/vim-surround', commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" }
   use { 'ggandor/leap.nvim', commit = 'aba53d7a8870426bea89eeca6c3b265d1f94c584' }
+  use { 'ggandor/flit.nvim', commit = "dd43846edca345075a60d2f749bcca71cd47a17f" }
   use { 'junegunn/vim-easy-align', commit = '12dd6316974f71ce333e360c0260b4e1f81169c3' }
 
   -- Keybind
@@ -223,11 +225,7 @@ return packer.startup(function(use)
   use { 'christoomey/vim-tmux-navigator', commit = 'afb45a55b452b9238159047ce7c6e161bd4a9907' }
 
   -- Markdown
-  use {
-    'iamcco/markdown-preview.nvim',
-    run = 'cd app && npm install',
-    commit = '02cc3874738bc0f86e4b91f09b8a0ac88aef8e96',
-  }
+  use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', commit = '02cc3874738bc0f86e4b91f09b8a0ac88aef8e96' }
   use { 'mzlogin/vim-markdown-toc', commit = '7ec05df27b4922830ace2246de36ac7e53bea1db' }
 
   if PACKER_BOOTSTRAP then

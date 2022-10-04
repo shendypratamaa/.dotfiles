@@ -4,16 +4,20 @@ if not hlslens_ok then
   return
 end
 
-local opts = { noremap = true, silent = true }
+local opts = { silent = true }
 local keymap = vim.keymap.set
 local hl = vim.api.nvim_set_hl
 
-keymap( "n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
-keymap( "n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
-keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
-keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
-keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
-keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
+
+keymap('n', '*', [[<Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', '#', [[<Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', 'g*', [[<Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', 'g#', [[<Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>]], opts)
+
+keymap('x', '*', [[<Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('x', '#', [[<Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>]], opts)
 
 local cfg = {
   calm_down = true,

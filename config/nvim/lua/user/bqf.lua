@@ -122,7 +122,7 @@ function Toggle_qf()
 end
 
 local function grepper()
-  local command = ":vim "
+  local command = "vim "
   local curword, pattern
   local open = "| copen"
   local toggle = false
@@ -217,8 +217,8 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 keymap("n", "]e", function() Toggle_qf() end, opts)
-keymap("n", "\\gs", function() grepper().curword_buffer(true) end, opts)
-keymap("n", "\\gf", function() grepper().curword_recursive(true) end, opts)
+keymap("n", "]gs", function() grepper().curword_buffer(true) end, opts)
+keymap("n", "]gf", function() grepper().curword_recursive(true) end, opts)
 
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
