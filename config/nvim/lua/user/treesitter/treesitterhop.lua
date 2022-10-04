@@ -2,6 +2,8 @@ local treehop_ok, treehop = pcall(require, "tsht")
 local keymap = vim.keymap.set
 local opts = { silent = true }
 
+vim.api.nvim_set_hl(0, "TSNodeKey", { link = "HlSearchLens"})
+
 if not treehop_ok then
   return
 end

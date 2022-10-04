@@ -3,7 +3,6 @@ require("user.treesitter.treesitter_context").setup()
 require("user.treesitter.treesitterhop").setup()
 require("user.treesitter.treesurfer").setup()
 require("user.treesitter.autotag").setup()
-require("user.treesitter.tabout").setup()
 
 if not status_ok then
   return
