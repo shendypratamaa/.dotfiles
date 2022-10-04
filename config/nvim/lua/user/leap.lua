@@ -1,15 +1,21 @@
 local leap_ok, leap = pcall(require, "leap")
+local flit_ok, flit = pcall(require, "flit")
 local hl = vim.api.nvim_set_hl
 
-if not leap_ok then
+if not leap_ok and flit_ok then
   return
 end
 
-leap.set_default_keymaps {}
+local flit_cfg = {
+  keys = { f = "f", F = "F", t = "t", T = "T" },
+  labeled_modes = "v",
+  multiline = false,
+  opts = {},
+}
 
-local cfg = {
+local leap_cfg = {
   max_aot_targets = nil,
-  highlight_unlabeled = false,
+  highlight_unlabeled = true,
   case_sensitive = false,
   equivalence_classes = { " \t\r\n" },
   special_keys = {
@@ -20,7 +26,11 @@ local cfg = {
     prev_group = "<tab>",
   },
   hl(0, "LeapBackdrop", { fg = "#707070" }),
-  hl(0, "LeapLabelPrimary", { bg = "#36567a", fg = "#ffffff" }),
+  hl(0, "LeapMatch", { link = "HlSearchLens" }),
+  hl(0, "LeapLabelPrimary", { link = "HlSearchLens" })
 }
 
-leap.setup(cfg)
+leap.set_default_keymaps {}
+
+flit.setup(flit_cfg)
+leap.setup(leap_cfg)

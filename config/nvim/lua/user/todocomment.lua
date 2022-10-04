@@ -4,6 +4,10 @@ if not todo_ok then
   return
 end
 
+local keymap = vim.keymap.set
+
+keymap("n", "]td", ":TodoQuickFix<CR>", { silent = true })
+
 local cfg = {
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority

@@ -57,6 +57,7 @@ keymap('n', '\\s', ':w<CR>:wshada!<CR>', opts)
 keymap('n', 'nq', ':nohls<CR>', opts)
 keymap('n', ']q', ':cn<CR>', opts)
 keymap('n', '[q', ':cp<CR>', opts)
+keymap('n', ']z', '<C-^>', opts)
 
 -- Fix-behave
 keymap('n', 'mm', 'zz', opts)
