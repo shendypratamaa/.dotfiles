@@ -4,6 +4,9 @@ if not marks_ok then
   return
 end
 
+vim.keymap.set('n', ']sa', ":MarksQFListAll<CR>", {})
+vim.keymap.set('n', ']sb', ":MarksQFListBuf<CR>", {})
+
 local cfg = {
   default_mappings = true,
   builtin_marks = {},
@@ -18,11 +21,11 @@ local cfg = {
     annotate = false,
   },
   mappings = {
-    set_next = "m,",
-    next = "m]",
-    preview = "m;",
-    set_bookmark0 = "m0",
-    prev = false,
+    next = "]s",
+    prev = "[s",
+    set_next = false,
+    preview = false,
+    set_bookmark0 = "m1",
   },
 }
 

@@ -89,18 +89,18 @@ local keybinds = {
   h = { "<cmd>sv<CR>", "Split Horizontal" },
   v = { "<cmd>vs<CR>", "Split Vertical" },
   n = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-  N = { "<cmd>NeorgStart<CR>", "Notes" },
   F = { "<cmd>Format<CR>", "Format File" },
   t = {
     name = "Telescope",
     T = { '<cmd>lua require("user.telescope").colorscheme_pick()<CR>', "Colorscheme" },
-    f = { '<cmd>lua require("user.telescope").find_files_custom()<CR>', "Find Files" },
+    f = { '<cmd>lua require("user.telescope").find_files()<CR>', "Find Files" },
+    n = { '<cmd>lua require("user.telescope").find_notes()<CR>', "Find Notes"},
     b = { '<cmd>lua require("telescope.builtin").buffers()<CR>', "Buffers" },
     r = { '<cmd>lua require("telescope.builtin").live_grep()<CR>', "Live Grep" },
     h = { '<cmd>lua require("telescope.builtin").help_tags()<CR>', "Help Tags" },
     g = { "<cmd>Telescope<CR>", "Builtins Utils" },
     e = { "<cmd>TodoTelescope<CR>", "Todo Notes" },
-    t = { "<cmd>Telescope bookmarks", "Bookmars Browser" },
+    t = { "<cmd>Telescope bookmarks<CR>", "Bookmars Browser" },
     v = { '<cmd>lua require("telescope").extensions.project.project{ display_type = "full"}<CR>', "Project" },
   },
   l = {
@@ -110,11 +110,11 @@ local keybinds = {
     n = { "<cmd>NullLsInfo<CR>", "NullLs Info" },
   },
   u = {
-    name = "Utils",
+    name = "Workspace Utility",
     q = { function() Toggle_qf() end, "Quick Fix List"},
     l = { "<cmd>Telescope quickfixhistory<CR>", "Quick Fix History"},
-    w = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Workspace Diag"},
-    d = { "<cmd>TroubleToggle document_diagnostics<CR>", "Document Diag"},
+    w = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Workspace Diagnostics"},
+    d = { "<cmd>TroubleToggle document_diagnostics<CR>", "Document Diagnostics"},
     r = { "<cmd>TroubleToggle lsp_references<CR>", "Lsp References"},
   }
 

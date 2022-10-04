@@ -60,6 +60,7 @@ keymap('n', '[q', ':cp<CR>', opts)
 keymap('n', ']z', '<C-^>', opts)
 
 -- Fix-behave
+keymap('n', 'Y', 'yg$', opts)
 keymap('n', 'mm', 'zz', opts)
 keymap('n', 'n', 'nzzzv', opts)
 keymap('n', 'N', 'Nzzzv', opts)

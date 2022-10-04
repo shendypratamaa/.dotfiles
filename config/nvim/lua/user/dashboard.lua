@@ -110,7 +110,7 @@ local buttons = {
     button(
       'f',
       '💻 ﬌ Find Files',
-      ":lua require('user.telescope').find_files_custom()<CR>"
+      ":lua require('user.telescope').find_files()<CR>"
     ),
     button(
       'r',
@@ -130,6 +130,11 @@ local buttons = {
   },
 }
 
+
+local fn = vim.fn
+local percent = 0.2
+local headerCenter = fn.max { fn.floor(fn.winheight(0) * percent) }
+
 local section = {
   header = header,
   buttons = buttons,
@@ -138,13 +143,10 @@ local section = {
   footer = footer,
 }
 
-local fn = vim.fn
-local percent = 0.2 / 1.5
-local headerCenter = fn.max { fn.floor(fn.winheight(0) * percent) }
-
-local opts = {
-  layout = {
-    { type = 'padding', val = headerCenter },
+local container = {
+  type = "group",
+  val = {
+    { type = 'padding', val = 1 },
     section.header,
     { type = 'padding', val = 1 },
     section.heading,
@@ -153,6 +155,17 @@ local opts = {
     section.buttons,
     { type = 'padding', val = 0 },
     section.footer,
+  }
+}
+
+local center = {
+  container = container
+}
+
+local opts = {
+  layout = {
+    { type = "padding", val = headerCenter },
+    center.container
   },
 }
 

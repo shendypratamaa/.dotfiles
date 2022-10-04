@@ -51,7 +51,8 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
     "OUTLINE",
     "undotree_2",
     "toggleterm",
-    "TelescopePrompt"
+    "TelescopePrompt",
+    "null-ls-info"
   },
   callback = function()
     vim.cmd [[
