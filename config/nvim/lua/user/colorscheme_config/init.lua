@@ -16,6 +16,7 @@ local starry_lists = {
   "middlenight_blue",
   "limestone",
   "oceanic",
+  "deepocean",
   "palenight",
 }
 

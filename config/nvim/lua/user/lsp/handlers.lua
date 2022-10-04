@@ -19,7 +19,7 @@ function M.setup()
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       underline = true,
       virtual_text = {
-        spacing = 4,
+        spacing = 2,
         prefix = '●',
       },
       update_in_insert = false,
