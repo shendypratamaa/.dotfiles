@@ -10,25 +10,25 @@ local function load_utils(theme)
         bg = "#eaeada",
       },
       TelescopePreviewNormal = {
-        link = "Normal"
+        bg = "#FFF8F3"
       },
       TelescopeResultsNormal = {
-        link = "Normal"
+        bg = "#FFF8F3"
       },
       TelescopePromptNormal  = {
-        bg = "#ccccbe"
+        bg = "#F9F2ED"
       },
       TelescopePromptBorder  = {
-        fg = "#ccccbe",
-        bg = "#ccccbe"
+        fg = "#F9F2ED",
+        bg = "#F9F2ED"
       },
       TelescopeResultsBorder = {
-        fg = "#ccccbe",
-        bg = "#ccccbe"
+        fg = "#FFF8F3",
+        bg = "#FFF8F3"
       },
       TelescopePreviewBorder = {
-        fg = "#ccccbe",
-        bg = "#ccccbe"
+        fg = "#FFF8F3",
+        bg = "#FFF8F3"
       },
       TelescopePromptTitle   = {
         bg = "#B270A2",
@@ -46,7 +46,8 @@ local function load_utils(theme)
         link = "TelescopeResultsTitle"
       },
       TelescopePromptCounter = {
-        link = "TelescopeResultsTitle"
+        fg = "#2e2e2e",
+        bg = "#F9F2ED"
       },
       CursorLine = {
         bg = "none"
