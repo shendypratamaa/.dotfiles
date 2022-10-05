@@ -96,12 +96,8 @@ return packer.startup(function(use)
   use { 'nvim-treesitter/nvim-treesitter-context', commit = '3148205c72a535af0493fec7c90a12344ac2f90d' }
   use { 'nvim-treesitter/playground', commit = 'bcfab84f98a33f2ad34dda6c842046dca70aabf6' }
   use { 'JoosepAlviste/nvim-ts-context-commentstring', commit = '4d3a68c41a53add8804f471fcc49bb398fe8de08' }
-  use { 'RRethy/nvim-treesitter-textsubjects', commit = 'ed026cfdff93b2d63d9d8cd2525481d8f002f65e' }
-  use { 'theHamsta/nvim-treesitter-pairs', commit = '68a8d3d0bebc9173e862b9f8c5957b7f82cd0d60' }
-  use { 'ziontee113/syntax-tree-surfer', commit = 'd6d518f48dcc4441b11ee3e6cefd48fa1e09568a' }
   use { 'windwp/nvim-ts-autotag', commit = 'fdefe46c6807441460f11f11a167a2baf8e4534b' }
   use { 'p00f/nvim-ts-rainbow', commit = 'fad8badcd9baa4deb2cf2a5376ab412a1ba41797' }
-  use { 'mfussenegger/nvim-treehopper', commit = "674e9f28815eb9bff1bb11d1f557e4221df05b32" }
 
   -- Marks
   use { 'ThePrimeagen/harpoon', commit = 'f4aff5bf9b512f5a85fe20eb1dcf4a87e512d971' }
@@ -195,6 +191,7 @@ return packer.startup(function(use)
   use { 'tpope/vim-surround', commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" }
   use { 'ggandor/leap.nvim', commit = 'aba53d7a8870426bea89eeca6c3b265d1f94c584' }
   use { 'ggandor/flit.nvim', commit = "dd43846edca345075a60d2f749bcca71cd47a17f" }
+  use { 'ggandor/leap-ast.nvim', commit = "" }
   use { 'junegunn/vim-easy-align', commit = '12dd6316974f71ce333e360c0260b4e1f81169c3' }
 
   -- Keybind
