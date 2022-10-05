@@ -19,6 +19,8 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
       set nofoldenable
       set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
       set grepformat=%f:%l:%c:%m
+      let g:vimwiki_list = [{'path': '~/vimwiki/',
+                            \ 'syntax': 'markdown', 'ext': '.md'}]
     ]]
   end,
 })
@@ -52,7 +54,8 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
     "undotree_2",
     "toggleterm",
     "TelescopePrompt",
-    "null-ls-info"
+    "null-ls-info",
+    "tsplayground"
   },
   callback = function()
     vim.cmd [[

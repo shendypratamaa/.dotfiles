@@ -71,6 +71,4 @@ local cfg = {
 
 treesitter.setup(cfg)
 
-require("user.treesitter.plugins.treesitter_context").setup()
-require("user.treesitter.plugins.treesitterhop").setup()
-require("user.treesitter.plugins.treesurfer").setup()
+require "user.treesitter.plugins.treesitter_context"

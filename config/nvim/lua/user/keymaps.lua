@@ -70,3 +70,6 @@ keymap("v", "p", '"_dP', opts)
 -- open browser
 keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', opts)
 keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', opts)
+
+-- ts playground
+keymap('n', ']tp', ":TSPlaygroundToggle<CR>", opts)

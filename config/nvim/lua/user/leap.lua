@@ -1,6 +1,7 @@
 local leap_ok, leap = pcall(require, "leap")
 local flit_ok, flit = pcall(require, "flit")
-local hl = vim.api.nvim_set_hl
+local keymap        = vim.keymap.set
+local hl            = vim.api.nvim_set_hl
 
 if not leap_ok and flit_ok then
   return
@@ -29,6 +30,8 @@ local leap_cfg = {
   hl(0, "LeapMatch", { link = "HlSearchLens" }),
   hl(0, "LeapLabelPrimary", { link = "HlSearchLens" })
 }
+
+keymap({'n', 'x', 'o'}, 'vn', function() require('leap-ast').leap() end, {})
 
 leap.set_default_keymaps {}
 
