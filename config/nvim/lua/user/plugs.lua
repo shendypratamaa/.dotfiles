@@ -163,6 +163,14 @@ return packer.startup(function(use)
   use { 'kevinhwang91/nvim-bqf', ft = 'qf', commit = "aea31569d1b20aa6a35fa84ec756cb205a4a7134" }
   use { 'folke/trouble.nvim', commit = '929315ea5f146f1ce0e784c76c943ece6f36d786' }
 
+  -- Split-window
+  use { "anuvyklack/windows.nvim", commit = "e3a1217976d4ec8d2515cb634dbf5d26cabd46d5" ,
+    requires = {
+      { "anuvyklack/middleclass", commit = "9fab4d5bca67262614960960ca35c4740eb2be2c" },
+      { "anuvyklack/animation.nvim", commit = "fb77091ab72ec9971aee0562e7081182527aaa6a" }
+    },
+  }
+
   -- Session
 
 
@@ -180,6 +188,7 @@ return packer.startup(function(use)
 
   -- Editing support
   use { 'karb94/neoscroll.nvim', commit = '54c5c419f6ee2b35557b3a6a7d631724234ba97a' }
+  use { 'gen740/SmoothCursor.nvim', commit = "abc2065f748f346c02bed19b3a075d561b20aa6f" }
   use { 'windwp/nvim-autopairs', commit = '14cc2a4fc6243152ba085cc2059834113496c60a' }
   use { 'nacro90/numb.nvim', commit = '453c50ab921fa066fb073d2fd0f826cb036eaf7b' }
   use { 'Pocco81/true-zen.nvim', commit = '98740c76254c65576ec294551028b65081053588' }
