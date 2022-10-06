@@ -1,5 +1,5 @@
-local dap_ok, dap = pcall(require, "dap")
-local dapui_ok, dapui = pcall(require, "dapui")
+local dap_ok, dap         = pcall(require, "dap")
+local dapui_ok, dapui     = pcall(require, "dapui")
 local daptext_ok, daptext = pcall(require, "nvim-dap-virtual-text")
 
 if not dap_ok and dapui_ok and daptext_ok then
@@ -11,23 +11,23 @@ local function sign_define(...)
 end
 
 local dap_breakpoint = {
-  error = {
-    text = "",
+  error    = {
+    text   = "",
     texthl = "LspDiagnosticsSignError",
     linehl = "",
-    numhl = "",
+    numhl  = "",
   },
   rejected = {
-    text = "",
+    text   = "",
     texthl = "LspDiagnosticsSignHint",
     linehl = "",
-    numhl = "",
+    numhl  = "",
   },
-  stopped = {
-    text = "",
+  stopped  = {
+    text   = "",
     texthl = "LspDiagnosticsSignInformation",
     linehl = "DiagnosticUnderlineInfo",
-    numhl = "LspDiagnosticsSignInformation",
+    numhl  = "LspDiagnosticsSignInformation",
   },
 }
 

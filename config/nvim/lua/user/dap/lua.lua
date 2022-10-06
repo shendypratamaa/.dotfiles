@@ -1,13 +1,17 @@
-local dap = require 'dap'
+local dap = require "dap"
 
 local M = {}
+
+local a = 10
+local b = 20
+local x =  a + b
 
 function M.setup()
   dap.configurations.lua = {
     {
-      type = 'nlua',
+      type    = 'nlua',
       request = 'attach',
-      name = 'Attach to running Neovim instance',
+      name    = 'Attach to running Neovim instance',
     },
   }
 

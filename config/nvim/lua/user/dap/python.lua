@@ -1,7 +1,8 @@
 local py_ok, py = pcall(require, 'dap-python')
-local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+local path = "~/.venv/bin/python"
 
 if not py_ok then
+  vim.notify('notwork', 'error')
   return
 end
 
