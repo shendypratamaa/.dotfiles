@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
     "lspinfo",
     "startuptime",
     "Trouble",
-    "OUTLINE",
+    "Outline",
     "undotree_2",
     "toggleterm",
     "TelescopePrompt",

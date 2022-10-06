@@ -1,4 +1,5 @@
 require("impatient").enable_profile()
+require "user.globals"
 require "user.options"
 require "user.colorscheme"
 require "user.autocmd"

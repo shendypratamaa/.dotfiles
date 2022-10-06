@@ -18,7 +18,7 @@ local function load_utils()
       bg = "#1e222b",
     },
     VertSplit = {
-      link = "LineNr",
+      link = "none",
     },
   }
 

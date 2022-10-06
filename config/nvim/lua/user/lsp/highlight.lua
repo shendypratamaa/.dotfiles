@@ -24,7 +24,7 @@ local cfg = {
     "alpha",
     "packer",
     "qf",
-    "OUTLINE",
+    "Outline",
     "help",
     "man",
     "lspinfo",

@@ -1,6 +1,6 @@
 local colors = {
   c1 = "#3b4252",
-  c2 = "#282a36",
+  c2 = "#222831",
   c3 = "#1e222b",
   c4 = "#eceff4",
   c5 = "#ff79c6",
@@ -108,11 +108,11 @@ local nontext = function()
       bg = "none",
     },
     NonText = {
-      fg = "#F5EDDC",
+      fg = "#616e88",
       bold = true,
     },
     IndentBlanklineChar = {
-      fg = "#F5EDDC",
+      fg = "#616e88",
       bold = true,
     },
   }
