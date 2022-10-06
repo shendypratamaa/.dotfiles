@@ -8,8 +8,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # python path
-export PATH="$PATH:/usr/bin/python3"
-export PATH="/Users/shendypratama/Library/Python/3.8/bin:$PATH"
+export PATH="/Users/shendypratama/Library/Python/3.9/bin:$PATH"
+
+# terminal
 export TERM=xterm-256color-italic
 
 # Set name of the theme to load --- if set to "random", it will
@@ -124,7 +125,8 @@ alias tmuxconf="vim ~/.tmux.conf"
 alias ide="tmux split-window -h -p 35 && tmux select-pane -t 0"
 alias nodeg="cd ~/.nvm/versions/node/v16.16.0/lib/node_modules"
 alias rsyb="brew services restart --all"
-alias python=python3
+alias pip="pip3"
+alias python="/usr/bin/python3"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 # fzf
