@@ -7,8 +7,8 @@ if not nls_ok then
   return
 end
 
-local formatting = nls.builtins.formatting
-local diagnostics = nls.builtins.diagnostics
+local formatting   = nls.builtins.formatting
+local diagnostics  = nls.builtins.diagnostics
 local code_actions = nls.builtins.code_actions
 
 local dotpath = "~/.dotfiles/config/nvim/"
@@ -57,12 +57,7 @@ local sources = {
       vim.fn.expand "~/.eslintrc",
     },
   },
-  diagnostics.flake8.with {
-    extra_args = {
-      "--config",
-      vim.fn.expand "~/.flake8",
-    },
-  },
+  diagnostics.flake8,
   diagnostics.markdownlint,
 
   -- code-actions
@@ -72,11 +67,11 @@ local sources = {
 
 function M.setup(on_attach)
   nls.setup {
-    debug = true,
-    debounce = 150,
+    debug              = true,
+    debounce           = 150,
     diagnostics_format = "[#{c}] #{m}",
-    sources = sources,
-    on_attach = on_attach,
+    sources            = sources,
+    on_attach          = on_attach,
   }
 end
 

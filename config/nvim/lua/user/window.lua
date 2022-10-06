@@ -5,11 +5,11 @@ if not window_ok then
   return
 end
 
-vim.o.winwidth = 20
-vim.o.winminwidth = 20
-vim.o.winheight = 1
+vim.o.winwidth     = 20
+vim.o.winminwidth  = 20
+vim.o.winheight    = 1
 vim.o.winminheight = 1
-vim.o.equalalways = true
+vim.o.equalalways  = true
 
 local opts = { noremap = true, silent = true }
 
