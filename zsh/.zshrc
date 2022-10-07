@@ -111,11 +111,9 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
-
-alias ls="exa --group-directories-first"
-alias la="ls -a"
-alias ll="ls --git -l"
-alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
+alias ls="exa -l --group-directories-first"
+alias ll="ls --git -l -a"
+alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias npml="npm list --location=global --depth=0"
 
 alias src="source ~/.zshrc"
