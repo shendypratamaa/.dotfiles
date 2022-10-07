@@ -1,0 +1,18 @@
+export PATH="$HOME/.local/share/python/bin":$PATH
+export PATH="$HOME/.local/share/neovim/bin":$PATH
+export PATH="$HOME/.cargo/bin":$PATH
+export TERM=xterm-256color-italic
+
+# vscode path
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+    [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+export NVM_COLORS='cmgRY'
+
+# FZF
+export FZF_COMPLETION_TRIGGER="~~"
+export FZF_COMPLETION_OPTS='--border --info=inline'
+export FZF_DEFAULT_COMMAND="fd --type f --hidden $EXCLUDE_FZF"

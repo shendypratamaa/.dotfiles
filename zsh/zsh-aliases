@@ -1,0 +1,60 @@
+# VAR
+TREE_IGNORE="cache|log|logs|node_modules|vendor"
+EXCLUDE_FZF="--exclude .git --exclude node_modules --exclude .cache --exclude Library"
+BAT="'bat --style=numbers --color=always --line-range :500 {}' "
+EDITOR="nvim"
+
+# EXA
+alias ls="exa --group-directories-first"
+alias la="ls -a"
+alias ll="ls --git -l -a"
+alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
+alias npml="npm list --location=global --depth=0"
+
+# ZSH
+alias src="source ~/.config/zsh/.zshrc"
+alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
+
+# FZF
+alias vn="$FZF_DEFAULT_COMMAND | fzf-tmux -d --reverse --preview $BAT | xargs nvim"
+alias vd="cd ~ && cd \$(fd --type d --hidden $EXCLUDE_FZF | fzf)"
+
+# GIT
+alias lg="lazygit"
+
+# BREW SERVICES
+alias srv="brew services"
+alias rsrv="brew services restart --all"
+
+# NODE
+alias nodeg="cd ~/.nvm/versions/node/v16.16.0/lib/node_modules"
+
+# NEOVIM
+alias vi="$EDITOR"
+
+# TMUX
+alias tmuxconf="$EDITOR ~/.tmux.conf"
+alias ide="tmux split-window -h -p 35 && tmux select-pane -t 0"
+alias ta='tmux attach -t'
+alias tad='tmux attach -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
+
+# PYTHON
+alias pip="pip3"
+alias python="/usr/bin/python3"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+# UTILS
+alias cat="bat"
+alias grep="grep --color=auto"
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+# easier to read disk
+alias df='df -h'     # human-readable sizes
