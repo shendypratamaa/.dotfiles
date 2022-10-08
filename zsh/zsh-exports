@@ -1,15 +1,17 @@
+# zsh config path
+export HISTFILE=~/.cache/zsh/zsh_history
+export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.cache/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.cache/.zsh/.zcompdump"
+
 export PATH="$HOME/.local/share/python/bin":$PATH
 export PATH="$HOME/.local/share/neovim/bin":$PATH
 export PATH="$HOME/.cargo/bin":$PATH
-export TERM=xterm-256color-italic
-
-# vscode path
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export TERM=xterm-256color-italic
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
-    [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"
 export NVM_COLORS='cmgRY'
 
 # FZF
