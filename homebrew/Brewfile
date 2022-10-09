@@ -4,14 +4,20 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Cross-platform make
+brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Reimplementation of ctags(1)
 brew "ctags"
-# Pack, ship and run any application as a lightweight container
-brew "docker"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -26,18 +32,22 @@ brew "git-delta"
 brew "htop"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Generic library support script
+brew "libtool"
 # Powerful, lightweight programming language
 brew "lua"
 # Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit", args: ["HEAD"]
 # Package manager for the Lua programming language
 brew "luarocks"
-# Parser generator tool and incremental parsing library
-brew "tree-sitter"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Platform built on V8 to build network applications
+brew "node"
 # Manage multiple Node.js versions
 brew "nvm"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Python version management
 brew "pyenv"
 # Reattach process (e.g., tmux) to background
@@ -52,6 +62,8 @@ brew "swiftformat"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Parser generator tool and incremental parsing library
+brew "tree-sitter"
 # Internet file retriever
 brew "wget"
 # Library to create, extract, and modify Windows Imaging files
@@ -73,9 +85,9 @@ cask "font-hack-nerd-font"
 cask "font-iosevka-nerd-font"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
 # Keyboard customizer
 cask "karabiner-elements"
+# GPU-based terminal emulator
+cask "kitty"
 # Media player based on MPlayer and mplayer2
 cask "mpv"
