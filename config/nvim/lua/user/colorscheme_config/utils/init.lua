@@ -3,9 +3,9 @@ local colors = {
   c2 = "#222831",
   c3 = "#1e222b",
   c4 = "#eceff4",
-  c5 = "#ff79c6",
-  c6 = "#50fa7b",
-  c7 = "#ff5555",
+  c5 = "#b48ead",
+  c6 = "#a3be8c",
+  c7 = "#bf616a",
 }
 
 local function load_colors(opts)

@@ -31,8 +31,8 @@ local cfg = {
   },
   animation = {
     enable = true,
-    duration = 300,
-    fps = 60,
+    duration = 100,
+    fps = 30,
     easing = "in_out_sine",
   },
 }
