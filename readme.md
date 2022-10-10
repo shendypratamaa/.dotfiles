@@ -1,26 +1,18 @@
-## Personal Development Environment
+# Personal Development Environment
 
-#### Ingredients
+## Ingredients 🥘
 
-- Neovim 7.2
+- Neovim 0.7.2
 - Tmux 3.3a
+- Kitty
 - Homebrew
-- Ohmyzsh
-- Iterm2
-- Ubersicht
-- simple-bar
-- Yabai
-- Skhd
-- Starship
 - Zshell
 - Karabiner
-- Slides
-- JetBrains-mono
+- Yabai
+- Skhd
+- Ubersicht with Simple-bar
+- JetBrainsMono Nerd Font Mono
 
-#### Programming Language Support 🍔
+### Notes 📖
 
-##### _Javascript, Typescript, Lua, Python_
-
-##### Notes
-
-> _Running on macOS 12.4 Apple Silicon_ 🌙
+> _Running on macOS 12.6 Apple Silicon_
