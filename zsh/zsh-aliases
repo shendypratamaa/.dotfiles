@@ -47,14 +47,25 @@ alias pip="pip3"
 alias python="/usr/bin/python3"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
-# UTILS
+# cat grep
 alias cat="bat"
 alias grep="grep --color=auto"
 
-# confirm before overwriting something
-alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
+# default commandline
+alias cp="cp -v"
+alias mv="mv -v"
+alias rm="rm -v"
+alias ln="ln -v"
 
 # easier to read disk
-alias df='df -h'     # human-readable sizes
+alias df="df -h"
+alias du-"du -sh"
+
+# system information
+alias btw="neofetch"
+
+# kitty
+alias kitimg="kitty +kitten icat"
+
+# wget
+alias wget=wget --hsts-file="$HOME/.config/wget-hsts"
