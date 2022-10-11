@@ -1,17 +1,17 @@
-# ZSH
-export HISTFILE=~/.cache/zsh/zsh_history
-export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.cache/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
-export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.cache/.zsh/.zcompdump"
-
-# NEOVIM
-export PATH="$HOME/.local/share/neovim/bin":$PATH
+# ZSH ZCOMPDUMP
+export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
     [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"
 export NVM_COLORS='cmgRY'
 
-# FZF
-export FZF_COMPLETION_TRIGGER="~~"
-export FZF_COMPLETION_OPTS='--border --info=inline'
-export FZF_DEFAULT_COMMAND="fd --type f --hidden $EXCLUDE_FZF"
+# EDITOR
+export EDITOR="nvim"
+
+# TMUX
+export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
+
+# LESS
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"

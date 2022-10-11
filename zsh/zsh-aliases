@@ -1,23 +1,14 @@
-# VAR
-TREE_IGNORE="cache|log|logs|node_modules|vendor"
-EXCLUDE_FZF="--exclude .git --exclude node_modules --exclude .cache --exclude Library"
-BAT="'bat --style=numbers --color=always --line-range :500 {}' "
-EDITOR="nvim"
-
 # EXA
+TREE_IGNORE="cache|log|logs|node_modules|vendor"
 alias ls="exa --group-directories-first"
 alias la="ls -a"
-alias ll="ls --git -l -a"
+alias ll="ls --git -lah "
 alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias npml="npm list --location=global --depth=0"
 
 # ZSH
 alias src="source ~/.config/zsh/.zshrc"
 alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
-
-# FZF
-alias vn="$FZF_DEFAULT_COMMAND | fzf-tmux -d --reverse --preview $BAT | xargs nvim"
-alias vd="cd ~ && cd \$(fd --type d --hidden $EXCLUDE_FZF | fzf)"
 
 # GIT
 alias lg="lazygit"
@@ -33,7 +24,7 @@ alias nodeg="cd ~/.nvm/versions/node/v16.16.0/lib/node_modules"
 alias vi="$EDITOR"
 
 # TMUX
-alias tmuxconf="$EDITOR ~/.tmux.conf"
+alias tmuxconf="$EDITOR ~/.dotfiles/tmux/.tmux.conf"
 alias ide="tmux split-window -h -p 35 && tmux select-pane -t 0"
 alias ta='tmux attach -t'
 alias tad='tmux attach -d -t'
@@ -51,10 +42,13 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias cat="bat"
 alias grep="grep --color=auto"
 
+# open current pwd
+alias ofd="open ."
+
 # default commandline
-alias cp="cp -v"
-alias mv="mv -v"
-alias rm="rm -v"
+alias cp="cp -v -i"
+alias mv="mv -v -i"
+alias rm="rm -v -i"
 alias ln="ln -v"
 
 # easier to read disk
@@ -68,4 +62,4 @@ alias btw="neofetch"
 alias kitimg="kitty +kitten icat"
 
 # wget
-alias wget=wget --hsts-file="$HOME/.config/wget-hsts"
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"

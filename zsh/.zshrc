@@ -1,7 +1,6 @@
-export ZDOTDIR=$HOME/.config/zsh
+export HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
-export SHELL_SESSIONS_DISABLE=1
 
 # auto_cd
 setopt auto_cd
@@ -17,34 +16,35 @@ compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 compinit -d ~/.cache/zsh/zcompdump
 _comp_options+=(globdots)
 
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
-
-# use vim key in tab completion menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-# edit line in vim
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+# extend completions
+source "$ZDOTDIR/zsh-competions"
 
 # functions
 source "$ZDOTDIR/zsh-functions"
 
 # sources file
 zsh_add_file "zsh-exports"
-zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-prompt"
+zsh_add_file "zsh-vim-mode"
+zsh_add_file "zsh-fzf-utils"
 
 # plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_plugin "hlissner/zsh-autopair"
 
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
+
+# Setup fzf
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+
+# Auto-completion
+[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+
+# Key bindings
+source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"

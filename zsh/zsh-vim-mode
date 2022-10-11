@@ -2,6 +2,17 @@
 bindkey -v
 export KEYTIMEOUT=1
 
+# use vim key in tab completion menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# edit line in vim
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
@@ -27,4 +38,3 @@ zle -N zle-line-init
 echo -ne '\e[1 q\033]12;#81A1C1\007'
 
 preexec() { echo -ne '\e[1 q\033]12;#81A1C1\007' ;}
-
