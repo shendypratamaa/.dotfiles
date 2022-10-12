@@ -6,9 +6,10 @@
 
 - Neovim 0.7.2
 - Tmux 3.3a
-- Kitty
 - Homebrew
 - Zshell
+- Kitty
+- Fzf
 - Karabiner
 - Yabai
 - Skhd

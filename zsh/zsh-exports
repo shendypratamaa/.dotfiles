@@ -13,5 +13,8 @@ export EDITOR="nvim"
 # TMUX
 export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
 
+# GIT
+export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config"
+
 # LESS
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
