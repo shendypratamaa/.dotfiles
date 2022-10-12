@@ -4,17 +4,15 @@
 
 ## Ingredients 🥘
 
-- Neovim 0.7.2
-- Tmux 3.3a
-- Homebrew
-- Zshell
-- Kitty
-- Fzf
-- Karabiner
-- Yabai
-- Skhd
-- Ubersicht with Simple-bar
-- JetBrainsMono Nerd Font Mono
+- Terminal  => [Kitty, Tmux]
+- Shell     => [Zsh]
+- Pckg      => [Homebrew]
+- Vcs       => [Git, Lazygit, Delta]
+- Editor    => [Neovim 0.7.2]
+- WM        => [Yabai, Skhd]
+- Stat      => [Ubersicht, Simple-bar]
+- Font      => [JetBrains Mono]
+- Key       => [Karabiner]
 
 ### Notes 📖
 

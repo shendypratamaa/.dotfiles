@@ -53,7 +53,7 @@ alias ln="ln -v"
 
 # easier to read disk
 alias df="df -h"
-alias du-"du -sh"
+alias du="du -sh"
 
 # system information
 alias btw="neofetch"
