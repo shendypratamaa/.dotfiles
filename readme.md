@@ -1,5 +1,7 @@
 # Personal Development Environment
 
+![screencast](./screencast/ss.png)
+
 ## Ingredients 🥘
 
 - Neovim 0.7.2
