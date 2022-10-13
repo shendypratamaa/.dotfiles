@@ -24,7 +24,7 @@ Font      => [JetBrains Mono]
 Key       => [Karabiner]
 ```
 
-### Installing
+## Installing
 
 you will need `git` and GNU `stow`
 
@@ -56,7 +56,7 @@ stow */ # Everything (the '/' ignores the README)
 stow zsh # create symlink zsh config | put .zprofile into your $HOME dir
 ```
 
-#### Notes 📖
+## Notes 📖
 
 this work for **UNIX-LIKE**\
 im refere using **XDG_CONFIG_SPESIFICATION**\
