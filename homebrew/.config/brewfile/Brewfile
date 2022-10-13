@@ -35,8 +35,6 @@ brew "git"
 brew "git-delta"
 # Improved top (interactive process viewer)
 brew "htop"
-# Simple terminal UI for git commands
-brew "lazygit"
 # Generic library support script
 brew "libtool"
 # Tools and libraries to manipulate images in many formats
@@ -53,8 +51,6 @@ brew "luarocks"
 brew "neofetch"
 # Small build system for use with gyp or CMake
 brew "ninja"
-# Platform built on V8 to build network applications
-brew "node"
 # Manage multiple Node.js versions
 brew "nvm"
 # Manage compile and link flags for libraries
@@ -67,6 +63,8 @@ brew "reattach-to-user-namespace"
 brew "ripgrep"
 # Terminal based presentation tool
 brew "slides"
+# Command-line interface for SQLite
+brew "sqlite"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer
@@ -91,13 +89,6 @@ brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 # Enable Windows-like alt-tab
 cask "alt-tab"
-cask "font-fira-code"
-# Developer targeted fonts with a high number of glyphs
-cask "font-fira-code-nerd-font"
-# Developer targeted fonts with a high number of glyphs
-cask "font-hack-nerd-font"
-# Developer targeted fonts with a high number of glyphs
-cask "font-iosevka-nerd-font"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Keyboard customizer
