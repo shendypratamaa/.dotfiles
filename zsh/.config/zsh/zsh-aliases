@@ -17,6 +17,10 @@ alias lg="lazygit"
 alias srv="brew services"
 alias rsrv="brew services restart --all"
 
+# BREW BUNDLE
+alias brewbundledump="brew bundle dump --desc --force --file=~/.config/brewfile/Brewfile"
+alias brewbundleinstall="brew bundle -v --file=~/.config/brewfile/Brewfile"
+
 # NODE
 alias nodeg="cd ~/.nvm/versions/node/v16.16.0/lib/node_modules"
 
