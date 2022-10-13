@@ -24,3 +24,4 @@ plugin/
 .luarc.json
 playground
 Brewfile.lock.json
+./lazygit/.config/lazygit/state.yml
