@@ -45,4 +45,8 @@ shift + cmd - d : yabai -m window --resize left:-20:0
 shift + cmd - s : yabai -m window --resize bottom:0:-20
 shift + cmd - a : yabai -m window --resize top:0:20
 
-ctrl + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+# open terminal
+cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+ctrl + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai";\
+                 osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
