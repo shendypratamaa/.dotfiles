@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
 - /Users/shendypratama/.dotfiles
+- /opt/homebrew
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
