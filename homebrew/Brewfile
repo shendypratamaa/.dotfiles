@@ -1,8 +1,13 @@
+tap "cmacrae/formulae"
+tap "homebrew/aliases"
+tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "homebrew/test-bot"
 tap "koekeishiya/formulae"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
@@ -34,12 +39,18 @@ brew "htop"
 brew "lazygit"
 # Generic library support script
 brew "libtool"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Powerful, lightweight programming language
 brew "lua"
 # Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit", args: ["HEAD"]
 # Package manager for the Lua programming language
 brew "luarocks"
+# Fast, highly customisable system info script
+brew "neofetch"
 # Small build system for use with gyp or CMake
 brew "ninja"
 # Platform built on V8 to build network applications
@@ -56,10 +67,12 @@ brew "reattach-to-user-namespace"
 brew "ripgrep"
 # Terminal based presentation tool
 brew "slides"
-# Formatting tool for reformatting Swift code
-brew "swiftformat"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # Terminal multiplexer
 brew "tmux"
+# CPU, RAM memory, and load monitor for use with tmux
+brew "tmux-mem-cpu-load"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Parser generator tool and incremental parsing library
@@ -68,6 +81,8 @@ brew "tree-sitter"
 brew "wget"
 # Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
+# Check your $HOME for unwanted files and directories
+brew "xdg-ninja"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Simple hotkey-daemon for macOS.

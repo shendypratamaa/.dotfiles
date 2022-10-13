@@ -24,7 +24,7 @@ alias nodeg="cd ~/.nvm/versions/node/v16.16.0/lib/node_modules"
 alias vi="$EDITOR"
 
 # TMUX
-alias tmuxconf="$EDITOR ~/.dotfiles/tmux/.tmux.conf"
+alias tmuxconf="$EDITOR ~/.config/tmux/tmux.conf"
 alias ide="tmux split-window -h -p 35 && tmux select-pane -t 0"
 alias ta='tmux attach -t'
 alias tad='tmux attach -d -t'
@@ -50,6 +50,7 @@ alias cp="cp -v -i"
 alias mv="mv -v -i"
 alias rm="rm -v -i"
 alias ln="ln -v"
+alias mkdir="mkdir -p"
 
 # easier to read disk
 alias df="df -h"

@@ -17,7 +17,7 @@ compinit -d ~/.cache/zsh/zcompdump
 _comp_options+=(globdots)
 
 # extend completions
-source "$ZDOTDIR/zsh-competions"
+source "$ZDOTDIR/zsh-completions"
 
 # functions
 source "$ZDOTDIR/zsh-functions"
