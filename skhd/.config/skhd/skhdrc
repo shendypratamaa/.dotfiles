@@ -1,23 +1,24 @@
-# focus window
+# open terminal
+cmd - return : kitty --single-instance -d ~
+
+# open firefox
+cmd + shift - return : /Applications/Firefox.app/Contents/MacOS/firefox
+
+# disable hide application
+cmd -h : :
+
+# focus window in desktop
 cmd - j : yabai -m window --focus west
 cmd - k : yabai -m window --focus east
 
 # swap manage window
-shift + cmd - h : yabai -m window --swap west
-shift + cmd - j : yabai -m window --swap south
-shift + cmd - k : yabai -m window --swap north
-shift + cmd - l : yabai -m window --swap east
-
-# move manage window
-shift + cmd + ctrl - h : yabai -m window --warp west
-shift + cmd + ctrl - j : yabai -m window --warp south
-shift + cmd + ctrl - k : yabai -m window --warp north
-shift + cmd + ctrl - l : yabai -m window --warp east
+cmd + shift - h : yabai -m window --swap west
+cmd + shift - l : yabai -m window --swap east
 
 # rotate tree
 cmd - o : yabai -m space --rotate 90
 
-# toogle window fullscreen zoom
+# toogle window into fullscreen
 cmd - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle padding and gap
@@ -31,22 +32,44 @@ cmd - m : yabai -m window --toggle float;\
 cmd - e : yabai -m window --toggle split
 
 # balance size of window
-shift + cmd - 0 : yabai -m space --balance
+cmd + ctrl - 0 : yabai -m space --balance
 
-# send window to monitor and follow focus
-shift + cmd - n : yabai -m window --display next; yabai -m display --focus next
-shift + cmd - m : yabai -m window --display previous; yabai -m display --focus previous
+# destroy desktop
+cmd + shift - w : yabai -m space --destroy
 
-# increase window size
-shift + cmd - w : yabai -m window --resize top:0:-20
-shift + cmd - d : yabai -m window --resize left:-20:0
+# create new desktop without follow focus
+cmd + shift - n : yabai -m space --create;\
+                  osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
-# decrease window size
-shift + cmd - s : yabai -m window --resize bottom:0:-20
-shift + cmd - a : yabai -m window --resize top:0:20
+# create new desktop and follow focus
+cmd + ctrl - n : yabai -m space --create && \
+                 index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                 yabai -m window --space "${index}" && \
+                 yabai -m space --focus "${index}";\
+                 osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
-# open terminal
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+# move focus only desktop
+cmd + ctrl - 1 : yabai -m space --focus 1
+cmd + ctrl - 2 : yabai -m space --focus 2
+cmd + ctrl - 3 : yabai -m space --focus 3
+cmd + ctrl - 4 : yabai -m space --focus 4
+cmd + ctrl - 5 : yabai -m space --focus 5
+cmd + ctrl - 6 : yabai -m space --focus 6
+cmd + ctrl - 7 : yabai -m space --focus 7
+cmd + ctrl - 8 : yabai -m space --focus 8
+cmd + ctrl - 9 : yabai -m space --focus 9
 
+# send window to desktop and follow focus
+shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
+shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
+shift + cmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
+shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
+shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
+shift + cmd - 6 : yabai -m window --space  6; yabai -m space --focus 6
+shift + cmd - 7 : yabai -m window --space  7; yabai -m space --focus 7
+shift + cmd - 8 : yabai -m window --space  8; yabai -m space --focus 8
+shift + cmd - 9 : yabai -m window --space  9; yabai -m space --focus 9
+
+# reload yabai + skhd + status bar
 ctrl + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai";\
                  osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'

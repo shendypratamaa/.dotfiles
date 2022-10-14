@@ -11,34 +11,35 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
 
+# WM Loadscript
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-# global settings
-yabai -m config                                 \
-     mouse_follows_focus          off           \
-     focus_follows_mouse          off           \
-     window_origin_display        default       \
-     window_placement             second_child  \
-     window_topmost               off           \
-     window_shadow                off           \
-     window_opacity               off           \
-     window_border                on            \
-     window_animation_duration    0.35          \
-     window_opacity_duration      0.35          \
-     normal_window_opacity        0.90          \
-     active_window_opacity        1.0           \
-     window_border_width          6             \
-     split_ratio                  0.50          \
-     split_type                   auto          \
-     active_window_border_color   0xffD4D4D4    \
-     normal_window_border_color   0xff949292    \
-     insert_feedback_color        0xff949292    \
-     auto_balance                 off           \
-     mouse_modifier               fn            \
-     mouse_action1                move          \
-     mouse_action2                resize        \
-     mouse_drop_action            swap          \
+# WM Settings
+yabai -m config                                            \
+     mouse_follows_focus          off                      \
+     focus_follows_mouse          off                      \
+     window_origin_display        default                  \
+     window_placement             second_child             \
+     window_shadow                float                    \
+     window_topmost               off                      \
+     window_opacity               off                      \
+     window_border                on                       \
+     window_animation_duration    0.35                     \
+     window_opacity_duration      0.35                     \
+     normal_window_opacity        0.90                     \
+     active_window_opacity        1.0                      \
+     window_border_width          6                        \
+     split_ratio                  0.50                     \
+     split_type                   auto                     \
+     active_window_border_color   0xffd4d4d4               \
+     normal_window_border_color   0xff949292               \
+     insert_feedback_color        0xff949292               \
+     auto_balance                 off                      \
+     mouse_modifier               fn                       \
+     mouse_action1                move                     \
+     mouse_action2                resize                   \
+     mouse_drop_action            swap                     \
 
 # yabai 5.0.x support this opts but broken in border
 # yabai -m config                                 \
@@ -46,7 +47,7 @@ yabai -m config                                 \
 #      window_border_blur           on            \
 #      window_border_radius         0             \
 
-# general space settings
+# WM Padding
 yabai -m config                       \
      layout                       bsp \
      top_padding                  40  \
@@ -55,6 +56,20 @@ yabai -m config                       \
      right_padding                15  \
      window_gap                   8   \
 
-yabai -m rule -add app="^System Preferences$" manage=off
+# WM Rules
+
+# MacOS
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add label="Software Update" title="Software Update" manage=off
+yabai -m rule --add label="App Store" app="^App Store$" manage=off
+yabai -m rule --add label="Finder" app="^Finder" manage=off
+# yabai -m rule --add label="Xcode" app="^Xcode" manage=off
+yabai -m rule --add label="Simulator" app="^Simulator" manage=off
+
+# External App
+yabai -m rule --add label="karabiner-elements" app="^Karabiner-Elements" manage=off
+yabai -m rule --add label="karabiner-event-viewer" app="^Karabiner-EventViewer" manage=off
+yabai -m rule --add label="alt-tab" app="^AltTab" manage=off
 
 echo "yabai configuration loaded.."
