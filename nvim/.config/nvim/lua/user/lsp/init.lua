@@ -88,13 +88,13 @@ local formatter = {
   "fixjson",
 }
 
-local flags = {
+local lsp_flags = {
   debounce_text_changes = 150,
 }
 
 for server_name, _ in pairs(servers) do
   local lsp_opts = {
-    flags = flags,
+    flags = lsp_flags,
     on_attach = on_attach,
     capabilities = capabilities,
   }
@@ -117,6 +117,15 @@ for server_name, _ in pairs(servers) do
     }
   end
 end
+
+lsp_config.sourcekit.setup{
+  cmd          = {"sourcekit-lsp"},
+  filetypes    = {"swift"},
+  root_dir = lsp_config.util.root_pattern(".git", "*.swift"),
+  on_attach    = on_attach,
+  capabilities = capabilities,
+  flags        = lsp_flags,
+}
 
 require("user.lsp.handlers").setup()
 require("user.lsp.lsp_signature").setup()

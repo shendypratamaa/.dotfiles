@@ -15,6 +15,7 @@ local dotpath = "~/.dotfiles/config/nvim/"
 
 local sources = {
   -- formatting
+  formatting.swiftformat,
   formatting.stylua.with {
     extra_args = {
       "--config-path",

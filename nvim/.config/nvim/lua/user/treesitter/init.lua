@@ -31,6 +31,7 @@ local parser_installed = {
   "norg",
   "query",
   "regex",
+  "swift"
 }
 
 local incremental_selection = {
