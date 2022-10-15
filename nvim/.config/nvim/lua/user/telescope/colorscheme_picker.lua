@@ -30,7 +30,7 @@ local function enter(prompt_bufnr)
   local cmd = "colorscheme " .. selected[1]
   vim.cmd(cmd)
 
-  local path = vim.fn.expand "~/.dotfiles/config/nvim/lua/user/colorscheme.lua"
+  local path = vim.fn.expand "~/.config/nvim/lua/user/colorscheme.lua"
   local job_cmd = "sed -i '' '$d' "
     .. path
     .. " && echo '"
