@@ -1,0 +1,5 @@
+column_width = 80
+indent_width = 4
+quote_style  = "AutoPreferDouble"
+indent_type  = "Spaces"
+line_endings = "Unix"

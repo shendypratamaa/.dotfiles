@@ -173,7 +173,7 @@ local pickers = {
 local extensions = {
   project = {
     base_dirs = {
-      { '~/.code/js/' },
+      { '~/.code/javascript/' },
       { '~/.code/vite-react-js/' },
       { '~/.dotfiles' },
     },
