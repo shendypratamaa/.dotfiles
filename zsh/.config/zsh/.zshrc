@@ -16,9 +16,6 @@ compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 compinit -d ~/.cache/zsh/zcompdump
 _comp_options+=(globdots)
 
-# extend completions
-source "$ZDOTDIR/zsh-completions"
-
 # functions
 source "$ZDOTDIR/zsh-functions"
 
@@ -32,7 +29,6 @@ zsh_add_file "zsh-fzf-utils"
 # plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_plugin "hlissner/zsh-autopair"
 
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins

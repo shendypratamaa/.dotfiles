@@ -12,4 +12,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PIPENV_PYTHON="$PYENV_ROOT/shims"
 
+eval "$(fnm env --use-on-cd)"
 eval "$(pyenv init --path)"

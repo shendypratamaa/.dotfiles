@@ -29,6 +29,8 @@ brew "curl"
 brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Fast and simple Node.js version manager
+brew "fnm"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Distributed revision control system
@@ -53,8 +55,6 @@ brew "luarocks"
 brew "neofetch"
 # Small build system for use with gyp or CMake
 brew "ninja"
-# Manage multiple Node.js versions
-brew "nvm"
 # Manage compile and link flags for libraries
 brew "pkg-config"
 # Python version management

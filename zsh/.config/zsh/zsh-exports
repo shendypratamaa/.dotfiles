@@ -2,11 +2,6 @@
 export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump"
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"
-export NVM_COLORS='cmgRY'
-
 # EDITOR
 export EDITOR="nvim"
 
