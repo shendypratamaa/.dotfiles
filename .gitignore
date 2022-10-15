@@ -13,15 +13,19 @@ Sessionx.vim
 # Temporary
 .netrwhist
 *~
-# Auto-generated tag files
-tags
+
 # Persistent undo
 [._]*.un~
 
-autoload/*
-.DS_Store
+# Auto generate
+tags
 plugin/
-.luarc.json
-playground
+
+
+# Homebrew
 Brewfile.lock.json
-./lazygit/.config/lazygit/state.yml
+
+# Lazygit
+state.yml
+
+.DS_Store
