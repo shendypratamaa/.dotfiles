@@ -29,7 +29,7 @@ yabai -m config                                            \
      window_opacity_duration      0.35                     \
      normal_window_opacity        0.90                     \
      active_window_opacity        1.0                      \
-     window_border_width          6                        \
+     window_border_width          4                        \
      split_ratio                  0.50                     \
      split_type                   auto                     \
      active_window_border_color   0xffd4d4d4               \
@@ -42,10 +42,10 @@ yabai -m config                                            \
      mouse_drop_action            swap                     \
 
 # yabai 5.0.x support this opts but broken in border
-# yabai -m config                                 \
-#      window_border_hidpi          on            \
-#      window_border_blur           on            \
-#      window_border_radius         0             \
+yabai -m config                                 \
+     window_border_hidpi          on            \
+     window_border_blur           off           \
+     window_border_radius         0             \
 
 # WM Padding
 yabai -m config                       \
