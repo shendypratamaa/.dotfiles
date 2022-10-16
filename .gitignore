@@ -20,7 +20,7 @@ Sessionx.vim
 # Auto generate
 tags
 plugin/
-
+plugins/
 
 # Homebrew
 Brewfile.lock.json

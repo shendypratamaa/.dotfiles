@@ -1,4 +1,4 @@
-# ZSH ZCOMPDUMP
+#g ZSH ZCOMPDUMP
 export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump"
 
@@ -14,16 +14,19 @@ export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config"
 # HOMEBREW
 export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brewfile/Brewfile"
 
-# == GNU CORE UTILS ==
+# Setup fzf
+export PATH="/opt/homebrew/opt/fzf/bin:$PATH"
 
-# CORE UTILS
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-
-# CURL
+# # CURL
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig"
+#
+# # == GNU CORE UTILS ==
+
+# CORE UTILS
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 # AWK
 export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
@@ -32,3 +35,18 @@ export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # ==========================================
+
+# PYTHON
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims"
+
+eval "$(pyenv init --path)"
+
+# FNM
+eval "$(fnm env --use-on-cd)"
+
+# TERMINFO
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"

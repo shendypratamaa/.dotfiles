@@ -67,8 +67,13 @@ alias btw="neofetch"
 
 # kitty
 alias kitimg="kitty +kitten icat"
+alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
 
 # Extends GNU Utils
+
+# check path
+alias cfpath="echo $PATH | sed 's/:/\n/g' | sort | uniq -c"
+alias cmpath="/usr/libexec/path_helper | tr ':' '\n' "
 
 # grep
 alias grep="rg"
