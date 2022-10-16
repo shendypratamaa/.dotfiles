@@ -33,10 +33,14 @@ brew "fd"
 brew "fnm"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU awk utility
+brew "gawk"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
 # Improved top (interactive process viewer)
 brew "htop"
 # Generic library support script

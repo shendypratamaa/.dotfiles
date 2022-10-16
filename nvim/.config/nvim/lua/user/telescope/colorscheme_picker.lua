@@ -31,7 +31,7 @@ local function enter(prompt_bufnr)
   vim.cmd(cmd)
 
   local path = vim.fn.expand "~/.config/nvim/lua/user/colorscheme.lua"
-  local job_cmd = "sed -i '' '$d' "
+  local execute_picker = "sed -i '$d' "
     .. path
     .. " && echo '"
     .. "colorscheme "
@@ -40,7 +40,7 @@ local function enter(prompt_bufnr)
     .. '"'
     .. "' >> "
     .. path
-  vim.fn.jobstart(job_cmd)
+  vim.fn.jobstart(execute_picker)
 
   for _, v in pairs(get_colors) do
     if selected[1] == v then
