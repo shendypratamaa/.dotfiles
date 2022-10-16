@@ -24,6 +24,9 @@ alias brewbundleinstall="brew bundle -v --file=~/.config/brewfile/Brewfile"
 # BREW PINNED
 alias brewlistpin="brew list --pinned"
 
+# BREW CLEAN
+alias brewclean="brew cleanup --prune=all"
+
 # NODE
 alias nodeg="cd ~/.nvm/versions/node/v16.16.0/lib/node_modules"
 
@@ -45,10 +48,6 @@ alias pip="pip3"
 alias python="/usr/bin/python3"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
-# cat grep
-alias cat="bat"
-alias grep="grep --color=auto"
-
 # open current pwd
 alias ofd="open ."
 
@@ -69,5 +68,13 @@ alias btw="neofetch"
 # kitty
 alias kitimg="kitty +kitten icat"
 
-# wget
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+# Extends GNU Utils
+
+# grep
+alias grep="rg"
+
+# find
+alias find="fd"
+
+# cat
+alias cat="bat"

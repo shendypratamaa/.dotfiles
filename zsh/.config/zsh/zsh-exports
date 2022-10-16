@@ -14,5 +14,21 @@ export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config"
 # HOMEBREW
 export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brewfile/Brewfile"
 
-# LESS
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+# == GNU CORE UTILS ==
+
+# CORE UTILS
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+# CURL
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig"
+
+# AWK
+export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
+
+# SED
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# ==========================================

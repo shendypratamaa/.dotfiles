@@ -25,6 +25,7 @@ zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-prompt"
 zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-fzf-utils"
+zsh_add_file "zsh-completions"
 
 # plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
