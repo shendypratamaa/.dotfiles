@@ -4,6 +4,7 @@ local cmp_ok, cmp        = pcall(require, "cmp_nvim_lsp")
 local ts_ok, ts          = pcall(require, "typescript")
 local lv_ok, lv          = pcall(require, "lua-dev")
 local scheme_ok, scheme  = pcall(require, "schemastore")
+local root_pattern       = lsp_config.util.root_pattern
 
 if not lsp_ok and navic_ok and cmp_ok and ts_ok and lv_ok and scheme_ok then
   return
@@ -18,10 +19,6 @@ local on_attach = function(client, bufnr)
   require("user.lsp.highlight").setup()
   require("user.lsp.lspkeymaps").setup(bufnr)
 
-  if client.name == "sumneko_lua" then
-    client.resolved_capabilities.document_formatting = false
-    navic.attach(client, bufnr)
-  end
 
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
@@ -29,10 +26,14 @@ local on_attach = function(client, bufnr)
     disable_diagnostics_lsp()
   end
 
+  if client.name == "sumneko_lua" then
+    client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
+  end
+
   if client.name == "pyright" then
     client.resolved_capabilities.document_formatting = false
     navic.attach(client, bufnr)
-    disable_diagnostics_lsp()
   end
 
   if client.name == "jsonls" then
@@ -121,7 +122,7 @@ end
 lsp_config.sourcekit.setup{
   cmd          = {"sourcekit-lsp"},
   filetypes    = {"swift"},
-  root_dir = lsp_config.util.root_pattern(".git", "*.swift"),
+  root_dir     = root_pattern(".git", "*.swift"),
   on_attach    = on_attach,
   capabilities = capabilities,
   flags        = lsp_flags,
