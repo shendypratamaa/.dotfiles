@@ -39,7 +39,8 @@ export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PIPENV_PYTHON="$PYENV_ROOT/shims"
-eval "$(pyenv init --path)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
