@@ -28,4 +28,7 @@ Brewfile.lock.json
 # Lazygit
 state.yml
 
+# luarc
+.luarc.json
+
 .DS_Store

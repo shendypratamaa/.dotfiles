@@ -43,11 +43,6 @@ alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
-# PYTHON
-alias pip="pip3"
-alias python="/usr/bin/python3"
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
 # open current pwd
 alias ofd="open ."
 
@@ -69,8 +64,10 @@ alias btw="neofetch"
 alias kitimg="kitty +kitten icat"
 alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
 
-# Extends GNU Utils
+# python
+alias pyls="ls ~/.local/share/pyenv/versions/"
 
+# Extends GNU Utils
 # check path
 alias cfpath="echo $PATH | sed 's/:/\n/g' | sort | uniq -c"
 alias cmpath="/usr/libexec/path_helper | tr ':' '\n' "

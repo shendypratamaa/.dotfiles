@@ -8,8 +8,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-export HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"
-
 export SHELL_SESSIONS_DISABLE=1
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
