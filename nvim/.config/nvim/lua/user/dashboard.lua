@@ -35,7 +35,7 @@ local plugins = handle:read '*a'
 handle:close()
 
 local thingy =
-  io.popen 'echo "$(date +%a) $(date +%d) $(date +%b)" | tr -d "\n"'
+  io.popen 'echo "$(date +%d) $(date +%b)" | tr -d "\n"'
 local date = thingy:read '*a'
 thingy:close()
 
@@ -50,7 +50,7 @@ local plugin_count = {
 
 local heading = {
   type = 'text',
-  val = '┌─   Today is ' .. date .. ' ─┐',
+  val = '┌─  Today is ' .. date .. ' ─┐',
   opts = {
     position = 'center',
     hl = 'Comment',
@@ -116,11 +116,11 @@ local buttons = {
       '📦 ﬌ Recent Files',
       ":lua require('telescope.builtin').oldfiles()<CR>"
     ),
-    button('z', '🪐 ﬌ Configuration Zshell', ':e ~/.zshrc<cr>'),
+    button('z', '🪐 ﬌ Configuration Zshell', ':e ~/.config/zsh/.zshrc<cr>'),
     button(
       'd',
       '🦕 ﬌ Configuration Dashboard',
-      ':e ~/.dotfiles/config/nvim/lua/user/dashboard.lua<cr>'
+      ':e ~/.config/nvim/lua/user/dashboard.lua<cr>'
     ),
     button('q', '👻 ﬌ Quit Neovim', ':qa<cr>'),
   },
