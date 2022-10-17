@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter, unused-local
 local action_state = require "telescope.actions.state"
 local actions      = require "telescope.actions"
 local pickers      = require "telescope.pickers"
@@ -58,7 +57,7 @@ local function enter(prompt_bufnr)
             })
           end)
           require "user.hot-reload"
-          reload "user.colorscheme"
+          Reload  "user.colorscheme"
           vim.cmd [[source $MYVIMRC]]
         end,
         on_close = function()

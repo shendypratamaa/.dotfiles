@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter
 local packer_ok, packer = pcall(require, 'packer')
 
 if not packer_ok then

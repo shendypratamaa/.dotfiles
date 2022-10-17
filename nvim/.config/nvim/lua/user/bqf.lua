@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-field, missing-parameter
 local bqf_ok, bqf = pcall(require, "bqf")
 
 if not bqf_ok then

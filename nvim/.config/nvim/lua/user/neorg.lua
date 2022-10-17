@@ -43,7 +43,7 @@ local cfg = {
 
 neorg.setup(cfg)
 
---- Loads the Neorg completion module
+-- Loads the Neorg completion module
 local function load_completion()
   neorg.modules.load_module("core.norg.completion", nil, {
     engine = "nvim-cmp", -- Choose your completion engine here

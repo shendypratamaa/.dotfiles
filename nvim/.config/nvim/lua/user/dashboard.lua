@@ -1,4 +1,3 @@
----@diagnostic disable: need-check-nil, param-type-mismatch
 local present, alpha = pcall(require, 'alpha')
 
 if not present then

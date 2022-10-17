@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter
 local status_ok, telescope = pcall(require, 'telescope')
 local actions              = require 'telescope.actions'
 local actions_state        = require 'telescope.actions.state'

@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter, redundant-parameter, param-type-mismatch
 local lualine_ok, lualine = pcall(require, 'lualine')
 local navic_ok, navic = pcall(require, 'nvim-navic')
 

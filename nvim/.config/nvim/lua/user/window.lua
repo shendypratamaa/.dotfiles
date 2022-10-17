@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter
 local window_ok, window = pcall(require, "windows")
 
 if not window_ok then

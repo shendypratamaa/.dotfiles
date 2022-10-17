@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter
 local M = {}
 
 local nls_ok, nls = pcall(require, "null-ls")
@@ -11,22 +10,24 @@ if not nls_ok then
     return
 end
 
+local fn           = vim.fn
 local formatting   = nls.builtins.formatting
 local diagnostics  = nls.builtins.diagnostics
 local code_actions = nls.builtins.code_actions
 
-local prettierpth = "~/.config/prettier/.prettierrc.json"
-local styluapth   = "~/.config/stylua/stylua.toml"
+local prettierpth  = "~/.config/prettier/.prettierrc.json"
+local styluapth    = "~/.config/stylua/stylua.toml"
+local flake8       = "~/.config/flake8/.flake8"
 
 local sources = {
     -- swift
     formatting.swiftformat,
 
-    -- js / ts
+    -- javascript / typescript
     formatting.prettier.with({
         extra_args = {
             "--config",
-            vim.fn.expand(prettierpth),
+            fn.expand(prettierpth),
         },
     }),
     diagnostics.eslint_d,
@@ -36,31 +37,21 @@ local sources = {
     formatting.stylua.with({
         extra_args = {
             "--config-path",
-            vim.fn.expand(styluapth),
+            fn.expand(styluapth),
         },
     }),
 
-    -- py
+    -- python
+    formatting.isort,
     formatting.black.with({
-        args = {
-            "--stdin-filename",
-            "$FILENAME",
-            "--quiet",
-            "-",
-        },
+        extra_args = { "--fast" }
+    }),
+    diagnostics.flake8.with({
         extra_args = {
-            "--fast",
-        },
+            "--config",
+            fn.expand(flake8)
+        }
     }),
-    formatting.isort.with({
-        args = {
-            "--stdout",
-            "--filename",
-            "$FILENAME",
-            "-",
-        },
-    }),
-    diagnostics.flake8,
 
     -- markdown
     formatting.markdownlint,
