@@ -1,31 +1,35 @@
 local status_neo, neoscroll = pcall(require, "neoscroll")
-local smooth_ok, smooth = pcall(require, "smoothcursor")
-local neoscroll_config = require "neoscroll.config"
-local ts_ctx = require("treesitter-context")
+local smooth_ok, smooth     = pcall(require, "smoothcursor")
+local neoscroll_config      = require("neoscroll.config")
+local ts_ctx                = require("treesitter-context")
 
 if not status_neo and smooth_ok then
-  return
+    return
 end
 
-local smoth_cfg  = {
-  autostart          = true,
-  cursor             = "▷",
-  texthl             = "SmoothCursor",
-  linehl             = nil,
-  type               = "default",
-  speed              = 10,
-  intervals          = 30,
-  priority           = 20,
-  timeout            = 3000,
-  threshold          = 3,
-  enabled_filetypes  = nil,
-  disabled_filetypes = { "TelescopePrompt", "cybu", "toggleterm", "alpha" },
+local smoth_cfg = {
+    autostart          = true,
+    cursor             = "▷",
+    texthl             = "SmoothCursor",
+    linehl             = nil,
+    type               = "default",
+    speed              = 10,
+    intervals          = 30,
+    priority           = 20,
+    timeout            = 3000,
+    threshold          = 3,
+    enabled_filetypes  = nil,
+    disabled_filetypes = { "TelescopePrompt", "cybu", "toggleterm", "alpha" },
 }
 
 local neo_cfg = {
-  respect_scrolloff    = false,
-  pre_hook = function(_) ts_ctx.disable() end,
-  post_hook = function(_) ts_ctx.enable() end
+    respect_scrolloff = false,
+    pre_hook = function(_)
+        ts_ctx.disable()
+    end,
+    post_hook = function(_)
+        ts_ctx.enable()
+    end,
 }
 
 local t = {}
@@ -37,12 +41,12 @@ t["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", "400", nil } }
 
 -- Use the "circular" easing function
 t["<C-b>"] = {
-  "scroll",
-  { "-vim.api.nvim_win_get_height(0)", "true", "400", nil },
+    "scroll",
+    { "-vim.api.nvim_win_get_height(0)", "true", "400", nil },
 }
 t["<C-f>"] = {
-  "scroll",
-  { "vim.api.nvim_win_get_height(0)", "true", "400", nil},
+    "scroll",
+    { "vim.api.nvim_win_get_height(0)", "true", "400", nil },
 }
 
 -- Pass "nil" to disable the easing animation (constant scrolling speed)

@@ -4,7 +4,7 @@ local nls_ok, nls = pcall(require, "null-ls")
 
 if not nls_ok then
     vim.notify(" 🤖 formatter not working", "error", {
-        title   = "formatter log",
+        title = "formatter log",
         timeout = 2000,
     })
     return
@@ -44,13 +44,13 @@ local sources = {
     -- python
     formatting.isort,
     formatting.black.with({
-        extra_args = { "--fast" }
+        extra_args = { "--fast" },
     }),
     diagnostics.flake8.with({
         extra_args = {
             "--config",
-            fn.expand(flake8)
-        }
+            fn.expand(flake8),
+        },
     }),
 
     -- markdown

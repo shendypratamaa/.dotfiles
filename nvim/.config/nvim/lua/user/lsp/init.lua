@@ -7,126 +7,126 @@ local scheme_ok, scheme  = pcall(require, "schemastore")
 local root_pattern       = lsp_config.util.root_pattern
 
 if not lsp_ok and navic_ok and cmp_ok and ts_ok and lv_ok and scheme_ok then
-  return
+    return
 end
 
 local disable_diagnostics_lsp = function()
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 end
 
 local on_attach = function(client, bufnr)
-  require("user.lsp.saga").setup()
-  require("user.lsp.highlight").setup()
-  require("user.lsp.lspkeymaps").setup(bufnr)
+    require("user.lsp.saga").setup()
+    require("user.lsp.highlight").setup()
+    require("user.lsp.lspkeymaps").setup(bufnr)
 
+    if client.name == "tsserver" then
+        client.resolved_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
+        disable_diagnostics_lsp()
+    end
 
-  if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
-    navic.attach(client, bufnr)
-    disable_diagnostics_lsp()
-  end
+    if client.name == "sumneko_lua" then
+        client.resolved_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
+    end
 
-  if client.name == "sumneko_lua" then
-    client.resolved_capabilities.document_formatting = false
-    navic.attach(client, bufnr)
-  end
+    if client.name == "pyright" then
+        client.resolved_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
+    end
 
-  if client.name == "pyright" then
-    client.resolved_capabilities.document_formatting = false
-    navic.attach(client, bufnr)
-  end
+    if client.name == "jsonls" then
+        client.resolved_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
+    end
 
-  if client.name == "jsonls" then
-    client.resolved_capabilities.document_formatting = false
-    navic.attach(client, bufnr)
-  end
-
-  if client.name == "html" then
-    client.resolved_capabilities.document_formatting = false
-  end
+    if client.name == "html" then
+        client.resolved_capabilities.document_formatting = false
+    end
 end
 
 local update_capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = cmp.update_capabilities(update_capabilities)
 
 local servers = {
-  jsonls = {
-    settings = {
-      json = {
-        schemas = scheme.json.schemas(),
-      },
-    },
-  },
-  sumneko_lua = {
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
+    jsonls = {
+        settings = {
+            json = {
+                schemas = scheme.json.schemas(),
+            },
         },
-      },
     },
-  },
-  tsserver = { disable_formatting = true },
-  pyright = {
-    analysis = {
-      typeCheckingMode = "off",
+    sumneko_lua = {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+            },
+        },
     },
-  },
-  html = {},
-  prosemd_lsp = {},
-  cssls = {},
-  tailwindcss = {},
-  emmet_ls = {},
-  yamlls = {},
+    tsserver = { disable_formatting = true },
+    pyright = {
+        analysis = {
+            typeCheckingMode = "off",
+        },
+    },
+    html = {},
+    prosemd_lsp = {},
+    cssls = {},
+    tailwindcss = {},
+    emmet_ls = {},
+    yamlls = {},
 }
 
 local formatter = {
-  "stylua",
-  "prettier",
-  "markdownlint",
-  "write-good",
-  "eslint_d",
-  "fixjson",
+    "stylua",
+    "prettier",
+    "markdownlint",
+    "write-good",
+    "eslint_d",
+    "fixjson",
 }
 
 local lsp_flags = {
-  debounce_text_changes = 150,
+    debounce_text_changes = 150,
 }
 
 for server_name, _ in pairs(servers) do
-  local lsp_opts = {
-    flags = lsp_flags,
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-
-  lsp_opts = vim.tbl_deep_extend("force", lsp_opts, servers[server_name] or {})
-  lsp_config[server_name].setup(lsp_opts)
-
-  if server_name == "sumneko_lua" then
-    lsp_config.sumneko_lua.setup(lv.setup {
-      library = { plugins = { "neotest" }, types = true },
-      lspconfig = lsp_opts,
-    })
-  end
-
-  if server_name == "tsserver" then
-    lsp_opts = ts.setup {
-      debug_commands = false,
-      debug = false,
-      server = lsp_opts,
+    local lsp_opts = {
+        flags = lsp_flags,
+        on_attach = on_attach,
+        capabilities = capabilities,
     }
-  end
+
+    lsp_opts =
+        vim.tbl_deep_extend("force", lsp_opts, servers[server_name] or {})
+    lsp_config[server_name].setup(lsp_opts)
+
+    if server_name == "sumneko_lua" then
+        lsp_config.sumneko_lua.setup(lv.setup({
+            library = { plugins = { "neotest" }, types = true },
+            lspconfig = lsp_opts,
+        }))
+    end
+
+    if server_name == "tsserver" then
+        lsp_opts = ts.setup({
+            debug_commands = false,
+            debug = false,
+            server = lsp_opts,
+        })
+    end
 end
 
-lsp_config.sourcekit.setup{
-  cmd          = {"sourcekit-lsp"},
-  filetypes    = {"swift"},
-  root_dir     = root_pattern(".git", "*.swift"),
-  on_attach    = on_attach,
-  capabilities = capabilities,
-  flags        = lsp_flags,
-}
+lsp_config.sourcekit.setup({
+    cmd          = { "sourcekit-lsp" },
+    filetypes    = { "swift" },
+    root_dir     = root_pattern(".git", "*.swift"),
+    on_attach    = on_attach,
+    capabilities = capabilities,
+    flags        = lsp_flags,
+})
 
 require("user.lsp.handlers").setup()
 require("user.lsp.lsp_signature").setup()

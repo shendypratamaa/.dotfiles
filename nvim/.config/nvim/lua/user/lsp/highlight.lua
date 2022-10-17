@@ -1,7 +1,7 @@
 local illuminate_ok, illuminate = pcall(require, "illuminate")
 
 if not illuminate_ok then
-  return
+    return
 end
 
 local keymap = vim.keymap.set
@@ -14,34 +14,34 @@ keymap("n", "\\ff", ':lua require("illuminate").textobj_select()<CR>', opts)
 local M = {}
 
 local cfg = {
-  providers = {
-    "regex",
-  },
-  delay = 50,
-  filetype_overrides = {},
-  filetypes_denylist = {
-    "NvimTree",
-    "alpha",
-    "packer",
-    "qf",
-    "Outline",
-    "help",
-    "man",
-    "lspinfo",
-    "startuptime",
-    "Trouble",
-    "undotree_2",
-  },
-  filetypes_allowlist = {},
-  modes_denylist = {},
-  modes_allowlist = {},
-  providers_regex_syntax_denylist = {},
-  providers_regex_syntax_allowlist = {},
-  under_cursor = false,
+    providers = {
+        "regex",
+    },
+    delay = 50,
+    filetype_overrides = {},
+    filetypes_denylist = {
+        "NvimTree",
+        "alpha",
+        "packer",
+        "qf",
+        "Outline",
+        "help",
+        "man",
+        "lspinfo",
+        "startuptime",
+        "Trouble",
+        "undotree_2",
+    },
+    filetypes_allowlist = {},
+    modes_denylist = {},
+    modes_allowlist = {},
+    providers_regex_syntax_denylist = {},
+    providers_regex_syntax_allowlist = {},
+    under_cursor = false,
 }
 
 function M.setup()
-  illuminate.configure(cfg)
+    illuminate.configure(cfg)
 end
 
 return M

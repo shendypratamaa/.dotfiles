@@ -1,7 +1,7 @@
 local window_ok, window = pcall(require, "windows")
 
 if not window_ok then
-  return
+    return
 end
 
 vim.o.winwidth     = 20
@@ -17,23 +17,23 @@ vim.keymap.set("n", "<c-w>\\", ":WindowsMaximizeHorizontally<CR>", opts)
 vim.keymap.set("n", "<c-w>=", ":WindowsEqualize<CR>", opts)
 
 local cfg = {
-  ignore = {
-    buftype = { "quickfix", "Outline", "Trouble" },
-    filetype = {
-      "NvimTree",
-      "Outline",
-      "undotree",
-      "tsplayground",
-      "qf",
-      "toggleterm",
+    ignore = {
+        buftype = { "quickfix", "Outline", "Trouble" },
+        filetype = {
+            "NvimTree",
+            "Outline",
+            "undotree",
+            "tsplayground",
+            "qf",
+            "toggleterm",
+        },
     },
-  },
-  animation = {
-    enable = true,
-    duration = 100,
-    fps = 30,
-    easing = "in_out_sine",
-  },
+    animation = {
+        enable = true,
+        duration = 100,
+        fps = 30,
+        easing = "in_out_sine",
+    },
 }
 
 window.setup(cfg)
