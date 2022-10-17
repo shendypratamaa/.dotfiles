@@ -63,6 +63,8 @@ brew "ninja"
 brew "pkg-config"
 # Python version management
 brew "pyenv"
+# Pyenv plugin to manage virtualenv
+brew "pyenv-virtualenv"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher

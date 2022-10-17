@@ -48,8 +48,10 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+local python3 = vim.fn.expand("~/.local/share/pyenv/shims/python3")
+
 vim.opt.shortmess:append "c"
-vim.g.python3_host_prog     = "/usr/bin/python3"
+vim.g.python3_host_prog     = python3
 vim.g.netrw_browsex_viewer  = "open"
 vim.g.cursorhold_updatetime = 100
 vim.g.did_load_filetypes    = 1
