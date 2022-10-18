@@ -18,6 +18,7 @@ local code_actions = nls.builtins.code_actions
 local prettierpth  = "~/.config/prettier/.prettierrc.json"
 local styluapth    = "~/.config/stylua/stylua.toml"
 local flake8       = "~/.config/flake8/.flake8"
+local eslint       = "~/.config/eslint/.eslintrc.json"
 
 local sources = {
     -- swift
@@ -30,7 +31,12 @@ local sources = {
             fn.expand(prettierpth),
         },
     }),
-    diagnostics.eslint_d,
+    diagnostics.eslint_d.with({
+        extra_args = {
+            "--config",
+            fn.expand(eslint)
+        }
+    }),
     code_actions.eslint_d,
 
     -- lua
