@@ -14,9 +14,4 @@ vim.cmd([[
  endif
 ]])
 
-vim.keymap.set(
-    "n",
-    "<C-p>",
-    ":UndotreeToggle<CR>",
-    { noremap = true, silent = true }
-)
+vim.keymap.set( "n", "<C-p>", ":UndotreeToggle<CR>", { noremap = true, silent = true })

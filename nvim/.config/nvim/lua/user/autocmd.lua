@@ -36,8 +36,8 @@ vim.api.nvim_create_autocmd({ "User" }, {
     pattern = { "AlphaReady", "alpha" },
     callback = function()
         vim.cmd([[
-      set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
-    ]])
+           set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
+        ]])
     end,
 })
 
@@ -56,11 +56,10 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
         "TelescopePrompt",
         "null-ls-info",
         "tsplayground",
+        "fzf",
     },
     callback = function()
-        vim.cmd([[
-      nnoremap <silent> <buffer> q :q!<CR>
-      set nobuflisted
-    ]])
+        vim.keymap.set("n", "q", ":q!<CR>", { silent = true })
+        vim.cmd([[ set nobuflisted ]])
     end,
 })

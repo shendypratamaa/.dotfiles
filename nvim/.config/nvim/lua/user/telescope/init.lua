@@ -10,7 +10,7 @@ local Job                  = require("plenary.job")
 
 if not status_ok then
     vim.notify(" 🤖 Telescope Error", "error", {
-        title = "Telescope Log",
+        title   = "Telescope Log",
         timeout = 2000,
     })
     return
@@ -56,7 +56,7 @@ M.colorscheme_pick = function()
         prompt_title = "Pick Colorscheme",
     }
     local theme = themes.get_dropdown(opts)
-    local load = require("user.telescope.colorscheme_picker").setup(theme)
+    local load  = require("user.telescope.colorscheme_picker").setup(theme)
     return load
 end
 
@@ -64,7 +64,7 @@ local new_maker = function(filepath, bufnr, opts)
     filepath = vim.fn.expand(filepath)
     Job:new({
         command = "file",
-        args = { "--mime-type", "-b", filepath },
+        args    = { "--mime-type", "-b", filepath },
         on_exit = function(j)
             local mime_type = vim.split(j:result()[1], "/")[1]
 
@@ -87,59 +87,59 @@ end
 
 local mappings = {
     i = {
-        ["\\q"] = actions.close,
-        ["<CR>"] = actions.select_default,
+        ["\\q"]     = actions.close,
+        ["<CR>"]    = actions.select_default,
 
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-n>"]   = actions.cycle_history_next,
+        ["<C-p>"]   = actions.cycle_history_prev,
 
-        ["<C-v>"] = actions.select_vertical,
-        ["<C-h>"] = actions.select_horizontal,
+        ["<C-v>"]   = actions.select_vertical,
+        ["<C-h>"]   = actions.select_horizontal,
 
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        ["<Tab>"]   = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-j>"]   = actions.move_selection_next,
+        ["<C-k>"]   = actions.move_selection_previous,
 
-        ["<C-q>"] = actions_layout.toggle_preview,
+        ["<C-q>"]   = actions_layout.toggle_preview,
 
-        ["<C-t>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<C-t>"]   = actions.smart_send_to_qflist + actions.open_qflist,
 
-        ["<Down>"] = false,
-        ["<Up>"] = false,
+        ["<Down>"]  = false,
+        ["<Up>"]    = false,
     },
     n = {
-        ["\\q"] = actions.close,
-        ["<CR>"] = actions.select_default,
+        ["\\q"]     = actions.close,
+        ["<CR>"]    = actions.select_default,
 
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-n>"]   = actions.cycle_history_next,
+        ["<C-p>"]   = actions.cycle_history_prev,
 
-        ["ss"] = actions.select_horizontal,
-        ["sv"] = actions.select_vertical,
+        ["ss"]      = actions.select_horizontal,
+        ["sv"]      = actions.select_vertical,
 
-        ["H"] = actions.move_to_top,
-        ["M"] = actions.move_to_middle,
-        ["L"] = actions.move_to_bottom,
+        ["H"]       = actions.move_to_top,
+        ["M"]       = actions.move_to_middle,
+        ["L"]       = actions.move_to_bottom,
 
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        ["<Tab>"]   = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 
-        ["j"] = actions.move_selection_next,
-        ["k"] = actions.move_selection_previous,
+        ["j"]       = actions.move_selection_next,
+        ["k"]       = actions.move_selection_previous,
 
-        ["<C-q>"] = actions_layout.toggle_preview,
+        ["<C-q>"]   = actions_layout.toggle_preview,
 
-        ["<C-t>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<C-t>"]   = actions.smart_send_to_qflist + actions.open_qflist,
 
-        ["<Down>"] = false,
-        ["<Up>"] = false,
+        ["<Down>"]  = false,
+        ["<Up>"]    = false,
     },
 }
 
 local borderchars = {
-    prompt = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+    prompt  = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
     results = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
     preview = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
 }
@@ -150,13 +150,19 @@ local pickers = {
     },
     buffers = {
         show_all_buffers = true,
-        sort_lastused = true,
+        sort_lastused    = true,
         mappings = {
             i = {
-                ["\\q"] = "delete_buffer",
+                ["\\q"]     = "delete_buffer",
+
+                ["<Tab>"]   = actions.toggle_selection + actions.move_selection_worse,
+                ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
             },
             n = {
-                ["\\q"] = "delete_buffer",
+                ["\\q"]     = "delete_buffer",
+
+                ["<Tab>"]   = actions.toggle_selection + actions.move_selection_worse,
+                ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
             },
         },
     },
@@ -191,13 +197,13 @@ local extensions = {
             { "~/.config/" },
         },
         hidden_files = true,
-        theme = "dropdown",
+        theme        = "dropdown",
     },
     fzf = {
-        fuzzy = true,
+        fuzzy                   = true,
         override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = "smart_case",
+        override_file_sorter    = true,
+        case_mode               = "smart_case",
     },
     bookmarks = {
         selected_browser = "safari",
@@ -219,8 +225,8 @@ local layout_config = {
     vertical = {
         mirror = false,
     },
-    width = 0.82,
-    height = 0.75,
+    width          = 0.82,
+    height         = 0.75,
     preview_cutoff = 120,
 }
 

@@ -19,7 +19,7 @@ local smoth_cfg = {
     timeout            = 3000,
     threshold          = 3,
     enabled_filetypes  = nil,
-    disabled_filetypes = { "TelescopePrompt", "cybu", "toggleterm", "alpha" },
+    disabled_filetypes = { "TelescopePrompt", "cybu", "toggleterm", "alpha", "fzf" },
 }
 
 local neo_cfg = {
