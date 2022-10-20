@@ -33,10 +33,10 @@ local function enter(prompt_bufnr)
     local execute_picker = "sed -i '$d' "
         .. path
         .. " && echo '"
-        .. "colorscheme "
-        .. '"'
+        .. "colorscheme"
+        .. '("'
         .. selected[1]
-        .. '"'
+        .. '")'
         .. "' >> "
         .. path
     vim.fn.jobstart(execute_picker)
