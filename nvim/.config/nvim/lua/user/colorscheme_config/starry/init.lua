@@ -53,9 +53,9 @@ local function load_utils(theme)
                 bg = "none",
             },
         }
-
-        utils.illuminate()
         utils.load_colors(opts)
+        utils.illuminate()
+        utils.nontext()
     end
 
     if theme ~= "limestone" then
