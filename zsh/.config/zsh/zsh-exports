@@ -1,3 +1,20 @@
+# NVM
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# FZF
+export PATH="/opt/homebrew/opt/fzf/bin:$PATH"
+
+# PYTHON
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
 export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump"
 
@@ -12,41 +29,6 @@ export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config"
 
 # HOMEBREW
 export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brewfile/Brewfile"
-
-# FZF
-export PATH="/opt/homebrew/opt/fzf/bin:$PATH"
-
-# # == GNU CORE UTILS ==
-
-# # CURL
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig"
-
-# CORE UTILS
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-
-# AWK
-export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
-
-# SED
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-
-# ==========================================
-
-# PYTHON
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PIPENV_PYTHON="$PYENV_ROOT/shims"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
-# FNM
-export FNM_DIR="$XDG_DATA_HOME/fnm"
-eval "$(fnm env --use-on-cd)"
 
 # TERMINFO
 export TERMINFO="$XDG_DATA_HOME/terminfo"

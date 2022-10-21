@@ -216,11 +216,17 @@ local function grepper()
 end
 
 local keymap = vim.keymap.set
-local opts = { silent = true }
+local opts = function(desc)
+    local result = {
+        silent = true,
+        desc = desc
+    }
+    return result
+end
 
-keymap("n", "]e", function() Toggle_qf() end, opts)
-keymap("n", "]gs", function() grepper().curword_buffer(true) end, opts)
-keymap("n", "]gf", function() grepper().curword_recursive(true) end, opts)
+keymap("n", "]e", function() Toggle_qf() end, opts("bqf toggle"))
+keymap("n", "]gs", function() grepper().curword_buffer(true) end, opts("bqf curword buffer"))
+keymap("n", "]gf", function() grepper().curword_recursive(true) end, opts("bqf curword recursive"))
 
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 

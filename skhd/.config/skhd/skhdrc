@@ -5,7 +5,8 @@ cmd - return : kitty --single-instance -d ~
 cmd + shift - return : /Applications/Firefox.app/Contents/MacOS/firefox
 
 # disable hide application
-cmd -h : :
+cmd - h : :
+ctrl - e : :
 
 # focus window in desktop
 cmd - j : yabai -m window --focus west

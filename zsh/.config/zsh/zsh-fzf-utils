@@ -1,19 +1,56 @@
+# FZF_LAYOUT
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border sharp --inline-info --margin 0,0.40%"\
+
+# FZF_COLORSCHEME_NORD
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=fg:#D8DEE9
+--color=bg:#2E3440
+--color=hl:#A3BE8C
+--color=fg+:#D8DEE9
+--color=bg+:#434C5E
+--color=hl+:#A3BE8C
+--color=pointer:#BF616A
+--color=info:#4C566A
+--color=spinner:#4C566A
+--color=header:#4C566A
+--color=prompt:#81A1C1
+--color=marker:#EBCB8B
+'
+
+# VARIABLE
 EXCLUDE_FZF="--exclude .git --exclude node_modules --exclude .cache --exclude Library"
 BAT="'bat --style=numbers --color=always --line-range :500 {}'"
 
-# FZF
-export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border sharp --inline-info --margin 0,0.40%"
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
---color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B'
-
-export FZF_COMPLETION_TRIGGER="**"
+# FZF DEFAULT COMMAND
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --strip-cwd-prefix $EXCLUDE_FZF"
-export FZF_COMPLETION_OPTS="$FZF_DEFAULT_OPTS"
+
+# FZF COMPLETIONS
+export FZF_COMPLETION_TRIGGER="**"
+
+# CTRL_T
 export FZF_CTRL_T_OPTS="--preview $BAT | head -200"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f --type l"
+
+# CTRL_R
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind ']:toggle-preview'"
+export FZF_CTRL_R_COMMAND=""
 
-alias vn="$FZF_DEFAULT_COMMAND --type f | fzf --preview $BAT | xargs nvim"
-alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND --type d | fzf)"
+# ALT_C
+export FZF_ALT_C_OPTS=""
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d --type l"
 
+# REBIND ALT_C TO CTRL_P
+bindkey "^P" fzf-cd-widget
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    *)            fzf "$@" ;;
+  esac
+}
+
+# MANPAGER_BAT
 export MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'"

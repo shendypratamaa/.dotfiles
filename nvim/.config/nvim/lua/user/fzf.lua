@@ -1,6 +1,12 @@
-local keymap = vim.keymap.set
-local opts   = { silent = true }
-local fn     = vim.fn
+local keymap     = vim.keymap.set
+local fn         = vim.fn
+local opts       = function(desc)
+    local result = {
+        silent   = true,
+        desc     = desc
+    }
+    return result
+end
 
 vim.api.nvim_create_autocmd({ "Filetype" }, {
     pattern  = { "fzf" },
@@ -30,4 +36,4 @@ local run = {
     change_working_dir = change_working_dir,
 }
 
-keymap("n", "cd", function() run.change_working_dir() end, opts)
+keymap("n", "cdo", function() run.change_working_dir() end, opts('change directory and open using FZF'))

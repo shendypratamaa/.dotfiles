@@ -27,9 +27,6 @@ alias brewlistpin="brew list --pinned"
 # BREW CLEAN
 alias brewclean="brew cleanup --prune=all"
 
-# NODE
-alias nodeg="cd ~/.nvm/versions/node/v16.16.0/lib/node_modules"
-
 # NEOVIM
 alias vi="$EDITOR"
 
@@ -71,12 +68,3 @@ alias pyls="ls ~/.local/share/pyenv/versions/"
 
 # check path
 alias cmpath="/usr/libexec/path_helper | tr ':' '\n' "
-
-# grep
-alias grep="rg"
-
-# find
-alias find="fd"
-
-# cat
-alias cat="bat"

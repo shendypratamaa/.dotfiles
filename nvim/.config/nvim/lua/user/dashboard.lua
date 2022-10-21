@@ -35,22 +35,22 @@ local handle = io.popen(
 local plugins = handle:read("*a")
 handle:close()
 
-local thingy = io.popen('echo "$(date +%d) $(date +%b)" | tr -d "\n"')
+local thingy = io.popen('echo " $(date +%D)" | tr -d "\n"')
 local date = thingy:read("*a")
 thingy:close()
 
-local plugin_count = {
+local heading = {
     type = "text",
-    val = "└─ 🌊 " .. plugins .. " plugins ++ ─┘",
+    val  = "┌─  Today is" .. date .. " ─┐",
     opts = {
         position = "center",
         hl = "Comment",
     },
 }
 
-local heading = {
+local plugin_count = {
     type = "text",
-    val = "┌─  Today is " .. date .. " ─┐",
+    val  = " └─ 🌊" .. plugins .. " plugins+ ─┘",
     opts = {
         position = "center",
         hl = "Comment",
@@ -134,7 +134,7 @@ local buttons = {
 }
 
 local fn = vim.fn
-local percent = 0.2
+local percent = 0.15
 local headerCenter = fn.max({ fn.floor(fn.winheight(0) * percent) })
 
 local section = {
