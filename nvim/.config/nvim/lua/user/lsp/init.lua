@@ -25,6 +25,12 @@ local on_attach = function(client, bufnr)
         disable_diagnostics_lsp()
     end
 
+    if client.name == "bashls" then
+        client.resolved_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
+        disable_diagnostics_lsp()
+    end
+
     if client.name == "sumneko_lua" then
         client.resolved_capabilities.document_formatting = false
         navic.attach(client, bufnr)
