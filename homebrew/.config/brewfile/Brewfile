@@ -11,6 +11,8 @@ tap "homebrew/test-bot"
 tap "koekeishiya/formulae"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Cross-platform make
@@ -25,6 +27,10 @@ brew "ctags"
 brew "gettext"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Generic library support script
+brew "libtool"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -43,8 +49,6 @@ brew "gnu-sed"
 brew "grep"
 # Improved top (interactive process viewer)
 brew "htop"
-# Generic library support script
-brew "libtool"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
@@ -59,12 +63,8 @@ brew "luarocks"
 brew "neofetch"
 # Small build system for use with gyp or CMake
 brew "ninja"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Python version management
 brew "pyenv"
-# Pyenv plugin to manage virtualenv
-brew "pyenv-virtualenv"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
