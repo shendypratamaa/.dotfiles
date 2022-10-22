@@ -64,6 +64,4 @@ please read, and get what you want
 
 - [XDG_SPESIFICATION](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 
-don't know, how to configure on Windows machine !!
-
 > _Running on macOS 12.6 Apple Silicon_
