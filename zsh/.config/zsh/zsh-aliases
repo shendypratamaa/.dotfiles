@@ -1,6 +1,6 @@
 # EXA
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
-alias ls="exa --group-directories-first"
+alias ls="exa --group-directories-first --icons"
 alias la="ls -a"
 alias ll="ls --git -lah "
 alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
