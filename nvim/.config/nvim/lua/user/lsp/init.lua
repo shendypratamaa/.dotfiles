@@ -77,6 +77,7 @@ local servers = {
     tailwindcss = {},
     emmet_ls = {},
     yamlls = {},
+    bashls = {},
 }
 
 local formatter = {
@@ -86,6 +87,8 @@ local formatter = {
     "write-good",
     "eslint_d",
     "fixjson",
+    "shfmt",
+    "shellcheck"
 }
 
 local lsp_flags = {

@@ -66,6 +66,10 @@ local sources = {
     -- json
     formatting.fixjson,
 
+    -- shell
+    formatting.shfmt,
+    diagnostics.shellcheck,
+
     -- code-actions
     code_actions.gitsigns,
 }
