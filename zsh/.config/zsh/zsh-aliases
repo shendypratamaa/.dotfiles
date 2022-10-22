@@ -62,9 +62,10 @@ alias kittyimage="kitty +kitten icat"
 alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
 
 # python
-alias pyls="ls ~/.local/share/pyenv/versions/"
-
-# Extends GNU Utils
+alias pyls="ls /usr/local/share/pyenv/versions/"
 
 # check path
 alias cmpath="/usr/libexec/path_helper | tr ':' '\n' "
+
+# WGET
+alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts/.wget-hsts'"

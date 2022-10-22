@@ -1,19 +1,20 @@
 # NVM
-export NVM_DIR="$XDG_DATA_HOME/nvm"
+export NVM_DIR="$XDG_DATA_DIRS/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# FZF
-export PATH="/opt/homebrew/opt/fzf/bin:$PATH"
-
 # PYTHON
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+export PYENV_ROOT="$XDG_DATA_DIRS/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PIPENV_PYTHON="$PYENV_ROOT/shims"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+# FZF
+export PATH="/opt/homebrew/opt/fzf/bin:$PATH"
 
 export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump"
@@ -33,3 +34,9 @@ export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brewfile/Brewfile"
 # TERMINFO
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
+
+# LESS
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+
+# NODE
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/.node_repl_history"
