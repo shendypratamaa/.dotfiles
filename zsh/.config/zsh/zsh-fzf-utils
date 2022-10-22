@@ -72,18 +72,18 @@ export FZF_DEFAULT_COMMAND="fd -H -L --strip-cwd-prefix $EXCLUDE_FZF"
 # FZF COMPLETIONS
 export FZF_COMPLETION_TRIGGER="**"
 
-# CTRL_T
-export FZF_CTRL_T_OPTS="$TREE"
+# CTRL_T | files
+export FZF_CTRL_T_OPTS="$BAT"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
 
-# CTRL_R
+# CTRL_R | history
 export FZF_CTRL_R_OPTS="--preview \
   'echo {}' \
   --preview-window down:3:hidden:wrap --bind ']:toggle-preview'\
   "
 export FZF_CTRL_R_COMMAND=""
 
-# ALT_C
+# ALT_C | directory
 export FZF_ALT_C_OPTS="$TREE"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
