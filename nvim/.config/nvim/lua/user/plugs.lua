@@ -52,7 +52,7 @@ return packer.startup(function(use)
 
   -- Lsp
   use { 'neovim/nvim-lspconfig', commit = '51775b12cfbf1b6462c7b13cd020cc09e6767aea' }
-  use { 'williamboman/mason.nvim', commit = 'ac9a089ac7ca5c2c748433e71f5c7daff8cdc5ad' }
+  use { 'williamboman/mason.nvim', commit = "bee9e44532303689fbe01c73994c5307f531776a" }
   use { 'williamboman/mason-lspconfig.nvim', commit = 'b70dedab5ceb5f3f84c6bc9ceea013292a14f8dc' }
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim', commit = '617f3a105a67f840e6f706b1b0d80e86773ba004' }
   use { 'jose-elias-alvarez/null-ls.nvim', commit = '255b7c' }
