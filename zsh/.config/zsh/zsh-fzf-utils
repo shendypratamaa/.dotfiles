@@ -33,7 +33,6 @@ EXCLUDE_FZF=' \
   --exclude=.npm \
   --exclude=.Trash \
   --exclude=.ssh \
-  --exclude=.utils \
   --exclude=.vim \
   --exclude=.lldb \
   --exclude=.docker \
