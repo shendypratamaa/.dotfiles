@@ -56,7 +56,7 @@ return packer.startup(function(use)
   use { 'williamboman/mason-lspconfig.nvim', commit = 'b70dedab5ceb5f3f84c6bc9ceea013292a14f8dc' }
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim', commit = '617f3a105a67f840e6f706b1b0d80e86773ba004' }
   use { 'jose-elias-alvarez/null-ls.nvim', commit = '255b7c' }
-  use { 'jose-elias-alvarez/typescript.nvim', commit = 'fc02517dbec65143d4d414ed6b66bbf5405c0c20' }
+  use { 'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '0a6a16ef292c9b61eac6dad00d52666c7f84b0e7' }
   use { 'SmiteshP/nvim-navic', commit = '202312e93869213c574d200a40eafeff4b4caec2' }
   use { 'b0o/SchemaStore.nvim', commit = 'a5fbd83d2b9b778518203e25167c05580add6b31' }
   use { 'glepnir/lspsaga.nvim', branch = 'main', commit = 'c2ef0115fb917460daf5c76fe3ad3a9357213b54' }
@@ -64,8 +64,6 @@ return packer.startup(function(use)
   use { 'j-hui/fidget.nvim', commit = '492492e7d50452a9ace8346d31f6d6da40439f0e' }
   use { 'simrat39/symbols-outline.nvim', commit = '6a3ed24c5631da7a5d418bced57c16b32af7747c' }
   use { 'RRethy/vim-illuminate', commit = 'b5452627d6ef9c04a27ac4edde0b00aa3a50f60f' }
-  use { 'kristijanhusak/vim-js-file-import', run = 'npm install', commit = 'ac583be8d81b86bae7064d39ad23d78d3f0aff0e' }
-  use { 'ludovicchabant/vim-gutentags', commit = "b77b8fabcb0b052c32fe17efcc0d44f020975244" }
 
   -- Performance
   use { 'lewis6991/impatient.nvim', commit = 'b842e16ecc1a700f62adb9802f8355b99b52a5a6' }

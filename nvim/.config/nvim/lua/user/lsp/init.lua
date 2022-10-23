@@ -1,12 +1,11 @@
 local lsp_ok, lsp_config = pcall(require, "lspconfig")
 local navic_ok, navic    = pcall(require, "nvim-navic")
 local cmp_ok, cmp        = pcall(require, "cmp_nvim_lsp")
-local ts_ok, ts          = pcall(require, "typescript")
 local lv_ok, lv          = pcall(require, "lua-dev")
 local scheme_ok, scheme  = pcall(require, "schemastore")
 local root_pattern       = lsp_config.util.root_pattern
 
-if not lsp_ok and navic_ok and cmp_ok and ts_ok and lv_ok and scheme_ok then
+if not lsp_ok and navic_ok and cmp_ok and lv_ok and scheme_ok then
     return
 end
 
@@ -18,6 +17,7 @@ local on_attach = function(client, bufnr)
     require("user.lsp.saga").setup()
     require("user.lsp.highlight").setup()
     require("user.lsp.lspkeymaps").setup(bufnr)
+    require("user.lsp.typescript-utils").setup(client)
 
     if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
@@ -117,14 +117,6 @@ for server_name, _ in pairs(servers) do
             library = { plugins = { "neotest" }, types = true },
             lspconfig = lsp_opts,
         }))
-    end
-
-    if server_name == "tsserver" then
-        lsp_opts = ts.setup({
-            debug_commands = false,
-            debug = false,
-            server = lsp_opts,
-        })
     end
 end
 
