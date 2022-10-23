@@ -43,7 +43,7 @@ brew install stow
 clone into your `$HOME` directory `~`
 
 ```"git"
-https://github.com/shendypratamaa/.dotfiles.git
+https://github.com/shendypratamaa/.dotfiles.git ~
 ```
 
 run `stow` to symlink everything, or select specified config
@@ -53,7 +53,7 @@ stow */ # Everything (the '/' ignores the README)
 ```
 
 ```"git"
-stow zsh # create symlink zsh config | put .zprofile into your $HOME dir
+stow zsh # Specified DIR
 ```
 
 ## Notes 📖
