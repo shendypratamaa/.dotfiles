@@ -192,12 +192,10 @@ local pickers = {
 
 local extensions = {
     project = {
-        base_dirs = {
-            { "~/.code/" },
-            { "~/.config/" },
-        },
-        hidden_files = true,
-        theme        = "dropdown",
+        base_dirs = {},
+        theme               = "dropdown",
+        hidden_files        = false,
+        sync_with_nvim_tree = true,
     },
     fzf = {
         fuzzy                   = true,

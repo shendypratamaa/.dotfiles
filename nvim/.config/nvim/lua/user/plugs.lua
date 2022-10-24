@@ -107,7 +107,7 @@ return packer.startup(function(use)
   -- Telescope
   use { 'nvim-telescope/telescope.nvim', commit = '30e2dc5232d0dd63709ef8b44a5d6184005e8602' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', commit = '65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90' }
-  use { 'nvim-telescope/telescope-project.nvim', commit = 'dc9a1977d159e3feb98774729f5c30584e2b700a' }
+  use { 'nvim-telescope/telescope-project.nvim', commit = 'ff4d3cea905383a67d1a47b9dd210c4907d858c2' }
   use { 'nvim-telescope/telescope-dap.nvim', commit = 'b4134fff5cbaf3b876e6011212ed60646e56f060' }
   use { 'dhruvmanila/telescope-bookmarks.nvim', commit = 'a357ecbfa9aaff607a9bf864ad4ad78255df30d8' }
   use { 'nvim-telescope/telescope-ui-select.nvim', commit = '62ea5e58c7bbe191297b983a9e7e89420f581369' }
