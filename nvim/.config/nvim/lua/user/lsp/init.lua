@@ -9,10 +9,6 @@ if not lsp_ok and navic_ok and cmp_ok and lv_ok and scheme_ok then
     return
 end
 
-local disable_diagnostics_lsp = function()
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-end
-
 local on_attach = function(client, bufnr)
     require("user.lsp.saga").setup()
     require("user.lsp.highlight").setup()
@@ -22,13 +18,11 @@ local on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
         navic.attach(client, bufnr)
-        disable_diagnostics_lsp()
     end
 
     if client.name == "bashls" then
         client.resolved_capabilities.document_formatting = false
         navic.attach(client, bufnr)
-        disable_diagnostics_lsp()
     end
 
     if client.name == "sumneko_lua" then
@@ -48,6 +42,7 @@ local on_attach = function(client, bufnr)
 
     if client.name == "html" then
         client.resolved_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
     end
 end
 
