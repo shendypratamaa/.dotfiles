@@ -11,8 +11,6 @@ tap "homebrew/test-bot"
 tap "koekeishiya/formulae"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
-# Bourne-Again SHell, a UNIX command interpreter
-brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Cross-platform make
@@ -39,14 +37,12 @@ brew "git"
 brew "git-delta"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
-# Generic library support script
-brew "libtool"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # GNU grep, egrep and fgrep
 brew "grep"
 # Improved top (interactive process viewer)
 brew "htop"
+# Generic library support script
+brew "libtool"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
@@ -61,6 +57,8 @@ brew "luarocks"
 brew "neofetch"
 # Small build system for use with gyp or CMake
 brew "ninja"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Python version management
 brew "pyenv"
 # Reattach process (e.g., tmux) to background
@@ -89,8 +87,6 @@ brew "wget"
 brew "wimlib"
 # Check your $HOME for unwanted files and directories
 brew "xdg-ninja"
-# UNIX shell (command interpreter)
-brew "zsh"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
