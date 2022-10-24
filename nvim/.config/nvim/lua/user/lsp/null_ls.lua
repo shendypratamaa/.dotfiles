@@ -15,10 +15,10 @@ local formatting   = nls.builtins.formatting
 local diagnostics  = nls.builtins.diagnostics
 local code_actions = nls.builtins.code_actions
 
-local prettierpth  = "~/.config/prettier/.prettierrc.json"
-local styluapth    = "~/.config/stylua/stylua.toml"
-local flake8       = "~/.config/flake8/.flake8"
-local eslint       = "~/.config/eslint/.eslintrc.json"
+local prettier = "~/.config/prettier/.prettierrc.json"
+local eslint   = "~/.config/eslint/.eslintrc.json"
+local stylua   = "~/.config/stylua/stylua.toml"
+local flake8   = "~/.config/flake8/.flake8"
 
 local sources = {
     -- swift
@@ -28,7 +28,7 @@ local sources = {
     formatting.prettier.with({
         extra_args = {
             "--config",
-            fn.expand(prettierpth),
+            fn.expand(prettier),
         },
     }),
     diagnostics.eslint_d.with({
@@ -43,7 +43,7 @@ local sources = {
     formatting.stylua.with({
         extra_args = {
             "--config-path",
-            fn.expand(styluapth),
+            fn.expand(stylua),
         },
     }),
 
@@ -76,7 +76,7 @@ local sources = {
 
 function M.setup(on_attach)
     nls.setup({
-        debug = true,
+        debug = false,
         debounce = 150,
         diagnostics_format = "[#{c}] #{m}",
         sources = sources,

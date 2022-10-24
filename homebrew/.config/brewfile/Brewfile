@@ -21,16 +21,10 @@ brew "cmake"
 brew "cocoapods"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Reimplementation of ctags(1)
-brew "ctags"
 # GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Generic library support script
-brew "libtool"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -45,6 +39,10 @@ brew "git"
 brew "git-delta"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# Generic library support script
+brew "libtool"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # GNU grep, egrep and fgrep
 brew "grep"
 # Improved top (interactive process viewer)

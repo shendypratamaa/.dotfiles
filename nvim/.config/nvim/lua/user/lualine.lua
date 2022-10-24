@@ -97,11 +97,10 @@ local filename = {
         unnamed  = "[No Name]",
     },
     fmt = function()
-        local fn   = vim.fn
-        local user = fn.expand("$USER")
-        local cwd  = fn.expand("%:p")
-        local s    = string.gsub(cwd, user, "  ")
-        local res  = string.lower(s)
+        local fn    = vim.fn
+        local cwd   = fn.expand("%:p")
+        local short = fn.pathshorten(cwd)
+        local res   = string.lower(short)
         return res
     end,
 }
