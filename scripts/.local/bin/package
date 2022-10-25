@@ -3,41 +3,50 @@
 set -e
 
 update() {
-  echo "=================="
-  echo "Package Update ⚙️"
-  echo "=================="
+  echo "Package Update ⚙️..."
   brew update
   brew bundle -v --file=~/.config/brewfile/Brewfile
   brew upgrade
   brew info
 }
 
+bundle(){
+  echo "Package Bundle 📦..."
+  brew bundle dump --desc --force --file=~/.config/brewfile/Brewfile
+  bat ~/.config/brewfile/Brewfile
+}
+
 clean(){
-  echo "================="
-  echo "Package Clean 🤖"
-  echo "================="
-  brew cleanup
+  echo "Package Clean 🤖..."
+  brew cleanup --prune=all
   brew autoremove
 }
 
 leave(){
-  echo "====================="
-  echo "Process Complete! ⭐"
-  echo "====================="
+  echo "Process Complete! ⭐..."
   exit
 }
 
+# brew bundle install
 if [ "$1" == "-u" ]; then
   update
   clean
   leave
 fi
 
+# brew bundle dump
+if [ "$1" == "-b" ]; then
+  bundle
+  leave
+fi
+
+# brew cleanup
 if [ "$1" == "-c" ]; then
   clean
   leave
 fi
 
 update
+bundle
 clean
 leave

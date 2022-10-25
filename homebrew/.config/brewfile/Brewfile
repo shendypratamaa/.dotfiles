@@ -13,20 +13,24 @@ tap "koekeishiya/formulae"
 brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Cross-platform make
 brew "cmake"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# GNU internationalization (i18n) and localization (l10n) library
-brew "gettext"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Generic library support script
+brew "libtool"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU awk utility
@@ -41,8 +45,6 @@ brew "gnu-sed"
 brew "grep"
 # Improved top (interactive process viewer)
 brew "htop"
-# Generic library support script
-brew "libtool"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
@@ -53,12 +55,14 @@ brew "lua"
 brew "luajit", args: ["HEAD"]
 # Package manager for the Lua programming language
 brew "luarocks"
+# Command-line interface for SQLite
+brew "sqlite"
+# Media player based on MPlayer and mplayer2
+brew "mpv"
 # Fast, highly customisable system info script
 brew "neofetch"
 # Small build system for use with gyp or CMake
 brew "ninja"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Python version management
 brew "pyenv"
 # Reattach process (e.g., tmux) to background
@@ -67,8 +71,6 @@ brew "reattach-to-user-namespace"
 brew "ripgrep"
 # Terminal based presentation tool
 brew "slides"
-# Command-line interface for SQLite
-brew "sqlite"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Formatting tool for reformatting Swift code
