@@ -72,5 +72,6 @@ yabai -m rule --add label="Preview" app="^Preview" manage=off
 yabai -m rule --add label="karabiner-elements" app="^Karabiner-Elements" manage=off
 yabai -m rule --add label="karabiner-event-viewer" app="^Karabiner-EventViewer" manage=off
 yabai -m rule --add label="alt-tab" app="^AltTab" manage=off
+yabai -m rule --add label="mvp" app="^mpv" manage=off
 
 echo "yabai configuration loaded.."

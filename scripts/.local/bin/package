@@ -3,50 +3,84 @@
 set -e
 
 update() {
-  echo "Package Update ⚙️..."
-  brew update
-  brew bundle -v --file=~/.config/brewfile/Brewfile
-  brew upgrade
-  brew info
+	echo "Package Update ⚙️..."
+	brew update
+	brew bundle -v --file=~/.config/brewfile/Brewfile
+	brew upgrade
+	brew info
 }
 
-bundle(){
-  echo "Package Bundle 📦..."
-  brew bundle dump --desc --force --file=~/.config/brewfile/Brewfile
-  bat ~/.config/brewfile/Brewfile
+bundle() {
+	echo "Package Bundle 📦..."
+	brew bundle dump --desc --force --file=~/.config/brewfile/Brewfile
+	bat ~/.config/brewfile/Brewfile
 }
 
-clean(){
-  echo "Package Clean 🤖..."
-  brew cleanup --prune=all
-  brew autoremove
+clean() {
+	echo "Package Clean 🤖..."
+	brew cleanup
+	brew autoremove
 }
 
-leave(){
-  echo "Process Complete! ⭐..."
-  exit
+leave() {
+	echo "Process Complete! 🌟..."
+	exit
 }
 
-# brew bundle install
-if [ "$1" == "-u" ]; then
-  update
-  clean
-  leave
+help() {
+	cat <<-_EOF_
+		Homebrew Package Update 0.0.1 💁
+
+		package [command] :
+		-a update homebrew | install package from brewfile | brew cleanup | generate brewfile and preview brewfile
+		-b generate brewfile into specified directory and preview brewfile
+		-c clean unused brew package / remove old version package / remove cache
+		-r --reinstall will reinstall all package
+		-h help
+	_EOF_
+}
+
+# brew upgrade | brew install | brew bundle | brew clean | complete
+if [ "$1" == "-a" ]; then
+	update
+	clean
+	bundle
+	leave
 fi
 
-# brew bundle dump
+# brew dump
 if [ "$1" == "-b" ]; then
-  bundle
-  leave
+	bundle
+	leave
 fi
 
 # brew cleanup
 if [ "$1" == "-c" ]; then
-  clean
-  leave
+	clean
+	leave
 fi
 
-update
-bundle
-clean
-leave
+if [ "$1" == "-h" ]; then
+	help
+	exit
+fi
+
+if [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
+	echo "Uninstalling Package 🌊..."
+	brew list --cask | xargs brew uninstall --force
+	brew list | xargs brew uninstall --force
+	echo "Uninstall Sucessfully 🌟..."
+	update
+	clean
+	bundle
+	leave
+fi
+
+if [ -n "$1" ]; then
+	echo "command not found 🚓"
+	echo "execute package -h for information"
+	exit
+fi
+
+echo "Homebrew Package Update 0.0.1 💁"
+echo "package -h for information"

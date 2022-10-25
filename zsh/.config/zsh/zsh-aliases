@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # EXA
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
 alias ls="exa --group-directories-first --icons"
