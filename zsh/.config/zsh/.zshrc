@@ -9,14 +9,6 @@ setopt auto_cd
 # colors
 autoload -U colors && colors
 
-# completions
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
-compinit -d ~/.cache/zsh/zcompdump
-_comp_options+=(globdots)
-
 # functions
 source "$ZDOTDIR/zsh-functions"
 
