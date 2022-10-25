@@ -37,3 +37,7 @@ if [ "$1" == "-c" ]; then
   clean
   leave
 fi
+
+update
+clean
+leave

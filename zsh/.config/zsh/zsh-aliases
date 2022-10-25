@@ -65,7 +65,12 @@ alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
 alias pyls="ls /usr/local/share/pyenv/versions/"
 
 # check path
-alias cmpath="/usr/libexec/path_helper | tr ':' '\n' "
+alias cpath="
+echo '----------------------\n'\
+'PATH ⚙️\n'$PATH | tr ':' '\n' && echo '----------------------\n'\
+'FPATH 🤖\n'$FPATH | tr ':' '\n' && echo '----------------------\n'\
+'MANPATH 📖\n'$MANPATH | tr ':' '\n' && echo '----------------------\n'\
+"
 
 # WGET
 alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts/.wget-hsts'"
