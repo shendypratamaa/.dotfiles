@@ -8,6 +8,9 @@ alias ll="ls --git -lah "
 alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias npml="npm list --location=global --depth=0"
 
+# HTOP
+alias htop="htop --tree"
+
 # ZSH
 alias src="source ~/.config/zsh/.zshrc"
 alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
