@@ -93,6 +93,10 @@ brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 # Enable Windows-like alt-tab
 cask "alt-tab"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Web browser
+cask "firefox"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Keyboard customizer

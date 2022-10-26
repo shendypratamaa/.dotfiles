@@ -3,10 +3,13 @@
 set -e
 
 update() {
-	echo "Package Update ⚙️..."
-	brew update
+	echo "Package Update 🍺..."
+	brew update --verbose --force && brew upgrade
+
+	echo "Package Update From Brewfile 🎞️..."
 	brew bundle -v --file=~/.config/brewfile/Brewfile
-	brew upgrade
+
+	echo "Package Info 🗓️..."
 	brew info
 }
 
@@ -18,7 +21,7 @@ bundle() {
 
 clean() {
 	echo "Package Clean 🤖..."
-	brew cleanup
+	brew cleanup && brew cleanup --prune=all
 	brew autoremove
 }
 

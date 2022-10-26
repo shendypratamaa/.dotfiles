@@ -2,7 +2,7 @@
 cmd - return : kitty --single-instance -d ~
 
 # open firefox
-cmd + shift - return : /Applications/Firefox.app/Contents/MacOS/firefox
+cmd + shift - return : open -a brave\ Browser
 
 # disable hide application
 cmd - h : :
@@ -39,11 +39,11 @@ cmd + ctrl - 0 : yabai -m space --balance
 cmd + shift - w : yabai -m space --destroy
 
 # create new desktop without follow focus
-cmd + shift - n : yabai -m space --create;\
+rcmd + shift - n : yabai -m space --create;\
                   osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
 # create new desktop and follow focus
-cmd + ctrl - n : yabai -m space --create && \
+rcmd + ctrl - n : yabai -m space --create && \
                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                  yabai -m window --space "${index}" && \
                  yabai -m space --focus "${index}";\

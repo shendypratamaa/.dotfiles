@@ -204,7 +204,7 @@ local extensions = {
         case_mode               = "smart_case",
     },
     bookmarks = {
-        selected_browser = "safari",
+        selected_browser = "brave",
         url_open_command = "open",
     },
     ["ui-select"] = {
