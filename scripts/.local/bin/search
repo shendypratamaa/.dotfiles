@@ -2,69 +2,96 @@
 
 set -e
 
-YT="https://youtube.com/results?search_query="
-GO="https://www.google.com/search?q="
-GT="https://github.com/search?q="
-ST="https://stackoverflow.com/search?q="
-RD="https://www.reddit.com/search/?q="
+youtube="https://youtube.com/results?search_query="
+piped="https://piped.kavin.rocks/results?search_query="
+music="https://listen.whatever.social/search/"
+google="https://www.google.com/search?q="
+reddit="https://www.reddit.com/search/?q="
+stackoverflow="https://stackoverflow.com/search?q="
+github="https://github.com/search?q="
 
 search() {
 	open -a Brave\ Browser "$*"
 }
 
-yt() {
-	search "$YT$*"
+youtube() {
+	search "$youtube$*"
 }
 
-go() {
-	search "$GO$*"
+piped() {
+	search "$piped$*"
 }
 
-gt() {
-	search "$GT$*&type=repositories"
+music() {
+	search "$music$*"
 }
 
-st() {
-	search "$ST$*"
+google() {
+	search "$google$*"
 }
 
-rd() {
-	search "$RD$*"
+github() {
+	search "$github$*&type=repositories"
+}
+
+stackoverflow() {
+	search "$stackoverflow$*"
+}
+
+reddit() {
+	search "$reddit$*"
 }
 
 help() {
 	cat <<-_EOF_
 		Browser Search Utils 0.0.1 🌏
+		Brave Browser (default)
 
 		search [command | args] :
-			-h  help info
-			-gt searching github repositories
-			-go searching google content
-			-yt searching youtube content
-			-rd searching reddit content
- 		  -st searching stackoverflow content
+			[-gt || github ] github search repositories
+			[-go || google ] google search
+			[-yt || youtube] youtube search
+			[-pi || piped] youtube alternative less distraction
+			[-ps || music] youtube music alternative
+			[-rd || reddit] reddit content
+		     [-st || stackoverflow] stackoverflow content
+			-h  help
 	_EOF_
 }
 
-
-if [ "$1" == "-gt" ]; then
-	gt "${@:2}"
+if [ "$1" == "-gt" ] || [ "$1" == "github" ]; then
+	github "${@:2}"
+	exit
 fi
 
-if [ "$1" == "-go" ]; then
-	go "${@:2}"
+if [ "$1" == "-go" ] || [ "$1" == "google" ]; then
+	google "${@:2}"
+	exit
 fi
 
-if [ "$1" == "-yt" ]; then
-	yt "${@:2}"
+if [ "$1" == "-pi" ] || [ "$1" == "piped" ]; then
+	piped "${@:2}"
+	exit
 fi
 
-if [ "$1" == "-rd" ]; then
-	rd "${@:2}"
+if [ "$1" == "-yt" ] || [ "$1" == "youtube" ]; then
+	youtube "${@:2}"
+	exit
 fi
 
-if [ "$1" == "-st" ]; then
-	st "${@:2}"
+if [ "$1" == "-ps" ] || [ "$1" == "music" ]; then
+	music "${@:2}"
+	exit
+fi
+
+if [ "$1" == "-rd" ] || [ "$1" == "reddit" ]; then
+	reddit "${@:2}"
+	exit
+fi
+
+if [ "$1" == "-st" ] || [ "$1" == "stackoverflow" ]; then
+	stackoverflow "${@:2}"
+	exit
 fi
 
 if [ "$1" == "-h" ]; then
@@ -73,8 +100,10 @@ if [ "$1" == "-h" ]; then
 fi
 
 if [ -n "$1" ]; then
+	echo "command not found 🙊"
+	echo "search -h for help 💁"
 	exit
 fi
 
-echo "Browser Utils 0.0.1 🌏"
+echo "Browser Search Utils 0.0.1 🌏"
 echo "search -h for help 💁"

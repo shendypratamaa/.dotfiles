@@ -18,6 +18,7 @@ Sessionx.vim
 [._]*.un~
 
 # Auto generate
+test
 tags
 plugin/
 plugins/
@@ -28,7 +29,7 @@ Brewfile.lock.json
 # Lazygit
 state.yml
 
-# luarc
+# lua
 .luarc.json
 
 .DS_Store

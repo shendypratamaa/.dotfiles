@@ -98,10 +98,10 @@ if [ "$1" == "-i" ]; then
 fi
 
 if [ -n "$1" ]; then
-	echo "command not found 🚓"
-	echo "execute package -h for information"
+	echo "command not found 🙊"
+	echo "package -h for help 💁"
 	exit
 fi
 
-echo "Homebrew Package Update 0.0.1 💁"
-echo "package -h for information"
+echo "Homebrew Package Update 0.0.1 📦"
+echo "package -h for help 💁"
