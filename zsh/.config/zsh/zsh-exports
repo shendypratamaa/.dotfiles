@@ -16,6 +16,12 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 # BREW/BIN/SBIN
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# FPATH
+export FPATH="/usr/local/share/zsh/site-functions"
+
+# MANPATH
+export MANPATH="/usr/local/share/man"
+
 # FZF
 export PATH="/opt/homebrew/opt/fzf/bin:$PATH"
 

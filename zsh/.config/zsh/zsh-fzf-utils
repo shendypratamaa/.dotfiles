@@ -1,5 +1,4 @@
-# MANPAGER_BAT
-export MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'"
+#!/bin/sh
 
 # FZF_LAYOUT
 export FZF_DEFAULT_OPTS="--height 50% \
@@ -56,7 +55,7 @@ EXCLUDE_FZF=' \
 
 BAT="--preview \
   'bat \
-  --style=numbers \
+  --style=plain \
   --color=always \
   --line-range :500 {}'\
   "
@@ -84,11 +83,19 @@ export FZF_CTRL_R_COMMAND=""
 
 # ALT_C | directory
 export FZF_ALT_C_OPTS="$TREE"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d "
 
 # REBIND ALT_C TO CTRL_P
 bindkey "^P" fzf-cd-widget
 
 # ALIAS
-alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 5 --type d | fzf $TREE)"
-alias vn="$FZF_DEFAULT_COMMAND -d 5 --type f | fzf $BAT | xargs nvim"
+alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 5 --type d | fzf --prompt=' 👉 change directory > ' $TREE)"
+alias vn="$FZF_DEFAULT_COMMAND -d 5 --type f | fzf $BAT --prompt='💻 open on editor > ' | xargs nvim"
+
+# MANPAGE
+fman() {
+  man -k . | fzf --prompt=' 🎓 docs manpage > ' | awk -F "(" '{print $1}' | xargs -r man
+}
+
+# MANPAGER_BAT
+export MANPAGER="sh -c 'col -bx | bat -l=man --style=plain --paging=always '"
