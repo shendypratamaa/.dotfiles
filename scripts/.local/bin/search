@@ -1,0 +1,80 @@
+#!/bin/bash
+
+set -e
+
+YT="https://youtube.com/results?search_query="
+GO="https://www.google.com/search?q="
+GT="https://github.com/search?q="
+ST="https://stackoverflow.com/search?q="
+RD="https://www.reddit.com/search/?q="
+
+search() {
+	open -a Brave\ Browser "$*"
+}
+
+yt() {
+	search "$YT$*"
+}
+
+go() {
+	search "$GO$*"
+}
+
+gt() {
+	search "$GT$*&type=repositories"
+}
+
+st() {
+	search "$ST$*"
+}
+
+rd() {
+	search "$RD$*"
+}
+
+help() {
+	cat <<-_EOF_
+		Browser Search Utils 0.0.1 🌏
+
+		search [command | args] :
+			-h  help info
+			-gt searching github repositories
+			-go searching google content
+			-yt searching youtube content
+			-rd searching reddit content
+ 		  -st searching stackoverflow content
+	_EOF_
+}
+
+
+if [ "$1" == "-gt" ]; then
+	gt "${@:2}"
+fi
+
+if [ "$1" == "-go" ]; then
+	go "${@:2}"
+fi
+
+if [ "$1" == "-yt" ]; then
+	yt "${@:2}"
+fi
+
+if [ "$1" == "-rd" ]; then
+	rd "${@:2}"
+fi
+
+if [ "$1" == "-st" ]; then
+	st "${@:2}"
+fi
+
+if [ "$1" == "-h" ]; then
+	help
+	exit
+fi
+
+if [ -n "$1" ]; then
+	exit
+fi
+
+echo "Browser Utils 0.0.1 🌏"
+echo "search -h for help 💁"

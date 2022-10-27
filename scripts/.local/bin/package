@@ -13,6 +13,18 @@ update() {
 	brew info
 }
 
+info() {
+	echo "-----------------------------"
+	echo "Package List 📦 ==>"
+	brew ls --formulae
+	echo "-----------------------------"
+	echo "Package Cask 📦 ==>"
+	brew ls --casks
+	echo "-----------------------------"
+	echo "Package Info 📦 ==>"
+	brew info
+}
+
 bundle() {
 	echo "Package Bundle 📦..."
 	brew bundle dump --desc --force --file=~/.config/brewfile/Brewfile
@@ -38,6 +50,7 @@ help() {
 		-a update homebrew | install package from brewfile | brew cleanup | generate brewfile and preview brewfile
 		-b generate brewfile into specified directory and preview brewfile
 		-c clean unused brew package / remove old version package / remove cache
+		-i package list
 		-r --reinstall will reinstall all package
 		-h help
 	_EOF_
@@ -77,6 +90,11 @@ if [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
 	clean
 	bundle
 	leave
+fi
+
+if [ "$1" == "-i" ]; then
+	info
+	exit
 fi
 
 if [ -n "$1" ]; then
