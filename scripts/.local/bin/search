@@ -47,15 +47,15 @@ help() {
 		Browser Search Utils 0.0.1 🌏 | (brave)
 
 		search [command|args] :
-			-h --help for help information
-			-v --version for version information
-			[-gt || github] github search repositories
-			[-go || google] google search
-			[-yt || youtube] youtube search
-			[-pi || piped] youtube alternative less distraction
-			[-ps || music] youtube music alternative
-			[-rd || reddit] reddit content
-		  [-st || stackoverflow] stackoverflow content
+			-gt --github search repositories
+			-rd --reddit search content
+			-so --overflow search content
+			-go --google search content
+			-yt --youtube search content
+			-pi --piped youtube alternative less distraction
+			-ps --music youtube music alternative
+			-h  --help for help information
+			-v  --version for version information
 	_EOF_
 }
 
@@ -65,55 +65,37 @@ version() {
 	_EOF_
 }
 
-if [ "$1" == "-gt" ] || [ "$1" == "github" ]; then
+if [ "$1" == "-gt" ] || [ "$1" == "--github" ]; then
 	github "${@:2}"
 	exit
-fi
-
-if [ "$1" == "-go" ] || [ "$1" == "google" ]; then
+elif [ "$1" == "-go" ] || [ "$1" == "--google" ]; then
 	google "${@:2}"
 	exit
-fi
-
-if [ "$1" == "-pi" ] || [ "$1" == "piped" ]; then
+elif [ "$1" == "-pi" ] || [ "$1" == "--piped" ]; then
 	piped "${@:2}"
 	exit
-fi
-
-if [ "$1" == "-yt" ] || [ "$1" == "youtube" ]; then
+elif [ "$1" == "-yt" ] || [ "$1" == "--youtube" ]; then
 	youtube "${@:2}"
 	exit
-fi
-
-if [ "$1" == "-ps" ] || [ "$1" == "music" ]; then
+elif [ "$1" == "-ps" ] || [ "$1" == "--music" ]; then
 	music "${@:2}"
 	exit
-fi
-
-if [ "$1" == "-rd" ] || [ "$1" == "reddit" ]; then
+elif [ "$1" == "-rd" ] || [ "$1" == "--reddit" ]; then
 	reddit "${@:2}"
 	exit
-fi
-
-if [ "$1" == "-st" ] || [ "$1" == "stackoverflow" ]; then
+elif [ "$1" == "-so" ] || [ "$1" == "--overflow" ]; then
 	stackoverflow "${@:2}"
 	exit
-fi
-
-if [ "$1" == "-v" ] || [ "$1" == "--version" ]; then
-	version
+elif [ "$1" == "-v" ] || [ "$1" == "--version" ]; then
+	version "${@:2}"
 	exit
-fi
-
-if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
-	help
+elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+	help "${@:2}"
 	exit
-fi
-
-if [ -n "$1" ]; then
-	echo "search -h for help 💁"
+elif [ -n "$1" ]; then
+	echo "search -help for information 💁"
 	exit
+else
+	echo "search -help for information 💁"
+	echo "pattern search [command|args] 🔼"
 fi
-
-echo "search -h for help 💁"
-echo "pattern search [command|args] 🔼"

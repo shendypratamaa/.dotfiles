@@ -47,12 +47,13 @@ help() {
 		Package Update 0.0.1 📦 | (homebrew)
 
 		package [command] :
-		-a update homebrew | install package from brewfile | brew cleanup | generate brewfile and preview brewfile
-		-b generate brewfile into specified directory and preview brewfile
-		-c clean unused brew package / remove old version package / remove cache
-		-i package list
-		-r --reinstall will reinstall all package
+		-a --updateall homebrew | install package from brewfile | brew cleanup | generate brewfile | preview brewfile
+		-b --bundle generate brewfile | preview brewfile
+		-c --clean unused brew package | remove old version package | remove cache
+		-l --list package list | formulae | casks | brew info
+		-r --reinstall reinstall all package
 		-h --help for help information
+		-v --version for version information
 
 		# optional : change to cat or less | most operating system have 🟢
 		# require [https://github.com/sharkdp/bat] for preview (default) 🔴
@@ -61,31 +62,22 @@ help() {
 
 version() {
 	cat <<-_EOF_
-	Package Update 0.0.1 📦
+		Package Update 0.0.1 📦
 	_EOF_
 }
 
-# brew upgrade | brew install | brew bundle | brew clean | complete
-if [ "$1" == "-a" ]; then
+if [ "$1" == "-a" ] || [ "$1" == "--updateall" ]; then
 	update
 	clean
 	bundle
 	leave
-fi
-
-# brew dump
-if [ "$1" == "-b" ]; then
+elif [ "$1" == "-b" ] || [ "$1" == "--bundle" ]; then
 	bundle
 	leave
-fi
-
-# brew cleanup
-if [ "$1" == "-c" ]; then
+elif [ "$1" == "-c" ] || [ "$1" == "--clean" ]; then
 	clean
 	leave
-fi
-
-if [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
+elif [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
 	echo "Uninstalling Package 🌊..."
 	brew list --cask | xargs brew uninstall --force
 	brew list | xargs brew uninstall --force
@@ -94,27 +86,19 @@ if [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
 	clean
 	bundle
 	leave
-fi
-
-if [ "$1" == "-i" ]; then
+elif [ "$1" == "-l" ] || [ "$1" == "--list" ]; then
 	info
 	exit
-fi
-
-if [ "$1" == "-v" ] || [ "$1" == "--version" ]; then
+elif [ "$1" == "-v" ] || [ "$1" == "--version" ]; then
 	version
 	exit
-fi
-
-if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help
 	exit
-fi
-
-if [ -n "$1" ]; then
-	echo "package -h for help 💁"
+elif [ -n "$1" ]; then
+	echo "package -help for information 💁"
 	exit
+else
+	echo "package -help for information 💁"
+	echo "pattern package [command] 🔼"
 fi
-
-echo "package -h for help 💁"
-echo "pattern package [command] 🔼"
