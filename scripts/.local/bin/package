@@ -44,7 +44,7 @@ leave() {
 
 help() {
 	cat <<-_EOF_
-		Homebrew Package Update 0.0.1 💁
+		Package Update 0.0.1 📦 | (homebrew)
 
 		package [command] :
 		-a update homebrew | install package from brewfile | brew cleanup | generate brewfile and preview brewfile
@@ -52,7 +52,16 @@ help() {
 		-c clean unused brew package / remove old version package / remove cache
 		-i package list
 		-r --reinstall will reinstall all package
-		-h help
+		-h --help for help information
+
+		# optional : change to cat or less | most operating system have 🟢
+		# require [https://github.com/sharkdp/bat] for preview (default) 🔴
+	_EOF_
+}
+
+version() {
+	cat <<-_EOF_
+	Package Update 0.0.1 📦
 	_EOF_
 }
 
@@ -76,11 +85,6 @@ if [ "$1" == "-c" ]; then
 	leave
 fi
 
-if [ "$1" == "-h" ]; then
-	help
-	exit
-fi
-
 if [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
 	echo "Uninstalling Package 🌊..."
 	brew list --cask | xargs brew uninstall --force
@@ -97,11 +101,20 @@ if [ "$1" == "-i" ]; then
 	exit
 fi
 
+if [ "$1" == "-v" ] || [ "$1" == "--version" ]; then
+	version
+	exit
+fi
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+	help
+	exit
+fi
+
 if [ -n "$1" ]; then
-	echo "command not found 🙊"
 	echo "package -h for help 💁"
 	exit
 fi
 
-echo "Homebrew Package Update 0.0.1 📦"
 echo "package -h for help 💁"
+echo "pattern package [command] 🔼"

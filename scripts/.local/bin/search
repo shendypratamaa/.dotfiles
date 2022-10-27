@@ -44,18 +44,24 @@ reddit() {
 
 help() {
 	cat <<-_EOF_
-		Browser Search Utils 0.0.1 🌏
-		Brave Browser (default)
+		Browser Search Utils 0.0.1 🌏 | (brave)
 
-		search [command | args] :
-			[-gt || github ] github search repositories
-			[-go || google ] google search
+		search [command|args] :
+			-h --help for help information
+			-v --version for version information
+			[-gt || github] github search repositories
+			[-go || google] google search
 			[-yt || youtube] youtube search
 			[-pi || piped] youtube alternative less distraction
 			[-ps || music] youtube music alternative
 			[-rd || reddit] reddit content
-		     [-st || stackoverflow] stackoverflow content
-			-h  help
+		  [-st || stackoverflow] stackoverflow content
+	_EOF_
+}
+
+version() {
+	cat <<-_EOF_
+		Browser Search Utils 0.0.1 🌏
 	_EOF_
 }
 
@@ -94,16 +100,20 @@ if [ "$1" == "-st" ] || [ "$1" == "stackoverflow" ]; then
 	exit
 fi
 
-if [ "$1" == "-h" ]; then
+if [ "$1" == "-v" ] || [ "$1" == "--version" ]; then
+	version
+	exit
+fi
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help
 	exit
 fi
 
 if [ -n "$1" ]; then
-	echo "command not found 🙊"
 	echo "search -h for help 💁"
 	exit
 fi
 
-echo "Browser Search Utils 0.0.1 🌏"
 echo "search -h for help 💁"
+echo "pattern search [command|args] 🔼"
