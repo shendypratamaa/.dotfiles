@@ -89,12 +89,17 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d "
 bindkey "^P" fzf-cd-widget
 
 # ALIAS
-alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 5 --type d | fzf --prompt=' 👉 change directory > ' $TREE)"
+alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 5 --type d | fzf --prompt='👉 change directory > ' $TREE)"
 alias vn="$FZF_DEFAULT_COMMAND -d 5 --type f | fzf $BAT --prompt='💻 open on editor > ' | xargs nvim"
 
-# MANPAGE
+# Manpage
 fman() {
-  man -k . | fzf --prompt=' 🎓 docs manpage > ' | awk -F "(" '{print $1}' | xargs -r man
+  man -k . | fzf --prompt='manpage 💁 > ' | awk -F "(" '{print $1}' | xargs -r man
+}
+
+# Ebook
+dman() {
+  open $(fd . ~/Documents/ebook | fzf --prompt='ebook 📚 > ' | awk '{print $1}') 2> /dev/null
 }
 
 # MANPAGER_BAT
