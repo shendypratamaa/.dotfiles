@@ -1,7 +1,10 @@
 # open terminal
-cmd - return : kitty --single-instance -d ~
+cmd - return : open -a kitty.app
 
-# open firefox
+# hyperapp
+shift - m : open -a hyperpipe.app
+
+# open brave
 cmd + shift - return : open -a brave\ Browser
 
 # disable hide application
