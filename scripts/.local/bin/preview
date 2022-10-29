@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+urls=(~/Pictures/wallpaper ~/Documents/ebook)
+
+__open() {
+	for k in "${urls[@]}"; do
+		if [ "$1" = "$k" ]; then
+			open $(fd . $1 | fzf --multi --prompt="preview > " | awk '{print $1}') 2>/dev/null
+		fi
+	done
+}
+
+__open "$1"

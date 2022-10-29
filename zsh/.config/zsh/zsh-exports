@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # NVM
 export NVM_DIR="$XDG_DATA_DIRS/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -13,7 +15,10 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
-# BREW/BIN/SBIN
+# PATH
+# BREW
+# (M1)    /opt/homebrew/bin /opt/homebrew/sbin
+# (INTEL) /usr/local/bin /usr/local/sbin
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # FPATH
@@ -21,9 +26,6 @@ export FPATH="/usr/local/share/zsh/site-functions"
 
 # MANPATH
 export MANPATH="/usr/local/share/man"
-
-# FZF
-export PATH="/opt/homebrew/opt/fzf/bin:$PATH"
 
 # MYSCRIPT
 export PATH="$HOME/.local/bin:$PATH"
@@ -49,3 +51,7 @@ export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
 # NODE
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/.node_repl_history"
+
+# GEM
+export GEM_HOME="${XDG_DATA_HOME}/gem"
+export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"

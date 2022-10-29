@@ -27,6 +27,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # VARIABLE
 EXCLUDE_FZF=' \
   --exclude=.git \
+  --exclude=.gem \
   --exclude=.cache \
   --exclude=.vscode \
   --exclude=.npm \
@@ -42,6 +43,13 @@ EXCLUDE_FZF=' \
   --exclude=.localized \
   --exclude=.eslint_d \
   --exclude=.CFUserTextEncoding \
+  --exclude=.local/lib \
+  --exclude=.local/state \
+  --exclude=.local/share \
+  --exclude=.local/include \
+  --exclude=.config/karabiner/automatic_backups \
+  --exclude=.config/tmux/plugins \
+  --exclude=.config/zsh/plugin \
   --exclude=node_modules \
   --exclude=Library \
   --exclude=Pictures \
@@ -51,6 +59,7 @@ EXCLUDE_FZF=' \
   --exclude=Documents \
   --exclude=Music \
   --exclude=Public \
+  --exclude=Applications \
   '
 
 BAT="--preview \
@@ -68,7 +77,7 @@ TREE="--preview \
 export FZF_DEFAULT_COMMAND="fd -H -L --strip-cwd-prefix $EXCLUDE_FZF"
 
 # FZF COMPLETIONS
-export FZF_COMPLETION_TRIGGER="**"
+export FZF_COMPLETION_TRIGGER="~~"
 
 # CTRL_T | files
 export FZF_CTRL_T_OPTS="$BAT"
@@ -89,17 +98,13 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d "
 bindkey "^P" fzf-cd-widget
 
 # ALIAS
-alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 5 --type d | fzf --prompt='👉 change directory > ' $TREE)"
-alias vn="$FZF_DEFAULT_COMMAND -d 5 --type f | fzf $BAT --prompt='💻 open on editor > ' | xargs nvim"
+alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 7 --type d | fzf --prompt='👉 change directory > ' $TREE)"
+alias vn="$FZF_DEFAULT_COMMAND -d 7 --type f | fzf $BAT --prompt='💻 open on editor > ' | xargs nvim"
+alias dman="preview ~/Documents/ebook"
 
 # Manpage
 fman() {
-  man -k . | fzf --prompt='manpage 💁 > ' | awk -F "(" '{print $1}' | xargs -r man
-}
-
-# Ebook
-dman() {
-  open $(fd . ~/Documents/ebook | fzf --prompt='ebook 📚 > ' | awk '{print $1}') 2> /dev/null
+  man -k . | fzf --prompt='manpage 💁 > ' --multi | awk -F "(" '{print $1}' | xargs -r man
 }
 
 # MANPAGER_BAT

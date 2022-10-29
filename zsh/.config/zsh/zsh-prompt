@@ -27,14 +27,20 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 }
 
 zstyle ':vcs_info:*' check-for-changes true
-# zstyle ':vcs_info:git:*' formats " %r/%S %b %m%u%c "
-zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}[%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%} %b%{$fg[blue]%}]"
+zstyle ':vcs_info:git:*' formats " %B%{$fg[blue]%}[%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%} %b%{$fg[blue]%}]"
+
+_get_path() {
+    current_path=${PWD/#$HOME/'~'}
+    if [ "$current_path" = "~" ]; then
+       echo $current_path
+    else
+       path_parent=${current_path%\/*}
+       path_parent_short=`echo $path_parent | sed -r 's|/(..)[^/]*|/\1|g'`
+       directory=${current_path##*\/}
+       echo "$path_parent_short/$directory"
+    fi
+}
 
 # format our main prompt for hostname current folder, and permissions.
-# PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
-PROMPT="%B%{$fg[red]%}[%{$fg[magenta]%}S25%{$fg[red]%}🤖%{$fg[yellow]%}\$(uname)%{$fg[red]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
-# PROMPT="%{$fg[green]%}%n@%m %~ %{$reset_color%}%#> "
+PROMPT="%B%{$fg[red]%}[%{$fg[magenta]%}S25%{$fg[red]%}🤖%{$fg[yellow]%}\$(uname)%{$fg[red]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}[\$(_get_path)]%{$reset_color%}"
 PROMPT+="\$vcs_info_msg_0_ "
-# TODO look into this for more colors
-# https://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
-# also ascii escape codes
