@@ -99,12 +99,12 @@ bindkey "^P" fzf-cd-widget
 
 # ALIAS
 alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 7 --type d | fzf --prompt='👉 change directory > ' $TREE)"
-alias vn="$FZF_DEFAULT_COMMAND -d 7 --type f | fzf $BAT --prompt='💻 open on editor > ' | xargs nvim"
+alias vn="$FZF_DEFAULT_COMMAND -d 7 --type f | fzf --multi --prompt='👉 open with editor > ' $BAT | xargs nvim"
 alias dman="preview ~/Documents/ebook"
 
 # Manpage
 fman() {
-  man -k . | fzf --prompt='manpage 💁 > ' --multi | awk -F "(" '{print $1}' | xargs -r man
+  man -k . | fzf --prompt='👉 manpage > ' --multi | awk -F "(" '{print $1}' | xargs -r man
 }
 
 # MANPAGER_BAT
