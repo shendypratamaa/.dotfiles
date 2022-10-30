@@ -41,9 +41,6 @@ alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
-# open current pwd
-alias ofd="open ."
-
 # default commandline
 alias cp="cp -v -i"
 alias mv="mv -v -i"

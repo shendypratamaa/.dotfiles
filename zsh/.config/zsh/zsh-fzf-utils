@@ -4,6 +4,7 @@ export FZF_DEFAULT_OPTS="--height 50% \
   --border sharp \
   --inline-info \
   --margin 0,0.40% \
+  --bind=ctrl-j:down,ctrl-k:up
   "
 
 # FZF_COLORSCHEME_NORD
@@ -23,7 +24,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   '
 
 # VARIABLE
-EXCLUDE_FZF=' \
+EXCLUDE_VD_VN=' \
   --exclude=.git \
   --exclude=.gem \
   --exclude=.cache \
@@ -52,6 +53,7 @@ EXCLUDE_FZF=' \
   --exclude=Library \
   --exclude=Movies \
   --exclude=Postman \
+  --exclude=Pictures \
   --exclude=Desktop \
   --exclude=Documents \
   --exclude=Music \
@@ -71,14 +73,14 @@ TREE="--preview \
   "
 
 # FZF DEFAULT COMMAND
-export FZF_DEFAULT_COMMAND="fd -H -L --strip-cwd-prefix $EXCLUDE_FZF"
+export FZF_DEFAULT_COMMAND="fd -H -L --strip-cwd-prefix"
 
 # FZF COMPLETIONS
 export FZF_COMPLETION_TRIGGER="~~"
 
 # CTRL_T | files
 export FZF_CTRL_T_OPTS="$BAT"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND $EXCLUDE_VD_VN --type f"
 
 # CTRL_R | history
 export FZF_CTRL_R_OPTS="--preview \
@@ -89,14 +91,14 @@ export FZF_CTRL_R_COMMAND=""
 
 # ALT_C | directory
 export FZF_ALT_C_OPTS="$TREE"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d "
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND $EXCLUDE_VD_VN --type d "
 
 # REBIND ALT_C TO CTRL_P
 bindkey "^P" fzf-cd-widget
 
 # ALIAS
-alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 7 --type d | fzf --prompt='👉 change directory > ' $TREE)"
-alias vn="$FZF_DEFAULT_COMMAND -d 7 --type f | fzf --multi --prompt='👉 open with editor > ' $BAT | xargs nvim"
+alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND $EXCLUDE_VD_VN -d 7 --type d | fzf --prompt='👉 change directory > ' $TREE)"
+alias vn="$FZF_DEFAULT_COMMAND $EXCLUDE_VD_VN -d 7 --type f | fzf --multi --prompt='👉 open with editor > ' $BAT | xargs -r nvim"
 alias fman="preview -m"
 alias eman="preview -e"
 alias xman="preview -i"
