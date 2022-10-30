@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # FZF_LAYOUT
 export FZF_DEFAULT_OPTS="--height 50% \
   --layout=reverse \
@@ -52,7 +50,6 @@ EXCLUDE_FZF=' \
   --exclude=.config/zsh/plugin \
   --exclude=node_modules \
   --exclude=Library \
-  --exclude=Pictures \
   --exclude=Movies \
   --exclude=Postman \
   --exclude=Desktop \
@@ -100,12 +97,9 @@ bindkey "^P" fzf-cd-widget
 # ALIAS
 alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND -d 7 --type d | fzf --prompt='👉 change directory > ' $TREE)"
 alias vn="$FZF_DEFAULT_COMMAND -d 7 --type f | fzf --multi --prompt='👉 open with editor > ' $BAT | xargs nvim"
-alias dman="preview ~/Documents/ebook"
-
-# Manpage
-fman() {
-  man -k . | fzf --prompt='👉 manpage > ' --multi | awk -F "(" '{print $1}' | xargs -r man
-}
+alias fman="preview -m"
+alias eman="preview -e"
+alias xman="preview -i"
 
 # MANPAGER_BAT
 export MANPAGER="sh -c 'col -bx | bat -l=man --style=plain --paging=always '"

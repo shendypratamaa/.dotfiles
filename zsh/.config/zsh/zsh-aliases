@@ -59,7 +59,7 @@ alias du="du -sh"
 alias btw="neofetch"
 
 # kitty
-alias kittyimage="kitty +kitten icat"
+alias icat="kitty +kitten icat"
 alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
 
 # python

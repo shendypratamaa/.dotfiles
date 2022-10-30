@@ -64,9 +64,7 @@ yabai -m rule --add label="System Preferences" app="^System Preferences$" title=
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off
 yabai -m rule --add label="Finder" app="^Finder" manage=off
-# yabai -m rule --add label="Xcode" app="^Xcode" manage=off
 yabai -m rule --add label="Simulator" app="^Simulator" manage=off
-# yabai -m rule --add label="Preview" app="^Preview" manage=off
 
 # External App
 yabai -m rule --add label="karabiner-elements" app="^Karabiner-Elements" manage=off

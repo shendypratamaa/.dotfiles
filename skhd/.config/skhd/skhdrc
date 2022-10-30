@@ -20,7 +20,7 @@ cmd + shift - h : yabai -m window --swap west
 cmd + shift - l : yabai -m window --swap east
 
 # rotate tree
-cmd - o : yabai -m space --rotate 90
+cmd + shift - r : yabai -m space --rotate 90
 
 # toogle window into fullscreen
 cmd - f : yabai -m window --toggle zoom-fullscreen
