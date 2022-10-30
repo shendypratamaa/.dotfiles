@@ -44,7 +44,7 @@ reddit() {
 
 help() {
 	cat <<-_EOF_
-		Browser Search Utils 0.0.1 🌏 | (brave)
+		Browser Search Utils 0.0.1 🌏
 
 		search [command|args] :
 			-gt --github search repositories
@@ -56,6 +56,9 @@ help() {
 			-ps --music youtube music alternative
 			-h  --help for help information
 			-v  --version for version information
+
+		Requirement :
+		browser: by default brave
 	_EOF_
 }
 
@@ -93,9 +96,10 @@ elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help "${@:2}"
 	exit
 elif [ -n "$1" ]; then
+	echo "search not found 🙅"
 	echo "search -help for information 💁"
 	exit
 else
+	echo "search not found 🙅"
 	echo "search -help for information 💁"
-	echo "pattern search [command|args] 🔼"
 fi

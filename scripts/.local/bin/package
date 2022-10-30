@@ -17,9 +17,15 @@ info() {
 	echo "-----------------------------"
 	echo "Package List 📦 ==>"
 	brew ls --formulae
+
 	echo "-----------------------------"
 	echo "Package Cask 📦 ==>"
 	brew ls --casks
+
+	echo "-----------------------------"
+	echo "Package Tap 📦 ==>"
+	brew tap
+
 	echo "-----------------------------"
 	echo "Package Info 📦 ==>"
 	brew info
@@ -44,7 +50,7 @@ leave() {
 
 help() {
 	cat <<-_EOF_
-		Package Update 0.0.1 📦 | (homebrew)
+		Package Update 0.0.1 📦
 
 		package [command] :
 		-a --updateall homebrew | install package from brewfile | brew cleanup | generate brewfile | preview brewfile
@@ -55,8 +61,10 @@ help() {
 		-h --help for help information
 		-v --version for version information
 
-		# optional : change to cat or less | most operating system have 🟢
-		# require [https://github.com/sharkdp/bat] for preview (default) 🔴
+		Requirement :
+		bat:      cat(clone) syntax highlighting [https://github.com/sharkdp/bat]
+		homebrew: package manager
+		optional: cat or less
 	_EOF_
 }
 
@@ -96,9 +104,10 @@ elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help
 	exit
 elif [ -n "$1" ]; then
+	echo "package not found 🙅"
 	echo "package -help for information 💁"
 	exit
 else
+	echo "package not found 🙅"
 	echo "package -help for information 💁"
-	echo "pattern package [command] 🔼"
 fi

@@ -2,14 +2,46 @@
 
 set -e
 
-urls=(~/Pictures/wallpaper ~/Documents/ebook)
+ebook_paths="$HOME/Documents/ebook"
 
-__open() {
-	for k in "${urls[@]}"; do
-		if [ "$1" = "$k" ]; then
-			open $(fd . $1 | fzf --multi --prompt="preview > " | awk '{print $1}') 2>/dev/null
-		fi
-	done
+help() {
+	cat <<-_EOF_
+		Preview Utils 0.0.1 🐣
+
+		preview [cmd | path] :
+		-i --image open image
+		-e --ebook open ebook [add config path]
+		-m --man open manpage
+
+		Requirement :
+		fzf:     fuzzy finder [https://github.com/junegunn/fzf]
+		fd:      find replacement [https://github.com/sharkdp/fd]
+		zathura: pdf [https://github.com/zegervdv/homebrew-zathura]
+	_EOF_
 }
 
-__open "$1"
+version() {
+	echo "Preview Utils 0.0.1 🐣"
+}
+
+if [ "$1" = "-i" ] || [ "$1" = "--image" ]; then
+	qlmanage -p "${@:2}" 2> /dev/null
+elif [ "$1" = "-e" ] || [ "$1" = "--ebook" ]; then
+	fd . "$ebook_paths" | fzf --multi --prompt="👉 open book > " | awk '{print $1}' | xargs zathura
+	exit
+elif [ "$1" = "-m" ] || [ "$1" = "--man" ]; then
+	man -k . | fzf --multi --prompt='👉 manpage > ' | awk -F "(" '{print $1}' | xargs -r man
+elif [ "$1" = "-v" ]; then
+	version
+	exit
+elif [ "$1" = "-h" ]; then
+	help
+	exit
+elif [ -n "$1" ]; then
+	echo "preview not found 🙅"
+	echo "preview -help for information 💁"
+	exit
+else
+	echo "preview not found 🙅"
+	echo "preview -help for information 💁"
+fi
