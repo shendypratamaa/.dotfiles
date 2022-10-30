@@ -6,7 +6,7 @@ ebook_paths="$HOME/Documents/ebook"
 
 help() {
 	cat <<-_EOF_
-		Preview Utils 0.0.1 🐣
+		Preview Utils 🐣
 
 		preview [cmd | path] :
 		-i --image open image
@@ -14,26 +14,33 @@ help() {
 		-m --man open manpage
 
 		Requirement :
-		fzf:     fuzzy finder [https://github.com/junegunn/fzf]
-		fd:      find replacement [https://github.com/sharkdp/fd]
-		zathura: pdf [https://github.com/zegervdv/homebrew-zathura]
+		fzf:       fuzzy finder [https://github.com/junegunn/fzf]
+		fd:        find replacement [https://github.com/sharkdp/fd]
+		zathura:   pdf [https://github.com/zegervdv/homebrew-zathura]
+		quicklook: qlmanage (cmdline quicklook from macos)
 	_EOF_
 }
 
-version() {
-	echo "Preview Utils 0.0.1 🐣"
-}
+pictures_ignore=(
+	--exclude="Library"
+	--exclude="Applications"
+	--exclude="Movies"
+	--exclude="Pictures/Photo\ Booth\ Library"
+	--exclude="Pictures/Photos\ Library.photoslibrary"
+	--exclude="Music"
+	--exclude="Public"
+	--exclude="Postman"
+	--exclude="Documents"
+)
 
 if [ "$1" = "-i" ] || [ "$1" = "--image" ]; then
-	qlmanage -p "${@:2}" 2> /dev/null
+	fd . -L --strip-cwd-prefix "${pictures_ignore[@]}" -d 7 --type f | fzf --multi --prompt=' >' | awk '{print $1}' | xargs -r qlmanage -p 2>/dev/null
+	qlmanage -r cache
 elif [ "$1" = "-e" ] || [ "$1" = "--ebook" ]; then
-	fd . "$ebook_paths" | fzf --multi --prompt="👉 open book > " | awk '{print $1}' | xargs zathura
+	fd . "$ebook_paths" | fzf --multi --prompt="👉 open book > " | awk '{print $1}' | xargs zathura --fork 2>/dev/null
 	exit
 elif [ "$1" = "-m" ] || [ "$1" = "--man" ]; then
 	man -k . | fzf --multi --prompt='👉 manpage > ' | awk -F "(" '{print $1}' | xargs -r man
-elif [ "$1" = "-v" ]; then
-	version
-	exit
 elif [ "$1" = "-h" ]; then
 	help
 	exit

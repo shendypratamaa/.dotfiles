@@ -44,7 +44,7 @@ reddit() {
 
 help() {
 	cat <<-_EOF_
-		Browser Search Utils 0.0.1 🌏
+		Browser Search Utils 🌏
 
 		search [command|args] :
 			-gt --github search repositories
@@ -55,16 +55,9 @@ help() {
 			-pi --piped youtube alternative less distraction
 			-ps --music youtube music alternative
 			-h  --help for help information
-			-v  --version for version information
 
 		Requirement :
 		browser: by default brave
-	_EOF_
-}
-
-version() {
-	cat <<-_EOF_
-		Browser Search Utils 0.0.1 🌏
 	_EOF_
 }
 
@@ -88,9 +81,6 @@ elif [ "$1" == "-rd" ] || [ "$1" == "--reddit" ]; then
 	exit
 elif [ "$1" == "-so" ] || [ "$1" == "--overflow" ]; then
 	stackoverflow "${@:2}"
-	exit
-elif [ "$1" == "-v" ] || [ "$1" == "--version" ]; then
-	version "${@:2}"
 	exit
 elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help "${@:2}"

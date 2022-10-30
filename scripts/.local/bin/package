@@ -50,7 +50,7 @@ leave() {
 
 help() {
 	cat <<-_EOF_
-		Package Update 0.0.1 📦
+		Package Update 📦
 
 		package [command] :
 		-a --updateall homebrew | install package from brewfile | brew cleanup | generate brewfile | preview brewfile
@@ -59,18 +59,11 @@ help() {
 		-l --list package list | formulae | casks | brew info
 		-r --reinstall reinstall all package
 		-h --help for help information
-		-v --version for version information
 
 		Requirement :
 		bat:      cat(clone) syntax highlighting [https://github.com/sharkdp/bat]
 		homebrew: package manager
 		optional: cat or less
-	_EOF_
-}
-
-version() {
-	cat <<-_EOF_
-		Package Update 0.0.1 📦
 	_EOF_
 }
 
@@ -96,9 +89,6 @@ elif [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
 	leave
 elif [ "$1" == "-l" ] || [ "$1" == "--list" ]; then
 	info
-	exit
-elif [ "$1" == "-v" ] || [ "$1" == "--version" ]; then
-	version
 	exit
 elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help
