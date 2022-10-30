@@ -596,7 +596,7 @@
                         ]
                     },
                     {
-                        "description": "Preview J | K",
+                        "description": "map jk | preview",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -632,6 +632,49 @@
                                 "to": [
                                     {
                                         "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "map jk | quicklook",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com.apple.quicklook.qlmanage$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "j"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "Next"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com.apple.quicklook.qlmanage$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "k"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "Previous"
                                     }
                                 ],
                                 "type": "basic"

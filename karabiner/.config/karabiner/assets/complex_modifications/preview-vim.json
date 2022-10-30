@@ -1,8 +1,8 @@
 {
-    "title": "Map jk in Preview",
+    "title": "Preview",
     "rules": [
         {
-            "description": "map jk",
+            "description": "Preview J | K",
             "manipulators": [
                 {
                     "type": "basic",
