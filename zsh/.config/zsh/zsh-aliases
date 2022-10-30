@@ -78,3 +78,7 @@ alias gh="open \`git remote -v | grep git@github.com | grep fetch | head -1 | cu
 
 # OHMYSHELL
 alias cds="~/.dotfiles/scripts/.local/bin"
+
+#
+alias python="python3"
+alias pip="pip3"

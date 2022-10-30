@@ -1,5 +1,5 @@
 local py_ok, py = pcall(require, "dap-python")
-local path = "~/.local/share/pyenv/shims/python"
+local path = "/opt/homebrew/bin/python3"
 
 if not py_ok then
     vim.notify("notwork", "error")

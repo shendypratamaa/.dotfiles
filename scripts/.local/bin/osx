@@ -6,12 +6,17 @@ __open_current() {
 	open "$@"
 }
 
+__kill() {
+	kill -9 "$(ps -ax | fzf --multi | awk '{print $1}')" 2>/dev/null
+}
+
 __help() {
 	cat <<-_EOF_
 		OSX Utils 💻
 
 		pattern osx [cmd | path] :
 		-c --current open curent directory
+		-k --kill search and kill background process
 		-p --path open specified path
 		-h --help help information
 	_EOF_
@@ -21,6 +26,8 @@ if [ "$1" = "-c" ] || [ "$1" = "--current" ]; then
 	__open_current .
 elif [ "$1" = "-p" ] || [ "$1" = "--path" ]; then
 	__open_current "$2"
+elif [ "$1" = "-k" ] || [ "$1" = "--kill" ]; then
+	__kill
 elif [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
 	__help
 	exit

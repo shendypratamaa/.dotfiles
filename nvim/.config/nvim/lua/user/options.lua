@@ -48,7 +48,7 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
-local python3 = vim.fn.expand("/usr/local/pyenv/shims/python3")
+local python3 = vim.fn.expand("/opt/homebrew/bin/python3")
 
 vim.opt.shortmess:append("c")
 vim.g.python3_host_prog = python3

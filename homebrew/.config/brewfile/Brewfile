@@ -28,6 +28,8 @@ brew "coreutils"
 brew "curl"
 # Command-line interface for SQLite
 brew "sqlite"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -62,8 +64,6 @@ brew "luarocks"
 brew "ninja"
 # Fast, highly customisable system info script
 brew "neofetch"
-# Python version management
-brew "pyenv"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
