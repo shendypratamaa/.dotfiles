@@ -2,6 +2,29 @@
 
 set -e
 
+dotfilesdir=(
+	eslint
+	flake8
+	git
+	homebrew
+	karabiner
+	kitty
+	lazygit
+	mpv
+	neofetch
+	nvim
+	prettier
+	python
+	ranger
+	skhd
+	stylua
+	tmux
+	vscode
+	yabai
+	zathura
+	zsh
+)
+
 if [ "$1" = '-g' ]; then
 	# install homebrew
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -10,9 +33,9 @@ if [ "$1" = '-g' ]; then
 
 	# delete if exist and create symlinks
 	if [ -d "$HOME/.dotfiles" ]; then
-		cd ~/.dotfiles && stow */
-		ln -sf -v ~/.dotfiles/install.sh /usr/local/bin
-		ln -sf -v ~/.dotfiles/scripts** /usr/local/bin
+		cd ~/.dotfiles && stow -v "${dotfilesdir[@]}"
+		ln -sf ~/.dotfiles/scripts/** /usr/local/bin/
+		ln -sf ~/.dotfiles/install.sh /usr/local/bin
 	fi
 
 	if [ -d "$HOME/.utils" ]; then
@@ -35,16 +58,16 @@ if [ "$1" = '-g' ]; then
 	brew autoremove
 
 	brew tap zegervdv/zathura
+
 	brew install zathura
 	brew install zathura-pdf-poppler
 	mkdir -p "$(brew --prefix zathura)/lib/zathura"
 	ln -s "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
+
 	brew install --cask mpv
+
 	brew link --overwrite git
 	brew link --overwrite libmagic
-
-	mkdir -p "$(brew --prefix zathura)/lib/zathura"
-	ln -sf "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
 	# end brew
 
 	# create symlinks
