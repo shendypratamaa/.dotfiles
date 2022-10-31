@@ -25,7 +25,7 @@ dotfilesdir=(
 	zsh
 )
 
-if [ "$1" = '-g' ]; then
+if [ "$1" = '-go' ]; then
 	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/shendypratama/.zprofile
 
 	# install homebrew
@@ -53,25 +53,47 @@ if [ "$1" = '-g' ]; then
 	echo "Package Update From Brewfile 🎞️..."
 	brew bundle -v --file=~/.config/brewfile/Brewfile
 
+	python3.10 -m pip install --upgrade pip
+	pip3 install --ignore-installed pillow
+	pip3 install --ignore-installed pynvim
+	pip3 install --ignore-installed flake8
+	pip3 install --ignore-installed black
+	pip3 install --ignore-installed isort
+
 	brew tap zegervdv/zathura
 
-	brew install zathura
-	brew install zathura-pdf-poppler
+	brew reinstall zathura || brew install zathura
+	brew reinstall zathura-pdf-poppler || brew install zathura-pdf-poppler
 	mkdir -p "$(brew --prefix zathura)/lib/zathura"
 	ln -s "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
 
-	brew install --cask mpv
+	brew reinstall --cask mpv || brew install --cask mpv
 
-	brew link --overwrite git
-	brew link --overwrite libmagic
+	brew link git || brew link --overwrite git
+	brew link libmagic || brew link --overwrite git
 
 	# (usr/share -> opt/homebrew)  => usr/local
 	ln -sf -v /usr/share/zsh/5.8.1/functions/** /opt/homebrew/share/zsh/site-functions/
 
-	mkdir /opt/homebrew/share/man/man4
-	mkdir /opt/homebrew/share/man/man6
-	mkdir /opt/homebrew/share/man/man9
-	mkdir /opt/homebrew/share/man/mann
+	if [ -d "/opt/homebrew/share/man/man4" ]; then
+		rm -rf -v /opt/homebrew/share/man/man4
+		mkdir -v /opt/homebrew/share/man/man4
+	fi
+
+	if [ -d "/opt/homebrew/share/man/man6" ]; then
+		rm -rf -v /opt/homebrew/share/man/man6
+		mkdir -v /opt/homebrew/share/man/man6
+	fi
+
+	if [ -d "/opt/homebrew/share/man/man9" ]; then
+		rm -rf -v /opt/homebrew/share/man/man9
+		mkdir -v /opt/homebrew/share/man/man9
+	fi
+
+	if [ -d "/opt/homebrew/share/man/mann" ]; then
+		rm -rf -v /opt/homebrew/share/man/mann
+		mkdir -v /opt/homebrew/share/man/mann
+	fi
 
 	ln -sf -v /usr/share/man/man1/** /opt/homebrew/share/man/man1/
 	ln -sf -v /usr/share/man/man4/** /opt/homebrew/share/man/man4/
@@ -89,12 +111,15 @@ if [ "$1" = '-g' ]; then
 	echo "Package Info 🗓️..."
 	brew info
 
+	echo "Package Bundle 📦..."
+	brew bundle dump --desc --force --file=~/.config/brewfile/Brewfile
+
 	echo "Process Complete 🌟..."
 elif [ -n "$1" ]; then
-	echo "install.sh not found 🙅"
-	echo "install.sh -help for information 💁"
+	echo "install.sh failed 🙅"
+	echo "install.sh -go for started 🧘"
 	exit
 else
-	echo "install.sh not found 🙅"
-	echo "install.sh -help for information 💁"
+	echo "install.sh failed 🙅"
+	echo "install.sh -go for started 🧘"
 fi
