@@ -35,7 +35,6 @@ if [ "$1" = '-g' ]; then
 	if [ -d "$HOME/.dotfiles" ]; then
 		cd ~/.dotfiles && stow -v "${dotfilesdir[@]}"
 		ln -sf ~/.dotfiles/scripts/** /usr/local/bin/
-		ln -sf ~/.dotfiles/install.sh /usr/local/bin
 	fi
 
 	if [ -d "$HOME/.utils" ]; then
