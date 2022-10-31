@@ -28,6 +28,9 @@ dotfilesdir=(
 if [ "$1" = '-g' ]; then
 	# install homebrew
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/shendypratama/.zprofile
+
 	brew reinstall git || brew install git
 	brew reinstall stow || brew install stow
 
@@ -42,6 +45,9 @@ if [ "$1" = '-g' ]; then
 		git clone https://github.com/shendypratamaa/.utils.git ~/.utils
 		cd ~/.utils && stow */
 	fi
+
+	# create symlink for laod zsh
+	ln -sf ~/.config/zsh/.zprofile ~/.zprofile
 
 	echo "Package Update 🍺..."
 	brew update --verbose --force && brew upgrade
@@ -70,7 +76,13 @@ if [ "$1" = '-g' ]; then
 	# end brew
 
 	# create symlinks
+	# (usr/share -> opt/homebrew)  => usr/local
 	ln -sf -v /usr/share/zsh/5.8.1/functions/** /opt/homebrew/share/zsh/site-functions/
+	mkdir /opt/homebrew/share/man/man4
+	mkdir /opt/homebrew/share/man/man6
+	mkdir /opt/homebrew/share/man/man9
+	mkdir /opt/homebrew/share/man/mann
+
 	ln -sf -v /usr/share/man/man1/** /opt/homebrew/share/man/man1/
 	ln -sf -v /usr/share/man/man4/** /opt/homebrew/share/man/man4/
 	ln -sf -v /usr/share/man/man5/** /opt/homebrew/share/man/man5/
