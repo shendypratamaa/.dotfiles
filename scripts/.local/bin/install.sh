@@ -3,18 +3,19 @@
 set -e
 
 if [ "$1" = '-g' ]; then
+	# install homebrew
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	j
+
 	# clone dotfiles
-	/usr/bin/git clone clone https://github.com/shendypratamaa/.dotfiles.git >~
-	/usr/bin/git clone clone https://github.com/shendypratamaa/.utils.git >~
+	/usr/bin/git clone https://github.com/shendypratamaa/.dotfiles.git ~/.dotfiles
+	/usr/bin/git clone https://github.com/shendypratamaa/.utils.git ~/.utils
 
 	# symlink dotfiles
 	cd ~/.dotfiles && stow */
 	cd ~/.utils && stow */
 
-	# install homebrew
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-	package -a
+	package -r
 
 	# nvm
 	nvm install v16.18.0
