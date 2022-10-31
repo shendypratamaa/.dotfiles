@@ -26,15 +26,14 @@ dotfilesdir=(
 )
 
 if [ "$1" = '-g' ]; then
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/shendypratama/.zprofile
+
 	# install homebrew
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/shendypratama/.zprofile
 
 	brew reinstall git || brew install git
 	brew reinstall stow || brew install stow
 
-	# delete if exist and create symlinks
 	if [ -d "$HOME/.dotfiles" ]; then
 		cd ~/.dotfiles && stow -v "${dotfilesdir[@]}"
 		ln -sf ~/.dotfiles/scripts/** /usr/local/bin/
@@ -46,7 +45,6 @@ if [ "$1" = '-g' ]; then
 		cd ~/.utils && stow */
 	fi
 
-	# create symlink for laod zsh
 	ln -sf ~/.config/zsh/.zprofile ~/.zprofile
 
 	echo "Package Update 🍺..."
@@ -54,13 +52,6 @@ if [ "$1" = '-g' ]; then
 
 	echo "Package Update From Brewfile 🎞️..."
 	brew bundle -v --file=~/.config/brewfile/Brewfile
-
-	echo "Package Info 🗓️..."
-	brew info
-
-	echo "Package Cleanup 🌊..."
-	brew cleanup && brew cleanup --prune=all
-	brew autoremove
 
 	brew tap zegervdv/zathura
 
@@ -73,11 +64,10 @@ if [ "$1" = '-g' ]; then
 
 	brew link --overwrite git
 	brew link --overwrite libmagic
-	# end brew
 
-	# create symlinks
 	# (usr/share -> opt/homebrew)  => usr/local
 	ln -sf -v /usr/share/zsh/5.8.1/functions/** /opt/homebrew/share/zsh/site-functions/
+
 	mkdir /opt/homebrew/share/man/man4
 	mkdir /opt/homebrew/share/man/man6
 	mkdir /opt/homebrew/share/man/man9
@@ -91,6 +81,14 @@ if [ "$1" = '-g' ]; then
 	ln -sf -v /usr/share/man/man8/** /opt/homebrew/share/man/man8/
 	ln -sf -v /usr/share/man/man9/** /opt/homebrew/share/man/man9/
 	ln -sf -v /usr/share/man/mann/** /opt/homebrew/share/man/mann/
+
+	echo "Package Cleanup 🌊..."
+	brew cleanup && brew cleanup --prune=all
+	brew autoremove
+
+	echo "Package Info 🗓️..."
+	brew info
+
 	echo "Process Complete 🌟..."
 elif [ -n "$1" ]; then
 	echo "install.sh not found 🙅"

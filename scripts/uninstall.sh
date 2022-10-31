@@ -3,8 +3,6 @@
 set -e
 
 if [ "$1" = "-g" ]; then
-	# remove .config .utils
-	rm 0rf -v ~/.dotfiles
 	rm -rf -v ~/.config
 	rm -rf -v ~/.zprofile
 	rm -rf -v ~/.utils
@@ -25,6 +23,7 @@ if [ "$1" = "-g" ]; then
 	echo "Remove Directory 🌊..."
 	sudo rm -rf -v /opt/homebrew
 	echo "Process Complete 🌟..."
+
 elif [ -n "$1" ]; then
 	echo "uninstall failed 🙅"
 	echo "uninstall -help for information 💁"
