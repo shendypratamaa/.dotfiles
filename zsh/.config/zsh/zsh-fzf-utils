@@ -36,7 +36,6 @@ EXCLUDE_VD_VN=' \
   --exclude=.docker \
   --exclude=.viminfo \
   --exclude=.lesshst \
-  --exclude=.dotfiles \
   --exclude=.DS_Store \
   --exclude=.localized \
   --exclude=.eslint_d \

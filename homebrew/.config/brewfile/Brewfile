@@ -9,15 +9,12 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "homebrew/test-bot"
 tap "koekeishiya/formulae"
-tap "zegervdv/zathura"
-# GNU internationalization (i18n) and localization (l10n) library
-brew "gettext"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Cross-platform make
 brew "cmake"
 # Dependency manager for Cocoa projects
@@ -26,10 +23,6 @@ brew "cocoapods"
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Command-line interface for SQLite
-brew "sqlite"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -43,7 +36,7 @@ brew "fzf"
 # GNU awk utility
 brew "gawk"
 # Distributed revision control system
-brew "git"
+brew "git", link: false
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # GNU implementation of the famous stream editor
@@ -62,12 +55,16 @@ brew "lua"
 brew "luajit", args: ["HEAD"]
 # Package manager for the Lua programming language
 brew "luarocks"
-# Small build system for use with gyp or CMake
-brew "ninja"
 # Fast, highly customisable system info script
 brew "neofetch"
+# Small build system for use with gyp or CMake
+brew "ninja"
 # Manage multiple Node.js versions
 brew "nvm"
+# Command-line interface for SQLite
+brew "sqlite"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # File browser
 brew "ranger"
 # Reattach process (e.g., tmux) to background
@@ -98,10 +95,6 @@ brew "xdg-ninja"
 brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai"
-# PDF viewer
-brew "zegervdv/zathura/zathura"
-# Poppler backend plugin for zathura
-brew "zegervdv/zathura/zathura-pdf-poppler"
 # Enable Windows-like alt-tab
 cask "alt-tab"
 # Web browser focusing on privacy
@@ -114,5 +107,3 @@ cask "font-jetbrains-mono-nerd-font"
 cask "karabiner-elements"
 # GPU-based terminal emulator
 cask "kitty"
-# Media player based on MPlayer and mplayer2
-cask "mpv"

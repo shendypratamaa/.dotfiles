@@ -11,7 +11,8 @@ if [ "$1" = '-g' ]; then
 	# delete if exist and create symlinks
 	if [ -d "$HOME/.dotfiles" ]; then
 		cd ~/.dotfiles && stow */
-		ln -sf ~/.dotfiles/install.sh /usr/local/bin/
+		ln -sf -v ~/.dotfiles/install.sh /usr/local/bin
+		ln -sf -v ~/.dotfiles/scripts** /usr/local/bin
 	fi
 
 	if [ -d "$HOME/.utils" ]; then
@@ -32,7 +33,18 @@ if [ "$1" = '-g' ]; then
 	echo "Package Cleanup 🌊..."
 	brew cleanup && brew cleanup --prune=all
 	brew autoremove
-	echo "Process Complete 🌟..."
+
+	brew tap zegervdv/zathura
+	brew install zathura
+	brew install zathura-pdf-poppler
+	mkdir -p "$(brew --prefix zathura)/lib/zathura"
+	ln -s "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
+	brew install --cask mpv
+	brew link --overwrite git
+	brew link --overwrite libmagic
+
+	mkdir -p "$(brew --prefix zathura)/lib/zathura"
+	ln -sf "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
 	# end brew
 
 	# create symlinks
@@ -45,9 +57,7 @@ if [ "$1" = '-g' ]; then
 	ln -sf -v /usr/share/man/man8/** /opt/homebrew/share/man/man8/
 	ln -sf -v /usr/share/man/man9/** /opt/homebrew/share/man/man9/
 	ln -sf -v /usr/share/man/mann/** /opt/homebrew/share/man/mann/
-	mkdir -p "$(brew --prefix zathura)/lib/zathura"
-	ln -sf "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
-
+	echo "Process Complete 🌟..."
 elif [ -n "$1" ]; then
 	echo "install.sh not found 🙅"
 	echo "install.sh -help for information 💁"

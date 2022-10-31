@@ -11,13 +11,10 @@ export NVM_DIR="/opt/homebrew/opt/nvm"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # FPATH
-export FPATH="/opt/homebrew/share/zsh/site-functions"
+export FPATH="/usr/local/share/zsh/site-functions"
 
 # MANPATH
-export MANPATH="/opt/homebrew/share/man"
-
-# MYSCRIPT
-export PATH="$HOME/.local/bin:$PATH"
+export MANPATH="/usr/local/share/man"
 
 # EDITOR
 export EDITOR="nvim"
