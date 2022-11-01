@@ -31,4 +31,5 @@ state.yml
 # lua
 .luarc.json
 
+git/
 .DS_Store
