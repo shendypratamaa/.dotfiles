@@ -26,12 +26,11 @@ dotfilesdir=(
 )
 
 if [ "$1" = '-go' ]; then
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/shendypratama/.zprofile
-
 	# install homebrew
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 
-	brew reinstall git || brew install git
+	brew reinstall git || brew install git 2>/dev/null
 	brew reinstall stow || brew install stow
 
 	if [ -d "$HOME/.dotfiles" ]; then
@@ -41,6 +40,9 @@ if [ "$1" = '-go' ]; then
 
 	if [ -d "$HOME/.utils" ]; then
 		rm -rf ~/.utils
+		git clone https://github.com/shendypratamaa/.utils.git ~/.utils
+		cd ~/.utils && stow */
+	else
 		git clone https://github.com/shendypratamaa/.utils.git ~/.utils
 		cd ~/.utils && stow */
 	fi
@@ -72,29 +74,51 @@ if [ "$1" = '-go' ]; then
 	brew link git || brew link --overwrite git
 	brew link libmagic || brew link --overwrite git
 
-	# (usr/share -> opt/homebrew)  => usr/local
-	ln -sf -v /usr/share/zsh/5.8.1/functions/** /opt/homebrew/share/zsh/site-functions/
-
+	# homebrew/share/man
 	if [ -d "/opt/homebrew/share/man/man4" ]; then
 		rm -rf -v /opt/homebrew/share/man/man4
+		mkdir -v /opt/homebrew/share/man/man4
+	else
 		mkdir -v /opt/homebrew/share/man/man4
 	fi
 
 	if [ -d "/opt/homebrew/share/man/man6" ]; then
 		rm -rf -v /opt/homebrew/share/man/man6
 		mkdir -v /opt/homebrew/share/man/man6
+	else
+		mkdir -v /opt/homebrew/share/man/man6
 	fi
 
 	if [ -d "/opt/homebrew/share/man/man9" ]; then
 		rm -rf -v /opt/homebrew/share/man/man9
+		mkdir -v /opt/homebrew/share/man/man9
+	else
 		mkdir -v /opt/homebrew/share/man/man9
 	fi
 
 	if [ -d "/opt/homebrew/share/man/mann" ]; then
 		rm -rf -v /opt/homebrew/share/man/mann
 		mkdir -v /opt/homebrew/share/man/mann
+	else
+		mkdir -v /opt/homebrew/share/man/mann
 	fi
 
+	# usr/share/man
+	if [ -d "/usr/local/share/man" ]; then
+		rm -rf /usr/local/share/man
+		mkdir -p -v /usr/local/share/man
+	else
+		mkdir -p -v /usr/local/share/man
+	fi
+
+	if [ -d "/usr/local/share/zsh/site-functions" ]; then
+		rm -rf /usr/local/share/zsh/site-functions
+		mkdir -p -v /usr/local/share/zsh/site-functions
+	else
+		mkdir -p -v /usr/local/share/zsh/site-functions
+	fi
+
+	ln -sf -v /usr/share/zsh/5.8.1/functions/** /opt/homebrew/share/zsh/site-functions/
 	ln -sf -v /usr/share/man/man1/** /opt/homebrew/share/man/man1/
 	ln -sf -v /usr/share/man/man4/** /opt/homebrew/share/man/man4/
 	ln -sf -v /usr/share/man/man5/** /opt/homebrew/share/man/man5/
@@ -103,6 +127,8 @@ if [ "$1" = '-go' ]; then
 	ln -sf -v /usr/share/man/man8/** /opt/homebrew/share/man/man8/
 	ln -sf -v /usr/share/man/man9/** /opt/homebrew/share/man/man9/
 	ln -sf -v /usr/share/man/mann/** /opt/homebrew/share/man/mann/
+	ln -sf -v /opt/homebrew/share/man/** /usr/local/share/man/
+	ln -sf -v /opt/homebrew/share/zsh/site-functions/** /usr/local/share/zsh/site-functions
 
 	echo "Package Cleanup 🌊..."
 	brew cleanup && brew cleanup --prune=all
