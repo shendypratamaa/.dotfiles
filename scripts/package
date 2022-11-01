@@ -82,15 +82,8 @@ elif [ "$1" == "-c" ] || [ "$1" == "--clean" ]; then
 	clean
 	leave
 elif [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
-	echo "Uninstalling Package 🌊..."
-	brew list --cask | xargs brew uninstall --force --ignore-dependencies
-	brew list | xargs brew uninstall --force --ignore-dependencies
-	echo "Uninstall Sucessfully 🌟..."
-
-	update
-	clean
-	bundle
-	leave
+	~/.dotfiles/uninstall.sh -go
+	~/.dotfiles/install.sh -go
 elif [ "$1" == "-l" ] || [ "$1" == "--list" ]; then
 	info
 	exit

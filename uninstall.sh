@@ -19,10 +19,7 @@ if [ "$1" = "-go" ]; then
 	rm -rf -v ~/.notes
 	rm -rf -v ~/Pictures/wallpaper
 	rm -rf -v ~/Pictures/roadmap
-	rm -rf -v /usr/local/bin/install.sh
-	rm -rf -v /usr/local/bin/uninstall.sh
 	rm -rf -v /usr/local/bin/osx
-	rm -rf -v /usr/local/bin/package
 	rm -rf -v /usr/local/bin/preview
 	rm -rf -v /usr/local/bin/search
 	rm -rf -v /usr/local/share/zsh
