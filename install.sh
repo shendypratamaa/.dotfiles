@@ -38,15 +38,6 @@ if [ "$1" = '-go' ]; then
 		ln -sf ~/.dotfiles/scripts/** /usr/local/bin/
 	fi
 
-	if [ -d "$HOME/.utils" ]; then
-		rm -rf ~/.utils
-		git clone https://github.com/shendypratamaa/.utils.git ~/.utils
-		cd ~/.utils && stow */
-	else
-		git clone https://github.com/shendypratamaa/.utils.git ~/.utils
-		cd ~/.utils && stow */
-	fi
-
 	ln -sf ~/.config/zsh/.zprofile ~/.zprofile
 
 	echo "Package Update 🍺..."
