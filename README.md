@@ -26,13 +26,16 @@ Key       => [Karabiner]
 
 ## Installation : 1
 
-**install.sh**\
+**install.sh**
+
 using this option, I assume you have no config at all e.g : `~/.config/*`\
 or setup shell like `~/.zshrc` and `~/.zprofile`, \
 you can move your `old_config` to another directory for backup, \
 this scripts bellow will install `homebrew` and sync with my `dotfiles` \
-it means is, install all package list from `brewfile` where I was set up before \
-this installation take much time, based on your internet connection, keep chil
+it means, install all package list from `brewfile` where I was set up before \
+and `stow` my dotfiles config.
+
+_this installation take much time, based on your internet connection, keep chil_ ❤️
 
 - **clone & install**
 
@@ -43,22 +46,22 @@ git clone https://github.com/shendypratamaa/.dotfiles.git && ~/.dotfiles/install
 <hr>
 
 - **node** \
-    Im using nvm for manage my node version
+     Im using nvm for manage my node version
 
 ```nvm"
 nvm install --lts && nvm use node
 ```
 
 - **zsh-plugins** \
-    re-open terminal will install zsh utils, or you can type `src` \
+     re-open terminal will install zsh utils, or you can type `src`
 
 - **Tmux-plugins** \
-    go to tmux session `ctrl-a + shift-i` will install tpm etc \
+     go to tmux session `ctrl-a + shift-i` will install tpm etc
 
 - **check installation**\
-last check with `brew doctor` \
-if the output is brew _your system is ready to brew_ \
-great your awesome, `mydotfile` config ready to go
+    last check with `brew doctor` if the output is brew _your system is ready to brew_ \
+    `mydotfile` config ready to go \
+    great your awesome ❤️
 
 <hr>
 
