@@ -74,7 +74,7 @@ echo '----------------------\n'\
 alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts/.wget-hsts'"
 
 # GITHUB
-alias gh="open \`git remote -v | grep git@github.com | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/:/\//' -e 's/git@/http:\/\//'\`"
+alias gh="open `git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@'`| head -n1"
 
 # OHMYSHELL
 alias cds="~/.dotfiles/scripts/"
