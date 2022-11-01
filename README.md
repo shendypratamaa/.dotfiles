@@ -39,20 +39,22 @@ and `stow` my dotfiles config.
 git clone https://github.com/shendypratamaa/.dotfiles.git && ~/.dotfiles/install.sh -go
 ```
 
+_this installation take much time, based on your internet connection, keep chil_
+
+**after installation sucessfully**
+
 - **node** \
      `nvm install --lts && nvm use node`
 
 - **zsh-plugins** \
-     re-open terminal will install zsh utils, or you can type `src`
+     re-open terminal for install zsh-plugins,
 
 - **tmux-plugins** \
-     go to tmux session `ctrl-a + shift-i` will install tpm etc
+     go to tmux session `ctrl-a + shift-i` for install tpm and tmux-plugins
 
 - **check installation**\
      last check with `brew doctor` if the output is _your system is ready to brew_ \
      `myconfig` config ready to go, great your awesome 💕
-
-_this installation take much time, based on your internet connection, keep chil_
 
 **uninstall.sh**
 
@@ -103,6 +105,5 @@ stow zsh # Specified DIR
 
 Currently running on macOS 12.6 (arm) \
 Environtment variable refer to [XDG_Spesification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
-
 
 > please read, take what you need, do with your own risk
