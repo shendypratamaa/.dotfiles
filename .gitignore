@@ -11,8 +11,7 @@ Session.vim
 Sessionx.vim
 
 # Temporary
-.netrwhist
-*~
+.netrwhist *~
 
 # Persistent undo
 [._]*.un~
@@ -31,5 +30,5 @@ state.yml
 # lua
 .luarc.json
 
-git/
+# osx
 .DS_Store

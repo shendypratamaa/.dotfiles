@@ -1,6 +1,5 @@
-[user]
-    name = ""
-    email = ""
+[include]
+    path = ~/.config/git-ac/.gitconfig_local
 
 [core]
     pager = delta
