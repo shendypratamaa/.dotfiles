@@ -85,7 +85,7 @@ export FZF_CTRL_R_OPTS="--preview \
   'echo {}' \
   --preview-window down:3:hidden:wrap --bind ']:toggle-preview'\
   "
-export FZF_CTRL_R_COMMAND=""
+export FZF_CTRL_R_COMMAND="sort | unix | tr '\\n' ' ' "
 
 # ALT_C | directory
 export FZF_ALT_C_OPTS="$TREE"

@@ -1,4 +1,5 @@
 export HISTFILE="$XDG_CACHE_HOME/zsh/zsh_history"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -30,6 +31,7 @@ zsh_add_file "zsh-prompt"
 zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-fzf-utils"
 zsh_add_file "zsh-completions"
+zsh_add_file "nnn"
 
 # plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"

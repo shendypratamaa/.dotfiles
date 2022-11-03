@@ -1,0 +1,48 @@
+#!/bin/bash
+
+set -e
+
+walldir="$HOME/pix/save/"
+
+tagoptions="#minimalism\n#cyberpunk\n#digital art\n#science fiction\n#spider man\n#spider gwen\n#marvel comics"
+if [ -z $1 ]; then
+	query=$(echo -e $tagoptions | fzf --prompt="search wallhaven > ")
+else
+	query=$1
+fi
+
+sortingopts="date_added\nrelevance\nrandom\nviews\nfavorites\ntoplist"
+sorting=$(echo -e $sortingopts | fzf --prompt="sorting > ")
+
+pageslength="1\n2\n3\n4\n5"
+pages=$(echo -e $pageslength | fzf --prompt="pages > ")
+
+query="$(sed 's/#//g' <<<$query)"
+query="$(sed 's/ /+/g' <<<$query)"
+
+echo $query
+
+__download() {
+	if [ -d $walldir ]; then
+		rm -rf $walldir
+		mkdir $walldir
+	else
+		mkdir $walldir
+	fi
+
+	for i in $(seq 1 $pages); do
+		curl https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&ratios\=16x9\&sorting\=$sorting\&q\=$query\&page\=$i >tmp.txt
+		page=$(cat tmp.txt | jq . | grep -Eoh "https:\/\/w\.wallhaven.cc\/full\/.*(jpg|png)\b")
+		wget -nc -P $walldir $page
+	done
+}
+
+__download
+
+rm tmp.txt
+
+if [ "$TERM" = "tmux-256color" ]; then
+	open -a Preview ~/pix/save/**
+else
+	ranger --selectfile ~/pix/save/** 2>/dev/null
+fi

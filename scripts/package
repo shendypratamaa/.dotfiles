@@ -17,21 +17,9 @@ update() {
 }
 
 info() {
-	echo "-----------------------------"
-	echo "Package List 📦 ==>"
 	brew ls --formulae
-
-	echo "-----------------------------"
-	echo "Package Cask 📦 ==>"
 	brew ls --casks
-
-	echo "-----------------------------"
-	echo "Package Tap 📦 ==>"
 	brew tap
-
-	echo "-----------------------------"
-	echo "Package Info 📦 ==>"
-	brew info
 }
 
 bundle() {
@@ -85,7 +73,7 @@ elif [ "$1" == "-r" ] || [ "$1" == "--reinstall" ]; then
 	~/.dotfiles/uninstall.sh -go
 	~/.dotfiles/install.sh -go
 elif [ "$1" == "-l" ] || [ "$1" == "--list" ]; then
-	info
+	info | fzf
 	exit
 elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help

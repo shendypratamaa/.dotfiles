@@ -82,5 +82,9 @@ alias cds="~/.dotfiles/scripts/"
 alias python="python3"
 alias pip="pip3"
 
-#
+# ranger
 alias r="ranger"
+alias n="nnn -d"
+
+# kill
+alias fkill='osx -k'

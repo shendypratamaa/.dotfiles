@@ -32,9 +32,6 @@ export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brewfile/Brewfile"
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 
-# LESS
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
-
 # NODE
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/.node_repl_history"
 
