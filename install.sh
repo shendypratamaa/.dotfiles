@@ -15,7 +15,6 @@ dotfilesdir=(
 	nvim
 	prettier
 	python
-	ranger
 	skhd
 	stylua
 	tmux
@@ -47,11 +46,14 @@ if [ "$1" = '-go' ]; then
 	brew bundle -v --file=~/.config/brewfile/Brewfile
 
 	python3.10 -m pip install --upgrade pip
-	pip3 install --ignore-installed pillow
 	pip3 install --ignore-installed pynvim
 	pip3 install --ignore-installed flake8
 	pip3 install --ignore-installed black
 	pip3 install --ignore-installed isort
+
+	curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
+
+	git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/ && sudo make install
 
 	brew tap zegervdv/zathura
 

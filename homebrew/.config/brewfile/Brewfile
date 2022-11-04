@@ -64,10 +64,10 @@ brew "luarocks"
 brew "ninja"
 # Fast, highly customisable system info script
 brew "neofetch"
+# Tiny, lightning fast, feature-packed file manager
+brew "nnn"
 # Manage multiple Node.js versions
 brew "nvm"
-# File browser
-brew "ranger"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
@@ -95,7 +95,7 @@ brew "xdg-ninja"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
-brew "koekeishiya/formulae/yabai"
+brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 # PDF viewer
 brew "zegervdv/zathura/zathura"
 # Poppler backend plugin for zathura
