@@ -10,8 +10,6 @@ tap "homebrew/services"
 tap "homebrew/test-bot"
 tap "koekeishiya/formulae"
 tap "zegervdv/zathura"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -20,18 +18,12 @@ brew "bash"
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
-# Cross-platform make
-brew "cmake"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Command-line interface for SQLite
-brew "sqlite"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -62,8 +54,6 @@ brew "lua"
 brew "luajit", args: ["HEAD"]
 # Package manager for the Lua programming language
 brew "luarocks"
-# Small build system for use with gyp or CMake
-brew "ninja"
 # Fast, highly customisable system info script
 brew "neofetch", args: ["HEAD"]
 # Tiny, lightning fast, feature-packed file manager

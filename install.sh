@@ -43,6 +43,11 @@ if [ "$1" = '-go' ]; then
 
 	brew reinstall --cask mpv || brew install --cask mpv
 
+	brew reinstall koekeishiya/formulae/yabai --HEAD || brew install koekeishiya/formulae/yabai --HEAD
+	codesign -fs 'yabai-cert' $(which yabai)
+
+	brew reinstall koekeishiya/formulae/skhd || brew install koekeishiya/formulae/skhd
+
 	brew link bash || brew link --overwrite bash
 	brew link git || brew link --overwrite git
 	brew link libmagic || brew link --overwrite git
