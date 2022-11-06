@@ -14,8 +14,12 @@ tap "zegervdv/zathura"
 brew "pkg-config"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Cross-platform make
 brew "cmake"
 # Dependency manager for Cocoa projects
@@ -48,8 +52,6 @@ brew "git-delta"
 brew "gnu-sed"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Improved top (interactive process viewer)
-brew "htop"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
@@ -63,7 +65,7 @@ brew "luarocks"
 # Small build system for use with gyp or CMake
 brew "ninja"
 # Fast, highly customisable system info script
-brew "neofetch"
+brew "neofetch", args: ["HEAD"]
 # Tiny, lightning fast, feature-packed file manager
 brew "nnn"
 # Manage multiple Node.js versions
@@ -80,8 +82,6 @@ brew "stow"
 brew "swiftformat"
 # Terminal multiplexer
 brew "tmux"
-# CPU, RAM memory, and load monitor for use with tmux
-brew "tmux-mem-cpu-load"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Parser generator tool and incremental parsing library
