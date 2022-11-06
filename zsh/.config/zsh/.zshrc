@@ -1,5 +1,6 @@
 export HISTFILE="$XDG_CACHE_HOME/zsh/zsh_history"
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+
+export LESSHISTFILE="$XDG_DATA_HOME/lesshst"
 
 HISTSIZE=10000
 SAVEHIST=10000

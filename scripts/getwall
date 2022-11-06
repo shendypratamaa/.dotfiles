@@ -8,7 +8,7 @@ tagoptions="#4\n#nature\n#minimalism\n#cyberpunk\n#digital art\n#science fiction
 if [ -z "$1" ]; then
 	query="$(echo -e $tagoptions | fzf --prompt="search wallhaven > ")"
 else
-	query=$1
+	query="${*:1}"
 fi
 
 sortingopts="date_added\nrelevance\nrandom\nviews\nfavorites\ntoplist"
@@ -21,15 +21,11 @@ query=$(sed 's/#//g' <<<$query)
 query=$(sed 's/ /+/g' <<<$query)
 echo $query
 
-__download() {
-	for i in $(seq 1 $pages); do
-		curl https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&ratios\=16x9\&sorting\=$sorting\&q\=$query\&page\=$i >tmp.txt
-		page=$(cat tmp.txt | jq . | grep -Eoh "https:\/\/w\.wallhaven.cc\/full\/.*(jpg|png)\b")
-		wget -nc -P $walldir $page
-	done
-}
-
-__download
+for i in $(seq 1 $pages); do
+	curl https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&ratios\=16x9\&sorting\=$sorting\&q\=$query\&page\=$i >tmp.txt
+	page=$(cat tmp.txt | jq '.' | grep -Eoh "https:\/\/w\.wallhaven.cc\/full\/.*(jpg|png)\b")
+	wget -nc -P $walldir $page
+done
 
 rm tmp.txt
 

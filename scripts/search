@@ -5,7 +5,7 @@ set -e
 youtube="https://youtube.com/results?search_query="
 piped="https://piped.kavin.rocks/results?search_query="
 music="https://listen.whatever.social/search/"
-google="https://www.google.com/search?q="
+google="https://duckduckgo.com/?q="
 reddit="https://www.reddit.com/search/?q="
 stackoverflow="https://stackoverflow.com/search?q="
 github="https://github.com/search?q="
@@ -50,7 +50,7 @@ help() {
 			-gt --github search repositories
 			-rd --reddit search content
 			-so --overflow search content
-			-go --google search content
+			-go --duckduckgo search content
 			-yt --youtube search content
 			-pi --piped youtube alternative less distraction
 			-ps --music youtube music alternative

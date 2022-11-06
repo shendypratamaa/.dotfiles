@@ -22,6 +22,7 @@ dotfilesdir=(
 	yabai
 	zathura
 	zsh
+	btop
 )
 
 if [ "$1" = '-go' ]; then
@@ -29,8 +30,22 @@ if [ "$1" = '-go' ]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
-	brew reinstall git || brew install git 2>/dev/null
+	brew tap zegervdv/zathura
+
+	brew reinstall bash || brew install bash
+	brew reinstall git || brew install git
 	brew reinstall stow || brew install stow
+	brew reinstall zathura || brew install zathura
+	brew reinstall zathura-pdf-poppler || brew install zathura-pdf-poppler
+
+	mkdir -p "$(brew --prefix zathura)/lib/zathura"
+	ln -s "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
+
+	brew reinstall --cask mpv || brew install --cask mpv
+
+	brew link bash || brew link --overwrite bash
+	brew link git || brew link --overwrite git
+	brew link libmagic || brew link --overwrite git
 
 	if [ -d "$HOME/.dotfiles" ]; then
 		cd ~/.dotfiles && stow -v "${dotfilesdir[@]}"
@@ -53,19 +68,14 @@ if [ "$1" = '-go' ]; then
 
 	curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 
-	git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/ && sudo make install
-
-	brew tap zegervdv/zathura
-
-	brew reinstall zathura || brew install zathura
-	brew reinstall zathura-pdf-poppler || brew install zathura-pdf-poppler
-	mkdir -p "$(brew --prefix zathura)/lib/zathura"
-	ln -s "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
-
-	brew reinstall --cask mpv || brew install --cask mpv
-
-	brew link git || brew link --overwrite git
-	brew link libmagic || brew link --overwrite git
+	if [ -d "$HOME/.local/share/desktop-image-switcher" ]; then
+		rm -rf ~/.local/share/desktop-image-switcher
+		git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/desktop-image-switcher
+		cd ~/.local/share/desktop-image-switcher && sudo make install
+	else
+		git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/desktop-image-switcher
+		cd ~/.local/share/desktop-image-switcher && sudo make install
+	fi
 
 	# homebrew/share/man
 	if [ -d "/opt/homebrew/share/man/man4" ]; then

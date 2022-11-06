@@ -25,15 +25,15 @@ yabai -m config                                            \
      window_topmost               off                      \
      window_opacity               on                       \
      window_border                on                       \
-     window_animation_duration    0.0                      \
-     window_opacity_duration      0.0                      \
-     normal_window_opacity        0.95                     \
-     active_window_opacity        1.0                      \
-     window_border_width          4                        \
+     window_animation_duration    0.35                     \
+     window_opacity_duration      0.35                     \
+     normal_window_opacity        0.90                     \
+     active_window_opacity        0.95                     \
+     window_border_width          6                        \
      split_ratio                  0.50                     \
      split_type                   auto                     \
-     active_window_border_color   0xffFF80BF               \
-     normal_window_border_color   0xff949292               \
+     active_window_border_color   0xffc299ba               \
+     normal_window_border_color   0xffb8abb5               \
      insert_feedback_color        0xff949292               \
      auto_balance                 off                      \
      mouse_modifier               fn                       \
@@ -45,7 +45,7 @@ yabai -m config                                            \
 yabai -m config                                \
      window_border_hidpi          on           \
      window_border_blur           on           \
-     window_border_radius         0            \
+     window_border_radius         10           \
 
 # WM Padding
 yabai -m config                       \
@@ -60,11 +60,13 @@ yabai -m config                       \
 
 # MacOS
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add label="System Settings" app="^System Settings$" title=".*" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off
 yabai -m rule --add label="Finder" app="^Finder" manage=off
 yabai -m rule --add label="Simulator" app="^Simulator" manage=off
+yabai -m rule --add label="Disk Utility" app="^Disk Utility" manage=off
+yabai -m rule --add label="Activity Monitor" app="^Activity Monitor" manage=off
 
 # External App
 yabai -m rule --add label="karabiner-elements" app="^Karabiner-Elements" manage=off

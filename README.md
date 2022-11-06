@@ -78,7 +78,7 @@ you will need `git` and GNU `stow`
 **Repository**
 
 ```"git"
-git clone https://github.com/shendypratamaa/.dotfiles.git ~
+git clone https://github.com/shendypratamaa/.dotfiles.git
 ```
 
 **Homebrew**
@@ -103,7 +103,7 @@ stow zsh # Specified DIR
 
 ## Notes 📖
 
-Currently running on macOS 12.6 (arm) \
+Currently running on macOS 13.0 (arm) \
 Environtment variable refer to [XDG_Spesification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 
 > please read, take what you need, do with your own risk

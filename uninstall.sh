@@ -12,18 +12,20 @@ __info() {
 
 if [ "$1" = "-go" ]; then
 	echo "Clear Directory Symlinks 🌊..."
+	rm -rf -v ~/.local/share/desktop-image-switcher
 	rm -rf -v ~/.config
 	rm -rf -v ~/.zprofile
 	rm -rf -v ~/.utils
 	rm -rf -v ~/.code
 	rm -rf -v ~/.notes
-	rm -rf -v ~/Pictures/wallpaper
-	rm -rf -v ~/Pictures/roadmap
+	rm -rf -v ~/ebook
+	rm -rf -v ~/pix
+	rm -rf -v /usr/local/share/zsh
+	rm -rf -v /usr/local/share/man
 	rm -rf -v /usr/local/bin/osx
 	rm -rf -v /usr/local/bin/preview
 	rm -rf -v /usr/local/bin/search
-	rm -rf -v /usr/local/share/zsh
-	rm -rf -v /usr/local/share/man
+	rm -rf -v /usr/local/bin/desktop-image-switcher
 
 	echo "Uninstalling Package 🌊..."
 	brew list --cask | xargs brew uninstall --force --ignore-dependencies

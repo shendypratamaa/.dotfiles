@@ -39,5 +39,8 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/.node_repl_history"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 
+# YABAI
+export YABAI_CERT="yabai-cert"
+
 # DISPLAY
 export DISPLAY=:0
