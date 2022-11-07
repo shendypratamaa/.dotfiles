@@ -5,7 +5,7 @@ set -e
 youtube="https://youtube.com/results?search_query="
 piped="https://piped.kavin.rocks/results?search_query="
 music="https://listen.whatever.social/search/"
-google="https://duckduckgo.com/?q="
+google="https://www.google.com/search?q="
 reddit="https://www.reddit.com/search/?q="
 stackoverflow="https://stackoverflow.com/search?q="
 github="https://github.com/search?q="

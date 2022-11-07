@@ -2,7 +2,7 @@
 
 set -e
 
-walldir="$HOME/pix/save/"
+walldir="$HOME/pix/save"
 
 tagoptions="#4\n#nature\n#minimalism\n#cyberpunk\n#digital art\n#science fiction\n#spider gwen"
 if [ -z "$1" ]; then
@@ -28,10 +28,5 @@ for i in $(seq 1 $pages); do
 done
 
 rm tmp.txt
-
-if [ "$TERM" = "tmux-256color" ]; then
-	open -a Preview ~/pix/save/*
-else
-	nnn -P v ~/pix/save/*
-	mv ~/pix/save/* ~/pix/wallpaper/
-fi
+open -a Preview $walldir/*
+# mv $walldir/* ~/pix/wallpaper/

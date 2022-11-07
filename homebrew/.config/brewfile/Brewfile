@@ -56,8 +56,6 @@ brew "luajit", args: ["HEAD"]
 brew "luarocks"
 # Fast, highly customisable system info script
 brew "neofetch", args: ["HEAD"]
-# Tiny, lightning fast, feature-packed file manager
-brew "nnn"
 # Manage multiple Node.js versions
 brew "nvm"
 # Reattach process (e.g., tmux) to background

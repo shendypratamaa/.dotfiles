@@ -2,7 +2,6 @@
 
 set -e
 
-n="nnn -d -P v"
 ebook_paths="$HOME/ebook"
 
 __help() {
@@ -22,11 +21,8 @@ __help() {
 }
 
 if [ "$1" = "-i" ] || [ "$1" = "--image" ]; then
-	if [ "$TERM" = "tmux-256color" ]; then
-		$n $(fd . -L -t f --exclude=Library | grep -E '.*(jpg|png)' | sort -r | awk '{print $1}' | fzf --multi --prompt='👉 open image > ')
-	else
-		$n $(fd . -L -t f --exclude=Library | grep -E '.*(jpg|png)' | sort -r -u | fzf --multi --prompt='👉 open image > ')
-	fi
+	fils=$(fd . -L -t f --exclude=Library | grep -E '.*(jpg|png)' | sort -r | fzf --multi --prompt='👉 open image > ')
+	open -a Preview $fils
 elif [ "$1" = "-e" ] || [ "$1" = "--ebook" ]; then
 	fd . "$ebook_paths" --type f | fzf --multi --prompt="👉 open book > " | xargs zathura --fork 2>/dev/null
 	exit
