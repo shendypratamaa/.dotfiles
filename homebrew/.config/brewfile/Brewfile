@@ -102,3 +102,5 @@ cask "karabiner-elements"
 cask "kitty"
 # Media player based on MPlayer and mplayer2
 cask "mpv"
+# Image viewer
+cask "qview"
