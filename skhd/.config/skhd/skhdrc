@@ -11,8 +11,8 @@ cmd - g : yabai -m space --toggle padding; yabai -n space --toogle gap
 cmd - m : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
-# toggle window split type
-cmd - e : yabai -m window --toggle split
+# mirror x-axis
+cmd - e : yabai -m space --mirror x-axis
 
 # miror y-axis
 cmd - y : yabai -m space --mirror y-axis
