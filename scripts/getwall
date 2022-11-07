@@ -28,5 +28,4 @@ for i in $(seq 1 $pages); do
 done
 
 rm tmp.txt
-open -a Preview $walldir/*
-# mv $walldir/* ~/pix/wallpaper/
+open -a qview "$(fd . $walldir -t f | tail -1)"

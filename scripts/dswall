@@ -5,7 +5,7 @@ wallpath="$HOME/pix/wallpaper/"
 num="1\n2\n3\n4\n5\n6\n7\n8\n9"
 
 __change_wall() {
-	cmd="$(fd . "$wallpath" --type f | awk '{print $1}' | fzf --multi --prompt="👉 image > ")"
+	cmd="$(fd . "$wallpath" -t f | awk '{print $1}' | fzf --prompt="👉 image > ")"
 	screen="$(echo -e $num | fzf --prompt=" screen > ")"
 	desktop-image-switcher "$cmd" "$screen" 2 >/dev/null
 }
