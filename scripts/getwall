@@ -24,8 +24,10 @@ echo $query
 for i in $(seq 1 $pages); do
 	curl https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&ratios\=16x9\&sorting\=$sorting\&q\=$query\&page\=$i >tmp.txt
 	page=$(cat tmp.txt | jq '.' | grep -Eoh "https:\/\/w\.wallhaven.cc\/full\/.*(jpg|png)\b")
-	wget -nc -P $walldir $page
+	wget -nc -P $walldir $page --no-check-certificate
 done
 
 rm tmp.txt
-open -a qview "$(fd . $walldir -t f | tail -1)"
+# open -a qview "$(fd . $walldir -t f | tail -1)"
+ranger ~/pix/save/
+mv ~/pix/save/* ~/pix/wallpaper/

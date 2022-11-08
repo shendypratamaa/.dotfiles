@@ -1,7 +1,7 @@
 # FZF_LAYOUT
 export FZF_DEFAULT_OPTS="--height 50% \
   --layout=reverse \
-  --border rounded \
+  --border sharp \
   --inline-info \
   --margin 0,0.40% \
   "

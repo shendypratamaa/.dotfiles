@@ -23,6 +23,8 @@ dotfilesdir=(
 	zathura
 	zsh
 	btop
+	pipe-viewer
+	ranger
 )
 
 if [ "$1" = '-go' ]; then
@@ -70,6 +72,14 @@ if [ "$1" = '-go' ]; then
 	pip3 install --ignore-installed flake8
 	pip3 install --ignore-installed black
 	pip3 install --ignore-installed isort
+	pip3 install --ignore-installed ranger-fm
+	pip3 install --ignore-installed pillow
+
+	if [ -d "$HOME/.config/ranger/plugins/ranger_devicons" ]; then
+		rm -rf ~/.config/ranger/plugins/ranger_devicons
+		git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+		echo "default_linemode devicons" >>$HOME/.config/ranger/rc.conf
+	fi
 
 	if [ -d "$HOME/.local/share/desktop-image-switcher" ]; then
 		rm -rf ~/.local/share/desktop-image-switcher
@@ -81,20 +91,16 @@ if [ "$1" = '-go' ]; then
 	fi
 
 	if [ -d "$HOME/.local/share/pipe-viewer-main" ]; then
-		rm -rf ~/.local/share/pipe-viewer-main
-		wget https://github.com/trizen/pipe-viewer/archive/main.zip -O pipe-viewer-main.zip
-		unzip -n pipe-viewer-main.zip
-		rm -rf pipe-viewer-main.zip
-		cd pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
-		sudo cpan
-		install LMP::UserAgent Mozilla::CA
+		sudo rm -rf ~/.local/share/pipe-viewer-main
+		wget https://github.com/trizen/pipe-viewer/archive/main.zip --no-check-certificate -O ~/.local/share/pipe-viewer-main.zip
+		unzip -n ~/.local/share/pipe-viewer-main.zip
+		rm -rf ~/.local/share/pipe-viewer-main.zip
+		cd ~/.local/share/pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
 	else
-		wget https://github.com/trizen/pipe-viewer/archive/main.zip -O pipe-viewer-main.zip
-		unzip -n pipe-viewer-main.zip
-		rm -rf pipe-viewer-main.zip
-		cd pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
-		sudo cpan
-		install LMP::UserAgent Mozilla::CA
+		wget https://github.com/trizen/pipe-viewer/archive/main.zip --no-check-certificate -O ~/.local/share/pipe-viewer-main.zip
+		unzip -n ~/.local/share/pipe-viewer-main.zip
+		rm -rf ~/.local/share/pipe-viewer-main.zip
+		cd ~/.local/share/pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
 	fi
 
 	# homebrew/share/man

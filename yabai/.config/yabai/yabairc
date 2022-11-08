@@ -45,7 +45,7 @@ yabai -m config \
 yabai -m config \
 	window_border_hidpi on \
 	window_border_blur on \
-	window_border_radius 12
+	window_border_radius 0
 
 # WM Padding
 yabai -m config \

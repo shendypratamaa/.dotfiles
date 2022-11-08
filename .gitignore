@@ -22,6 +22,9 @@ plugin/
 plugins/
 pipe-viewer/.config/pipe-viewer/playlists/**
 pipe-viewer/.config/pipe-viewer/watched.txt
+pipe-viewer/.config/pipe-viewer/instances.json
+ranger/.config/ranger/commands.py
+ranger/.config/ranger/commands_full.py
 
 # Homebrew
 Brewfile.lock.json
@@ -34,4 +37,3 @@ state.yml
 
 # osx
 .DS_Store
-

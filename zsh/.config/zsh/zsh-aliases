@@ -81,5 +81,6 @@ alias pip="pip3"
 # kill
 alias fkill='osx -k'
 
-# oipe-viewer
+# pipe-viewer
+alias msv="pipe-viewer --player=mpv"
 alias msc="pipe-viewer -n --no-video-info --player=mpvt"
