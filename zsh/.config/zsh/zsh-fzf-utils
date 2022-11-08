@@ -100,6 +100,7 @@ alias vn="$FZF_DEFAULT_COMMAND $EXCLUDE_VD_VN -d 7 --type f | fzf --multi --prom
 alias fman="preview -m"
 alias eman="preview -e"
 alias xman="preview -i"
+alias vman="preview -v"
 
 # MANPAGER_BAT
 export MANPAGER="sh -c 'col -bx | bat -l=man --style=plain --paging=always '"

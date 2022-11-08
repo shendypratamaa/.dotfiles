@@ -16,45 +16,45 @@ sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # WM Settings
-yabai -m config                                            \
-     mouse_follows_focus          off                      \
-     focus_follows_mouse          off                      \
-     window_origin_display        default                  \
-     window_placement             second_child             \
-     window_shadow                float                    \
-     window_topmost               off                      \
-     window_opacity               on                       \
-     window_border                on                       \
-     window_animation_duration    0.35                     \
-     window_opacity_duration      0.35                     \
-     normal_window_opacity        0.90                     \
-     active_window_opacity        0.95                     \
-     window_border_width          6                        \
-     split_ratio                  0.50                     \
-     split_type                   auto                     \
-     active_window_border_color   0xffff79c6               \
-     normal_window_border_color   0xffb8abb5               \
-     insert_feedback_color        0xff949292               \
-     auto_balance                 off                      \
-     mouse_modifier               fn                       \
-     mouse_action1                move                     \
-     mouse_action2                resize                   \
-     mouse_drop_action            swap                     \
+yabai -m config \
+	mouse_follows_focus off \
+	focus_follows_mouse off \
+	window_origin_display default \
+	window_placement second_child \
+	window_shadow float \
+	window_topmost off \
+	window_opacity on \
+	window_border on \
+	window_animation_duration 0.35 \
+	window_opacity_duration 0.35 \
+	normal_window_opacity 0.90 \
+	active_window_opacity 0.95 \
+	window_border_width 4 \
+	split_ratio 0.50 \
+	split_type auto \
+	active_window_border_color 0xffB48EAD \
+	normal_window_border_color 0xffb8abb5 \
+	insert_feedback_color 0xff949292 \
+	auto_balance off \
+	mouse_modifier fn \
+	mouse_action1 move \
+	mouse_action2 resize \
+	mouse_drop_action swap
 
 # yabai 5.0.x support this opts but broken in border
-yabai -m config                                \
-     window_border_hidpi          on           \
-     window_border_blur           on           \
-     window_border_radius         10           \
+yabai -m config \
+	window_border_hidpi on \
+	window_border_blur on \
+	window_border_radius 12
 
 # WM Padding
-yabai -m config                       \
-     layout                       bsp \
-     top_padding                  40  \
-     bottom_padding               15  \
-     left_padding                 15  \
-     right_padding                15  \
-     window_gap                   8   \
+yabai -m config \
+	layout bsp \
+	top_padding 40 \
+	bottom_padding 15 \
+	left_padding 15 \
+	right_padding 15 \
+	window_gap 8
 
 # WM Rules
 
@@ -77,5 +77,16 @@ yabai -m rule --add label="mvp" app="^mpv" manage=off
 
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+# custom space window
+yabai -m rule --add app="^Brave Browser$" space=1
+yabai -m rule --add app="^kitty$" space=2
+yabai -m rule --add app="^(mpv)$" space=3
+yabai -m rule --add app="^(Whatsapp|Discord)$" space=4
+yabai -m rule --add app="^Mail$" space=5
+yabai -m rule --add app="^(Messages|FaceTime)$" space=6
+
+yabai -m signal --add event=space_changed \
+	osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
 echo "yabai configuration loaded.."

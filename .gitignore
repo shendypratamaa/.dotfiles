@@ -20,6 +20,8 @@ Sessionx.vim
 tags
 plugin/
 plugins/
+pipe-viewer/.config/pipe-viewer/playlists/**
+pipe-viewer/.config/pipe-viewer/watched.txt
 
 # Homebrew
 Brewfile.lock.json
@@ -32,3 +34,4 @@ state.yml
 
 # osx
 .DS_Store
+

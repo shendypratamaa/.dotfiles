@@ -18,10 +18,6 @@ alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
 # GIT
 alias lg="lazygit"
 
-# BREW SERVICES
-alias srv="brew services"
-alias rsrv="brew services restart --all"
-
 # BREW PINNED
 alias brewlistpin="brew list --pinned"
 
@@ -84,3 +80,6 @@ alias pip="pip3"
 
 # kill
 alias fkill='osx -k'
+
+# oipe-viewer
+alias msc="pipe-viewer -n --no-video-info --player=mpvt"

@@ -41,7 +41,7 @@ if [ "$1" = '-go' ]; then
 	mkdir -p "$(brew --prefix zathura)/lib/zathura"
 	ln -s "$(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib" "$(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib"
 
-	brew reinstall --cask mpv || brew install --cask mpv
+	brew reinstall mpv || brew install mpv
 
 	brew reinstall koekeishiya/formulae/yabai --HEAD || brew install koekeishiya/formulae/yabai --HEAD
 	codesign -fs 'yabai-cert' $(which yabai)
@@ -71,8 +71,6 @@ if [ "$1" = '-go' ]; then
 	pip3 install --ignore-installed black
 	pip3 install --ignore-installed isort
 
-	curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
-
 	if [ -d "$HOME/.local/share/desktop-image-switcher" ]; then
 		rm -rf ~/.local/share/desktop-image-switcher
 		git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/desktop-image-switcher
@@ -80,6 +78,23 @@ if [ "$1" = '-go' ]; then
 	else
 		git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/desktop-image-switcher
 		cd ~/.local/share/desktop-image-switcher && sudo make install
+	fi
+
+	if [ -d "$HOME/.local/share/pipe-viewer-main" ]; then
+		rm -rf ~/.local/share/pipe-viewer-main
+		wget https://github.com/trizen/pipe-viewer/archive/main.zip -O pipe-viewer-main.zip
+		unzip -n pipe-viewer-main.zip
+		rm -rf pipe-viewer-main.zip
+		cd pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
+		sudo cpan
+		install LMP::UserAgent Mozilla::CA
+	else
+		wget https://github.com/trizen/pipe-viewer/archive/main.zip -O pipe-viewer-main.zip
+		unzip -n pipe-viewer-main.zip
+		rm -rf pipe-viewer-main.zip
+		cd pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
+		sudo cpan
+		install LMP::UserAgent Mozilla::CA
 	fi
 
 	# homebrew/share/man
