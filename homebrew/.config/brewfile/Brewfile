@@ -54,6 +54,10 @@ brew "lua"
 brew "luajit", args: ["HEAD"]
 # Package manager for the Lua programming language
 brew "luarocks"
+# Fork of youtube-dl with additional features and fixes
+brew "yt-dlp"
+# Media player based on MPlayer and mplayer2
+brew "mpv"
 # Fast, highly customisable system info script
 brew "neofetch", args: ["HEAD"]
 # Manage multiple Node.js versions
@@ -100,7 +104,5 @@ cask "font-jetbrains-mono-nerd-font"
 cask "karabiner-elements"
 # GPU-based terminal emulator
 cask "kitty"
-# Media player based on MPlayer and mplayer2
-cask "mpv"
 # Image viewer
 cask "qview"
