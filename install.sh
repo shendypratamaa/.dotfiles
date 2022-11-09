@@ -24,7 +24,7 @@ dotfilesdir=(
 	zsh
 	btop
 	pipe-viewer
-	ranger
+	lf
 )
 
 if [ "$1" = '-go' ]; then
@@ -45,10 +45,14 @@ if [ "$1" = '-go' ]; then
 
 	brew reinstall mpv || brew install mpv
 
+	# BECAUSE MACOS SUCKS !!
+	# after update ventura 13, yabai not fully support in version 5.0.1
+	# with yabai --head everything work but if you re-run this script
+	# and restart your system you must regenerate shasum / hash for yabai
+	# and replace into sha(has) with sudo visudo -f /private/etc/sudoers.d/yabai
+	# go to yabai documentation github, and read issue for macos ventura
 	brew reinstall koekeishiya/formulae/yabai --HEAD || brew install koekeishiya/formulae/yabai --HEAD
 	codesign -fs 'yabai-cert' $(which yabai)
-
-	brew reinstall koekeishiya/formulae/skhd || brew install koekeishiya/formulae/skhd
 
 	brew link bash || brew link --overwrite bash
 	brew link git || brew link --overwrite git
@@ -72,14 +76,6 @@ if [ "$1" = '-go' ]; then
 	pip3 install --ignore-installed flake8
 	pip3 install --ignore-installed black
 	pip3 install --ignore-installed isort
-	pip3 install --ignore-installed ranger-fm
-	pip3 install --ignore-installed pillow
-
-	if [ -d "$HOME/.config/ranger/plugins/ranger_devicons" ]; then
-		rm -rf ~/.config/ranger/plugins/ranger_devicons
-		git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-		echo "default_linemode devicons" >>$HOME/.config/ranger/rc.conf
-	fi
 
 	if [ -d "$HOME/.local/share/desktop-image-switcher" ]; then
 		rm -rf ~/.local/share/desktop-image-switcher

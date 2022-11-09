@@ -28,6 +28,5 @@ for i in $(seq 1 $pages); do
 done
 
 rm tmp.txt
-# open -a qview "$(fd . $walldir -t f | tail -1)"
-ranger ~/pix/save/
+lf "$(fd . $walldir -t f | tail -1)"
 mv ~/pix/save/* ~/pix/wallpaper/

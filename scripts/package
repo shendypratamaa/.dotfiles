@@ -19,7 +19,6 @@ update() {
 info() {
 	brew ls --formulae
 	brew ls --casks
-	brew tap
 }
 
 bundle() {

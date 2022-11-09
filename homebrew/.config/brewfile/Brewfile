@@ -18,6 +18,8 @@ brew "bash"
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Mozilla CA certificate store
+brew "ca-certificates"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # GNU File, Shell, and Text utilities
@@ -48,12 +50,16 @@ brew "grep"
 brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Terminal file manager
+brew "lf"
 # Powerful, lightweight programming language
 brew "lua"
 # Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit", args: ["HEAD"]
 # Package manager for the Lua programming language
 brew "luarocks"
+# Move files and folders to the trash
+brew "macos-trash"
 # Fork of youtube-dl with additional features and fixes
 brew "yt-dlp"
 # Media player based on MPlayer and mplayer2
