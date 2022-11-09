@@ -15,13 +15,15 @@ Vcs       => [Git, Lazygit, Delta]
 
 Editor    => [Neovim 0.7.2]
 
-WM        => [Yabai, Skhd]
+WM        => [Yabai]
 
 Stat      => [Ubersicht, Simple-bar]
 
-Font      => [JetBrains Mono]
+Font      => [JetBrainsMono Nerd Font Mono]
 
-Key       => [Karabiner]
+Key       => [Karabiner, skhd]
+
+FM        => [LF]
 ```
 
 ## Installation : 1

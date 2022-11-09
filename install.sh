@@ -49,14 +49,14 @@ if [ "$1" = '-go' ]; then
 	# after update ventura 13, yabai not fully support in version 5.0.1
 	# with yabai --head everything work but if you re-run this script
 	# and restart your system you must regenerate shasum / hash for yabai
-	# and replace into sha(has) with sudo visudo -f /private/etc/sudoers.d/yabai
+	# and replace into sha(hash) with sudo visudo -f /private/etc/sudoers.d/yabai
 	# go to yabai documentation github, and read issue for macos ventura
 	brew reinstall koekeishiya/formulae/yabai --HEAD || brew install koekeishiya/formulae/yabai --HEAD
 	codesign -fs 'yabai-cert' $(which yabai)
 
 	brew link bash || brew link --overwrite bash
 	brew link git || brew link --overwrite git
-	brew link libmagic || brew link --overwrite git
+	brew link libmagic || brew link --overwrite libmagic
 
 	if [ -d "$HOME/.dotfiles" ]; then
 		cd ~/.dotfiles && stow -v "${dotfilesdir[@]}"
