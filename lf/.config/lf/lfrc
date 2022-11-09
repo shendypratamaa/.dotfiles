@@ -1,0 +1,90 @@
+# script
+set previewer ~/.config/lf/preview_kitty_img.sh
+set cleaner ~/.config/lf/clean_kitty_img.sh
+
+# opts
+set hidden true
+set drawbox
+set icons true
+set preview true
+set ignorecase true
+set info size
+
+# custom function
+cmd open ${{
+    case $(file --mime-type -Lb $f) in
+        text/*) $EDITOR $fx;;
+        video/*) "mpv" $fx ;;
+        application/pdf) "zathura" $fx ;;
+        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+cmd bulk-rename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" >"$old"
+    printf '%s\n' "$fs" >"$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
+    done
+    rm -- "$old" "$new"
+    lf -remote "send $id unselect"
+}}
+
+cmd mvdir %set -f; printf " Directory Name: "; read ans; mkdir -- "$ans"; mv -- $fx "$ans"
+cmd setwallpaper %set -f; printf " Desktop Number: "; read ans; desktop-image-switcher $f $ans
+cmd mkdir %set -f; printf " Directory Name: "; read ans; mkdir -p $ans
+cmd mkfile %set -f; printf " File Name: "; read ans; touch $ans
+cmd trash %set -f; printf " Are you sure, delete [y/n] "; read ans; [ $ans = "y" ] && trash $f
+
+# clear key for recieve multiple keymap
+map g
+map m
+map r
+map e
+map c
+
+# chain function into key
+map rs rename
+map rb bulk-rename
+map mf mkfile
+map md mkdir
+map mv mvdir
+
+# basic key
+map . set hidden!
+map D trash
+map p paste
+map x cut
+map y copy
+map cc clear
+map <enter> open
+map "<c-\>" shell
+
+# wallpaper
+map cw setwallpaper
+
+# bookmaks key
+map gh cd ~
+map gd cd ~/.dotfiles
+map gc cd ~/.config
+map gt cd ~/.Trash
+map gp cd ~/pix
+map ge cd ~/ebook
+map gm cd ~/Movies/videos
+map go cd ~/Downloads
+map gl cd /usr/local
+map gb cd /opt/homebrew
