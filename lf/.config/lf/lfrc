@@ -1,20 +1,33 @@
+#!/bin/sh
+
+# prompt
+set promptfmt "[\033[32;1m%u\033[0m]:[\033[34;1m%d\033[0m\033[1m%f\033[0m]"
+
 # script
 set previewer ~/.config/lf/preview_kitty_img.sh
 set cleaner ~/.config/lf/clean_kitty_img.sh
 
 # opts
 set hidden true
-set drawbox
+set drawbox true
 set icons true
-set preview true
 set ignorecase true
-set info size
+set relativenumber true
+set sortby 'natural'; set info size
+set scrolloff 10
 
 # custom function
 cmd open ${{
     case $(file --mime-type -Lb $f) in
         text/*) $EDITOR $fx;;
         video/*) "mpv" $fx ;;
+        image/*)
+        if [ "$TERM" = "tmux-256color" ]; then
+            open -a qview $fx
+        else
+            false
+        fi
+        ;;
         application/pdf) "zathura" $fx ;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
@@ -45,8 +58,8 @@ cmd bulk-rename ${{
 }}
 
 cmd mvdir %set -f; printf " Directory Name: "; read ans; mkdir -- "$ans"; mv -- $fx "$ans"
-cmd setwallpaper %set -f; printf " Desktop Number: "; read ans; desktop-image-switcher $f $ans
 cmd mkdir %set -f; printf " Directory Name: "; read ans; mkdir -p $ans
+cmd setwallpaper %set -f; printf " Desktop Number: "; read ans; desktop-image-switcher $f $ans
 cmd mkfile %set -f; printf " File Name: "; read ans; touch $ans
 cmd trash %set -f; printf " Are you sure, delete [y/n] "; read ans; [ $ans = "y" ] && trash $f
 

@@ -1,4 +1,5 @@
 tap "cmacrae/formulae"
+tap "felixkratz/formulae"
 tap "homebrew/aliases"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
@@ -90,6 +91,8 @@ brew "wget"
 brew "wimlib"
 # Check your $HOME for unwanted files and directories
 brew "xdg-ninja"
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
