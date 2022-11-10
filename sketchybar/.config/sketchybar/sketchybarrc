@@ -18,11 +18,11 @@ sketchybar --bar     height=28                                            \
 sketchybar --default updates=when_shown                                   \
                      drawing=on                                           \
                      icon.font="$FONT:Bold:12.0"                          \
-                     icon.color=0xffffffff                                \
+                     label.font="$FONT:SemiBold:11.0"                     \
+                     icon.color=0xff${NORD6:1}                            \
+                     label.color=0xff${NORD6:1}                           \
                      icon.padding_left=$PADDING                           \
                      icon.padding_right=$PADDING                          \
-                     label.font="$FONT:SemiBold:11.0"                     \
-                     label.color=0xffffffff                               \
                      label.padding_left=$PADDING                          \
                      label.padding_right=$PADDING
 
@@ -40,7 +40,7 @@ do
                               background.padding_right=4                 \
                               background.corner_radius=4                 \
                               background.height=22                       \
-                              background.color=0x44ffffff                \
+                              background.color=0xff${NORD15:1}           \
                               background.drawing=off                     \
                               label.drawing=off                          \
                               script="$PLUGIN_DIR/space.sh"              \
