@@ -1,25 +1,27 @@
 #!/usr/bin/env sh
 
-PLUGIN_DIR="$HOME/.config/sketchybar/utils"
+source "$HOME/.config/sketchybar/color.sh"
+
+PLUGIN_DIR="$HOME/.config/sketchybar/plug"
 
 PADDING=4
 FONT="JetBrainsMono Nerd Font Mono"
 
-sketchybar --bar     height=32                                            \
+sketchybar --bar     height=28                                            \
                      blur_radius=0                                        \
                      position=top                                         \
                      sticky=on                                            \
                      padding_left=10                                      \
                      padding_right=10                                     \
-                     color=0xff181926                                     \
+                     color=0xff${NORD0:1}
 
 sketchybar --default updates=when_shown                                   \
                      drawing=on                                           \
-                     icon.font="$FONT:Bold:14.0"                          \
+                     icon.font="$FONT:Bold:12.0"                          \
                      icon.color=0xffffffff                                \
                      icon.padding_left=$PADDING                           \
                      icon.padding_right=$PADDING                          \
-                     label.font="$FONT:SemiBold:13.0"                     \
+                     label.font="$FONT:SemiBold:11.0"                     \
                      label.color=0xffffffff                               \
                      label.padding_left=$PADDING                          \
                      label.padding_right=$PADDING
@@ -34,9 +36,9 @@ do
                               icon=${SPACE_ICONS[i]}                     \
                               icon.padding_left=8                        \
                               icon.padding_right=8                       \
-                              background.padding_left=5                  \
-                              background.padding_right=5                 \
-                              background.corner_radius=5                 \
+                              background.padding_left=4                  \
+                              background.padding_right=4                 \
+                              background.corner_radius=4                 \
                               background.height=22                       \
                               background.color=0x44ffffff                \
                               background.drawing=off                     \
@@ -47,8 +49,8 @@ done
 
 sketchybar --add item space_separator left                              \
            --set space_separator icon=                                 \
-                                 background.padding_left=15             \
-                                 background.padding_right=15            \
+                                 background.padding_left=0              \
+                                 background.padding_right=4             \
                                  label.drawing=off                      \
                                                                         \
            --add item front_app  left                                   \
