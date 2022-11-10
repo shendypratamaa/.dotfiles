@@ -3,16 +3,17 @@
 source "$HOME/.config/sketchybar/color.sh"
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plug"
+ITEM_DIR="$HOME/.config/sketchybar/items"
 
 PADDING=4
 FONT="JetBrainsMono Nerd Font Mono"
 
-sketchybar --bar     height=28                                            \
+sketchybar --bar     height=26                                            \
                      blur_radius=0                                        \
                      position=top                                         \
                      sticky=on                                            \
                      padding_left=10                                      \
-                     padding_right=10                                     \
+                     padding_right=16                                     \
                      color=0xff${NORD0:1}
 
 sketchybar --default updates=when_shown                                   \
@@ -26,47 +27,16 @@ sketchybar --default updates=when_shown                                   \
                      label.padding_left=$PADDING                          \
                      label.padding_right=$PADDING
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+# left
+source "$ITEM_DIR/space.sh"
+source "$ITEM_DIR/front_app.sh"
 
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
-  sketchybar --add space space.$sid left                                 \
-             --set space.$sid associated_space=$sid                      \
-                              icon=${SPACE_ICONS[i]}                     \
-                              icon.padding_left=8                        \
-                              icon.padding_right=8                       \
-                              background.padding_left=4                  \
-                              background.padding_right=4                 \
-                              background.corner_radius=4                 \
-                              background.height=22                       \
-                              background.color=0xff${NORD15:1}           \
-                              background.drawing=off                     \
-                              label.drawing=off                          \
-                              script="$PLUGIN_DIR/space.sh"              \
-                              click_script="yabai -m space --focus $sid"
-done
+# right
+source "$ITEM_DIR/clock.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/memory.sh"
 
-sketchybar --add item space_separator left                              \
-           --set space_separator icon=                                 \
-                                 background.padding_left=0              \
-                                 background.padding_right=4             \
-                                 label.drawing=off                      \
-                                                                        \
-           --add item front_app  left                                   \
-           --set front_app       script="$PLUGIN_DIR/front_app.sh"      \
-                                 icon.drawing=off                       \
-           --subscribe front_app front_app_switched
-
-sketchybar --add item clock right                                       \
-           --set clock   update_freq=10                                 \
-                         script="$PLUGIN_DIR/clock.sh"                  \
-                                                                        \
-           --add item battery right                                     \
-           --set battery script="$PLUGIN_DIR/battery.sh"                \
-                         update_freq=10                                 \
-           --subscribe battery system_woke
-
+# initializing
 sketchybar --update
 
 echo "sketchybar configuration loaded.."
