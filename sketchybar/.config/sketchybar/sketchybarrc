@@ -2,19 +2,20 @@
 
 source "$HOME/.config/sketchybar/color.sh"
 
-PLUGIN_DIR="$HOME/.config/sketchybar/plug"
-ITEM_DIR="$HOME/.config/sketchybar/items"
+PLUGIN_DIR="$HOME/.config/sketchybar/controller"
+PLUGIN_TOUCH="$HOME/.config/sketchybar/controller/touch"
+ITEM_DIR="$HOME/.config/sketchybar/view"
 
 PADDING=4
 FONT="JetBrainsMono Nerd Font Mono"
 
-sketchybar --bar     height=26                                            \
+sketchybar --bar     height=30                                            \
                      blur_radius=0                                        \
-                     position=top                                         \
-                     sticky=on                                            \
                      padding_left=10                                      \
                      padding_right=16                                     \
-                     color=0xff${NORD0:1}
+                     color=0xff${NORD0:1}                                 \
+                     position=top                                         \
+                     sticky=on                                            \
 
 sketchybar --default updates=when_shown                                   \
                      drawing=on                                           \
@@ -34,7 +35,10 @@ source "$ITEM_DIR/front_app.sh"
 # right
 source "$ITEM_DIR/clock.sh"
 source "$ITEM_DIR/battery.sh"
-source "$ITEM_DIR/memory.sh"
+source "$ITEM_DIR/mic.sh"
+source "$ITEM_DIR/sound.sh"
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/cpu-mem.sh"
 
 # initializing
 sketchybar --update

@@ -17,7 +17,7 @@ Editor    => [Neovim 0.7.2]
 
 WM        => [Yabai]
 
-Stat      => [Ubersicht, Simple-bar]
+Stat      => [Sketchybar]
 
 Font      => [JetBrainsMono Nerd Font Mono]
 

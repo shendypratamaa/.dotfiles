@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+MIC_VOLUME=$(osascript -e 'input volume of (get volume settings)')
+
+if [[ $MIC_VOLUME -eq 0 ]]; then
+	sketchybar -m --set mic icon="| 🤐 off"
+elif [[ $MIC_VOLUME -gt 0 ]]; then
+	sketchybar -m --set mic icon="| 🔥 on"
+fi
