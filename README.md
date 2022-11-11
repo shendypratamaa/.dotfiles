@@ -5,25 +5,25 @@
 ## Ingredients 🥘
 
 ```"info"
-Terminal  => [Kitty, Tmux]
+TERM      => [Kitty, Tmux]
 
-Shell     => [Zsh]
+SHELL     => [Zsh]
 
-Pckg      => [Homebrew]
+PCKG      => [Homebrew]
 
-Vcs       => [Git, Lazygit, Delta]
+VCS       => [Git, Lazygit, Delta]
 
-Editor    => [Neovim 0.7.2]
-
+EDITOR    => [Neovim 0.7.2]
+                                                  💕
 WM        => [Yabai]
 
-Stat      => [Sketchybar]
+BAR       => [Sketchybar]
 
-Font      => [JetBrainsMono Nerd Font Mono]
-
-Key       => [Karabiner, skhd]
+KEY       => [Karabiner, skhd]
 
 FM        => [LF]
+
+FONT      => [JetBrainsMono Nerd Font Mono]
 ```
 
 ## Installation : 1
@@ -56,7 +56,7 @@ _this installation take much time, based on your internet connection, keep chil_
 
 - **check installation**\
      last check with `brew doctor` if the output is _your system is ready to brew_ \
-     `myconfig` config ready to go, great your awesome 💕
+     `myconfig` config ready to go, great your awesome 🤟
 
 **uninstall.sh**
 

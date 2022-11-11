@@ -43,7 +43,6 @@ cmd + shift - w : yabai -m space --destroy
 
 # create new desktop without follow focus
 rcmd + shift - n : yabai -m space --create;\
-                  osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
 # increase window size
 cmd + ctrl - h : yabai -m window --resize left:-20:0
@@ -65,7 +64,6 @@ rcmd + ctrl - n : yabai -m space --create && \
                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                  yabai -m window --space "${index}" && \
                  yabai -m space --focus "${index}";\
-                 osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
 # move focus only desktop
 rcmd - 1 : yabai -m space --focus 1
@@ -91,4 +89,3 @@ shift + rcmd - 9 : yabai -m window --space  9; yabai -m space --focus 9
 
 # reload yabai + skhd + status bar
 ctrl + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"; \
-                 osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
