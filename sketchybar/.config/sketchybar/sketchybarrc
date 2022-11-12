@@ -35,14 +35,16 @@ source "$ITEM_DIR/space.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # right
-source "$ITEM_DIR/date-and-time.sh"
+source "$ITEM_DIR/time.sh"
+source "$ITEM_DIR/cal.sh"
 source "$ITEM_DIR/disk.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/airpodsbattery.sh"
 source "$ITEM_DIR/sound.sh"
 source "$ITEM_DIR/mic.sh"
 source "$ITEM_DIR/wifi.sh"
-source "$ITEM_DIR/cpu-mem.sh"
+source "$ITEM_DIR/mem.sh"
+source "$ITEM_DIR/cpu.sh"
 
 # initializing
 sketchybar --update

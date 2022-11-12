@@ -3,4 +3,3 @@
 sketchybar --add item disk right                              \
            --set disk script="$PLUGIN_DIR/disk.sh"            \
                       update_freq=4                           \
-                      background.padding_right=-8             \

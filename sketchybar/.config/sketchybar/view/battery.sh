@@ -3,5 +3,4 @@
 sketchybar --add item    battery right                                  \
            --subscribe   battery system_woke                            \
            --set battery update_freq=5                                  \
-                         background.padding_right=-8                    \
                          script="$PLUGIN_DIR/battery.sh"                \
