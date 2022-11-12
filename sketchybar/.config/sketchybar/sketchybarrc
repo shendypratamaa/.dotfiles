@@ -16,24 +16,27 @@ sketchybar --bar     height=30                                            \
                      color=0xff${NORD0:1}                                 \
                      position=top                                         \
                      sticky=on                                            \
+                     font_smoothing=on                                    \
 
 sketchybar --default updates=when_shown                                   \
                      drawing=on                                           \
-                     icon.font="$FONT:Bold:12.0"                          \
+                     icon.font="$FONT:SemiBold:11.0"                      \
                      label.font="$FONT:Bold:11.0"                         \
                      icon.color=0xff${NORD6:1}                            \
                      label.color=0xff${NORD6:1}                           \
                      icon.padding_left=$PADDING                           \
                      icon.padding_right=$PADDING                          \
                      label.padding_left=$PADDING                          \
-                     label.padding_right=$PADDING
+                     label.padding_right=$PADDING                         \
+
 
 # left
 source "$ITEM_DIR/space.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # right
-source "$ITEM_DIR/clock.sh"
+source "$ITEM_DIR/date-and-time.sh"
+source "$ITEM_DIR/disk.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/mic.sh"
 source "$ITEM_DIR/sound.sh"

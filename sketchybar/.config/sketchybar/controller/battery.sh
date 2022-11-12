@@ -8,29 +8,39 @@ if [ $PERCENTAGE = "" ]; then
 fi
 
 case ${PERCENTAGE} in
-[7-9][0-9]|100)
-	ICON="🌕"
+[8-9][0-9]|100)
+	sketchybar --set $NAME label="🌕 ${PERCENTAGE}% |"
+	;;
+[7-8][0-9])
+	sketchybar --set $NAME label="🌔 ${PERCENTAGE}% |"
 	;;
 [3-6][0-9])
-	ICON="🌓"
+	sketchybar --set $NAME label="🌓 ${PERCENTAGE}% |"
 	;;
-[0-2][0-9])
-	ICON="🌒"
+[1-3][0-9])
+	sketchybar --set $NAME label="🌒 ${PERCENTAGE}% |"
+	;;
+[0-1][0-9])
+	sketchybar --set $NAME label="🌑 ${PERCENTAGE}% |"
 	;;
 esac
 
 if [[ $CHARGING != "" ]]; then
 	case ${PERCENTAGE} in
-	[7-9][0-9]|100)
-		ICON="🌕"
+	[8-9][0-9]|100)
+		sketchybar --set $NAME label="🌕 ${PERCENTAGE}% |"
+		;;
+	[7-8][0-9])
+		sketchybar --set $NAME label="🌔 ${PERCENTAGE}% |"
 		;;
 	[3-6][0-9])
-		ICON="🌓"
+		sketchybar --set $NAME label="🌓 ${PERCENTAGE}% |"
 		;;
-	[0-2][0-9])
-		ICON="🌒"
+	[1-3][0-9])
+		sketchybar --set $NAME label="🌒 ${PERCENTAGE}% |"
+		;;
+	[0-1][0-9])
+		sketchybar --set $NAME label="🌑 ${PERCENTAGE}% |"
 		;;
 	esac
 fi
-
-sketchybar --set $NAME icon="| $ICON" label="${PERCENTAGE}%"

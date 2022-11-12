@@ -44,10 +44,6 @@ alias rm="rm -v -i"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 
-# easier to read disk
-alias df="df -h"
-alias du="du -sh"
-
 # system information
 alias btw="neofetch"
 

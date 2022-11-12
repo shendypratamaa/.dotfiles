@@ -42,7 +42,8 @@ cmd + shift - r : yabai -m space --rotate 90
 cmd + shift - w : yabai -m space --destroy
 
 # create new desktop without follow focus
-rcmd + shift - n : yabai -m space --create;\
+rcmd + shift - n : yabai -m space --create && \
+                   sketchybar --update
 
 # increase window size
 cmd + ctrl - h : yabai -m window --resize left:-20:0
@@ -89,3 +90,5 @@ shift + rcmd - 9 : yabai -m window --space  9; yabai -m space --focus 9
 
 # reload yabai + skhd + status bar
 ctrl + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"; \
+                 launchctl kickstart -k "gui/${UID}/homebrew.mxcl.sketchybar"; \
+                 skhd --reload
