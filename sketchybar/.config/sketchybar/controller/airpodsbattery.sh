@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
-airpodsbattery=$(system_profiler SPBluetoothDataType | grep 'Battery' | awk '{printf  $4}' | awk '{printf $1+$2}')
+AIRPODSBATTERY=$(system_profiler SPBluetoothDataType | grep 'Left Battery\|Right Battery' | awk '{printf $4}' | awk '{printf $1+$2}')
+AIRPODICON=🎧
 
-if [[ $airpodsbattery = "" ]]; then
-	sketchybar --set $NAME icon=🎧 label="not connected |"
+if [[ $AIRPODSBATTERY = "" ]]; then
+	sketchybar --set $NAME icon=$AIRPODICON label="not connected |"
 else
-	sketchybar --set $NAME icon=🎧 label="$airpodsbattery% |"
+	sketchybar --set $NAME icon=$AIRPODICON label="$AIRPODSBATTERY% |"
 fi

@@ -49,11 +49,11 @@ yabai -m config													\
 # Padding
 yabai -m config													\
 	layout bsp														\
-	top_padding 40												\
-	bottom_padding 15											\
-	left_padding 15												\
-	right_padding 15											\
-	window_gap 8
+	top_padding 30												\
+	bottom_padding 6											\
+	left_padding 6												\
+	right_padding 6											\
+	window_gap 6
 
 # MacOS
 yabai -m rule --add label="About This Mac" app="System Information" manage=off

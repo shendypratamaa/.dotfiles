@@ -143,6 +143,8 @@ if [ "$1" = '-go' ]; then
 		mkdir -p -v /usr/local/share/zsh/site-functions
 	fi
 
+	ln -sf /opt/homebrew/Caskroom/kitty/0.26.5/kitty.app/Contents/Resources/man/man1/kitty.1 /usr/local/share/man/man1/
+	ln -sf /opt/homebrew/Caskroom/kitty/0.26.5/kitty.app/Contents/Resources/man/man5/kitty.conf.5 /usr/local/share/man/man1/
 	ln -sf -v /usr/share/zsh/5.8.1/functions/** /opt/homebrew/share/zsh/site-functions/
 	ln -sf -v /usr/share/man/man1/** /opt/homebrew/share/man/man1/
 	ln -sf -v /usr/share/man/man4/** /opt/homebrew/share/man/man4/

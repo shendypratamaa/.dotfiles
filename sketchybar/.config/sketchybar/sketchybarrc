@@ -9,10 +9,10 @@ ITEM_DIR="$HOME/.config/sketchybar/view"
 PADDING=4
 FONT="JetBrainsMono Nerd Font Mono"
 
-sketchybar --bar     height=28                                            \
+sketchybar --bar     height=24                                            \
                      blur_radius=0                                        \
-                     padding_left=10                                      \
-                     padding_right=16                                     \
+                     padding_left=4                                      \
+                     padding_right=4                                     \
                      color=0xff${NORD0:1}                                 \
                      position=top                                         \
                      sticky=on                                            \
@@ -40,6 +40,7 @@ source "$ITEM_DIR/cal.sh"
 source "$ITEM_DIR/disk.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/airpodsbattery.sh"
+source "$ITEM_DIR/airpodscasebattery.sh"
 source "$ITEM_DIR/sound.sh"
 source "$ITEM_DIR/mic.sh"
 source "$ITEM_DIR/wifi.sh"

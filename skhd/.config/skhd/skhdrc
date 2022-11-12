@@ -1,3 +1,6 @@
+#disable
+ctrl -d : :
+
 # open terminal
 cmd - return : open -a kitty.app
 
@@ -62,9 +65,9 @@ cmd + ctrl - 0 : yabai -m space --balance
 
 # create new desktop and follow focus
 rcmd + ctrl - n : yabai -m space --create && \
-                 index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                 yabai -m window --space "${index}" && \
-                 yabai -m space --focus "${index}";\
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}";\
 
 # move focus only desktop
 rcmd - 1 : yabai -m space --focus 1
@@ -76,6 +79,8 @@ rcmd - 6 : yabai -m space --focus 6
 rcmd - 7 : yabai -m space --focus 7
 rcmd - 8 : yabai -m space --focus 8
 rcmd - 9 : yabai -m space --focus 9
+rcmd - q : index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == true))[-1].index')" && \
+           yabai -m space --focus "${index}"; \
 
 # send window to desktop and follow focus
 shift + rcmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
