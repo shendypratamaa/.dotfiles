@@ -25,6 +25,7 @@ pipe-viewer/.config/pipe-viewer/watched.txt
 pipe-viewer/.config/pipe-viewer/instances.json
 ranger/.config/ranger/commands.py
 ranger/.config/ranger/commands_full.py
+btop/.config/btop/btop.log
 
 # Homebrew
 Brewfile.lock.json
