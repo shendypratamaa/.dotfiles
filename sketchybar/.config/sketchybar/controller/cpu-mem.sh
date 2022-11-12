@@ -13,4 +13,4 @@ wired_memory=$(printf "%.2f\n" $(top -l 1 | grep 'wired' | awk -F '(' '{print $2
 compressed=$(printf "%.2f\n" $(top -l 1 | grep 'compressor' | awk -F '(' '{print $2}' | awk '{print $3/1024}'))
 memory_usage=$(printf "%.2f\n" $(awk "BEGIN {print (($app_memory+$wired_memory+$compressed)+0.529)}"))
 
-sketchybar -m --set $NAME label="🧠 cpu $cpu % | 🤖 memory $memory_usage GB |"
+sketchybar -m --set $NAME label="🧠 cpu $cpu % | 🤖 mem $memory_usage GB |"

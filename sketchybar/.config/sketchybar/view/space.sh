@@ -10,7 +10,7 @@ for i in "${!SPACE_ICONS[@]}"; do
                               ignore_association=on                     \
                               icon=${SPACE_ICONS[i]}                    \
                               icon.padding_left=6                       \
-                              icon.padding_right=7                      \
+                              icon.padding_right=6                      \
                               background.padding_left=4                 \
                               background.padding_right=4                \
                               background.corner_radius=2                \

@@ -9,7 +9,7 @@ ITEM_DIR="$HOME/.config/sketchybar/view"
 PADDING=4
 FONT="JetBrainsMono Nerd Font Mono"
 
-sketchybar --bar     height=30                                            \
+sketchybar --bar     height=28                                            \
                      blur_radius=0                                        \
                      padding_left=10                                      \
                      padding_right=16                                     \
@@ -20,8 +20,8 @@ sketchybar --bar     height=30                                            \
 
 sketchybar --default updates=when_shown                                   \
                      drawing=on                                           \
-                     icon.font="$FONT:SemiBold:11.0"                      \
-                     label.font="$FONT:Bold:11.0"                         \
+                     icon.font="$FONT:Regular:10.0"                       \
+                     label.font="$FONT:Regular:10.0"                      \
                      icon.color=0xff${NORD6:1}                            \
                      label.color=0xff${NORD6:1}                           \
                      icon.padding_left=$PADDING                           \
@@ -38,8 +38,9 @@ source "$ITEM_DIR/front_app.sh"
 source "$ITEM_DIR/date-and-time.sh"
 source "$ITEM_DIR/disk.sh"
 source "$ITEM_DIR/battery.sh"
-source "$ITEM_DIR/mic.sh"
+source "$ITEM_DIR/airpodsbattery.sh"
 source "$ITEM_DIR/sound.sh"
+source "$ITEM_DIR/mic.sh"
 source "$ITEM_DIR/wifi.sh"
 source "$ITEM_DIR/cpu-mem.sh"
 

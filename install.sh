@@ -48,7 +48,7 @@ if [ "$1" = '-go' ]; then
 	# BECAUSE MACOS SUCKS !!
 	# after update ventura 13, yabai not fully support in version 5.0.1
 	# with yabai --head everything work but if you re-run this script
-	# and restart your system you must regenerate shasum / hash for yabai
+	# and restart your system you must regenerate shasum -a 256 $(which yabai)
 	# and replace into sha(hash) with sudo visudo -f /private/etc/sudoers.d/yabai
 	# go to yabai documentation github, and read issue for macos ventura
 	brew reinstall koekeishiya/formulae/yabai --HEAD || brew install koekeishiya/formulae/yabai --HEAD

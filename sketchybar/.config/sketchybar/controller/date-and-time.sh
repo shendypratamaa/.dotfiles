@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-cal=$(date '+%d %b %Y')
+cal=$(date '+%A %d/%m/%y')
 time=$(date '+%H:%M')
 
-sketchybar --set $NAME label="📅 $cal | ⏰ $time |"
+sketchybar --set $NAME icon= label="📅 $cal | ⏰ $time |"
