@@ -39,8 +39,6 @@ if [ "$1" = '-go' ]; then
 		make CMAKE_BUILD_TYPE=Release
 		sudo make install
 	else
-		sudo rm -rf -v /usr/local/bin/nvim
-		sudo rm -rf -v /usr/local/share/nvim
 		git clone https://github.com/neovim/neovim ~/.local/share/neovim
 		cd ~/.local/share/neovim
 		git checkout v0.7.2
@@ -52,12 +50,10 @@ if [ "$1" = '-go' ]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
-	brew reinstall bash || brew install bash
 	brew reinstall git || brew install git
 	brew reinstall stow || brew install stow
 	brew reinstall mpv || brew install mpv
 
-	brew link bash || brew link --overwrite bash
 	brew link git || brew link --overwrite git
 
 	brew tap zegervdv/zathura

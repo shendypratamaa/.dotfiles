@@ -26,6 +26,8 @@ if [ "$1" = "-go" ]; then
 	rm -rf -v /usr/local/bin/preview
 	rm -rf -v /usr/local/bin/search
 	rm -rf -v /usr/local/bin/desktop-image-switcher
+	rm -rf -v /usr/local/bin/nvim
+	rm -rf -v /usr/local/share/nvim
 
 	echo "Uninstalling Package 🌊..."
 	brew list --cask | xargs brew uninstall --force --ignore-dependencies
