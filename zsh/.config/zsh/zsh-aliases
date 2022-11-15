@@ -43,6 +43,7 @@ alias mv="mv -v -i"
 alias rm="rm -v -i"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
+alias reboot="sudo shutdown -r now"
 
 # system information
 alias btw="neofetch"

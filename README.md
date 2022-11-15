@@ -51,13 +51,6 @@ _this installation take much time, based on your internet connection, keep chil_
 - **zsh-plugins** \
      re-open terminal for install zsh-plugins,
 
-- **tmux-plugins** \
-     go to tmux session `ctrl-a + shift-i` for install tpm and tmux-plugins
-
-- **check installation**\
-     last check with `brew doctor` if the output is _your system is ready to brew_ \
-     `myconfig` config ready to go, great your awesome 🤟
-
 **uninstall.sh**
 
 this script will uninstall configuration \

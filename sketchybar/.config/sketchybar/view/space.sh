@@ -9,8 +9,8 @@ for i in "${!SPACE_ICONS[@]}"; do
              --set space.$sid associated_space=$sid                     \
                               ignore_association=on                     \
                               icon=${SPACE_ICONS[i]}                    \
-                              icon.padding_left=10                       \
-                              icon.padding_right=10                      \
+                              icon.padding_left=10                      \
+                              icon.padding_right=10                     \
                               background.padding_left=2                 \
                               background.padding_right=2                \
                               background.corner_radius=0                \
@@ -21,9 +21,7 @@ for i in "${!SPACE_ICONS[@]}"; do
                               script="$PLUGIN_DIR/space.sh"             \
                               click_script="yabai -m space --focus $sid"
 done
-# 
+#
 sketchybar --add item space_separator left                              \
-           --set space_separator icon=[]=                               \
+           --set space_separator icon=􀄭                                 \
                                  background.padding_left=0              \
-                                 background.padding_right=-6            \
-                                 label.drawing=off                      \

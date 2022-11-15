@@ -13,8 +13,6 @@ tap "koekeishiya/formulae"
 tap "zegervdv/zathura"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
-# Bourne-Again SHell, a UNIX command interpreter
-brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
@@ -98,13 +96,15 @@ brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 # PDF viewer
-brew "zegervdv/zathura/zathura"
+brew "zegervdv/zathura/zathura", args: ["HEAD"]
 # Poppler backend plugin for zathura
 brew "zegervdv/zathura/zathura-pdf-poppler"
 # Enable Windows-like alt-tab
 cask "alt-tab"
 # Web browser focusing on privacy
 cask "brave-browser"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Web browser
 cask "firefox"
 # Developer targeted fonts with a high number of glyphs
@@ -115,3 +115,5 @@ cask "karabiner-elements"
 cask "kitty"
 # Image viewer
 cask "qview"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"

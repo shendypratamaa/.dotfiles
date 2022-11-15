@@ -1,6 +1,3 @@
-#disable
-ctrl -d : :
-
 # open terminal
 cmd - return : open -a kitty.app
 

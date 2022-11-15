@@ -7,27 +7,28 @@ PLUGIN_TOUCH="$HOME/.config/sketchybar/controller/touch"
 ITEM_DIR="$HOME/.config/sketchybar/view"
 
 PADDING=4
-FONT="JetBrainsMono Nerd Font Mono"
+ICON="SF Symbols"
+LABEL="JetBrainsMono Nerd Font Mono"
 
 sketchybar --bar     height=24                                            \
                      blur_radius=0                                        \
-                     padding_left=4                                      \
-                     padding_right=4                                     \
+                     padding_left=4                                       \
+                     padding_right=4                                      \
                      color=0xff${NORD0:1}                                 \
-                     position=top                                         \
+                     position=bottom                                         \
                      sticky=on                                            \
                      font_smoothing=on                                    \
-
-sketchybar --default updates=when_shown                                   \
+                                                                          \
+           --default updates=when_shown                                   \
                      drawing=on                                           \
-                     icon.font="$FONT:Regular:10.0"                       \
-                     label.font="$FONT:Regular:10.0"                      \
-                     icon.color=0xff${NORD6:1}                            \
-                     label.color=0xff${NORD6:1}                           \
+                     icon.font="$ICON:SemiBold:10.0"                      \
+                     label.font="$LABEL:SemiBold:10.0"                    \
                      icon.padding_left=$PADDING                           \
                      icon.padding_right=$PADDING                          \
                      label.padding_left=$PADDING                          \
                      label.padding_right=$PADDING                         \
+                     label.color=0xff${NORD6:1}                           \
+                     icon.color=0xff${NORD6:1}                            \
 
 
 # left
@@ -37,13 +38,13 @@ source "$ITEM_DIR/front_app.sh"
 # right
 source "$ITEM_DIR/time.sh"
 source "$ITEM_DIR/cal.sh"
-source "$ITEM_DIR/disk.sh"
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/mic.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/airpodsbattery.sh"
 source "$ITEM_DIR/airpodscasebattery.sh"
 source "$ITEM_DIR/sound.sh"
-source "$ITEM_DIR/mic.sh"
-source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/disk.sh"
 source "$ITEM_DIR/mem.sh"
 source "$ITEM_DIR/cpu.sh"
 

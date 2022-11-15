@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 AIRPODSCASEBATTERY=$(system_profiler SPBluetoothDataType | grep 'Case Battery' | awk '{print $4}')
-AIRPODCASE=🎒
+AIRPODCASE=􁅐
 
 if [[ "$AIRPODSCASEBATTERY" = "" ]]; then
 	sketchybar --set $NAME icon=$AIRPODCASE label="not detected"

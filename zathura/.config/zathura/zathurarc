@@ -29,16 +29,17 @@ set render-loading-bg       "#2e3440" # nord0
 set render-loading-fg       "#d8dee9" # nord4set default-bg "#000000" #00
 set default-fg "#F7F7F6" #01
 
-set recolor true
-set render-loading false
-# unmap f
-# map f toggle_fullscreen
-# map [fullscreen] f toggle_fullscreen
+set font "JetBrainsMono Nerd Font Mono Bold 14"
+set smooth-scroll true
+set scroll-page-aware true
+set scroll-step 50
 
+set recolor false
+set render-loading false
 set adjust-open best-fit
+set page-padding 1
 set statusbar-h-padding 0
 set statusbar-v-padding 0
-set page-padding 1
 
 map u scroll half-up
 map d scroll half-down

@@ -6,12 +6,12 @@ __open_current() {
 	open "$@"
 }
 
-__gjson() {
-	curl "${@}" | jq . | bat -l=json
-}
-
 __kill() {
 	kill -9 "$(ps -ax -o pid,%cpu,%mem,comm | sort -b -k3 -r | fzf --multi --prompt='kill process > ' | awk '{print $1}')" 2>/dev/null
+}
+
+__displayopts() {
+	open -b com.apple.systempreferences /System/Library/PreferencePanes/Displays.prefPane
 }
 
 __help() {
@@ -19,22 +19,19 @@ __help() {
 		OSX Utils 💻
 
 		pattern osx [cmd | path] :
-		-g --gjson curl | preview json
 		-p --path open specified path
 		-k --kill search and kill background process
+		-d --display open system preferences display
 		-h --help help information
 	_EOF_
 }
 
 if [ "$1" = "-p" ] || [ "$1" = "--path" ]; then
 	__open_current "$2"
-elif [ "$1" = "-g" ] || [ "$1" = "--gjson" ]; then
-	__gjson "${@:2}"
-	exit
-elif
-	[ "$1" = "-k" ] || [ "$1" = "--kill" ]
-then
+elif [ "$1" = "-k" ] || [ "$1" = "--kill" ]; then
 	__kill
+elif [ "$1" = "-d" ] || [ "$1" = "--display" ]; then
+	__displayopts
 elif [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
 	__help
 	exit

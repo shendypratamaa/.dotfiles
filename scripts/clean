@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+clean() {
+	sudo purge
+	sudo rm -rf -v ~/Library/Logs/*
+	sudo rm -rf -v ~/Library/Caches/*
+	sudo rm -rf -v ~/Library/Safari/Downloads.plist
+	sudo rm -rf -v ~/.Trash/*
+}
+
+if [ "$1" = "-g" ]; then
+	echo "start cleaning...🌊"
+	clean
+	echo "cleaning complete...🤩"
+elif [ -n "$1" ]; then
+	echo "not work"
+else
+	echo "not work"
+fi

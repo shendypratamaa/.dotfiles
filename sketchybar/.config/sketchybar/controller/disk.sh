@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
-disk=$(df -H | awk '/\/dev\/disk3s1/ {printf("%s\n", $4)}')
+DISK=$(df -H | awk '/\/dev\/disk3s1/ {printf("%s\n", $4*1024/1024)}')
 
-sketchybar -m --set $NAME icon=💾 label="$disk |"
+DISKICON=􀤂
+
+sketchybar -m --set $NAME icon=$DISKICON label="$DISK GB |"
