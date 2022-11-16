@@ -115,5 +115,7 @@ cask "karabiner-elements"
 cask "kitty"
 # Image viewer
 cask "qview"
+# Archive manager for data compression and backups
+cask "rar"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
