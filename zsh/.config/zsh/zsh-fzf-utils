@@ -92,7 +92,8 @@ export FZF_ALT_C_OPTS="$TREE"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND $EXCLUDE_VD_VN --type d "
 
 # REBIND ALT_C TO CTRL_P
-bindkey "^f" fzf-cd-widget
+bindkey "^d" fzf-cd-widget
+bindkey -s "^f" "sessionizer\\n"
 
 # ALIAS
 alias vd="cd ~ && cd \$($FZF_DEFAULT_COMMAND $EXCLUDE_VD_VN -d 7 --type d | fzf --prompt='👉 change directory > ' $TREE)"

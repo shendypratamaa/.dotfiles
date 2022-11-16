@@ -51,12 +51,12 @@ git clone https://github.com/shendypratamaa/.dotfiles.git && ~/.dotfiles/install
      re-open terminal for install zsh-plugins,
 
 _this installation take much time, based on your internet connection, keep chil_
+
 <hr>
 
 **uninstall.sh**
 
-this script will uninstall configuration \
-include all package from homebrew, \
+this script will uninstall configuration include all package from homebrew, \
 clean uninstall homebrew from your machine \
 remove symlink files or directory from homebrew and dotfiles config
 
@@ -69,8 +69,7 @@ remove symlink files or directory from homebrew and dotfiles config
 ## Installation : 2
 
 using this option, you will get only my configure dotfiles \
-I assume you already installed homebrew \
-you will need `git` and GNU `stow`
+I assume you already installed homebrew you will need `git` and GNU `stow`
 
 **Repository**
 

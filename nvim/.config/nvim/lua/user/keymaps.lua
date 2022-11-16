@@ -73,3 +73,6 @@ keymap("v", "gx", "<Plug>(openbrowser-smart-search)", opts)
 
 -- ts playground
 keymap("n", "]tp", ":TSPlaygroundToggle<CR>", opts)
+
+-- tmux
+keymap("n", "\\f", ":silent !tmux neww sessionizer<CR>", opts)

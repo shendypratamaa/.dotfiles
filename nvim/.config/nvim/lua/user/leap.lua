@@ -35,7 +35,9 @@ keymap({ "n", "x", "o" }, "vn", function()
     require("leap-ast").leap()
 end, { silent = true, desc = "Leap Motion" })
 
-leap.set_default_keymaps()
+keymap("n", "s", "<Plug>(leap-forward)", {silent = true, desc = "leap forward"})
+keymap("n", "S", "<Plug>(leap-backward)", {silent = true, desc = "leap backward"})
+keymap("n", "gs", "<Plug>(leap-cross-window)", {silent = true, desc = "leap cross window"})
 
 flit.setup(flit_cfg)
 leap.setup(leap_cfg)

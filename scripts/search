@@ -9,6 +9,7 @@ google="https://www.google.com/search?q="
 reddit="https://www.reddit.com/search/?q="
 stackoverflow="https://stackoverflow.com/search?q="
 github="https://github.com/search?q="
+udemy="https://www.udemy.com/courses/search"
 
 search() {
 	open -a Brave\ Browser "$*"
@@ -30,16 +31,20 @@ google() {
 	search "$google$*"
 }
 
-github() {
-	search "$github$*&type=repositories"
-}
-
 stackoverflow() {
 	search "$stackoverflow$*"
 }
 
 reddit() {
 	search "$reddit$*"
+}
+
+github() {
+	search "$github$*&type=repositories"
+}
+
+udemy() {
+	search "$udemy/?price=price-free&q=$*&sort=relevance&src=ukw"
 }
 
 help() {
@@ -81,6 +86,9 @@ elif [ "$1" == "-rd" ] || [ "$1" == "--reddit" ]; then
 	exit
 elif [ "$1" == "-so" ] || [ "$1" == "--overflow" ]; then
 	stackoverflow "${@:2}"
+	exit
+elif [ "$1" == "-ud" ] || [ "$1" == "--udemy" ]; then
+	udemy "${@:2}"
 	exit
 elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help "${@:2}"

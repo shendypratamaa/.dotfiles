@@ -43,7 +43,7 @@ local cfg = {
 local keymap = vim.keymap.set
 local opts = { silent = true }
 
-keymap("n", "gs", ":TSLspOrganize<CR>", opts)
+keymap("n", "go", ":TSLspOrganize<CR>", opts)
 keymap("n", "gr", ":TSLspRenameFile<CR>", opts)
 keymap("n", "gi", ":TSLspImportAll<CR>", opts)
 

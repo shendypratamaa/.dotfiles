@@ -26,13 +26,13 @@ if [ "$1" = "-i" ] || [ "$1" = "--image" ]; then
 	filter=$(fd . -L -t f --exclude=Library | grep -E '.*(jpg|png)' | sort -r | fzf --prompt='👉 open image > ')
 	open -a qview $filter
 elif [ "$1" = "-v" ] || [ "$1" = "--video" ]; then
-	filter=$(fd . $movies_path -t f | grep -E '.*(mp4)' | sort | fzf --prompt='👉 open video> ')
+	filter=$(fd . $movies_path -t f | grep -E '.*(mp4)' | sort -u | fzf -m --prompt='👉 open video > ')
 	mpv $filter
 elif [ "$1" = "-e" ] || [ "$1" = "--ebook" ]; then
-	fd . "$ebooks_path" --type f | fzf --multi --prompt="👉 open ebook > " | xargs zathura --fork 2>/dev/null
+	fd . "$ebooks_path" --type f | fzf -m --prompt="👉 open ebook > " | xargs zathura --fork 2>/dev/null
 	exit
 elif [ "$1" = "-m" ] || [ "$1" = "--man" ]; then
-	man -k . | fzf --multi --prompt='👉 open manpage > ' | awk -F "(" '{print $1}' | xargs -r man
+	man -k . | fzf --prompt='👉 open manpage > ' | awk -F "(" '{print $1}' | xargs -r man
 elif [ "$1" = "-h" ]; then
 	__help
 	exit
