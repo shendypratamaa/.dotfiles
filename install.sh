@@ -29,6 +29,8 @@ dotfilesdir=(
 
 if [ "$1" = '-go' ]; then
 
+	/usr/bin/caffeinate -t 3600 &
+
 	##########################      HOMEBREW    #################################
 
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -138,10 +140,14 @@ if [ "$1" = '-go' ]; then
 	fi
 
 	# PACKER
-	# git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	# if [ -d "$HOME/.local/share/nvim" ]; then
+	# 	sudo rm -rf "$HOME/.local/share/nvim"
+	# 	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	# else
+	# 	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	# fi
 
 	##########################      NEOVIM      ##################################
-
 
 	##########################     TMUX PLUG     #################################
 
@@ -170,6 +176,8 @@ if [ "$1" = '-go' ]; then
 
 	echo "Package Check ✅..."
 	brew doctor
+
+	kill -9 "$(ps -a | pgrep caffeinate | awk '{print $1; exit}')"
 
 	echo "Process Complete 🌟..."
 elif [ -n "$1" ]; then
