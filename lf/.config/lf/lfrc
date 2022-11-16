@@ -24,8 +24,6 @@ cmd open ${{
         image/*)
         if [ "$TERM" = "tmux-256color" ]; then
             open -a qview $fx
-        else
-            false
         fi
         ;;
         application/pdf) "zathura" $fx ;;

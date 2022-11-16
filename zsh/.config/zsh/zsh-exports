@@ -14,7 +14,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export FPATH="/usr/local/share/zsh/site-functions"
 
 # MANPATH
-export MANPATH="/usr/local/share/man"
+# export MANPATH="/usr/local/share/man"
 
 # EDITOR
 export EDITOR="nvim"

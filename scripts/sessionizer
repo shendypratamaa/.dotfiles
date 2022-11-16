@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(fd -p ~/ ~/.code ~/.config --max-depth 1 --min-depth 1 -L -t d | sort -u | fzf --prompt="select > ")
+	selected=$(fd -p ~/ ~/.code ~/.config ~/.notes --max-depth 1 --min-depth 1 -L -t d | sort -u | fzf --prompt="select > ")
 fi
 
 if [[ -z $selected ]]; then
