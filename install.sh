@@ -29,31 +29,6 @@ dotfilesdir=(
 
 if [ "$1" = '-go' ]; then
 
-	##########################      NEOVIM      ##################################
-
-	# NEOVIM_SOURCE
-	if [ -d "$HOME/.local/share/neovim" ]; then
-		sudo rm -rf -v /usr/local/bin/nvim
-		sudo rm -rf -v /usr/local/share/nvim
-		sudo rm -rf -v ~/.local/share/neovim
-		git clone https://github.com/neovim/neovim ~/.local/share/neovim
-		cd ~/.local/share/neovim
-		git checkout v0.7.2
-		make CMAKE_BUILD_TYPE=Release
-		sudo make install
-	else
-		git clone https://github.com/neovim/neovim ~/.local/share/neovim
-		cd ~/.local/share/neovim
-		git checkout v0.7.2
-		make CMAKE_BUILD_TYPE=Release
-		sudo make install
-	fi
-
-	# PACKER
-	# git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-	##########################      NEOVIM      ##################################
-
 	##########################      HOMEBREW    #################################
 
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -61,10 +36,8 @@ if [ "$1" = '-go' ]; then
 
 	brew reinstall git || brew install git
 	brew link git || brew link --overwrite git
-
 	brew reinstall stow || brew install stow
 	brew reinstall mpv || brew install mpv
-
 	brew tap zegervdv/zathura
 	brew reinstall zathura || brew install zathura
 	brew reinstall zathura-pdf-poppler || brew install zathura-pdf-poppler
@@ -94,43 +67,6 @@ if [ "$1" = '-go' ]; then
 	echo "Package Update From Brewfile 🎞️..."
 	brew bundle -v --file=~/.config/brewfile/Brewfile
 
-	# homebrew/share/man
-	if [ -d "/opt/homebrew/share/man/man4" ]; then
-		rm -rf -v /opt/homebrew/share/man/man4
-		mkdir -v /opt/homebrew/share/man/man4
-	else
-		mkdir -v /opt/homebrew/share/man/man4
-	fi
-
-	if [ -d "/opt/homebrew/share/man/man6" ]; then
-		rm -rf -v /opt/homebrew/share/man/man6
-		mkdir -v /opt/homebrew/share/man/man6
-	else
-		mkdir -v /opt/homebrew/share/man/man6
-	fi
-
-	if [ -d "/opt/homebrew/share/man/man9" ]; then
-		rm -rf -v /opt/homebrew/share/man/man9
-		mkdir -v /opt/homebrew/share/man/man9
-	else
-		mkdir -v /opt/homebrew/share/man/man9
-	fi
-
-	if [ -d "/opt/homebrew/share/man/mann" ]; then
-		rm -rf -v /opt/homebrew/share/man/mann
-		mkdir -v /opt/homebrew/share/man/mann
-	else
-		mkdir -v /opt/homebrew/share/man/mann
-	fi
-
-	# usr/local/share/man
-	if [ -d "/usr/local/share/man" ]; then
-		rm -rf /usr/local/share/man
-		mkdir -p -v /usr/local/share/man
-	else
-		mkdir -p -v /usr/local/share/man
-	fi
-
 	# usr/local/share/zsh
 	if [ -d "/usr/local/share/zsh/site-functions" ]; then
 		rm -rf /usr/local/share/zsh/site-functions
@@ -139,17 +75,7 @@ if [ "$1" = '-go' ]; then
 		mkdir -p -v /usr/local/share/zsh/site-functions
 	fi
 
-	sudo ln -sf -v /usr/share/zsh/5.8.1/functions/** /opt/homebrew/share/zsh/site-functions/
 	sudo ln -sf -v /opt/homebrew/share/zsh/site-functions/** /usr/local/share/zsh/site-functions
-	sudo ln -sf -v /usr/share/man/man1/** /opt/homebrew/share/man/man1/
-	sudo ln -sf -v /usr/share/man/man4/** /opt/homebrew/share/man/man4/
-	sudo ln -sf -v /usr/share/man/man5/** /opt/homebrew/share/man/man5/
-	sudo ln -sf -v /usr/share/man/man6/** /opt/homebrew/share/man/man6/
-	sudo ln -sf -v /usr/share/man/man7/** /opt/homebrew/share/man/man7/
-	sudo ln -sf -v /usr/share/man/man8/** /opt/homebrew/share/man/man8/
-	sudo ln -sf -v /usr/share/man/man9/** /opt/homebrew/share/man/man9/
-	sudo ln -sf -v /usr/share/man/mann/** /opt/homebrew/share/man/mann/
-	sudo ln -sf -v /opt/homebrew/share/man/** /usr/local/share/man/
 
 	##########################      HOMEBREW    #################################
 
@@ -190,6 +116,32 @@ if [ "$1" = '-go' ]; then
 	fi
 
 	##########################     OSX UTILS    #################################
+
+	##########################      NEOVIM      ##################################
+
+	# NEOVIM
+	if [ -d "$HOME/.local/share/neovim" ]; then
+		sudo rm -rf -v /usr/local/bin/nvim
+		sudo rm -rf -v /usr/local/share/nvim
+		sudo rm -rf -v ~/.local/share/neovim
+		git clone https://github.com/neovim/neovim ~/.local/share/neovim
+		cd ~/.local/share/neovim
+		git checkout v0.7.2
+		make CMAKE_BUILD_TYPE=Release
+		sudo make install
+	else
+		git clone https://github.com/neovim/neovim ~/.local/share/neovim
+		cd ~/.local/share/neovim
+		git checkout v0.7.2
+		make CMAKE_BUILD_TYPE=Release
+		sudo make install
+	fi
+
+	# PACKER
+	# git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+	##########################      NEOVIM      ##################################
+
 
 	##########################     TMUX PLUG     #################################
 

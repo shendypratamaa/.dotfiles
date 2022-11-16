@@ -17,8 +17,6 @@ brew "automake"
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
-# Mozilla CA certificate store
-brew "ca-certificates"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # GNU File, Shell, and Text utilities
@@ -29,8 +27,6 @@ brew "curl"
 brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# Generic library support script
-brew "libtool"
 # Create thumbnails for your video files
 brew "ffmpegthumbnailer"
 # Command-line fuzzy finder written in Go
@@ -53,14 +49,10 @@ brew "lazygit"
 brew "lf"
 # Powerful, lightweight programming language
 brew "lua"
-# Just-In-Time Compiler (JIT) for the Lua programming language
-brew "luajit", args: ["HEAD"]
 # Package manager for the Lua programming language
 brew "luarocks"
 # Move files and folders to the trash
 brew "macos-trash"
-# Fork of youtube-dl with additional features and fixes
-brew "yt-dlp"
 # Media player based on MPlayer and mplayer2
 brew "mpv"
 # Fast, highly customisable system info script
@@ -96,7 +88,7 @@ brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 # PDF viewer
-brew "zegervdv/zathura/zathura", args: ["HEAD"]
+brew "zegervdv/zathura/zathura"
 # Poppler backend plugin for zathura
 brew "zegervdv/zathura/zathura-pdf-poppler"
 # Enable Windows-like alt-tab

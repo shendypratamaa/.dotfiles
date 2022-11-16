@@ -32,7 +32,7 @@ elif [ "$1" = "-e" ] || [ "$1" = "--ebook" ]; then
 	fd . "$ebooks_path" --type f | fzf -m --prompt="👉 open ebook > " | xargs zathura --fork 2>/dev/null
 	exit
 elif [ "$1" = "-m" ] || [ "$1" = "--man" ]; then
-	man -k . | fzf --prompt='👉 open manpage > ' | awk -F "(" '{print $1}' | xargs -r man
+	man -k . | sort | uniq | fzf --prompt='👉 open manpage > ' | awk -F "(" '{print $1}' | xargs -r man
 elif [ "$1" = "-h" ]; then
 	__help
 	exit

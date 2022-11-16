@@ -10,7 +10,6 @@ update() {
 	brew bundle -v --file=~/.config/brewfile/Brewfile
 
 	ln -sf -v /opt/homebrew/share/zsh/site-functions/** /usr/local/share/zsh/site-functions
-	ln -sf -v /opt/homebrew/share/man/** /usr/local/share/man/
 
 	echo "Package Info 🗓️..."
 	brew info

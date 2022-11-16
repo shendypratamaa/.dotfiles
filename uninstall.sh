@@ -26,8 +26,15 @@ if [ "$1" = "-go" ]; then
 	rm -rf -v /usr/local/bin/preview
 	rm -rf -v /usr/local/bin/search
 	rm -rf -v /usr/local/bin/desktop-image-switcher
-	rm -rf -v /usr/local/bin/nvim
-	rm -rf -v /usr/local/share/nvim
+	sudo rm -rf -v /usr/local/bin/nvim
+	sudo rm -rf -v /usr/local/share/nvim
+	sudo rm -rf -v /Applications/AltTab.app
+	sudo rm -rf -v /Applications/Firefox.app
+	sudo rm -rf -v /Applications/Brave Browser.app
+	sudo rm -rf -v /Applications/Docker.app
+	sudo rm -rf -v /Applications/Karabiner-Elements.app
+	sudo rm -rf -v /Applications/kitty.app
+	sudo rm -rf -v /Applications/qView.app
 
 	echo "Uninstalling Package 🌊..."
 	brew list --cask | xargs brew uninstall --force --ignore-dependencies
