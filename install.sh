@@ -25,11 +25,12 @@ dotfilesdir=(
 	btop
 	pipe-viewer
 	lf
+	sketchybar
 )
 
 if [ "$1" = '-go' ]; then
 
-	/usr/bin/caffeinate -t 3600 &
+	/usr/bin/caffeinate -d &
 
 	##########################      HOMEBREW    #################################
 
@@ -48,7 +49,7 @@ if [ "$1" = '-go' ]; then
 
 	# INFO
 	# with yabai --head everything work but if you re-run this script
-	# and restart your system you must regenerate shasum -a 256 $(which yabai)
+	# and restart your system you must regenerate shasum -a 256 $(which yabai) | awk '{print $1}'
 	# and replace into sha(hash) with sudo visudo -f /private/etc/sudoers.d/yabai
 	# go to yabai documentation github, and read issue for macos ventura
 	brew tap koekeishiya/formulae

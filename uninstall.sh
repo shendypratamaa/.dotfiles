@@ -12,7 +12,7 @@ __info() {
 
 if [ "$1" = "-go" ]; then
 	echo "Clear Directory Symlinks 🌊..."
-	rm -rf -v ~/.local/share/desktop-image-switcher
+	sudo rm -rf -v ~/.local/share/desktop-image-switcher
 	rm -rf -v ~/.config
 	rm -rf -v ~/.zprofile
 	rm -rf -v ~/.utils
@@ -20,21 +20,20 @@ if [ "$1" = "-go" ]; then
 	rm -rf -v ~/.notes
 	rm -rf -v ~/ebook
 	rm -rf -v ~/pix
+	sudo rm -rf -v ~/Library/Fonts
 	rm -rf -v /usr/local/share/zsh
-	rm -rf -v /usr/local/share/man
 	rm -rf -v /usr/local/bin/osx
 	rm -rf -v /usr/local/bin/preview
 	rm -rf -v /usr/local/bin/search
 	rm -rf -v /usr/local/bin/desktop-image-switcher
-	sudo rm -rf -v /usr/local/bin/nvim
-	sudo rm -rf -v /usr/local/share/nvim
-	sudo rm -rf -v /Applications/AltTab.app
-	sudo rm -rf -v /Applications/Firefox.app
-	sudo rm -rf -v /Applications/Brave Browser.app
-	sudo rm -rf -v /Applications/Docker.app
-	sudo rm -rf -v /Applications/Karabiner-Elements.app
-	sudo rm -rf -v /Applications/kitty.app
-	sudo rm -rf -v /Applications/qView.app
+	rm -rf -v /usr/local/share/man
+	rm -rf -v /usr/local/bin/nvim
+	rm -rf -v /Applications/AltTab.app
+	rm -rf -v /Applications/Firefox.app
+	rm -rf -v /Applications/Brave\ Browser.app
+	rm -rf -v /Applications/Docker.app
+	rm -rf -v /Applications/kitty.app
+	rm -rf -v /Applications/qView.app
 
 	echo "Uninstalling Package 🌊..."
 	brew list --cask | xargs brew uninstall --force --ignore-dependencies
