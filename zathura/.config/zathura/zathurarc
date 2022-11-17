@@ -29,7 +29,7 @@ set render-loading-bg       "#2e3440" # nord0
 set render-loading-fg       "#d8dee9" # nord4set default-bg "#000000" #00
 set default-fg "#F7F7F6" #01
 
-set font "JetBrainsMono Nerd Font Mono Bold 14"
+set font "JetBrainsMono Nerd Font Mono Bold 8"
 set smooth-scroll true
 set scroll-page-aware true
 set scroll-step 50

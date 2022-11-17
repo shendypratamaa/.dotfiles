@@ -51,6 +51,7 @@ help() {
 			-so --overflow search content
 			-go --duckduckgo search content
 			-yt --youtube search content
+			-dt --devto search content
 			-ud --udemy search courses
 			-h  --help for help information
 

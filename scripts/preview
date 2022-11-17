@@ -38,9 +38,9 @@ elif [ "$1" = "-h" ]; then
 	exit
 elif [ -n "$1" ]; then
 	echo "preview not found 🙅"
-	echo "preview -help for information 💁"
+	echo "preview --help for information 💁"
 	exit
 else
 	echo "preview not found 🙅"
-	echo "preview -help for information 💁"
+	echo "preview --help for information 💁"
 fi

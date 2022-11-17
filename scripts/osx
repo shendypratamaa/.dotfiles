@@ -37,9 +37,9 @@ elif [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
 	exit
 elif [ -n "$1" ]; then
 	echo "osx not found 🙅"
-	echo "osx -help for information 💁"
+	echo "osx --help for information 💁"
 	exit
 else
 	echo "osx not found 🙅"
-	echo "osx -help for information 💁"
+	echo "osx --help for information 💁"
 fi

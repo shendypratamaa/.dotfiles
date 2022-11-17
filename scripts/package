@@ -64,6 +64,10 @@ if [ "$1" == "-a" ] || [ "$1" == "--updateall" ]; then
 elif [ "$1" == "-b" ] || [ "$1" == "--bundle" ]; then
 	bundle
 	leave
+elif [ "$1" == "-npb" ] || [ "$1" == "--noprevbundle" ]; then
+	echo "Package Bundle 📦..."
+	brew bundle dump --desc --force --file=~/.config/brewfile/Brewfile
+	leave
 elif [ "$1" == "-c" ] || [ "$1" == "--clean" ]; then
 	clean
 	leave
@@ -78,9 +82,9 @@ elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	exit
 elif [ -n "$1" ]; then
 	echo "package not found 🙅"
-	echo "package -help for information 💁"
+	echo "package --help for information 💁"
 	exit
 else
 	echo "package not found 🙅"
-	echo "package -help for information 💁"
+	echo "package --help for information 💁"
 fi
