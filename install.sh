@@ -3,29 +3,29 @@
 set -e
 
 dotfilesdir=(
+	lf
+	git
+	mpv
+	zsh
+	nvim
+	skhd
+	tmux
+	btop
+	yabai
+	kitty
+	python
+	stylua
+	vscode
 	eslint
 	flake8
-	git
-	homebrew
-	karabiner
-	kitty
 	lazygit
-	mpv
-	neofetch
-	nvim
-	prettier
-	python
-	skhd
-	stylua
-	tmux
-	vscode
-	yabai
 	zathura
-	zsh
-	btop
-	pipe-viewer
-	lf
+	homebrew
+	neofetch
+	prettier
+	karabiner
 	sketchybar
+	pipe-viewer
 )
 
 if [ "$1" = '-go' ]; then
@@ -53,16 +53,17 @@ if [ "$1" = '-go' ]; then
 	# and replace into sha(hash) with sudo visudo -f /private/etc/sudoers.d/yabai
 	# go to yabai documentation github, and read issue for macos ventura
 	brew tap koekeishiya/formulae
+	brew reinstall skhd --HEAD || brew install skhd --HEAD
 	brew reinstall yabai --HEAD || brew install yabai --HEAD
 	codesign -fs 'yabai-cert' "$(which yabai)"
 
 	# STOW MY DOTFILES
 	if [ -d "$HOME/.dotfiles" ]; then
 		cd ~/.dotfiles && stow -v "${dotfilesdir[@]}"
-		ln -sf ~/.dotfiles/scripts/** /usr/local/bin/
+		ln -sf -v ~/.dotfiles/scripts/** /usr/local/bin/
 	fi
 
-	ln -sf ~/.config/zsh/.zprofile ~/.zprofile
+	ln -sf -v ~/.config/zsh/.zprofile ~/.zprofile
 
 	echo "Package Update 🍺..."
 	brew update --verbose --force && brew upgrade
@@ -72,7 +73,7 @@ if [ "$1" = '-go' ]; then
 
 	# usr/local/share/zsh
 	if [ -d "/usr/local/share/zsh/site-functions" ]; then
-		rm -rf /usr/local/share/zsh/site-functions
+		rm -rf -v /usr/local/share/zsh/site-functions
 		mkdir -p -v /usr/local/share/zsh/site-functions
 	else
 		mkdir -p -v /usr/local/share/zsh/site-functions
@@ -96,7 +97,7 @@ if [ "$1" = '-go' ]; then
 
 	# DESKTOP-UTILITY
 	if [ -d "$HOME/.local/share/desktop-image-switcher" ]; then
-		rm -rf ~/.local/share/desktop-image-switcher
+		rm -rf -v ~/.local/share/desktop-image-switcher
 		git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/desktop-image-switcher
 		cd ~/.local/share/desktop-image-switcher && sudo make install
 	else
@@ -106,15 +107,15 @@ if [ "$1" = '-go' ]; then
 
 	# YT-MUSIC-API-UTILITY
 	if [ -d "$HOME/.local/share/pipe-viewer-main" ]; then
-		sudo rm -rf ~/.local/share/pipe-viewer-main
+		sudo rm -rf -v ~/.local/share/pipe-viewer-main
 		wget https://github.com/trizen/pipe-viewer/archive/main.zip --no-check-certificate -O ~/.local/share/pipe-viewer-main.zip
 		unzip -n ~/.local/share/pipe-viewer-main.zip
-		rm -rf ~/.local/share/pipe-viewer-main.zip
+		rm -rf -v ~/.local/share/pipe-viewer-main.zip
 		cd ~/.local/share/pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
 	else
 		wget https://github.com/trizen/pipe-viewer/archive/main.zip --no-check-certificate -O ~/.local/share/pipe-viewer-main.zip
 		unzip -n ~/.local/share/pipe-viewer-main.zip
-		rm -rf ~/.local/share/pipe-viewer-main.zip
+		rm -rf -v ~/.local/share/pipe-viewer-main.zip
 		cd ~/.local/share/pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
 	fi
 
@@ -193,22 +194,9 @@ if [ "$1" = '-go' ]; then
 	echo "Package Check ✅..."
 	brew doctor
 
-	kill -9 "$(ps -a | pgrep caffeinate | awk '{print $1; exit}')"
-
-	echo "Process Complete 🌟..."
-
-	##########################     ZSH  PLUG    #################################
-
-	if [ -d "$HOME/.config/zsh/plugin" ]; then
-		rm -rf -v ~/.config/zsh/plugin
-		sleep 2
-		exit
-	else
-		sleep 2
-		exit
-	fi
-
-	##########################     ZSH  PLUG    #################################
+	read -r -p "Process Complete 🌟..." -t 5 | tr '%' '\n'
+	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | pgrep caffeinate | awk 'NR==1{print $1}')"
+	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | pgrep kitty | awk 'NR==1{print $1}')"
 elif [ -n "$1" ]; then
 	echo "install.sh failed 🙅"
 	echo "install.sh -go for started 🧘"
