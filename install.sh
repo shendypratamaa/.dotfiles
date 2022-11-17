@@ -125,7 +125,7 @@ if [ "$1" = '-go' ]; then
 
 	if [ -d "/opt/homebrew/opt/nvm/" ]; then
 		. /opt/homebrew/opt/nvm/nvm.sh
-		nvm install lts/gallium
+		nvm install 16.18.0
 		nvm use node
 		npm install --global nodemon yarn
 	fi

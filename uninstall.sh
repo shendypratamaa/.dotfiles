@@ -16,6 +16,8 @@ if [ "$1" = "-go" ]; then
 	echo "Clear Directory Symlinks 🌊..."
 	sudo rm -rf -v ~/.local/share/desktop-image-switcher
 	sudo rm -rf -v ~/Library/Fonts
+	sudo rm -rf -v /usr/local/bin/desktop-image-switcher
+	sudo rm -rf -v /usr/local/share/man
 	rm -rf -v ~/.local/share/nvim
 	rm -rf -v ~/.config
 	rm -rf -v ~/.zprofile
@@ -28,8 +30,6 @@ if [ "$1" = "-go" ]; then
 	rm -rf -v /usr/local/bin/osx
 	rm -rf -v /usr/local/bin/preview
 	rm -rf -v /usr/local/bin/search
-	rm -rf -v /usr/local/bin/desktop-image-switcher
-	rm -rf -v /usr/local/share/man
 	rm -rf -v /usr/local/bin/nvim
 	rm -rf -v /Applications/AltTab.app
 	rm -rf -v /Applications/Firefox.app
