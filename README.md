@@ -28,27 +28,24 @@ FONT      => [JetBrainsMono Nerd Font Mono]
 
 ## Installation : 1
 
-using this option, I assume you dont have config at all e.g : `~/.config/*` \
+This option, I assume you dont have config at all e.g : `~/.config/*` \
 setup shell like `~/.config/zsh/.zshrc` | `~/.zshrc` | `~/.zprofile` \
 or maybe already installed homebrew or neovim. move your `old_config` for backup, \
 this scripts bellow will install `homebrew` and `neovim` sync with my `dotfiles` \
 it means, install all package list from `brewfile` where I was set up before \
-and `stow` my dotfiles config. and will install neovim build from source to with \
-neovim version 0.7.2 .
+and `stow` my dotfiles config. \
+neovim plugins installation will include with this script using packer package
+
+> "info 💁 \
+> when neovim installation throwing error, just press continue | return on keyboard \
+> and installation will continue the process
+> "
 
 **install.sh**
 
 ```git"
 git clone https://github.com/shendypratamaa/.dotfiles.git && ~/.dotfiles/install.sh -go
 ```
-
-**after installation sucessfully**
-
-- **node** \
-     `nvm install --lts && nvm use node`
-
-- **zsh-plugins** \
-     re-open terminal for install zsh-plugins,
 
 _this installation take much time, based on your internet connection, keep chil_
 
@@ -68,7 +65,7 @@ remove symlink files or directory from homebrew and dotfiles config
 
 ## Installation : 2
 
-using this option, you will get only my configure dotfiles \
+This option, you will get only my configure dotfiles \
 I assume you already installed homebrew you will need `git` and GNU `stow`
 
 **Repository**

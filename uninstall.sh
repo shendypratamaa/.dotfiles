@@ -11,8 +11,12 @@ __info() {
 }
 
 if [ "$1" = "-go" ]; then
+	/usr/bin/caffeinate -d &
+
 	echo "Clear Directory Symlinks 🌊..."
 	sudo rm -rf -v ~/.local/share/desktop-image-switcher
+	sudo rm -rf -v ~/Library/Fonts
+	rm -rf -v ~/.local/share/nvim
 	rm -rf -v ~/.config
 	rm -rf -v ~/.zprofile
 	rm -rf -v ~/.utils
@@ -20,7 +24,6 @@ if [ "$1" = "-go" ]; then
 	rm -rf -v ~/.notes
 	rm -rf -v ~/ebook
 	rm -rf -v ~/pix
-	sudo rm -rf -v ~/Library/Fonts
 	rm -rf -v /usr/local/share/zsh
 	rm -rf -v /usr/local/bin/osx
 	rm -rf -v /usr/local/bin/preview
@@ -47,6 +50,8 @@ if [ "$1" = "-go" ]; then
 	echo "Remove Directory 🌊..."
 	sudo rm -rf -v /opt/homebrew
 	echo "Remove direcotry /opt/homebrew sucessfuly 🌟.."
+
+	kill -9 "$(ps -a | pgrep caffeinate | awk '{print $1; exit}')"
 
 	__info
 	echo "Process Complete 🌟..."

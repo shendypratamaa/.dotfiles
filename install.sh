@@ -120,9 +120,20 @@ if [ "$1" = '-go' ]; then
 
 	##########################     OSX UTILS    #################################
 
-	##########################      NEOVIM      ##################################
+	##########################      NODEJS      #################################
 
-	# NEOVIM
+	if [ -d "/opt/homebrew/opt/nvm/" ]; then
+		. /opt/homebrew/opt/nvm/nvm.sh
+		nvm install lts/gallium
+		nvm use node
+		npm install --global nodemon yarn
+	fi
+
+	##########################       NODEJS     #################################
+
+	##########################      NEOVIM      #################################
+
+	# NEOVIM SOURCE
 	if [ -d "$HOME/.local/share/neovim" ]; then
 		sudo rm -rf -v /usr/local/bin/nvim
 		sudo rm -rf -v /usr/local/share/nvim
@@ -140,17 +151,21 @@ if [ "$1" = '-go' ]; then
 		sudo make install
 	fi
 
-	# PACKER
-	# if [ -d "$HOME/.local/share/nvim" ]; then
-	# 	sudo rm -rf "$HOME/.local/share/nvim"
-	# 	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-	# else
-	# 	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-	# fi
+	# NEOVIM PACKER INSTALL
+	if [ -d "$HOME/.local/share/nvim" ]; then
+		sudo rm -rf -v "$HOME/.local/share/nvim"
+		git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+		nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+		nvim -c 'TSUpdate' -c 'Mason'
+	else
+		git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+		nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+		nvim -c 'TSUpdate' -c 'Mason'
+	fi
 
-	##########################      NEOVIM      ##################################
+	##########################      NEOVIM      #################################
 
-	##########################     TMUX PLUG     #################################
+	##########################     TMUX PLUG    #################################
 
 	export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.config/tmux/plugins"
 	if [ -d "$HOME/.config/tmux/plugins" ]; then
@@ -162,7 +177,7 @@ if [ "$1" = '-go' ]; then
 		"$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
 	fi
 
-	##########################     TMUX PLUG     #################################
+	##########################     TMUX PLUG    #################################
 
 	echo "Package Cleanup 🌊..."
 	brew cleanup && brew cleanup --prune=all
@@ -181,6 +196,19 @@ if [ "$1" = '-go' ]; then
 	kill -9 "$(ps -a | pgrep caffeinate | awk '{print $1; exit}')"
 
 	echo "Process Complete 🌟..."
+
+	##########################     ZSH  PLUG    #################################
+
+	if [ -d "$HOME/.config/zsh/plugin" ]; then
+		rm -rf -v ~/.config/zsh/plugin
+		sleep 2
+		exit
+	else
+		sleep 2
+		exit
+	fi
+
+	##########################     ZSH  PLUG    #################################
 elif [ -n "$1" ]; then
 	echo "install.sh failed 🙅"
 	echo "install.sh -go for started 🧘"
