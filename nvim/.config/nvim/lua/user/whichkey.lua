@@ -109,10 +109,6 @@ local keybinds = {
         g = { "<cmd>Telescope<CR>", "Builtins Utils" },
         e = { "<cmd>TodoTelescope<CR>", "Todo Notes" },
         t = { "<cmd>Telescope bookmarks<CR>", "Bookmars Browser" },
-        v = {
-            '<cmd>lua require("telescope").extensions.project.project{ display_type = "full"}<CR>',
-            "Project",
-        },
     },
     l = {
         name = "LSP",

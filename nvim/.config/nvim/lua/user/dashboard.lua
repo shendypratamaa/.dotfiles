@@ -102,11 +102,6 @@ local buttons = {
     type = "group",
     val = {
         button(
-            "p",
-            "🍔 ﬌ Project ",
-            ":lua require('telescope').extensions.project.project{display_type ='full'}<CR>"
-        ),
-        button(
             "f",
             "💻 ﬌ Find Files",
             ":lua require('user.telescope').find_files()<CR>"

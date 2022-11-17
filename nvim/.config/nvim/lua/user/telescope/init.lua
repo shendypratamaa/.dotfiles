@@ -191,12 +191,6 @@ local pickers = {
 }
 
 local extensions = {
-    project = {
-        base_dirs = {},
-        theme               = "dropdown",
-        hidden_files        = false,
-        sync_with_nvim_tree = true,
-    },
     fzf = {
         fuzzy                   = true,
         override_generic_sorter = true,
@@ -262,7 +256,6 @@ keymap( "n", "]fh", ":lua require('telescope.builtin').quickfixhistory()<CR>", o
 keymap("n", "]fc", ":lua require('telescope.builtin').commands()<CR>", opts)
 
 -- telescope extensions
-keymap( "n", "]v", ":lua require('telescope').extensions.project.project({display_type = 'full'})<CR>", opts)
 keymap( "n", "]t", ":lua require('telescope').extensions.bookmarks.bookmarks()<CR>", opts)
 keymap( "n", "]tw", ":lua require('telescope').extensions.notify.notify()<CR>", opts)
 
@@ -275,7 +268,6 @@ telescope.setup(cfg)
 
 telescope.load_extension("fzf")
 telescope.load_extension("harpoon")
-telescope.load_extension("project")
 telescope.load_extension("dap")
 telescope.load_extension("bookmarks")
 telescope.load_extension("ui-select")
