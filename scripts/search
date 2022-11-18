@@ -49,7 +49,7 @@ help() {
 			-gt --github search repositories
 			-rd --reddit search content
 			-so --overflow search content
-			-go --duckduckgo search content
+			-go --google search content
 			-yt --youtube search content
 			-dt --devto search content
 			-ud --udemy search courses

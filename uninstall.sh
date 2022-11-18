@@ -10,38 +10,49 @@ __info() {
 	_EOF_
 }
 
+removepath=(
+	~/.local/share/desktop-image-switcher
+	~/.local/share/pipe-viewer-main
+	~/.local/share/brightness
+	~/.local/share/nvim
+	~/.config
+	~/.zprofile
+	~/.utils
+	~/.code
+	~/.notes
+	~/ebook
+	~/pix
+	~/Library/Fonts
+	/Applications/AltTab.app
+	/Applications/Firefox.app
+	/Applications/Brave\ Browser.app
+	/Applications/Docker.app
+	/Applications/kitty.app
+	/Applications/qView.app
+	/usr/local/share/zsh
+	/usr/local/share/man
+	/usr/local/bin/desktop-image-switcher
+	/usr/local/bin/brightness
+	/usr/local/bin/pipe-viewer
+	/usr/local/bin/perlsh
+	/usr/local/bin/bash
+	/usr/local/bin/sed
+	/usr/local/bin/clean
+	/usr/local/bin/dswall
+	/usr/local/bin/getwall
+	/usr/local/bin/osx
+	/usr/local/bin/preview
+	/usr/local/bin/search
+	/usr/local/bin/tmux-ch.sh
+	/usr/local/bin/tmux-sessionizer
+	/usr/local/bin/nvim
+)
+
 if [ "$1" = "-go" ]; then
 	/usr/bin/caffeinate -d &
 
 	echo "Clear Directory Symlinks 🌊..."
-	sudo rm -rf -v ~/Library/Fonts
-	sudo rm -rf -v /usr/local/share/man
-	sudo rm -rf -v ~/.local/share/desktop-image-switcher
-	sudo rm -rf -v ~/.local/share/pipe-viewer-main
-	sudo rm -rf -v ~/.local/share/brightness
-	sudo rm -rf -v /usr/local/bin/desktop-image-switcher
-	sudo rm -rf -v /usr/local/bin/brightness
-	sudo rm -rf -v /usr/local/bin/pipe-viewer
-	sudo rm -rf -v /usr/local/bin/perlsh
-	rm -rf -v ~/.local/share/nvim
-	rm -rf -v ~/.config
-	rm -rf -v ~/.zprofile
-	rm -rf -v ~/.utils
-	rm -rf -v ~/.code
-	rm -rf -v ~/.notes
-	rm -rf -v ~/ebook
-	rm -rf -v ~/pix
-	rm -rf -v /usr/local/share/zsh
-	rm -rf -v /usr/local/bin/osx
-	rm -rf -v /usr/local/bin/preview
-	rm -rf -v /usr/local/bin/search
-	rm -rf -v /usr/local/bin/nvim
-	rm -rf -v /Applications/AltTab.app
-	rm -rf -v /Applications/Firefox.app
-	rm -rf -v /Applications/Brave\ Browser.app
-	rm -rf -v /Applications/Docker.app
-	rm -rf -v /Applications/kitty.app
-	rm -rf -v /Applications/qView.app
+	sudo rm -rf -v "${removepath[@]}"
 
 	echo "Uninstalling Package 🌊..."
 	brew list --cask | xargs brew uninstall --force --ignore-dependencies

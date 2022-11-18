@@ -30,7 +30,7 @@ local function enter(prompt_bufnr)
     vim.cmd(cmd)
 
     local path = vim.fn.expand("~/.config/nvim/lua/user/colorscheme.lua")
-    local execute_picker = "sed -i '' '$d' "
+    local execute_picker = "sed -i '$d' "
         .. path
         .. " && echo '"
         .. "colorscheme"

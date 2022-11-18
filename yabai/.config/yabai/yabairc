@@ -23,7 +23,7 @@ yabai -m config																		\
 	window_placement								second_child 		\
 	window_shadow										float						\
 	window_topmost									off							\
-	window_opacity									on							\
+	window_opacity									off							\
 	window_border										on							\
 	window_animation_duration				0.35						\
 	window_opacity_duration					0.35						\
@@ -78,11 +78,9 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 # custom space window
 yabai -m rule --add app="^kitty$" space=1
 yabai -m rule --add app="^(Brave Browser|Firefox|Safari)$" space=2
-yabai -m rule --add app="^Mail$" space=3
-yabai -m rule --add app="^(Whatsapp|Discord)$" space=4
-yabai -m rule --add app="^(Messages|FaceTime)$" space=5
-yabai -m rule --add app="^(mpv)$" space=6
-yabai -m rule --add app="^Docker Desktop$" space=7
+yabai -m rule --add app="^(Whatsapp|Discord|Mail)$" space=3
+yabai -m rule --add app="^(Messages|FaceTime)$" space=4
+yabai -m rule --add app="^(mpv)$" space=5
 
 yabai -m signal --add event=space_changed \
 											sketchybar --update

@@ -80,6 +80,8 @@ if [ "$1" = '-go' ]; then
 	fi
 
 	sudo ln -sf -v /opt/homebrew/share/zsh/site-functions/** /usr/local/share/zsh/site-functions
+	sudo ln -sf -v /opt/homebrew/bin/bash /usr/local/bin/bash
+	sudo ln -sf -v /opt/homebrew/opt/gnu-sed/bin/gsed /usr/local/bin/sed
 
 	##########################      HOMEBREW    #################################
 
@@ -138,12 +140,12 @@ if [ "$1" = '-go' ]; then
 
 	##########################      NODEJS      #################################
 
-	if [ -d "/opt/homebrew/opt/nvm/" ]; then
-		. /opt/homebrew/opt/nvm/nvm.sh
-		nvm install 16.18.0
-		nvm use node
-		npm install --global nodemon yarn
-	fi
+	# if [ -d "/opt/homebrew/opt/nvm/" ]; then
+	# 	. /opt/homebrew/opt/nvm/nvm.sh
+	# 	nvm install 16.18.0
+	# 	nvm use node
+	# 	npm install --global nodemon yarn
+	# fi
 
 	##########################       NODEJS     #################################
 

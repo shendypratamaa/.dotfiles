@@ -50,3 +50,5 @@ map K zoom in
 map J zoom out
 map i recolor
 map p print
+map F toggle_fullscreen
+map [fullscreen] F toggle_fullscreen

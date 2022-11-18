@@ -1,8 +1,8 @@
 #!/bin/bash
 
-languages=$(echo "javascript typescript bash python3 lua" | tr " " "\n")
-coreutils=$(echo "find xargs sed awk zip rar curl wget" | tr " " "\n")
-selected=$(echo -e "$languages\n$coreutils" | fzf --prompt="select > ")
+languages=$(echo "javascript typescript bash python3 lua swift" | tr " " "\n")
+unixcommand=$(echo "find xargs sed awk zip rar curl wget ls cat grep echo" | tr " " "\n")
+selected=$(echo -e "$languages\n$unixcommand" | fzf --prompt="select > ")
 preview="bat --style=plain --paging=always"
 
 read -r -p "💁 looking for > " query
