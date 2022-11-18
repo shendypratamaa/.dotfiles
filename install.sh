@@ -101,6 +101,7 @@ if [ "$1" = '-go' ]; then
 		git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/desktop-image-switcher
 		cd ~/.local/share/desktop-image-switcher && sudo make install
 	else
+		rm -rf -v /usr/local/bin/desktop-image-switcher
 		git clone https://github.com/GabrielDougherty/desktop-image-switcher ~/.local/share/desktop-image-switcher
 		cd ~/.local/share/desktop-image-switcher && sudo make install
 	fi
@@ -109,14 +110,28 @@ if [ "$1" = '-go' ]; then
 	if [ -d "$HOME/.local/share/pipe-viewer-main" ]; then
 		sudo rm -rf -v ~/.local/share/pipe-viewer-main
 		wget https://github.com/trizen/pipe-viewer/archive/main.zip --no-check-certificate -O ~/.local/share/pipe-viewer-main.zip
-		unzip -n ~/.local/share/pipe-viewer-main.zip
-		rm -rf -v ~/.local/share/pipe-viewer-main.zip
+		unzip -d ~/.local/share ~/.local/share/pipe-viewer-main.zip
 		cd ~/.local/share/pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
+		rm -rf -v ~/.local/share/pipe-viewer-main.zip
 	else
 		wget https://github.com/trizen/pipe-viewer/archive/main.zip --no-check-certificate -O ~/.local/share/pipe-viewer-main.zip
-		unzip -n ~/.local/share/pipe-viewer-main.zip
-		rm -rf -v ~/.local/share/pipe-viewer-main.zip
+		unzip -d ~/.local/share ~/.local/share/pipe-viewer-main.zip
 		cd ~/.local/share/pipe-viewer-main && perl Build.PL && sudo ./Build installdeps && sudo ./Build install
+		rm -rf -v ~/.local/share/pipe-viewer-main.zip
+	fi
+
+	# BRIGHTNESS
+	if [ -d "$HOME/.local/share/brightness" ]; then
+		sudo rm -rf -v ~/.local/share/brightness
+		git clone https://github.com/nriley/brightness.git ~/.local/share/brightness
+		cd ~/.local/share/brightness
+		make
+		sudo make install
+	else
+		git clone https://github.com/nriley/brightness.git ~/.local/share/brightness
+		cd ~/.local/share/brightness
+		make
+		sudo make install
 	fi
 
 	##########################     OSX UTILS    #################################
@@ -195,8 +210,8 @@ if [ "$1" = '-go' ]; then
 	brew doctor
 
 	read -r -p "Process Complete 🌟..." -t 5 | tr '%' '\n'
-	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep caffeinate | awk 'NR==1{print $1}')"
-	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep -i terminal | awk 'NR==1{print $1}')"
+	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep caffeinate | awk 'NR==1{print $1}')" 2>/dev/null
+	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep -Ei "(terminal|kitty|iterm2|alacritty)" | awk 'NR==1{print $1}')" 2>/dev/null
 elif [ -n "$1" ]; then
 	echo "install.sh failed 🙅"
 	echo "install.sh -go for started 🧘"

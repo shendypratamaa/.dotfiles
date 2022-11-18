@@ -14,10 +14,15 @@ if [ "$1" = "-go" ]; then
 	/usr/bin/caffeinate -d &
 
 	echo "Clear Directory Symlinks 🌊..."
-	sudo rm -rf -v ~/.local/share/desktop-image-switcher
 	sudo rm -rf -v ~/Library/Fonts
-	sudo rm -rf -v /usr/local/bin/desktop-image-switcher
 	sudo rm -rf -v /usr/local/share/man
+	sudo rm -rf -v ~/.local/share/desktop-image-switcher
+	sudo rm -rf -v ~/.local/share/pipe-viewer-main
+	sudo rm -rf -v ~/.local/share/brightness
+	sudo rm -rf -v /usr/local/bin/desktop-image-switcher
+	sudo rm -rf -v /usr/local/bin/brightness
+	sudo rm -rf -v /usr/local/bin/pipe-viewer
+	sudo rm -rf -v /usr/local/bin/perlsh
 	rm -rf -v ~/.local/share/nvim
 	rm -rf -v ~/.config
 	rm -rf -v ~/.zprofile
