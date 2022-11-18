@@ -7,7 +7,7 @@ __open_current() {
 }
 
 __kill() {
-	kill -9 "$(ps -ax -o pid,%cpu,%mem,comm | sort -b -k3 -r | fzf --multi --prompt='kill process > ' | awk '{print $1}')" 2>/dev/null
+	kill -9 $(ps -ax -o pid,comm | sort | fzf -m | awk '{print $1}' | tr '\n' ' ') 2>/dev/null
 }
 
 __displayopts() {
