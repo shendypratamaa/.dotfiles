@@ -77,7 +77,7 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 
 # custom space window
 yabai -m rule --add app="^kitty$" space=1
-yabai -m rule --add app="^Brave Browser$" space=2
+yabai -m rule --add app="^(Brave Browser|Firefox|Safari)$" space=2
 yabai -m rule --add app="^Mail$" space=3
 yabai -m rule --add app="^(Whatsapp|Discord)$" space=4
 yabai -m rule --add app="^(Messages|FaceTime)$" space=5
