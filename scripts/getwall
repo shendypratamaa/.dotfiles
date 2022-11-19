@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 set -e
 
 walldir="$HOME/pix/save"
 
-tagoptions="#4\n#nature\n#minimalism\n#cyberpunk\n#digital art\n#science fiction\n#spider gwen"
+tagoptions="#4\n#nature\n#minimalism\n#cyberpunk\n#digital art\n#science fiction"
 if [ -z "$1" ]; then
 	query="$(echo -e $tagoptions | fzf --prompt="search wallhaven > ")"
 else
@@ -28,5 +28,9 @@ for i in $(seq 1 $pages); do
 done
 
 rm tmp.txt
-lf "$(fd . $walldir -t f | tail -1)"
-mv ~/pix/save/* ~/pix/wallpaper/
+
+if [ "$TERM" == "tmux-256color" ]; then
+	open -a qview $(fd . $walldir -t f | tail -1)
+else
+	lf "$(fd . $walldir -t f | tail -1)"
+fi

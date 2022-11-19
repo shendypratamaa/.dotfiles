@@ -59,7 +59,7 @@ cmd mvdir %set -f; printf " Directory Name: "; read ans; mkdir -- "$ans"; mv -- 
 cmd mkdir %set -f; printf " Directory Name: "; read ans; mkdir -p $ans
 cmd setwallpaper %set -f; printf " Desktop Number: "; read ans; desktop-image-switcher $f $ans
 cmd mkfile %set -f; printf " File Name: "; read ans; touch $ans
-cmd trash %set -f; printf " Are you sure, delete [y/n] "; read ans; [ $ans = "y" ] && trash $f
+cmd trash %set -f; printf " Are you sure, delete [y/n] "; read ans; [ $ans = "y" ] && trash $fx
 
 # clear key for recieve multiple keymap
 map g

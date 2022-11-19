@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 languages=$(echo "javascript typescript bash python3 lua swift" | tr " " "\n")
 unixcommand=$(echo "find xargs sed awk zip rar curl wget ls cat grep echo" | tr " " "\n")

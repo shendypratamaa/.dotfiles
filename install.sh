@@ -53,7 +53,6 @@ if [ "$1" = '-go' ]; then
 	# and replace into sha(hash) with sudo visudo -f /private/etc/sudoers.d/yabai
 	# go to yabai documentation github, and read issue for macos ventura
 	brew tap koekeishiya/formulae
-	brew reinstall skhd --HEAD || brew install skhd --HEAD
 	brew reinstall yabai --HEAD || brew install yabai --HEAD
 	codesign -fs 'yabai-cert' "$(which yabai)"
 
@@ -80,8 +79,12 @@ if [ "$1" = '-go' ]; then
 	fi
 
 	sudo ln -sf -v /opt/homebrew/share/zsh/site-functions/** /usr/local/share/zsh/site-functions
+
+	###################### COREUTILS #########################
 	sudo ln -sf -v /opt/homebrew/bin/bash /usr/local/bin/bash
-	sudo ln -sf -v /opt/homebrew/opt/gnu-sed/bin/gsed /usr/local/bin/sed
+	sudo ln -sf -v /opt/homebrew/bin/gsed /usr/local/bin/sed
+	sudo ln -sf -v /opt/homebrew/bin/ggrep /usr/local/bin/grep
+	###################### COREUTILS #########################
 
 	##########################      HOMEBREW    #################################
 
@@ -212,7 +215,6 @@ if [ "$1" = '-go' ]; then
 	brew doctor
 
 	read -r -p "Process Complete 🌟..." -t 5 | tr '%' '\n'
-	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep caffeinate | awk 'NR==1{print $1}')" 2>/dev/null
 	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep -Ei "(terminal|kitty|iterm2|alacritty)" | awk 'NR==1{print $1}')" 2>/dev/null
 elif [ -n "$1" ]; then
 	echo "install.sh failed 🙅"

@@ -65,9 +65,10 @@ if [ "$1" = "-go" ]; then
 
 	echo "Remove Directory 🌊..."
 	sudo rm -rf -v /opt/homebrew
-	echo "Remove direcotry /opt/homebrew sucessfuly 🌟.."
 
-	kill -9 "$(ps -a | pgrep caffeinate | awk '{print $1; exit}')"
+	read -r -p "Remove direcotry /opt/homebrew sucessfuly 🌟..." -t 2 | tr '%' '\n'
+
+	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep caffeinate | awk 'NR==1{print $1}')" 2>/dev/null
 
 	__info
 	echo "Process Complete 🌟..."
