@@ -29,23 +29,26 @@ removepath=(
 	/Applications/Docker.app
 	/Applications/kitty.app
 	/Applications/qView.app
-	/usr/local/share/zsh
-	/usr/local/share/man
-	/usr/local/bin/desktop-image-switcher
-	/usr/local/bin/brightness
-	/usr/local/bin/pipe-viewer
+	/usr/local/bin/nvim
 	/usr/local/bin/perlsh
 	/usr/local/bin/bash
 	/usr/local/bin/sed
+	/usr/local/bin/grep
 	/usr/local/bin/clean
 	/usr/local/bin/dswall
 	/usr/local/bin/getwall
 	/usr/local/bin/osx
 	/usr/local/bin/preview
 	/usr/local/bin/search
+	/usr/local/bin/brightness
+	/usr/local/bin/pipe-viewer
+	/usr/local/bin/desktop-image-switcher
 	/usr/local/bin/tmux-ch.sh
 	/usr/local/bin/tmux-sessionizer
-	/usr/local/bin/nvim
+	/usr/local/bin/bloatednvmstupidshit
+	/usr/local/share/zsh
+	/usr/local/share/man
+	/opt/homebrew
 )
 
 if [ "$1" = "-go" ]; then
@@ -62,9 +65,6 @@ if [ "$1" = "-go" ]; then
 	echo "Uninstalling Homebrew 🌊..."
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 	echo "Uninstall Homebrew Sucessfully 🌟..."
-
-	echo "Remove Directory 🌊..."
-	sudo rm -rf -v /opt/homebrew
 
 	read -r -p "Remove direcotry /opt/homebrew sucessfuly 🌟..." -t 2 | tr '%' '\n'
 

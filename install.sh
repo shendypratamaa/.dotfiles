@@ -143,12 +143,9 @@ if [ "$1" = '-go' ]; then
 
 	##########################      NODEJS      #################################
 
-	# if [ -d "/opt/homebrew/opt/nvm/" ]; then
-	# 	. /opt/homebrew/opt/nvm/nvm.sh
-	# 	nvm install 16.18.0
-	# 	nvm use node
-	# 	npm install --global nodemon yarn
-	# fi
+	if [ -d "/opt/homebrew/opt/nvm/" ]; then
+		/usr/local/bin/bloatednvmstupidshit
+	fi
 
 	##########################       NODEJS     #################################
 
@@ -156,9 +153,9 @@ if [ "$1" = '-go' ]; then
 
 	# NEOVIM SOURCE
 	if [ -d "$HOME/.local/share/neovim" ]; then
+		sudo rm -rf -v ~/.local/share/neovim
 		sudo rm -rf -v /usr/local/bin/nvim
 		sudo rm -rf -v /usr/local/share/nvim
-		sudo rm -rf -v ~/.local/share/neovim
 		git clone https://github.com/neovim/neovim ~/.local/share/neovim
 		cd ~/.local/share/neovim
 		git checkout v0.7.2

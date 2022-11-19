@@ -1,0 +1,7 @@
+#!/usr/local/bin/bash
+
+. /opt/homebrew/opt/nvm/nvm.sh
+nvm install 16.18.1
+nvm use node
+nvm alias default
+npm install --global nodemon yarn
