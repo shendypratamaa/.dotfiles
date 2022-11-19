@@ -215,7 +215,8 @@ if [ "$1" = '-go' ]; then
 	brew doctor
 
 	read -r -p "Process Complete 🌟..." -t 5 | tr '%' '\n'
-	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep -Ei "(terminal|kitty|iterm2|alacritty)" | awk 'NR==1{print $1}')" 2>/dev/null
+	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep caffeinate | awk 'NR==1{print $1}')" 2>/dev/null
+	sleep 2 && kill -9 "$(ps -ax -o pid,comm | sort | grep -E "(terminal|kitty|iterm2|alacritty)" | awk 'NR==1{print $1}')" 2>/dev/null
 elif [ -n "$1" ]; then
 	echo "install.sh failed 🙅"
 	echo "install.sh -go for started 🧘"
