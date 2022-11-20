@@ -28,12 +28,12 @@ FONT      => [JetBrainsMono Nerd Font Mono]
 
 ## Installation : 1
 
-This option, I assume you dont have config at all like setup shell `~/.config/zsh/.zshrc`\
-`~/.zshrc` or `~/.zprofile`, and maybe already installed `homebrew` or `neovim`.
-this scripts bellow will install `homebrew` `brew-package` and `neovim`
-sync with my `dotfiles` it means, install all package list from `brewfile`
+This option, I assume you dont have config at all like setup shell `~/.config/zsh/.zshrc` \
+`~/.zshrc` `~/.zprofile`, or maybe already installed `homebrew` or `neovim` \
+this scripts bellow will install `homebrew` `hombrew package` and `neovim` \
+sync with my `dotfiles` it means, install all package list from `brewfile` \
 where I was set up before and `stow` my dotfiles config. \
-neovim plugins installation will include with this script using packer package
+`neovim` plugins will include with this script using `packer`
 
 > 💁 FYI \
 > "when neovim installation throwing error, just press continue | return on keyboard \

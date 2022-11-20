@@ -30,6 +30,7 @@ clean() {
 	echo "Package Clean 🤖..."
 	brew cleanup && brew cleanup --prune=all
 	brew autoremove
+	/usr/local/bin/clean -g
 }
 
 leave() {
