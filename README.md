@@ -14,7 +14,7 @@ PCKG      => [Homebrew]
 VCS       => [Git, Lazygit, Delta]
 
 EDITOR    => [Neovim 0.7.2]
-                                                  💕
+
 WM        => [Yabai]
 
 BAR       => [Sketchybar]
@@ -28,16 +28,15 @@ FONT      => [JetBrainsMono Nerd Font Mono]
 
 ## Installation : 1
 
-This option, I assume you dont have config at all e.g : `~/.config/*` \
-setup shell like `~/.config/zsh/.zshrc` | `~/.zshrc` | `~/.zprofile` \
-or maybe already installed homebrew or neovim. move your `old_config` for backup, \
-this scripts bellow will install `homebrew` and `neovim` sync with my `dotfiles` \
-it means, install all package list from `brewfile` where I was set up before \
-and `stow` my dotfiles config. \
+This option, I assume you dont have config at all like setup shell `~/.config/zsh/.zshrc`\
+`~/.zshrc` or `~/.zprofile`, and maybe already installed `homebrew` or `neovim`.
+this scripts bellow will install `homebrew` `brew-package` and `neovim`
+sync with my `dotfiles` it means, install all package list from `brewfile`
+where I was set up before and `stow` my dotfiles config. \
 neovim plugins installation will include with this script using packer package
 
-> "info 💁 \
-> when neovim installation throwing error, just press continue | return on keyboard \
+> 💁 FYI \
+> "when neovim installation throwing error, just press continue | return on keyboard \
 > and installation will continue the process
 > "
 
@@ -47,7 +46,7 @@ neovim plugins installation will include with this script using packer package
 git clone https://github.com/shendypratamaa/.dotfiles.git && ~/.dotfiles/install.sh -go
 ```
 
-_this installation take much time, based on your internet connection, keep chil_
+> _this installation take much time, based on your internet connection, keep chil_
 
 <hr>
 

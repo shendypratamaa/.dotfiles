@@ -20,6 +20,9 @@ removepath=(
 	~/.utils
 	~/.code
 	~/.notes
+	~/.docker
+	~/.colima
+	~/.lima
 	~/ebook
 	~/pix
 	~/Library/Fonts

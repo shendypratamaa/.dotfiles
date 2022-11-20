@@ -12,7 +12,7 @@ __help() {
 		preview [cmd | path] :
 		-i --image open image
 		-v --video open video
-		-e --ebook open ebook [add config path]
+		-e --ebook open ebook
 		-m --man open manpage
 
 		Requirement :

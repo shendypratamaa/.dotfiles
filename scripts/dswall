@@ -5,9 +5,11 @@ wallpath="$HOME/pix/wallpaper/"
 num="1\n2\n3\n4\n5\n6\n7\n8\n9"
 
 __change_wall() {
+	open -a qview "$(fd . $wallpath -L -t f | tail -1)"
 	cmd="$(fd . "$wallpath" -t f | awk '{print $1}' | fzf --prompt="👉 image > ")"
 	screen="$(echo -e $num | fzf --prompt=" screen > ")"
 	desktop-image-switcher "$cmd" "$screen" 2 >/dev/null
+	kill -9 "$(ps -ax -o pid,comm | sort | grep -iE "qview" | awk 'NR==1{print $1}')" 2>/dev/null
 }
 
 __change_wall "${@:2}"
