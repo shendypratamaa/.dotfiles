@@ -36,9 +36,9 @@ devto() {
 	search "$devto$*"
 }
 
-udemy() {
-	udemy="https://www.udemy.com/courses/search"
-	search "$udemy/?price=price-free&q=$*&sort=relevance&src=ukw"
+freecodecamp() {
+	freecodecamp="https://freecodecamp.org/news/search/?query="
+	search "$freecodecamp$*"
 }
 
 help() {
@@ -52,7 +52,7 @@ help() {
 			-go --google search content
 			-yt --youtube search content
 			-dt --devto search content
-			-ud --udemy search courses
+			-fr --freecodecamp content
 			-h  --help for help information
 
 		Requirement :
@@ -75,8 +75,8 @@ elif [ "$1" == "-rd" ] || [ "$1" == "--reddit" ]; then
 elif [ "$1" == "-so" ] || [ "$1" == "--overflow" ]; then
 	stackoverflow "${@:2}"
 	exit
-elif [ "$1" == "-ud" ] || [ "$1" == "--udemy" ]; then
-	udemy "${@:2}"
+elif [ "$1" == "-fr" ] || [ "$1" == "--freecodecamp" ]; then
+	freecodecamp "${@:2}"
 	exit
 elif [ "$1" == "-dt" ] || [ "$1" == "--devto" ]; then
 	devto "${@:2}"

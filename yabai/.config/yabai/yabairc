@@ -80,7 +80,7 @@ yabai -m rule --add app="^kitty$" space=1
 yabai -m rule --add app="^(Brave Browser|Firefox|Safari)$" space=2
 yabai -m rule --add app="^(Whatsapp|Discord|Mail)$" space=3
 yabai -m rule --add app="^(Messages|FaceTime)$" space=4
-yabai -m rule --add app="^(mpv)$" space=5
+yabai -m rule --add app="^(mpv|docker)$" space=5
 
 yabai -m signal --add event=space_changed \
 											sketchybar --update

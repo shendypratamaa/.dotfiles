@@ -47,6 +47,7 @@ help() {
 		-c --clean unused brew package | remove old version package | remove cache
 		-l --list package list | formulae | casks | brew info
 		-r --reinstall reinstall all package
+		-bwp --bundle-without-preview reinstall all package
 		-h --help for help information
 
 		Requirement :
@@ -64,7 +65,7 @@ if [ "$1" == "-a" ] || [ "$1" == "--updateall" ]; then
 elif [ "$1" == "-b" ] || [ "$1" == "--bundle" ]; then
 	bundle
 	leave
-elif [ "$1" == "-npb" ] || [ "$1" == "--noprevbundle" ]; then
+elif [ "$1" == "-bwp" ] || [ "$1" == "--bundle-without-preview" ]; then
 	echo "Package Bundle 📦..."
 	brew bundle dump --desc --force --file=~/.config/brewfile/Brewfile
 	leave
