@@ -30,8 +30,8 @@ FONT      => [JetBrainsMono Nerd Font Mono]
 
 This option, I assume you dont have config at all like setup shell `~/.config/zsh/.zshrc` \
 `~/.zshrc` `~/.zprofile`, or maybe already installed `homebrew` or `neovim` \
-this scripts bellow will install `homebrew` `hombrew package` and `neovim` \
-sync with my `dotfiles` it means, install all package list from `brewfile` \
+this scripts bellow will install `homebrew` `homebrew package` and `neovim` \
+sync with my `dotfiles`, it means install all package list from `brewfile` \
 where I was set up before and `stow` my dotfiles config. \
 `neovim` plugins will include with this script using `packer`
 

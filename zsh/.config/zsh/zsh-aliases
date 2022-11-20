@@ -66,9 +66,6 @@ alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts/.wget-hsts'"
 
 # GITHUB
 alias gh="open \`git remote -v | grep fetch | awk '{print \$2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//'\`| head -n1"
-
-# OHMYSHELL
-alias cds="~/.dotfiles/scripts/"
 #
 alias python="python3"
 alias pip="pip3"
@@ -82,3 +79,11 @@ alias free="top -l 1 -s 0 | awk ' /Processes/ || /PhysMem/ || /Load Avg/{print}'
 # pipe-viewer
 alias msv="pipe-viewer --player=mpv"
 alias msc="pipe-viewer -n --no-video-info --player=mpvt"
+
+# OHMYPATH
+alias cds="~/.dotfiles/scripts"
+alias cdn="~/.config/nvim"
+alias cdj="~/.code/javascript"
+alias cdt="~/.code/example"
+alias cdh="~/.code/shellscript/shell"
+alias cdd="~/.dotfiles"

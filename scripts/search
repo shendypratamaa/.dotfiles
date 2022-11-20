@@ -41,6 +41,11 @@ freecodecamp() {
 	search "$freecodecamp$*"
 }
 
+typing() {
+	monkeytype="https://monkeytype.com/"
+	search "$monkeytype"
+}
+
 help() {
 	cat <<-_EOF_
 		Browser Search Utils 🌏
@@ -53,6 +58,7 @@ help() {
 			-yt --youtube search content
 			-dt --devto search content
 			-fr --freecodecamp content
+			-ty --typing
 			-h  --help for help information
 
 		Requirement :
@@ -80,6 +86,9 @@ elif [ "$1" == "-fr" ] || [ "$1" == "--freecodecamp" ]; then
 	exit
 elif [ "$1" == "-dt" ] || [ "$1" == "--devto" ]; then
 	devto "${@:2}"
+	exit
+elif [ "$1" == "-ty" ] || [ "$1" == "--typing" ]; then
+	typing
 	exit
 elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help "${@:2}"

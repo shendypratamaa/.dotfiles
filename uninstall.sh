@@ -26,12 +26,20 @@ removepath=(
 	~/ebook
 	~/pix
 	~/Library/Fonts
-	/Applications/AltTab.app
-	/Applications/Firefox.app
-	/Applications/Brave\ Browser.app
-	/Applications/Docker.app
+	/Applications/Folx.app
+	/Applications/Figma.app
 	/Applications/kitty.app
 	/Applications/qView.app
+	/Applications/AltTab.app
+	/Applications/zoom.us.app
+	/Applications/Firefox.app
+	/Applications/Discord.app
+	/Applications/Whatsapp.app
+	/Applications/AppCleaner.app
+	/Applications/Brave\ Browser.app
+	/Applications/SF\ Symbols.app
+	/Applications/Karabiner-Elements.app
+	/Applications/Karabiner-EventViewer.app
 	/usr/local/bin/nvim
 	/usr/local/bin/perlsh
 	/usr/local/bin/bash

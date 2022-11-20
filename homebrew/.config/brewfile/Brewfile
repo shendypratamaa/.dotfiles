@@ -101,10 +101,18 @@ brew "zegervdv/zathura/zathura"
 brew "zegervdv/zathura/zathura-pdf-poppler"
 # Enable Windows-like alt-tab
 cask "alt-tab"
+# Application uninstaller
+cask "appcleaner"
 # Web browser focusing on privacy
 cask "brave-browser"
+# Voice and text chat software
+cask "discord"
+# Collaborative team software
+cask "figma"
 # Web browser
 cask "firefox"
+# Download manager with a torrent client
+cask "folx"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Keyboard customizer
@@ -113,7 +121,9 @@ cask "karabiner-elements"
 cask "kitty"
 # Image viewer
 cask "qview"
-# Archive manager for data compression and backups
-cask "rar"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
+# Desktop client for WhatsApp
+cask "whatsapp"
+# Video communication and virtual meeting platform
+cask "zoom"
