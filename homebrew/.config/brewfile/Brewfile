@@ -21,10 +21,16 @@ brew "bat"
 brew "btop"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Isolated development environments using Docker
+brew "docker-compose"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -97,8 +103,6 @@ brew "zegervdv/zathura/zathura-pdf-poppler"
 cask "alt-tab"
 # Web browser focusing on privacy
 cask "brave-browser"
-# App to build and share containerized applications and microservices
-cask "docker"
 # Web browser
 cask "firefox"
 # Developer targeted fonts with a high number of glyphs

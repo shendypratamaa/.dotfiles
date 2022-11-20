@@ -80,6 +80,19 @@ if [ "$1" = '-go' ]; then
 
 	sudo ln -sf -v /opt/homebrew/share/zsh/site-functions/** /usr/local/share/zsh/site-functions
 
+	###################### DOCKER #########################
+
+	if [ -d "/opt/homebrew/opt/docker-compose" ]; then
+		if [ -d "$HOME/.docker/cli-plugins" ]; then
+			ln -sfn -v "$(brew --prefix)/opt/docker-compose/bin/docker-compose" ~/.docker/cli-plugins/docker-compose
+		else
+			mkdir -p -v ~/.docker/cli-plugins
+			ln -sfn -v "$(brew --prefix)/opt/docker-compose/bin/docker-compose" ~/.docker/cli-plugins/docker-compose
+		fi
+	fi
+
+	###################### DOCKER #########################
+
 	###################### COREUTILS #########################
 	sudo ln -sf -v /opt/homebrew/bin/bash /usr/local/bin/bash
 	sudo ln -sf -v /opt/homebrew/bin/gsed /usr/local/bin/sed
