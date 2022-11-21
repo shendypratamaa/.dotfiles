@@ -1,0 +1,4 @@
+# DOCKER
+alias dcimages="docker images"
+alias dccidle="docker container ls -a"
+alias dccactive="docker container ls"

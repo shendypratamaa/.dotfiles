@@ -26,6 +26,7 @@ removepath=(
 	~/ebook
 	~/pix
 	~/Library/Fonts
+	/Applications/UTM.app
 	/Applications/Folx.app
 	/Applications/Figma.app
 	/Applications/kitty.app
@@ -50,6 +51,7 @@ removepath=(
 	/usr/local/bin/getwall
 	/usr/local/bin/osx
 	/usr/local/bin/preview
+	/usr/local/bin/package
 	/usr/local/bin/search
 	/usr/local/bin/brightness
 	/usr/local/bin/pipe-viewer

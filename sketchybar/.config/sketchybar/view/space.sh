@@ -12,7 +12,7 @@ for i in "${!SPACE_ICONS[@]}"; do
                               icon.padding_left=12                      \
                               icon.padding_right=12                     \
                               background.padding_left=4                 \
-                              jackground.padding_right=4                \
+                              background.padding_right=4                \
                               background.corner_radius=0                \
                               background.height=24                      \
                               background.color=0xff${NORD3:1}           \

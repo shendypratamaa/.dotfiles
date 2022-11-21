@@ -123,6 +123,8 @@ cask "kitty"
 cask "qview"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
+# Virtual machines UI using QEMU
+cask "utm"
 # Desktop client for WhatsApp
 cask "whatsapp"
 # Video communication and virtual meeting platform
