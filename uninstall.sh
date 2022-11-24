@@ -49,6 +49,7 @@ removepath=(
 	/usr/local/bin/clean
 	/usr/local/bin/dswall
 	/usr/local/bin/getwall
+	/usr/local/bin/sshlist
 	/usr/local/bin/osx
 	/usr/local/bin/preview
 	/usr/local/bin/package
