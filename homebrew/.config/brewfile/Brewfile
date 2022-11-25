@@ -21,8 +21,6 @@ brew "bat"
 brew "btop"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
-# Container runtimes on MacOS (and Linux) with minimal setup
-brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -67,6 +65,8 @@ brew "mpv"
 brew "neofetch", args: ["HEAD"]
 # Manage multiple Node.js versions
 brew "nvm"
+# Emulator for x86 and PowerPC
+brew "qemu"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
