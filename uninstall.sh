@@ -57,7 +57,7 @@ removepath=(
 	/usr/local/bin/brightness
 	/usr/local/bin/pipe-viewer
 	/usr/local/bin/desktop-image-switcher
-	/usr/local/bin/tmux-ch.sh
+	/usr/local/bin/tmux-chtsh
 	/usr/local/bin/tmux-sessionizer
 	/usr/local/bin/bloatednvmstupidshit
 	/usr/local/share/zsh

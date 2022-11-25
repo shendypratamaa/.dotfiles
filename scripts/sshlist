@@ -1,13 +1,13 @@
 #!/usr/local/bin/bash
 
 connect_ssh() {
-	ssh_ls=$(cat $(find ~/.config/ssh_servers/** | sort | awk '{print $1}') | fzf --prompt="select ssh server > ")
-	cmd="$(ssh "$ssh_ls")"
+	SSH_LS=$(cat $(find ~/.config/ssh_servers/** | sort | awk '{print $1}') | fzf --prompt="select ssh server > ")
+	UTM_CHECK=$(ps ax | pgrep -i qemulauncher)
 
-	if [ "$ssh_ls" == "" ]; then
-		exit
+	if [ "$UTM_CHECK" == "" ]; then
+		echo "💁 Please Run Servers"
 	else
-		$cmd 2>/dev/null
+		ssh "$SSH_LS"
 	fi
 }
 
