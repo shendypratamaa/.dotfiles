@@ -1,9 +1,7 @@
 # EXA
-TREE_IGNORE="cache|log|logs|node_modules|vendor"
+TREE_IGNORE="cache|log|logs|node_modules|vendor|.git"
 alias ls="exa --group-directories-first --icons"
-alias la="ls -a"
-alias ll="ls --git -lah "
-alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
+alias lt='ls --tree -a -D -L 2 -I ${TREE_IGNORE}'
 alias npml="npm list --location=global --depth=0"
 
 # HTOP
@@ -49,9 +47,6 @@ alias btw="neofetch"
 # kitty
 alias icat="kitty +kitten icat"
 alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
-
-# python
-alias pyls="ls /usr/local/share/pyenv/versions/"
 
 # check path
 alias cpath="

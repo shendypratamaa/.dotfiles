@@ -119,6 +119,8 @@ cask "font-jetbrains-mono-nerd-font"
 cask "karabiner-elements"
 # GPU-based terminal emulator
 cask "kitty"
+# Collaboration platform for API development
+cask "postman"
 # Image viewer
 cask "qview"
 # Tool that provides consistent, highly configurable symbols for apps

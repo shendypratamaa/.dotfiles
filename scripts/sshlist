@@ -5,7 +5,7 @@ connect_ssh() {
 	UTM_CHECK=$(ps ax | pgrep -i qemulauncher)
 
 	if [ "$UTM_CHECK" == "" ]; then
-		echo "💁 Please Run Servers"
+		echo "💁 Please Run Server First"
 	else
 		ssh "$SSH_LS"
 	fi

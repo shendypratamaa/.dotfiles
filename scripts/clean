@@ -15,7 +15,7 @@ if [ "$1" = "-g" ]; then
 	clean
 	echo "cleaning complete...🤩"
 elif [ -n "$1" ]; then
-	echo "not work"
+	echo "clean script not work"
 else
-	echo "not work"
+	echo "clean script not work"
 fi
