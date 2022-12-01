@@ -95,7 +95,6 @@ stow zsh # Specified DIR
 
 ## Notes 📖
 
-Currently running on macOS Ventura 13.0 \
-Environment variable refer to [XDG_Spesification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+Currently running on macOS Ventura 13.0
 
 > please read, take what you need, do with your own risk

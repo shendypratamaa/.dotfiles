@@ -68,9 +68,6 @@ alias pip="pip3"
 # kill
 alias fkill='osx -k'
 
-# free like linux
-alias free="top -l 1 -s 0 | awk ' /Processes/ || /PhysMem/ || /Load Avg/{print}'"
-
 # pipe-viewer
 alias msv="pipe-viewer --player=mpv"
 alias msc="pipe-viewer -n --no-video-info --player=mpvt"
