@@ -1,7 +1,4 @@
-# EXA
-TREE_IGNORE="cache|log|logs|node_modules|vendor|.git"
-alias ls="exa --group-directories-first --icons"
-alias lt='ls --tree -a -D -L 2 -I ${TREE_IGNORE}'
+alias ls="ls -vG"
 alias npml="npm list --location=global --depth=0"
 
 # HTOP

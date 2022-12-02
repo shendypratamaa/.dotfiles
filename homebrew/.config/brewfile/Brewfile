@@ -29,8 +29,6 @@ brew "curl"
 brew "docker"
 # Isolated development environments using Docker
 brew "docker-compose"
-# Modern replacement for 'ls'
-brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Create thumbnails for your video files
