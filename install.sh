@@ -10,7 +10,6 @@ dotfilesdir=(
 	nvim
 	skhd
 	tmux
-	btop
 	yabai
 	kitty
 	python

@@ -1,4 +1,4 @@
-alias ls="ls -vG"
+alias ls="ls -vGh"
 alias npml="npm list --location=global --depth=0"
 
 # HTOP
