@@ -3,7 +3,9 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 
 precmd_vcs_info() { vcs_info }
+
 precmd_functions+=( precmd_vcs_info )
+
 setopt prompt_subst
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
@@ -16,19 +18,9 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 }
 
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats " %B%{$fg[yellow]%}git:%{$fg[blue]%}(%{$fg[red]%}%b%{$fg[blue]%})"
+zstyle ':vcs_info:git:*' formats " %B%{$fg[yellow]%}git:%{$fg[white]%}(%{$fg[red]%}%b%{$fg[white]%})"
 
-_get_path() {
-    current_path=${PWD/#$HOME/'~'}
-    if [ "$current_path" = "~" ]; then
-       echo $current_path
-    else
-       path_parent=${current_path%\/*}
-       path_parent_short=`echo $path_parent | sed -r 's|/(..)[^/]*|/\1|g'`
-       directory=${current_path##*\/}
-       echo "$path_parent_short/$directory"
-    fi
-}
+sysinfo=$(uname -a | awk -F '.' '{print $1}' | awk '{print $2}')
 
-PROMPT="%B%{$fg[blue]%}[%{$fg[magenta]%}S25%{$fg[blue]%}🤖%{$fg[yellow]%}\$(uname)%{$fg[blue]%}] %{$fg[cyan]%}%{$fg[blue]%}[%{$fg[magenta]%}\$(_get_path)%{$fg[blue]%}]%{$reset_color%}"
-PROMPT+="\$vcs_info_msg_0_ %(?:%{$fg_bold[yellow]%}ﾒ :%{$fg_bold[red]%}ﾒ )"
+PROMPT="%B%{$fg[white]%}[%{$fg[red]%}%n %{$fg[white]%] %{$fg[yellow]%}${sysinfo} %{$fg[blue]%}%~%{$fg[white]%}]"
+PROMPT+="\$vcs_info_msg_0_ %(?.%F{green}.%F{red})ﾒ%b%f "
