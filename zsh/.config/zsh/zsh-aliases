@@ -1,4 +1,5 @@
 alias ls="ls -vGh"
+alias ipa="ipconfig getifaddr en0"
 alias npml="npm list --location=global --depth=0"
 
 # HTOP
@@ -18,7 +19,7 @@ alias brewlistpin="brew list --pinned"
 alias brewclean="brew cleanup --prune=all"
 
 # NEOVIM
-alias vi="$EDITOR"
+alias v="$EDITOR"
 
 # TMUX
 alias tmuxconf="$EDITOR ~/.config/tmux/tmux.conf"
