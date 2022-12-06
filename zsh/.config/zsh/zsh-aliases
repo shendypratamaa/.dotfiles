@@ -72,6 +72,7 @@ alias msc="pipe-viewer -n --no-video-info --player=mpvt"
 
 # OHMYPATH
 alias cdd="~/.dotfiles"
+alias cdc="~/.config"
 alias cds="~/.dotfiles/scripts"
 alias cdn="~/.config/nvim"
 alias cdj="~/.code/javascript"
