@@ -1,4 +1,4 @@
-alias ls="ls -vGh"
+alias ls="exa -s Extension --icons"
 alias ipa="ipconfig getifaddr en0"
 alias npml="npm list --location=global --depth=0"
 
