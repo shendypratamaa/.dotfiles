@@ -35,4 +35,4 @@ export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 export YABAI_CERT="yabai-cert"
 
 # NVM
-export GOPATH="$XDG_DATA_HOME/nvm"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
