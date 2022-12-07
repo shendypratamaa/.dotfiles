@@ -55,7 +55,7 @@ echo '----------------------\n'\
 "
 
 # WGET
-alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts/.wget-hsts'"
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts/wget-hsts"
 
 # GITHUB
 alias gh="open \`git remote -v | grep fetch | awk '{print \$2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//'\`| head -n1"

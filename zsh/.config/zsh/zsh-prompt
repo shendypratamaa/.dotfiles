@@ -34,5 +34,5 @@ _get_path() {
 
 sysinfo=$(uname -a | awk '{print $1}')
 
-PROMPT="%B%{$fg[white]%}[%{$fg[red]%}%n%{$fg[white]%] 🤖 %{$fg[yellow]%}${sysinfo} %{$fg[blue]%}\$(_get_path)%{$fg[white]%}]"
-PROMPT+="\$vcs_info_msg_0_ %(?.%F{green}.%F{red})ﾒ "
+PROMPT="%B%{$fg[white]%}[%{$fg[red]%}shendy%{$fg[white]%]🤖%{$fg[yellow]%}${sysinfo} %{$fg[blue]%}\$(_get_path)%{$fg[white]%}]"
+PROMPT+="\$vcs_info_msg_0_ %(?.%F{green}.%F{red})ﾒ%b%f "

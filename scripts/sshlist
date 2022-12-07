@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 
 connect_ssh() {
-	SSH_LS=$(cat $(find ~/.config/ssh_servers/** | sort | awk '{print $1}') | fzf --prompt="select ssh server > ")
+	SSH_LS=$(cat $(find ~/.cache/tmp/tmp_ssh | sort | awk '{print $1}') | fzf --prompt="select ssh server > ")
 	UTM_CHECK=$(ps ax | pgrep -i qemulauncher)
 
 	if [ "$UTM_CHECK" == "" ]; then

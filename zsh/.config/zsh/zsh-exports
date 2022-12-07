@@ -33,3 +33,6 @@ export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 
 # YABAI
 export YABAI_CERT="yabai-cert"
+
+# NVM
+export GOPATH="$XDG_DATA_HOME/nvm"
