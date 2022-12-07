@@ -24,6 +24,13 @@ local sources = {
     -- swift
     formatting.swiftformat,
 
+    -- golang
+    formatting.gofumpt,
+    formatting.goimports,
+    formatting.goimports_reviser,
+    formatting.golines,
+    diagnostics.golangci_lint,
+
     -- javascript / typescript
     formatting.prettier.with({
         extra_args = {

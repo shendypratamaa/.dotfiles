@@ -55,7 +55,7 @@ return packer.startup(function(use)
   use { 'williamboman/mason.nvim', commit = "bee9e44532303689fbe01c73994c5307f531776a" }
   use { 'williamboman/mason-lspconfig.nvim', commit = 'b70dedab5ceb5f3f84c6bc9ceea013292a14f8dc' }
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim', commit = '617f3a105a67f840e6f706b1b0d80e86773ba004' }
-  use { 'jose-elias-alvarez/null-ls.nvim', commit = '255b7c' }
+  use { 'jose-elias-alvarez/null-ls.nvim', commit = 'b3d2ebdb75cf1fa4290822b43dc31f61bd0023f8' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '0a6a16ef292c9b61eac6dad00d52666c7f84b0e7' }
   use { 'SmiteshP/nvim-navic', commit = '202312e93869213c574d200a40eafeff4b4caec2' }
   use { 'b0o/SchemaStore.nvim', commit = 'a5fbd83d2b9b778518203e25167c05580add6b31' }

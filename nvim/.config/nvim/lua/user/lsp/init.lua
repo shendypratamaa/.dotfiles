@@ -20,6 +20,11 @@ local on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
     end
 
+    if client.name == "gopls" then
+        client.resolved_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
+    end
+
     if client.name == "bashls" then
         client.resolved_capabilities.document_formatting = false
         navic.attach(client, bufnr)
@@ -79,6 +84,7 @@ local servers = {
     emmet_ls = {},
     yamlls = {},
     bashls = {},
+    gopls = {}
 }
 
 local formatter = {
@@ -89,7 +95,12 @@ local formatter = {
     "eslint_d",
     "fixjson",
     "shfmt",
-    "shellcheck"
+    "shellcheck",
+    "golangci-lint",
+    "gofumpt",
+    "goimports",
+    "goimports-reviser",
+    "golines"
 }
 
 local lsp_flags = {

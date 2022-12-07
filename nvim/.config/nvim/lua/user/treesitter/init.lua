@@ -15,6 +15,7 @@ if not status_ok then
 end
 
 local parser_installed = {
+    "go",
     "lua",
     "typescript",
     "javascript",
