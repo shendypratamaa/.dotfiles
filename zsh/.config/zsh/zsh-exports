@@ -36,3 +36,6 @@ export YABAI_CERT="yabai-cert"
 
 # NVM
 export NVM_DIR="$XDG_DATA_HOME/nvm"
+
+# Go
+export GOPATH="$XDG_DATA_HOME/go"

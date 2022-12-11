@@ -11,6 +11,11 @@ youtube() {
 	search "$youtube$*"
 }
 
+localhost() {
+	local="http://localhost:"
+	search "$local$*"
+}
+
 google() {
 	google="https://www.google.com/search?q="
 	search "$google$*"
@@ -89,6 +94,9 @@ elif [ "$1" == "-dt" ] || [ "$1" == "--devto" ]; then
 	exit
 elif [ "$1" == "-ty" ] || [ "$1" == "--typing" ]; then
 	typing
+	exit
+elif [ "$1" == "-l" ] || [ "$1" == "--localhost" ]; then
+	localhost "${@:2}"
 	exit
 elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
 	help "${@:2}"

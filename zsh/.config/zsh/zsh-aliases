@@ -11,6 +11,9 @@ alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
 
 # GIT
 alias lg="lazygit"
+alias gl="git log"
+alias gs="git status"
+alias gp="git push origin"
 
 # BREW PINNED
 alias brewlistpin="brew list --pinned"
