@@ -22,7 +22,8 @@ alias brewlistpin="brew list --pinned"
 alias brewclean="brew cleanup --prune=all"
 
 # NEOVIM
-alias v="$EDITOR"
+alias vim="$EDITOR"
+alias vi="/usr/bin/vim"
 
 # TMUX
 alias tmuxconf="$EDITOR ~/.config/tmux/tmux.conf"

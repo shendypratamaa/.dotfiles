@@ -70,7 +70,7 @@ brew "mpv"
 # Fast, highly customisable system info script
 brew "neofetch", args: ["HEAD"]
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-brew "nginx", restart_service: true
+brew "nginx"
 # Manage multiple Node.js versions
 brew "nvm"
 # Emulator for x86 and PowerPC
