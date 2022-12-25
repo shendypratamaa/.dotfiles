@@ -53,8 +53,6 @@ brew "grep"
 brew "htop"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
-# Extendable open source continuous integration server
-brew "jenkins-lts"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Terminal file manager
@@ -69,8 +67,6 @@ brew "macos-trash"
 brew "mpv"
 # Fast, highly customisable system info script
 brew "neofetch", args: ["HEAD"]
-# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-brew "nginx"
 # Manage multiple Node.js versions
 brew "nvm"
 # Reattach process (e.g., tmux) to background
