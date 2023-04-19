@@ -1,7 +1,5 @@
 # Personal Development Environment
 
-![example](./ohmysetup.png)
-
 ## Ingredients 🥘
 
 ```"info"
